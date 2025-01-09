@@ -2,8 +2,6 @@
 
 Golang, atau disebut juga Go, adalah bahasa pemrograman yang dikembangkan oleh Google pada tahun 2007 dan diumumkan secara resmi pada tahun 2009. Bahasa ini dirancang untuk mengatasi beberapa masalah yang dihadapi oleh pengembang perangkat lunak dalam bahasa-bahasa pemrograman lain, terutama terkait dengan kinerja, keamanan, dan produktivitas. Sejarah Golang dimulai pada tahun 2007 ketika Google memulai pengembangan bahasa pemrograman baru untuk mengatasi beberapa kelemahan yang ada dalam bahasa-bahasa pemrograman yang digunakan secara luas pada saat itu. Tiga tokoh utama dalam pengembangannya adalah Robert Griesemer, Rob Pike, dan Ken Thompson.
 
-![1735757627074](image/README/1735757627074.png)
-
 2007
 
 * Google memulai proyek pembuatan bahasa pemrograman baru dengan tujuan mengatasi beberapa masalah yang dihadapi oleh pengembang perangkat lunak saat itu.
