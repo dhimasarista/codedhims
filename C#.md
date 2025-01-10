@@ -291,9 +291,9 @@ Berikut adalah beberapa perintah dasar untuk mengelola workload di .NET:
 
 ## 1.1 Data Types
 
-***Data types atau tipe data** adalah sebuah pengklasifikasian data berdasarkan jenis data tersebut.*
+Data types atau tipe data adalah sebuah pengklasifikasian data berdasarkan jenis data tersebut. Dalam C#, tipe data dibagi menjadi primitif dan non-primitif. Kebanyakan tipe data di C# adalah tipe primitif, yaitu tipe data bawaan yang disediakan oleh bahasa pemrograman untuk menyimpan nilai sederhana seperti angka, karakter, atau boolean. Tipe data primitif biasanya diakses langsung di memori tanpa menggunakan referensi.
 
-**Numbers**
+### 1.1.1 Numbers
 
 - **Integer**:
   - 16-bit: short, ushort
@@ -316,9 +316,21 @@ Dengan menyelaraskan tipe data dan ukurannya, panduan ini menjadi lebih mudah di
 int hexadecimalNumber = 0xFF; // Output: 255
 ```
 
-**String**
+### 1.1.2 Character
 
-***String** dalam pemrograman komputer adalah sebuah deret simbol.* Tipe data string adalah tipe data yang digunakan untuk menyimpan barisan karakter.
+* **Char** digunakan untuk menyimpan  **karakter tunggal** . Tipe ini mewakili karakter Unicode 16-bit (UTF-16) dan dideklarasikan menggunakan tanda kutip tunggal (`'`) untuk menampung satu karakter.
+
+  ```csharp
+  char letter = 'A';          // Menyimpan huruf tunggal
+  char digit = '1';           // Menyimpan angka sebagai karakter
+  char symbol = '$';          // Menyimpan simbol
+  char unicodeChar = '\u263A'; // Menyimpan karakter Unicode (😊)
+  ```
+* ***String** dalam pemrograman komputer adalah sebuah deret simbol.* Tipe data string adalah tipe data yang digunakan untuk menyimpan barisan karakter.
+
+  ```cs
+  string name = "codedhims";
+  ```
 
 **Formatting String**
 
@@ -346,6 +358,7 @@ Console.Write(sayHello);
 \\: Backslash sendiri
 \": Tanda kutip ganda (digunakan dalam string yang dibungkus oleh tanda kutip ganda)
 \': Tanda kutip tunggal (digunakan dalam string yang dibungkus oleh tanda kutip tunggal)
+\uXXXX: (karakter Unicode, seperti \u263A untuk emoji).
 ```
 
 **Multiline String** adalah tipe string khusus yang memungkinkan Anda untuk menulis teks di beberapa baris tanpa menggunakan karakter escape seperti `\n`. Di C#, Anda dapat membuat multiline string dengan menggunakan tanda kutip ganda tiga kali `"""` di awal dan di akhir string.
@@ -357,7 +370,7 @@ sebuah multiline
 string di C#.";
 ```
 
-**Boolean**
+### 1.1.3 Boolean
 
 *Boolean adalah suatu tipe data yang hanya mempunyai dua nilai. Yaitu true atau false (benar atau salah).* Pada beberapa bahasa pemograman nilai true bisa digantikan 1 dan nilai false digantikan 0.
 
@@ -367,7 +380,7 @@ value = false;
 Console.Write(value);
 ```
 
-**Pointer**
+### 1.1.4 Pointer
 
 Pointer adalah variabel khusus dalam bahasa pemrograman C# yang digunakan untuk menyimpan alamat memori dari variabel lain. Dengan menggunakan pointer, kita dapat mengakses dan memanipulasi nilai yang disimpan pada alamat memori tertentu. Pemahaman tentang pointer penting untuk melakukan operasi level rendah dan mengoptimalkan performa dalam pengembangan perangkat lunak.
 
@@ -508,7 +521,7 @@ unsafe class Program {
 
 Jadi, perbedaan utama antara `out` dan `ref` adalah bahwa `out` digunakan untuk mengembalikan beberapa nilai dari sebuah metode, sementara `ref` digunakan untuk mengakses dan memodifikasi nilai variabel yang dilewatkan ke sebuah metode. Selain itu, parameter dengan kata kunci `ref` harus diinisialisasi sebelum melewatinya ke metode, sedangkan parameter dengan kata kunci `out` tidak perlu diinisialisasi.
 
-**Empty Data Type**
+### 1.1.5 Empty Data Type
 
 **null** merupakan tipe data representasi data kosong. Secara default, saat kita membuat variable data harus diisi, jika tidak diisi, maka variable tidak bisa digunakan dan compiler akan menampilkan pesan error
 
@@ -516,12 +529,24 @@ Jadi, perbedaan utama antara `out` dan `ref` adalah bahwa `out` digunakan untuk 
 
 ```csharp
 string value = null; // oke, dengan warning
-string? value2 = null; // oke, tanpa warning
+int? value2 = null; // oke, tanpa warning
 string? value3; // error
 string value4; // error
 ```
 
-**1.1.1 Type Data Checking**
+### 1.1.6 Aliasses
+
+Tipe data alias adalah teknik dalam pemrograman yang memungkinkan Anda untuk membuat nama alternatif untuk tipe data yang sudah ada. Hal ini berguna untuk membuat kode lebih mudah dibaca dan dapat meningkatkan kejelasan maksud dari kode.
+
+```csharp
+// Membuat tipe data aliases di C#
+using Integer = System.Int32;
+Integer angka = 10;
+```
+
+Dalam contoh di atas, kita membuat alias `Integer` untuk tipe data `System.Int32` (tipe data integer 32-bit). Dengan demikian, kita dapat menggunakan `Integer` sebagai alternatif untuk `Int32`. Ini memudahkan kita untuk menggunakan nama yang lebih deskriptif atau sesuai dengan konteks tertentu.
+
+### 1.1.7 Type Checking
 
 **Tipe data checking** adalah teknik dalam pemrograman yang digunakan untuk memeriksa tipe data dari sebuah objek atau nilai pada saat runtime. Hal ini memungkinkan pengembang untuk mengambil keputusan berdasarkan tipe data yang diterima oleh program.
 
@@ -576,20 +601,6 @@ Operator `sizeof` digunakan untuk mendapatkan ukuran dalam byte dari sebuah tipe
   Console.WriteLine(sizeof(char)); // 2
 ```
 
-Dengan menggunakan berbagai teknik ini, pengembang dapat melakukan pengecekan dan manipulasi tipe data dengan lebih fleksibel dan aman dalam aplikasi C#.
-
-**Tipe Data Alias**
-
-Tipe data alias adalah teknik dalam pemrograman yang memungkinkan Anda untuk membuat nama alternatif untuk tipe data yang sudah ada. Hal ini berguna untuk membuat kode lebih mudah dibaca dan dapat meningkatkan kejelasan maksud dari kode.
-
-```csharp
-// Membuat tipe data aliases di C#
-using Integer = System.Int32;
-Integer angka = 10;
-```
-
-Dalam contoh di atas, kita membuat alias `Integer` untuk tipe data `System.Int32` (tipe data integer 32-bit). Dengan demikian, kita dapat menggunakan `Integer` sebagai alternatif untuk `Int32`. Ini memudahkan kita untuk menggunakan nama yang lebih deskriptif atau sesuai dengan konteks tertentu.
-
 ## 1.2 Konversi, Type Check, & Casting Tipe Data
 
 ```cs
@@ -626,7 +637,7 @@ Console.WriteLine("Casted integer: " + intNum);
 
 ## 1.3 Data items
 
-**Data items** adalah tempat penyimpanan tiap atribut dari sebuah entitas.
+**Data items** adalah tempat penyimpanan tiap atribut dari sebuah entitas. Variabel adalah tempat untuk menyimpan data yang nilainya dapat berubah selama program berjalan. Variabel memiliki nama, tipe data, dan nilai. Konstanta adalah tempat untuk menyimpan data yang nilainya **tidak dapat diubah** setelah dideklarasikan. Konstanta digunakan untuk nilai yang bersifat tetap sepanjang program.
 
 - Variabel (Eksplisit)
 
@@ -638,6 +649,7 @@ int age = 30;
 
 ```csharp
 const double pi = 3.14;
+pi = 22 / 7; // Error
 ```
 
 - Variabel
@@ -671,7 +683,9 @@ var name = "dhim";
 
 ***Data Structure** adalah cara penyimpanan, penyusunan dan pengaturan data di dalam media penyimpanan komputer sehingga data tersebut dapat digunakan secara efisien.*
 
-**Array**: Merupakan data item di C# yang digunakan untuk menyimpan kumpulan objek dalam urutan tertentu.
+### 1.4.1 Array
+
+Merupakan data item di C# yang digunakan untuk menyimpan kumpulan objek dalam urutan tertentu.
 
 Membuat array:
 
@@ -705,7 +719,9 @@ array[array.GetUpperBound(0)] = 3;
 
 method `GetUpperBound(int dimension)` digunakan untuk mendapatkan indeks terbesar dari array dalam dimensi tertentu. Ini digunakan untuk array multi-dimensi. Dimensi array dimulai dari 0.
 
-**List**: adalah array versi dinamis yang memungkinkan penambahan dan penghapusan elemen secara dinamis. List dapat menyimpan elemen-elemen dengan tipe data yang berbeda.
+### 1.4.2 List
+
+List adalah array versi dinamis yang memungkinkan penambahan dan penghapusan elemen secara dinamis. List dapat menyimpan elemen-elemen dengan tipe data yang berbeda.
 
 Membuat List:
 
@@ -727,6 +743,8 @@ var list = new List<dynamic>(){0, true, "hello"};
 list.Add(3.14);
 ```
 
+### 1.4.3 Dictionary
+
 **Dictionary**: Merupakan struktur data yang menyimpan pasangan kunci-nilai. Setiap elemen di dalam Dictionary memiliki kunci yang unik dan nilai yang terkait dengannya.
 
 Membuat Dictionary:
@@ -743,23 +761,33 @@ var dictionary2 = new Dictionary<string, object>(){
 };
 ```
 
+### 1.4.4 Struct
+
 **Struct**: Struct adalah tipe data yang mirip dengan class tetapi merupakan tipe data nilai (value type) bukan tipe data referensi (reference type). Struct biasanya digunakan untuk menyimpan data sederhana seperti angka, titik koordinat, dll.
 
 > dibahas di Bab Struct.
+
+### 1.4.5 Interface
 
 **Interface**: Interface adalah kontrak yang mendefinisikan perilaku atau fungsi yang harus diimplementasikan oleh kelas. Interface memungkinkan polimorfisme dan abstraksi dalam pemrograman berorientasi objek.
 
 > *dibahas di Bab Object-Oriented Programming.*
 
+### 1.4.6 Enum
+
 **Enum**: Enum (enumeration) adalah tipe data yang digunakan untuk mendefinisikan kumpulan nilai yang berurutan. Enum digunakan untuk membuat kumpulan nilai yang memiliki makna yang terkait.
 
 > *dibahas di Bab Object-Oriented Programming.*
+
+### 1.4.7 Object
 
 **Object**: Object adalah kelas dasar di C# yang digunakan untuk mewakili objek dalam pemrograman berorientasi objek. Semua tipe data di C#, termasuk tipe data primitif, secara implisit merupakan turunan dari Object.
 
 > *dibahas di Bab Object-Oriented Programming.*
 
-**Tuple**: Tuple adalah struktur data yang dapat menyimpan kumpulan elemen dengan tipe data yang berbeda. Tuple biasanya digunakan ketika Anda perlu mengembalikan beberapa nilai dari suatu metode atau menyimpan beberapa nilai secara bersamaan.
+### 1.4.8 Tuple
+
+**Tuple**: Tuple adalah struktur data yang dapat menyimpan kumpulan elemen dengan tipe data yang berbeda. Tuple biasanya digunakan ketika kita perlu mengembalikan beberapa nilai dari suatu metode atau menyimpan beberapa nilai secara bersamaan.
 
 Membuat Tuple:
 
@@ -782,23 +810,9 @@ public static Tuple<string, string> Hello(Tuple<string, string> preson){
  }
 ```
 
-**Event**: Event adalah mekanisme di C# yang digunakan untuk memberi tahu bahwa suatu kejadian telah terjadi. Event digunakan dalam implementasi pola observer dalam pemrograman berorientasi objek.
+### 1.4.9 Anon Object
 
-**Delegate**: Delegate adalah tipe data yang merepresentasikan referensi ke metode. Delegat memungkinkan Anda untuk menyimpan referensi ke metode dan memanggilnya nanti.
-
-**Spread Operator**
-
-***Spread Operator**: penggunaan sintaks **`..`** untuk memecah iterables seperti array menjadi elemen-elemen individual.* Spread operator dapat digunakan untuk mempermudah operasi seperti penggabungan iterable, pengubahan iterable menjadi tipe data yang berbeda, dan penggunaan nilai-nilai iterable sebagai parameter dalam function.
-
-```csharp
-int[] arr1 = { 1, 2, 3 };
-int[] arr2 = { 4, 5, 6 };
-int[] arr3 = [..arr1, ..arr2];
-```
-
-**Anonymous Type**
-
-adalah tipe data yang tidak memiliki nama eksplisit, dan biasanya digunakan untuk membuat objek dengan cepat tanpa harus membuat kelas khusus. Tipe ini biasanya didefinisikan dengan new { } diikuti dengan properti-properti yang diinginkan.
+**Anonymous Type** adalah tipe data yang tidak memiliki nama eksplisit, dan biasanya digunakan untuk membuat objek dengan cepat tanpa harus membuat kelas khusus. Tipe ini biasanya didefinisikan dengan new { } diikuti dengan properti-properti yang diinginkan.
 
 ```csharp
 var person = new {
@@ -812,6 +826,12 @@ Biasanya digunakan untuk membuat objek yang hanya sementara terutama saat menggu
 ```csharp
 var person = new Person {}
 ```
+
+### 1.4.10 Lainnya
+
+**Event**: Event adalah mekanisme di C# yang digunakan untuk memberi tahu bahwa suatu kejadian telah terjadi. Event digunakan dalam implementasi pola observer dalam pemrograman berorientasi objek.
+
+**Delegate**: Delegate adalah tipe data yang merepresentasikan referensi ke metode. Delegat memungkinkan Anda untuk menyimpan referensi ke metode dan memanggilnya nanti.
 
 ## 1.5 Operators
 
@@ -937,13 +957,21 @@ Operator `!` dalam pemrograman adalah operator logika NOT atau negasi. Operator 
 | GetType() | Method instance yang digunakan untuk mendapatkan tipe dari objek pada waktu eksekusi |
 | typeof    | Mendapatkan tipe data pada waktu kompilasi                                           |
 
+**Spread Operator**
+
+***Spread Operator**: penggunaan sintaks **`..`** untuk memecah iterables seperti array menjadi elemen-elemen individual.* Spread operator dapat digunakan untuk mempermudah operasi seperti penggabungan iterable, pengubahan iterable menjadi tipe data yang berbeda, dan penggunaan nilai-nilai iterable sebagai parameter dalam function.
+
+```csharp
+int[] arr1 = { 1, 2, 3 };
+int[] arr2 = { 4, 5, 6 };
+int[] arr3 = [..arr1, ..arr2];
+```
+
 ## 1.6 Controls Flow
 
-***Control Flow** adalah sebuah cara untuk memberi tahu program instruksi apa yang harus dijalankan.*
+***Control Flow** adalah sebuah cara untuk memberi tahu program instruksi apa yang harus dijalankan.* Dalam konteks pemrograman, mengacu pada urutan dan aliran eksekusi instruksi atau pernyataan di dalam sebuah program. Kontrol alur memungkinkan program untuk membuat keputusan, melakukan percabangan, dan mengulang instruksi tertentu berdasarkan kondisi tertentu. Ini memungkinkan pengendalian bagaimana program berperilaku dan merespons input atau keadaan yang berbeda.
 
-Dalam konteks pemrograman, mengacu pada urutan dan aliran eksekusi instruksi atau pernyataan di dalam sebuah program. Kontrol alur memungkinkan program untuk membuat keputusan, melakukan percabangan, dan mengulang instruksi tertentu berdasarkan kondisi tertentu. Ini memungkinkan pengendalian bagaimana program berperilaku dan merespons input atau keadaan yang berbeda.
-
-**Conditional**
+### 1.6.1 Conditionals
 
 ***Conditional (kondisional)** dalam pemrograman merujuk pada struktur atau pernyataan yang memungkinkan program untuk membuat keputusan berdasarkan kondisi tertentu.* Pernyataan kondisional memungkinkan program untuk memilih jalur eksekusi yang berbeda berdasarkan nilai atau kondisi yang dievaluasi.
 
@@ -1041,7 +1069,7 @@ Operator ini digunakan untuk menentukan nilai default jika suatu nilai bernilai 
 var value = val1 ?? val2;
 ```
 
-**Loopings**
+### 1.6.2 Loopings
 
 ***Looping** adalah sebuah konsep dalam pemrograman yang memungkinkan kita untuk mengulangi serangkaian pernyataan atau blok kode secara berulang. Dengan menggunakan loop, kita dapat menjalankan kode yang sama berulang kali selama kondisi tertentu terpenuhi.*
 
@@ -1087,7 +1115,7 @@ do{
 
 ---
 
-## 1. 7 Null-Safety
+## 1.7 Null-Safety
 
 Pada tingkat bahasa pemrograman, C# memiliki fitur null safety.
 
@@ -1236,12 +1264,11 @@ class Program
         Console.WriteLine(result);
     }
 }
-
 ```
 
-1. **Embedded Resource**: Di C# memungkinkan untuk menyertakan file (seperti teks, gambar, JSON, dll.) langsung ke dalam assembly aplikasi Anda. Dengan cara ini, file tersebut menjadi bagian dari assembly dan dapat diakses tanpa perlu berada di disk sebagai file terpisah saat aplikasi dijalankan.
+**4. Embedded Resource**: Di C# memungkinkan untuk menyertakan file (seperti teks, gambar, JSON, dll.) langsung ke dalam assembly aplikasi Anda. Dengan cara ini, file tersebut menjadi bagian dari assembly dan dapat diakses tanpa perlu berada di disk sebagai file terpisah saat aplikasi dijalankan.
 
-   **Langkah-langkah untuk Menggunakan Embedded Resources di C#:**
+**Langkah-langkah untuk Menggunakan Embedded Resources di C#:**
 
 * Buat file dengan format .txt seperti `Sample.txt`
 * Menambahkan file embedded resource ke file .csproj:
@@ -2599,29 +2626,363 @@ public class Program {
 }
 ```
 
+**Cara Membuat Kode Asinkron**
+
+Untuk membuat kode asinkron di C#, kita dapat menggunakan **`Task`** sebagai tipe data untuk nilai return method. Saat kita menggunakan **`Task`** tanpa tipe, artinya method tersebut tidak mengembalikan nilai (mirip dengan  **`void`** ). Sementara itu, jika kita menggunakan **`Task<T>`** (dengan tipe data tertentu seperti `Task<int>`, `Task<string>`, dll), artinya method tersebut mengembalikan nilai dari tipe yang ditentukan.
+
+Berikut penggunaan `Task` untuk operasi asinkron di C#:
+
+**1. Task.Run**
+
+* **`Task.Run`** digunakan untuk menjalankan kode secara asinkron pada thread pool. Biasanya digunakan untuk operasi yang memerlukan waktu lama atau operasi CPU-bound.
+
+```csharp
+var task = Task.Run(() => {
+    // Operasi berat
+    Console.WriteLine("Task berjalan...");
+});
+await task; // Menunggu task selesai
+```
+
+**2. Task.Delay**
+
+* **`Task.Delay`** memungkinkan kita untuk menunda eksekusi tanpa memblokir thread. Ini berguna untuk simulasi waktu tunggu atau pengaturan interval.
+
+```csharp
+await Task.Delay(2000); // Menunggu selama 2 detik
+Console.WriteLine("Task selesai setelah penundaan.");
+```
+
+**3. Task.FromResult**
+
+* **`Task.FromResult`** digunakan untuk membuat task yang sudah selesai dengan nilai yang langsung tersedia. Ini sering digunakan untuk tes atau saat nilai sudah diketahui tanpa memerlukan operasi asinkron.
+
+```csharp
+var task = Task.FromResult("Hasil langsung tersedia");
+string result = await task;
+Console.WriteLine(result); // Output: Hasil langsung tersedia
+```
+
+**4. Task.WhenAll**
+
+* **`Task.WhenAll`** digunakan untuk menjalankan beberapa task secara paralel dan menunggu semuanya selesai. Ini sangat berguna ketika kita memiliki beberapa operasi asinkron yang independen satu sama lain.
+
+```csharp
+var task1 = Task.Delay(1000);
+var task2 = Task.Delay(2000);
+await Task.WhenAll(task1, task2);
+Console.WriteLine("Semua task selesai.");
+```
+
+**5. Task.WhenAny**
+
+* **`Task.WhenAny`** digunakan untuk menunggu task pertama yang selesai dari sekumpulan task. Ini berguna jika kita ingin memprioritaskan task yang selesai lebih cepat.
+
+```csharp
+var task1 = Task.Delay(1000);
+var task2 = Task.Delay(2000);
+var firstFinishedTask = await Task.WhenAny(task1, task2);
+Console.WriteLine("Task pertama selesai!");
+```
+
+**6. Task.Wait**
+
+* **`Task.Wait`** digunakan untuk menunggu task selesai secara  **blocking** . Penggunaannya tidak disarankan pada aplikasi asinkron, karena dapat memblokir thread utama.
+
+```csharp
+var task = Task.Run(() => {
+    Task.Delay(2000).Wait(); // Operasi blocking
+    Console.WriteLine("Task selesai.");
+});
+task.Wait(); // Blok hingga task selesai
+```
+
+**7. Task.WaitAll**
+
+* **`Task.WaitAll`** digunakan untuk menunggu semua task selesai secara  **blocking** . Sama seperti `Task.Wait`, ini dapat memblokir thread utama dan harus dihindari dalam konteks asinkron.
+
+```csharp
+var task1 = Task.Run(() => Task.Delay(1000).Wait());
+var task2 = Task.Run(() => Task.Delay(2000).Wait());
+Task.WaitAll(task1, task2);
+Console.WriteLine("Semua task selesai.");
+```
+
+**8. Task.WaitAny**
+
+* **`Task.WaitAny`** digunakan untuk menunggu salah satu task selesai secara  **blocking** . Ini sering digunakan jika kita hanya tertarik pada task pertama yang selesai.
+
+```csharp
+var task1 = Task.Run(() => Task.Delay(1000).Wait());
+var task2 = Task.Run(() => Task.Delay(2000).Wait());
+Task.WaitAny(task1, task2);
+Console.WriteLine("Salah satu task selesai.");
+```
+
+**9. Task.ContinueWith**
+
+* **`Task.ContinueWith`** digunakan untuk menambahkan operasi lanjutan setelah task selesai. Ini mirip dengan callback chaining.
+
+```csharp
+var task = Task.Run(() => {
+    Console.WriteLine("Task utama selesai.");
+});
+task.ContinueWith(t => {
+    Console.WriteLine("Task lanjutan selesai.");
+});
+```
+
+**10. Task.Result**
+
+* **`Task.Result`** digunakan untuk mengambil hasil dari task yang telah selesai. Namun, menggunakan `Result` secara langsung dapat menyebabkan **blocking** jika task belum selesai, jadi lebih baik menggunakan `await` untuk menghindari hal ini.
+
+```csharp
+var task = Task.Run(() => {
+    return "Hasil task selesai.";
+});
+Console.WriteLine(task.Result); // Blocking jika task belum selesai
+```
+
+**11. Task.CompletedTask**
+
+* **`Task.CompletedTask`** adalah task yang sudah selesai, dan digunakan saat kita tidak memerlukan nilai kembalian dari task tersebut.
+
+```csharp
+public async Task DoNothing()
+{
+    await Task.CompletedTask; // Tidak ada yang dilakukan
+}
+```
+
 > Catatan
 
 * **Kata kunci `async`** dan **tipe `Task`** saling terkait erat dalam pemrograman asynchronous C#.
 * `async` diperlukan untuk mendefinisikan metode asynchronous, sedangkan `Task` digunakan untuk merepresentasikan hasil dari operasi asynchronous.
 * Meskipun `Task` tidak selalu diperlukan, penggunaannya direkomendasikan untuk konsistensi dan kompatibilitas.
+* **`await`** lebih disarankan daripada **`Task.Wait`** atau **`Task.Result`** untuk operasi asinkron karena tidak memblokir thread dan menjaga aplikasi tetap responsif.
+* Jangan gunakan **`Task.Result`** atau **`Task.Wait`** pada aplikasi yang berorientasi UI (seperti WPF atau WinForms), karena ini bisa menyebabkan  **deadlock** .
 
 ### 2. Parallel Programming
 
 Parallelism, di sisi lain, mengacu pada eksekusi tugas-tugas secara benar-benar bersamaan pada multiple core CPU atau multiple prosesor. Ini memungkinkan tugas-tugas untuk berjalan secara simultan, yang dapat menghasilkan peningkatan kinerja dan efisiensi. Dalam C#, Anda dapat mencapai parallelism menggunakan konstruksi seperti Parallel.For, Parallel.ForEach, dan PLINQ (Parallel Language-Integrated Query).
 
+**1. Parallel.For**
+
+**`Parallel.For`** adalah cara sederhana untuk menjalankan iterasi secara paralel pada koleksi data. Ini sering digunakan ketika kita perlu memproses elemen dalam koleksi tanpa urutan tertentu.
+
 ```csharp
-// Tentukan jumlah iterasi
-int iterations = 10;
+using System;
+using System.Threading.Tasks;
 
-// Gunakan Parallel.For untuk melakukan looping secara paralel
-Parallel.For(0, iterations, i =>
+public class Program
 {
-    Console.WriteLine($"Task {Task.CurrentId} is processing iteration {i}");
-    // Tambahan logika bisnis di sini
-});
-
-Console.WriteLine("Looping selesai.");
+    public static void Main()
+    {
+        // Menggunakan Parallel.For untuk menjalankan tugas secara paralel
+        Parallel.For(0, 10, i =>
+        {
+            Console.WriteLine($"Task {i} dijalankan oleh thread {System.Threading.Thread.CurrentThread.ManagedThreadId}");
+        });
+    }
+}
 ```
+
+Penjelasan:
+
+* **`Parallel.For(start, end, action)`** : Menjalankan **`action`** untuk setiap nilai dalam rentang dari **`start`** hingga  **`end`** .
+* Setiap iterasi dapat dijalankan secara bersamaan pada thread yang berbeda.
+
+**2. Parallel.ForEach**
+
+**`Parallel.ForEach`** adalah cara paralel untuk memproses koleksi data seperti array atau list. Ini berguna ketika kita ingin memproses setiap elemen dalam koleksi secara bersamaan.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+public class Program
+{
+    public static void Main()
+    {
+        List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };
+
+        Parallel.ForEach(numbers, number =>
+        {
+            Console.WriteLine($"Processing number {number} on thread {System.Threading.Thread.CurrentThread.ManagedThreadId}");
+        });
+    }
+}
+```
+
+Penjelasan:
+
+* **`Parallel.ForEach(collection, action)`** : Menjalankan **`action`** untuk setiap elemen dalam **`collection`** secara paralel.
+
+**3. Parallel.Invoke**
+
+**`Parallel.Invoke`** memungkinkan kita menjalankan beberapa metode atau blok kode secara paralel tanpa harus menangani koleksi data atau iterasi.
+
+```csharp
+using System;
+using System.Threading.Tasks;
+
+public class Program
+{
+    public static void Main()
+    {
+        Parallel.Invoke(
+            () => Task1(),
+            () => Task2(),
+            () => Task3()
+        );
+    }
+
+    public static void Task1()
+    {
+        Console.WriteLine("Task1 dijalankan pada thread " + System.Threading.Thread.CurrentThread.ManagedThreadId);
+    }
+
+    public static void Task2()
+    {
+        Console.WriteLine("Task2 dijalankan pada thread " + System.Threading.Thread.CurrentThread.ManagedThreadId);
+    }
+
+    public static void Task3()
+    {
+        Console.WriteLine("Task3 dijalankan pada thread " + System.Threading.Thread.CurrentThread.ManagedThreadId);
+    }
+}
+```
+
+Penjelasan:
+
+* **`Parallel.Invoke`** menerima beberapa aksi yang dijalankan secara paralel. Tidak ada koleksi yang diproses dalam kasus ini, cukup beberapa metode atau blok kode yang dijalankan secara bersamaan.
+
+**4. Task Parallel Library (TPL) dengan `Task.WhenAll`**
+
+**`Task.WhenAll`** digunakan untuk menjalankan beberapa task secara paralel dan menunggu hingga semua task selesai.
+
+```csharp
+using System;
+using System.Threading.Tasks;
+
+public class Program
+{
+    public static async Task Main()
+    {
+        Task task1 = Task.Run(() => Task1());
+        Task task2 = Task.Run(() => Task2());
+        Task task3 = Task.Run(() => Task3());
+
+        // Menunggu semua task selesai
+        await Task.WhenAll(task1, task2, task3);
+
+        Console.WriteLine("Semua task selesai.");
+    }
+
+    public static void Task1()
+    {
+        Console.WriteLine("Task1 dijalankan pada thread " + System.Threading.Thread.CurrentThread.ManagedThreadId);
+    }
+
+    public static void Task2()
+    {
+        Console.WriteLine("Task2 dijalankan pada thread " + System.Threading.Thread.CurrentThread.ManagedThreadId);
+    }
+
+    public static void Task3()
+    {
+        Console.WriteLine("Task3 dijalankan pada thread " + System.Threading.Thread.CurrentThread.ManagedThreadId);
+    }
+}
+```
+
+Penjelasan:
+
+* **`Task.WhenAll(tasks)`** : Menunggu semua task untuk selesai. Semua task dijalankan secara paralel menggunakan  **`Task.Run`** .
+* Setelah semua task selesai, **`await`** memastikan program melanjutkan eksekusi setelah menunggu task selesai.
+
+**5. Parallel LINQ (PLINQ)**
+
+PLINQ adalah sebuah ekstensi dari LINQ yang memungkinkan eksekusi query LINQ secara paralel. Ini sangat berguna untuk memproses koleksi data yang besar.
+
+```csharp
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+
+public class Program
+{
+    public static void Main()
+    {
+        int[] numbers = Enumerable.Range(1, 10).ToArray();
+
+        var results = numbers.AsParallel()
+                             .Where(n => n % 2 == 0)
+                             .ToArray();
+
+        foreach (var result in results)
+        {
+            Console.WriteLine($"Hasil query paralel: {result}");
+        }
+    }
+}
+```
+
+Penjelasan:
+
+* **`AsParallel()`** : Mengubah koleksi menjadi paralel agar eksekusi query LINQ dilakukan secara paralel.
+* **`Where()`** dan operasi LINQ lainnya akan dieksekusi secara paralel pada elemen-elemen koleksi.
+
+**6. Handling Exceptions in Parallel Programming**
+
+Ketika menggunakan parallel programming, ada baiknya untuk menangani pengecualian dengan benar, karena jika satu task gagal, maka tidak akan ada pemberitahuan secara langsung. Berikut adalah cara menangani pengecualian dalam eksekusi paralel:
+
+```csharp
+using System;
+using System.Threading.Tasks;
+
+public class Program
+{
+    public static void Main()
+    {
+        try
+        {
+            Parallel.Invoke(
+                () => Task1(),
+                () => Task2()
+            );
+        }
+        catch (AggregateException ex)
+        {
+            foreach (var innerException in ex.InnerExceptions)
+            {
+                Console.WriteLine("Pengecualian: " + innerException.Message);
+            }
+        }
+    }
+
+    public static void Task1()
+    {
+        throw new Exception("Terjadi kesalahan di Task1");
+    }
+
+    public static void Task2()
+    {
+        Console.WriteLine("Task2 dijalankan.");
+    }
+}
+```
+
+Penjelasan:
+
+* **`AggregateException`** : Ketika ada pengecualian dalam parallel task, pengecualian tersebut akan dibungkus dalam `AggregateException`, yang dapat menangani beberapa pengecualian.
+* **`InnerExceptions`** memungkinkan kita untuk mengakses pengecualian yang terjadi pada setiap task.
+
+**Kesimpulan:**
+
+Parallel programming di C# dapat meningkatkan kinerja aplikasi, terutama untuk operasi yang membutuhkan pemrosesan paralel, seperti menghitung angka dalam koleksi besar atau mengakses beberapa sumber daya secara bersamaan. Teknik-teknik yang telah dibahas seperti  **`Parallel.For`** ,  **`Parallel.ForEach`** , dan **`Task.WhenAll`** dapat digunakan untuk menjalankan tugas secara bersamaan dan lebih efisien. Namun, kita perlu memperhatikan masalah yang mungkin muncul, seperti pengecualian dan pengelolaan thread, untuk memastikan aplikasi berjalan dengan lancar.
 
 ### 3. Race Condition
 
