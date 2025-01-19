@@ -1113,8 +1113,6 @@ do{
 } while(condition);
 ```
 
----
-
 ## 1.7 Null-Safety
 
 Pada tingkat bahasa pemrograman, C# memiliki fitur null safety.
@@ -2459,7 +2457,7 @@ public class Program {
 
 ***Metadata** merupakan fitur yang digunakan untuk menambahkan informasi tambahan ke dalam kode program.* Metadata diterapkan menggunakan annotation yang dimulai dengan karakter "`[Metadata]`" dan diikuti dengan constant atau pemanggilan constant constructor.
 
-#### Berikut adalah beberapa standar anotasi metadata yang umum digunakan di C#:
+**Berikut adalah beberapa standar anotasi metadata yang umum digunakan di C#:**
 
 1. **AssemblyTitle**: Menyimpan judul dari assembly.
 2. **AssemblyDescription**: Menyimpan deskripsi dari assembly.
@@ -2554,7 +2552,7 @@ Untuk menangani error, Anda dapat menggunakan blok `try`, `catch`, dan `finally`
   }
   ```
 
-### 3. Berikut adalah cara menggunakan `throw` di C#:
+### 3. Menggunakan Throw:
 
 1. **Menggunakan `throw` dengan Objek Pengecualian:**
    Anda dapat menggunakan `throw` untuk melempar sebuah objek pengecualian yang sudah ada atau Anda bisa membuat objek pengecualian baru di tempat. Berikut contohnya:
@@ -3601,6 +3599,33 @@ e. **`#region` dan `#endregion`**
 #### 1. Apa itu Garbage Collection (GC)?
 
 Garbage Collection (GC) adalah proses otomatis yang dilakukan oleh runtime .NET untuk mengelola memori dalam aplikasi C#. Tujuannya adalah untuk secara otomatis mendeteksi dan menghapus objek yang tidak lagi digunakan (garbage), sehingga memori yang digunakan oleh objek tersebut dapat dibebaskan dan digunakan kembali.
+
+```cs
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Alokasikan banyak objek
+        for (int i = 0; i < 100000; i++)
+        {
+            var obj = new object();
+        }
+        Console.WriteLine("Sebelum GC.Collect");
+        Console.WriteLine($"Memori yang digunakan: {GC.GetTotalMemory(false)} bytes");
+
+        // Memanggil GC secara manual
+        GC.Collect();
+        GC.WaitForPendingFinalizers(); // Tunggu semua finalizer selesai (opsional)
+        GC.Collect(); // Pastikan semua yang bisa dikoleksi sudah terkoleksi
+
+        Console.WriteLine("Setelah GC.Collect");
+        Console.WriteLine($"Memori yang digunakan: {GC.GetTotalMemory(false)} bytes");
+    }
+}
+
+```
 
 Di C#, **Garbage Collector** bekerja di background untuk:
 
