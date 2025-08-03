@@ -1,8 +1,6 @@
-# C# Programming Language
+# # C# Programming Language
 
 **C#** (dibaca:  ***see sharp*** ) adalah sebuah bahasa pemrograman berorientasi objek ( *object-oriented language* ) yang dikembangkan oleh **Microsoft** sebagai bagian dari inisiatif kerangka **.NET Framework**. Bahasa pemrograman ini dibuat berbasiskan bahasa C++ yang telah dipengaruhi oleh aspek-aspek ataupun fitur bahasa yang terdapat pada bahasa-bahasa pemrograman lainnya seperti Java, Delphi, VisualBasic, dan lain-lain dengan beberapa penyederhanaan. Menurut standar ***ECMA-334 C# Language Specification***, nama C# terdiri atas sebuah huruf Latin C **(**U+0043**)** yang diikuti oleh tanda pagar yang menandakan angka # (U+0023). Tanda pagar # yang digunakan memang bukan tanda kres dalam seni musik (U+266F), dan tanda pagar # (U+0023) tersebut digunakan karena karakter kres dalam seni musik tidak terdapat di dalam papan tombol standar.
-
-![1737740471962](image/README/123.png)
 
 > Sumber: Wikipedia
 
@@ -54,7 +52,7 @@ public int Add(int a, int b)
 
 **Environment yang dibutuhkan:**
 
-- **.NET SDK**: [https://dotnet.microsoft.com/download/dotnet](https://dotnet.microsoft.com/download/dotnet ".NET SDK")
+- **.NET SDK**:[https://dotnet.microsoft.com/download/dotnet](https://dotnet.microsoft.com/download/dotnet ".NET SDK")
 - **Code Editor**:
   - Visual Studio Code ([https://code.visualstudio.com/](https://code.visualstudio.com/))
   - Visual Studio ([https://visualstudio.microsoft.com/](https://visualstudio.microsoft.com/))
@@ -72,6 +70,7 @@ public int Add(int a, int b)
 
 **Standard Library**
 
+
 | Standard Library   | Deskripsi                                                                    |
 | ------------------ | ---------------------------------------------------------------------------- |
 | System             | Namespace yang berisi tipe data dan fungsi-fungsi dasar dalam bahasa C#.     |
@@ -86,6 +85,7 @@ public int Add(int a, int b)
 | System.Diagnostics | Berisi kelas-kelas untuk mengelola proses dan layanan di sistem.             |
 
 **Libraries & Frameworks**
+
 
 | Kategori                          | Library/Framework                     | Deskripsi                                                                                         |
 | --------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------- |
@@ -125,22 +125,22 @@ public int Add(int a, int b)
 
 1. Buka terminal atau command prompt.
 2. Navigasikan ke direktori proyek C#.
-3. Jalankan perintah `dotnet run` untuk menjalankan proyek. Ini akan mengkompilasi dan menjalankan proyek secara bersamaan, dimana kode `Program.cs` yang akan dieksekusi.
+3. Jalankan perintah`dotnet run` untuk menjalankan proyek. Ini akan mengkompilasi dan menjalankan proyek secara bersamaan, dimana kode`Program.cs` yang akan dieksekusi.
 
 **Menjalankan otomatis saat kode berubah:**
 
 1. Buka terminal atau command prompt.
 2. Navigasikan ke direktori proyek C#.
-3. Jalankan perintah `dotnet watch run`  atau `dotnet watch` saja untuk menjalankan proyek. Ini akan mengkompilasi dan menjalankan proyek secara bersamaan, dimana kode `Program.cs` yang akan dieksekusi.
+3. Jalankan perintah`dotnet watch run`  atau`dotnet watch` saja untuk menjalankan proyek. Ini akan mengkompilasi dan menjalankan proyek secara bersamaan, dimana kode`Program.cs` yang akan dieksekusi.
 
 **Mengompilasi Kode C# dengan JIT Compilation:** Kompilasi dilakukan saat eksekusi, memberikan fleksibilitas dan optimasi berdasarkan runtime.
 
-1. Pastikan Anda memiliki `.NET Core SDK` terinstal.
+1. Pastikan Anda memiliki`.NET Core SDK` terinstal.
 2. Buka terminal atau command prompt.
 3. Navigasikan ke direktori proyek C# Anda.
-4. Jalankan perintah `dotnet build -c Release ` untuk mengompilasi proyek Anda dengan kompilasi JIT.
-5. Setelah selesai, Anda akan menemukan file yang dipublikasikan di direktori `bin/Release/netcoreapp<version>/<target-runtime>/publish`.
-6. compiler akan menghasilkan file `NamaProgram.dll` atau jika diwindows menghasilkan bersamaan `NamaProgram.exe` dan dilinux sebaliknya.
+4. Jalankan perintah`dotnet build -c Release ` untuk mengompilasi proyek Anda dengan kompilasi JIT.
+5. Setelah selesai, Anda akan menemukan file yang dipublikasikan di direktori`bin/Release/netcoreapp<version>/<target-runtime>/publish`.
+6. compiler akan menghasilkan file`NamaProgram.dll` atau jika diwindows menghasilkan bersamaan`NamaProgram.exe` dan dilinux sebaliknya.
 
 **Mengompilasi Kode C# dengan AOT Compilation:** Kompilasi dilakukan sebelum eksekusi, menghasilkan kecepatan startup yang lebih cepat.
 
@@ -148,17 +148,17 @@ public int Add(int a, int b)
 
 Cara pertama:
 
-1. Buka file `.csproj` proyek Anda.
-2. Tambahkan elemen `<PublishAot>true</PublishAot>` di dalam tag `<PropertyGroup>`.
-3. Simpan perubahan dan tutup file `.csproj`.
+1. Buka file`.csproj` proyek Anda.
+2. Tambahkan elemen`<PublishAot>true</PublishAot>` di dalam tag`<PropertyGroup>`.
+3. Simpan perubahan dan tutup file`.csproj`.
 4. Buka terminal atau command prompt.
-5. Dan jalankan perintah `dotnet publish -c Release -r linux-x64`
+5. Dan jalankan perintah`dotnet publish -c Release -r linux-x64`
 
 Cara Kedua: Tanpa Menambahkan elemen ke .csproj
 
-1. Menambahkan `/p:PublishAot=true` saat melakukan kompilasi.
+1. Menambahkan`/p:PublishAot=true` saat melakukan kompilasi.
 2. `dotnet publish /p:PublishAot=true`
-3. Setelah selesai, Anda akan menemukan file yang dipublikasikan di direktori `bin/Release/netcoreapp<version>/<target-runtime>/publish`/native.
+3. Setelah selesai, Anda akan menemukan file yang dipublikasikan di direktori`bin/Release/netcoreapp<version>/<target-runtime>/publish`/native.
 
 **Mengompilasi Kode C# dengan Self-Contained**: Aplikasi yang dibundel dengan semua dependensi, termasuk runtime, untuk kemudahan distribusi dan portabilitas.
 
@@ -173,11 +173,10 @@ Cara Kedua: Tanpa Menambahkan elemen ke .csproj
     <RuntimeIdentifier>linux-x64</RuntimeIdentifier> <!-- Ganti dengan platform yang sesuai -->
   </PropertyGroup>
 </Project>
-
 ```
 
-2. Kemudian di terminal dengan perintah, `dotnet publish -c Release -r linux-x64 --self-contained`
-3. Setelah selesai, Anda akan menemukan file yang dipublikasikan di direktori `bin/Release/netcoreapp<version>/<target-runtime>/`.
+2. Kemudian di terminal dengan perintah,`dotnet publish -c Release -r linux-x64 --self-contained`
+3. Setelah selesai, Anda akan menemukan file yang dipublikasikan di direktori`bin/Release/netcoreapp<version>/<target-runtime>/`.
 
 **Opsi kompilasi .NET Core (dotnet) yang umum digunakan adalah:**
 
@@ -224,7 +223,7 @@ Cara Kedua: Tanpa Menambahkan elemen ke .csproj
 
 * **Target Platform/Framework** : Workload berfokus pada menyediakan alat dan paket untuk mengembangkan aplikasi untuk platform atau framework tertentu, seperti .NET MAUI untuk pengembangan lintas platform atau Xamarin untuk pengembangan mobile.
 * **Modularitas** : Workload memungkinkan pengembang untuk menginstal hanya alat dan paket yang mereka butuhkan untuk proyek tertentu, sehingga mengurangi ukuran total SDK yang diinstal dan meningkatkan kinerja.
-* **CLI Management** : Workload dapat diinstal, dihapus, atau diperbarui menggunakan CLI .NET dengan perintah seperti `dotnet workload install`, `dotnet workload uninstall`, dan `dotnet workload update`.
+* **CLI Management** : Workload dapat diinstal, dihapus, atau diperbarui menggunakan CLI .NET dengan perintah seperti`dotnet workload install`,`dotnet workload uninstall`, dan`dotnet workload update`.
 * **Kumpulan Alat dan SDK** : Workload biasanya mencakup lebih dari sekadar paket NuGet; mereka mungkin menyertakan alat baris perintah, emulator, debugger, dan berbagai komponen lain yang diperlukan untuk pengembangan pada target tertentu.
 
 **Perbedaan Workload dengan Nuget**
@@ -241,8 +240,8 @@ Cara Kedua: Tanpa Menambahkan elemen ke .csproj
 
 **Penginstalan** :
 
-* **Workload** diinstal melalui `dotnet` CLI dan biasanya mencakup sejumlah besar alat dan pustaka.
-* **NuGet** paket dapat diinstal melalui `nuget` CLI, `dotnet` CLI, atau melalui UI NuGet di Visual Studio.
+* **Workload** diinstal melalui`dotnet` CLI dan biasanya mencakup sejumlah besar alat dan pustaka.
+* **NuGet** paket dapat diinstal melalui`nuget` CLI,`dotnet` CLI, atau melalui UI NuGet di Visual Studio.
 
 Cara Menggunakan Workload
 
@@ -287,7 +286,7 @@ Berikut adalah beberapa perintah dasar untuk mengelola workload di .NET:
 
 - **maui**: Workload untuk pengembangan aplikasi lintas platform menggunakan .NET Multi-platform App UI (.NET MAUI).
 - **wasm-tools**: Workload untuk pengembangan aplikasi Blazor WebAssembly.
-- **android** dan **ios**: Workload untuk pengembangan aplikasi mobile menggunakan Xamarin.
+- **android** dan**ios**: Workload untuk pengembangan aplikasi mobile menggunakan Xamarin.
 
 ## 0.3 Domain Specific Language
 
@@ -330,6 +329,7 @@ Sedangkan Tipe data non-primitif menyimpan referensi ke memori heap, bukan nilai
   - 64-bit: double
 
 Dengan menyelaraskan tipe data dan ukurannya, panduan ini menjadi lebih mudah dipahami oleh pembaca.
+
 
 | Sistem bilangan           | Sintaks                  | Contoh |
 | ------------------------- | ------------------------ | ------ |
@@ -417,7 +417,7 @@ Perbedaan antara tipe nilai (value types) dan tipe referensi (reference types) a
 
 - **Penyimpanan Langsung**: Nilai dari tipe data tipe nilai disimpan secara langsung dalam lokasi memori yang disebut "stack".
 - **Nilai Langsung**: Ketika sebuah variabel tipe nilai disalin, nilai aslinya yang disalin.
-- **Contoh**: `int`, `float`, `double`, `char`, `struct`.
+- **Contoh**:`int`,`float`,`double`,`char`,`struct`.
 
 ```csharp
 int x = 5;
@@ -428,7 +428,7 @@ Tipe Referensi (Reference Types)
 
 - **Penyimpanan Tidak Langsung**: Nilai dari tipe data tipe referensi disimpan dalam lokasi memori yang disebut "heap", dan variabel hanya menyimpan alamat memori dari objek tersebut.
 - **Nilai Referensi**: Ketika sebuah variabel tipe referensi disalin, hanya alamat memori yang disalin, bukan nilai objeknya.
-- **Contoh**: `class`, `interface`, `delegate`, `object`, `string`, `array`.
+- **Contoh**:`class`,`interface`,`delegate`,`object`,`string`,`array`.
 
 ```csharp
 int[] arr1 = {1, 2, 3};
@@ -507,17 +507,17 @@ unsafe class Program {
 
 **Berikut adalah alasan-alasannya:**
 
-1. **Keamanan** : Penggunaan pointer dalam C# dapat akan mengalami banyak masalah keamanan karena kemungkinan kesalahan akses memori yang tidak terkendali. Penggunaan `ref` dan `out` lebih aman karena nilai-nilai yang dilewatkan tetap dalam konteks tipe data yang aman.
-2. **Kemudahan Membaca** : Penggunaan pointer dapat membuat kode menjadi sulit dibaca dan dipahami, karena perlu memperhatikan alamat memori secara eksplisit. Penggunaan `ref` dan `out` memberikan cara yang lebih jelas untuk mengindikasikan bahwa nilai akan dimodifikasi oleh metode.
+1. **Keamanan** : Penggunaan pointer dalam C# dapat akan mengalami banyak masalah keamanan karena kemungkinan kesalahan akses memori yang tidak terkendali. Penggunaan`ref` dan`out` lebih aman karena nilai-nilai yang dilewatkan tetap dalam konteks tipe data yang aman.
+2. **Kemudahan Membaca** : Penggunaan pointer dapat membuat kode menjadi sulit dibaca dan dipahami, karena perlu memperhatikan alamat memori secara eksplisit. Penggunaan`ref` dan`out` memberikan cara yang lebih jelas untuk mengindikasikan bahwa nilai akan dimodifikasi oleh metode.
 3. **Interoperabilitas** : Saat berinteraksi dengan kode yang ditulis dalam bahasa lain (seperti C++), Anda mungkin memerlukan penggunaan pointer. Namun, dalam kebanyakan kasus, bahasa C# menyediakan fitur-fitur yang memungkinkan untuk mencapai tujuan yang sama tanpa harus menggunakan pointer secara langsung.
-4. **Kemudahan Pengembangan** : Penggunaan `ref` dan `out` lebih konsisten dengan gaya pengembangan umum dalam bahasa C# dan lebih memungkinkan untuk menulis kode yang bersih, terbaca, dan mudah dikelola.
+4. **Kemudahan Pengembangan** : Penggunaan`ref` dan`out` lebih konsisten dengan gaya pengembangan umum dalam bahasa C# dan lebih memungkinkan untuk menulis kode yang bersih, terbaca, dan mudah dikelola.
 
 - **Kata kunci `ref` (Reference Parameter):**
 
   - Digunakan untuk meneruskan referensi variabel sebagai parameter ke dalam sebuah metode atau fungsi.
-  - Dengan menggunakan kata kunci `ref`, parameter dapat mengakses dan memodifikasi nilai variabel asli yang diteruskan ke dalam metode atau fungsi.
-  - Kata kunci `ref` digunakan baik di dalam deklarasi parameter metode maupun saat memanggil metode.
-  - Contoh penggunaan kata kunci `ref`:
+  - Dengan menggunakan kata kunci`ref`, parameter dapat mengakses dan memodifikasi nilai variabel asli yang diteruskan ke dalam metode atau fungsi.
+  - Kata kunci`ref` digunakan baik di dalam deklarasi parameter metode maupun saat memanggil metode.
+  - Contoh penggunaan kata kunci`ref`:
     ```csharp
     void AddOne(ref int x)
     {
@@ -530,9 +530,9 @@ unsafe class Program {
 - **Kata kunci `out` (Out Parameter):**
 
   - Digunakan untuk meneruskan parameter sebagai keluaran dari sebuah metode atau fungsi.
-  - Parameter dengan kata kunci `out` tidak perlu diinisialisasi sebelum melewatinya ke metode.
-  - Metode yang menerima parameter `out` biasanya akan mengisi nilai parameter tersebut di dalam metode itu sendiri.
-  - Contoh penggunaan kata kunci `out`:
+  - Parameter dengan kata kunci`out` tidak perlu diinisialisasi sebelum melewatinya ke metode.
+  - Metode yang menerima parameter`out` biasanya akan mengisi nilai parameter tersebut di dalam metode itu sendiri.
+  - Contoh penggunaan kata kunci`out`:
     ```csharp
     void Multiply(int a, int b, out int result)
     {
@@ -619,7 +619,7 @@ Type objType = obj.GetType();
 Operator `sizeof` digunakan untuk mendapatkan ukuran dalam byte dari sebuah tipe data pada saat kompilasi. Operator ini dapat digunakan untuk tipe data primitif seperti `byte`, `int`, `float`, `long`, dan `char`.
 
 ```csharp
-  Console.WriteLine(sizeof(byte)); // 1
+Console.WriteLine(sizeof(byte)); // 1
   Console.WriteLine(sizeof(int)); // 4
   Console.WriteLine(sizeof(float)); // 4
   Console.WriteLine(sizeof(long)); // 8
@@ -682,6 +682,7 @@ pi = 22 / 7; // Error
 ```csharp
 var name = "dhim";
 ```
+
 
 | Jenis Data     | Contoh Nilai             | Deskripsi                                                                                 |
 | -------------- | ------------------------ | ----------------------------------------------------------------------------------------- |
@@ -852,7 +853,110 @@ Biasanya digunakan untuk membuat objek yang hanya sementara terutama saat menggu
 var person = new Person {}
 ```
 
-### 1.4.10 Lainnya
+### 1.4.10  Blocking Queue
+
+**Blocking queue** adalah struktur data antrian (queue) yang mendukung operasi **penambahan (enqueue)** dan **pengambilan (dequeue)** dengan **mekanisme penundaan (blocking)** jika operasi tersebut tidak bisa segera dilakukan.
+
+🔄 Cara Kerja
+
+* Jika **queue penuh** dan ada yang mencoba menambahkan item, maka operasi tersebut akan **menunggu (block)** hingga ada ruang tersedia.
+* Jika **queue kosong** dan ada yang mencoba mengambil item, maka operasi akan **menunggu (block)** hingga ada item yang tersedia.
+
+Blocking queue sangat berguna dalam **skenario concurrent programming**, khususnya pada model **producer-consumer**, di mana:
+
+* *Producer* menghasilkan data dan memasukkannya ke dalam queue.
+* *Consumer* mengambil data dari queue dan memprosesnya.
+
+🧵 Manfaat
+
+* Menyederhanakan koordinasi antar thread.
+* Mencegah race condition saat berbagi data.
+* Secara otomatis mengatur **sinkronisasi** antara thread penulis dan pembaca.
+
+⚖️ Mirip dengan Apa?
+
+Konsep blocking queue ini **mirip dengan**:
+
+* 🔸 **Channel di Go** – digunakan untuk komunikasi antar goroutine secara aman dan sinkron/asinkron.
+* 🔸 **BlockingQueue di Java** – bagian dari Java’s `java.util.concurrent`, seperti `ArrayBlockingQueue`, `LinkedBlockingQueue`, dsb.
+
+#### 1. BlockingCollection
+
+`BlockingCollection<T>` adalah abstraction thread-safe berbasis `IProducerConsumerCollection<T>`. Ini merupakan pendekatan **sinkron dan blocking**, cocok untuk skenario **concurrent consumer-producer** di .NET Framework lama.
+
+🛠️ Kelebihan:
+
+* Sinkron dan mudah dipahami.
+* Mendukung bounded capacity (untuk backpressure).
+* Cocok untuk aplikasi CPU-bound sederhana.
+
+```c#
+var collection = new BlockingCollection<int>(boundedCapacity: 5);
+// Producer
+Task.Run(() => {
+    for (int i = 0; i < 5; i++)
+    {
+        collection.Add(i);
+        Console.WriteLine($"Sent: {i}");
+    }
+    collection.CompleteAdding();
+});
+
+// Consumer
+foreach (var item in collection.GetConsumingEnumerable()){
+    Console.WriteLine($"Received: {item}");
+}
+```
+
+#### 2. Channel
+
+`Channel<T>` adalah bagian dari namespace `System.Threading.Channels` yang diperkenalkan sejak .NET Core 3.0. Ini adalah **mekanisme asynchronous, thread-safe, dan highly-performant** untuk mentransfer data antar task atau thread.
+
+#### 🛠️ Kelebihan:
+
+* Non-blocking, mendukung `async/await`.
+* Cocok untuk **task-based asynchronous programming**.
+* Mendukung konfigurasi:
+  * Unbounded vs Bounded
+  * Single-reader vs Multi-reader
+  * Single-writer vs Multi-writer
+
+```c#
+var channel = Channel.CreateUnbounded<int>();
+// Producer
+_ = Task.Run(async () => {
+    for (int i = 0; i < 5; i++)
+    {
+        await channel.Writer.WriteAsync(i);
+        Console.WriteLine($"Sent: {i}");
+    }
+    channel.Writer.Complete();
+});
+
+// Consumer
+await foreach (var item in channel.Reader.ReadAllAsync()) {
+    Console.WriteLine($"Received: {item}");
+}
+```
+
+
+| Fitur                      | `Channel<T>`(C#)                                     | `chan`(Go)                           |
+| -------------------------- | ---------------------------------------------------- | ------------------------------------ |
+| Asynchronous               | ✅ Mendukung`async/await`                            | 🚫 Sinkron atau blocking by default  |
+| Blocking behavior          | ✅ Bisa blocking atau non-blocking                   | ✅ Blocking secara default           |
+| Buffered / Unbuffered      | ✅ Bounded dan unbounded channel tersedia            | ✅ Bisa buffer (`make(chan T, N)`)   |
+| Completion / close channel | ✅`channel.Writer.Complete()`                        | ✅`close(chan)`                      |
+| Multi-producer / consumer  | ✅ Didukung (`ChannelOptions`)                       | ✅ Didukung                          |
+| Backpressure (throttling)  | ✅ Bounded channel otomatis menunda write jika penuh | ✅ Sama jika pakai buffered channel  |
+| Cancellation support       | ✅ Mendukung`CancellationToken`                      | 🚫 Tidak native, harus pakai`select` |
+| Select/multiplex           | ❌ Tidak native (bisa simulasi dengan`Task.WhenAny`) | ✅ Native dengan`select`             |
+| Deadlock detection         | ❌ Manual atau melalui timeout                       | ❌ Tidak otomatis juga               |
+| Generic type support       | ✅`Channel<T>`(strongly typed)                       | ✅`chan T`                           |
+| Runtime support            | .NET Core 3.0+, .NET 5+                              | Native di Go                         |
+| Performance                | Sangat baik untuk pipeline async                     | Sangat cepat dan ringan              |
+| Built-in tools (stdlib)    | 📦 Perlu manual fan-out/fan-in, tapi fleksibel       | ✅ Banyak tools bawaan di runtime    |
+
+### 1.4.11 Lainnya
 
 **Event**: Event adalah mekanisme di C# yang digunakan untuk memberi tahu bahwa suatu kejadian telah terjadi. Event digunakan dalam implementasi pola observer dalam pemrograman berorientasi objek.
 
@@ -878,6 +982,7 @@ Dalam bahasa pemrograman ***operator** adalah simbol yang memberitahu compiler a
 
 ***Operator aritmatika** adalah operator yang digunakan untuk melakukan operasi matematika pada angka atau variabel numerik.* Operator ini digunakan untuk melakukan operasi seperti penjumlahan, pengurangan, perkalian, pembagian, dan sebagainya.
 
+
 | +  | Pertambahan             |
 | -- | ----------------------- |
 | -  | Pengurangan             |
@@ -889,6 +994,7 @@ Dalam bahasa pemrograman ***operator** adalah simbol yang memberitahu compiler a
 **Assignment**
 
 ***Operator assignment** adalah operator yang digunakan untuk menginisialisasi atau mengubah nilai dari suatu variabel dengan menggunakan nilai dari ekspresi lainnya.* Operator assignment digunakan untuk memberikan atau menugaskan nilai ekspresi ke variabel yang ditentukan.
+
 
 | Arithmetic  | Augmented Assignment |
 | ----------- | -------------------- |
@@ -902,6 +1008,7 @@ Dalam bahasa pemrograman ***operator** adalah simbol yang memberitahu compiler a
 **Comparison**
 
 ***Operator perbandingan**, juga dikenal sebagai operator relasional, digunakan untuk membandingkan dua nilai atau ekspresi.* Hasil perbandingan adalah nilai boolean (true atau false), yang menunjukkan apakah pernyataan perbandingan tersebut benar atau salah.
+
 
 | Operators | Description             |
 | --------- | ----------------------- |
@@ -920,6 +1027,7 @@ Dalam bahasa pemrograman ***operator** adalah simbol yang memberitahu compiler a
 
 Operator `&&` dalam pemrograman adalah operator logika AND. Operator ini digunakan untuk menggabungkan dua kondisi atau ekspresi boolean. Operator `&&` akan menghasilkan nilai `true` hanya jika kedua kondisi atau ekspresi tersebut bernilai `true`. Jika salah satu atau kedua kondisi tersebut bernilai `false`, maka hasilnya akan menjadi `false`.
 
+
 | Nilai 1 | Operator | Nilai 2 | Hasil |
 | ------- | -------- | ------- | ----- |
 | true    | &&       | true    | true  |
@@ -929,6 +1037,7 @@ Operator `&&` dalam pemrograman adalah operator logika AND. Operator ini digunak
 **Operator ||**
 
 Operator `||` dalam pemrograman adalah operator logika OR. Operator ini digunakan untuk menggabungkan dua kondisi atau ekspresi boolean. Operator `||` akan menghasilkan nilai `true` jika salah satu dari kondisi atau ekspresi tersebut bernilai `true`. Jika kedua kondisi atau ekspresi tersebut bernilai `false`, maka hasilnya akan menjadi `false`.
+
 
 | Nilai 1 | Operator | Nilai 2 | Hasil |
 | ------- | -------- | ------- | ----- |
@@ -940,6 +1049,7 @@ Operator `||` dalam pemrograman adalah operator logika OR. Operator ini digunaka
 
 Operator `!` dalam pemrograman adalah operator logika NOT atau negasi. Operator ini digunakan untuk membalikkan nilai boolean dari suatu kondisi atau ekspresi. Jika kondisi atau ekspresi awalnya bernilai `true`, operator `!` akan menghasilkan `false`, dan sebaliknya jika kondisi atau ekspresi awalnya bernilai `false`, operator `!` akan menghasilkan `true`.
 
+
 | Nilai 1 | Operator | Nilai 2 |
 | ------- | -------- | ------- |
 | true    | !        | false   |
@@ -948,6 +1058,7 @@ Operator `!` dalam pemrograman adalah operator logika NOT atau negasi. Operator 
 **Bitwise Operator**
 
 *Operator bitwise adalah operator yang digunakan untuk melakukan operasi pada level bit individu dari bilangan biner.* Operator bitwise bekerja dengan memanipulasi dan memanipulasi bit-bit individu dalam representasi biner dari bilangan.
+
 
 | Operator | Name                | Penggunaan | Deskripsi                                                |
 | -------- | ------------------- | ---------- | -------------------------------------------------------- |
@@ -959,6 +1070,7 @@ Operator `!` dalam pemrograman adalah operator logika NOT atau negasi. Operator 
 | >>>      | Geser kanan isi nol | a >>> b    | Menggeser setiap bit kekanan yang paling kanan diisi nol |
 
 **Contoh:**
+
 
 | Operator | Hasil | Biner       | Hasil |
 | -------- | ----- | ----------- | ----- |
@@ -974,6 +1086,7 @@ Operator `!` dalam pemrograman adalah operator logika NOT atau negasi. Operator 
 
 ***Increment dan decrement** adalah operasi yang digunakan untuk menambah atau mengurangi nilai suatu variabel secara berturut-turut. Dalam pemrograman, biasanya menggunakan operator increment (`++`) dan decrement (`--`) untuk melakukan operasi tersebut.*
 
+
 | Operators             |
 | --------------------- |
 | a++                   |
@@ -985,6 +1098,7 @@ Operator `!` dalam pemrograman adalah operator logika NOT atau negasi. Operator 
 **Type Test**
 
 ***Type test** adalah operator yang digunakan untuk memeriksa tipe (jenis) suatu objek atau nilai dalam program.* Operator ini memberikan hasil berupa nilai boolean (true atau false) berdasarkan tipe objek yang diperiksa.
+
 
 | Operators | Description                                                                          |
 | --------- | ------------------------------------------------------------------------------------ |
@@ -1155,8 +1269,8 @@ do{
 Pada tingkat bahasa pemrograman, C# memiliki fitur null safety.
 
 - **Null Reference Checking**: C# memiliki null safety yang kuat, di mana referensi ke objek yang bernilai null akan menghasilkan pengecualian saat diakses, kecuali jika dinyatakan sebaliknya menggunakan operator null conditional (`?.`) atau operator null coalescing (`??`).
-- **Nullable Value Types**: C# juga mendukung tipe data nullable (`Nullable<T>` atau `T?`) yang memungkinkan nilai-nilai tipe data primitif untuk memiliki nilai null.
-- **Nullable Reference Types (mulai dari C# 8.0)**: C# 8.0 memperkenalkan fitur nullable reference types, yang memungkinkan penggunaan annotasi seperti `?` untuk menunjukkan bahwa sebuah referensi dapat bernilai null atau tidak.
+- **Nullable Value Types**: C# juga mendukung tipe data nullable (`Nullable<T>` atau`T?`) yang memungkinkan nilai-nilai tipe data primitif untuk memiliki nilai null.
+- **Nullable Reference Types (mulai dari C# 8.0)**: C# 8.0 memperkenalkan fitur nullable reference types, yang memungkinkan penggunaan annotasi seperti`?` untuk menunjukkan bahwa sebuah referensi dapat bernilai null atau tidak.
 - **Non-nullable Reference Types (mulai dari C# 8.0)**: C# 8.0 juga memperkenalkan non-nullable reference types, yang memberikan lebih banyak keamanan pada saat kompilasi dengan menetapkan bahwa suatu referensi tidak boleh bernilai null.
 
 **Null Handling/Check**
@@ -1281,7 +1395,6 @@ var guestName = guest ?? "Guest";
            System.Console.WriteLine(content);
        }
    }
-
    ```
 3. **Network I/O**:  adalah sebuah operasi I/O berbasis jaringan, seperti mengirim permintaan HTTP atau membuat koneksi socket.
 
@@ -1305,7 +1418,7 @@ class Program
 
 **Langkah-langkah untuk Menggunakan Embedded Resources di C#:**
 
-* Buat file dengan format .txt seperti `Sample.txt`
+* Buat file dengan format .txt seperti`Sample.txt`
 * Menambahkan file embedded resource ke file .csproj:
 
 ```xml
@@ -1350,7 +1463,6 @@ class Program
         }
     }
 }
-
 ```
 
 ## 1.9 Using Keyword
@@ -1358,7 +1470,7 @@ class Program
 kata kunci using di C# memiliki banyak kegunaan, diantaranya:
 
 1. Using Directive, dimana untuk mengimpor namespace tanpa perlu memanggil nama namespacenya secara redundan.
-2. Using Statement, yang dimana berperan sebagai statement untuk memastikan objek mengimplementasikan ``IDisposable`` dibersihkan secara otomatis setelah digunakan. Berguna untuk mengelola resource seperti file, koneksi database atau soket jaringan. Biasanya digunaakan untuk mengimplementasikan IDisposable tadi seperti Filestream, StreamReader, SQLConnection dll.
+2. Using Statement, yang dimana berperan sebagai statement untuk memastikan objek mengimplementasikan``IDisposable`` dibersihkan secara otomatis setelah digunakan. Berguna untuk mengelola resource seperti file, koneksi database atau soket jaringan. Biasanya digunaakan untuk mengimplementasikan IDisposable tadi seperti Filestream, StreamReader, SQLConnection dll.
 3. Using Declaration,yang memungkinkan penggunaan yang lebih ringkas dari using statement. Perbedaannya terletak pada objek yang di-init dan dibersihkan saat itu juga bukan setelah block using berakhir. Digunakan juga ketika objek IDisposable dibersihkan pada akhir scope saat ini tanpa menggunakan block using yang terpisah.
 
 # 2. Programming Paradigms
@@ -1382,16 +1494,17 @@ Tiap paradigma memiliki cara berpikir yang berbeda dalam menyelesaikan masalah p
    - Interaksi antar objek melalui metode terkait.
    - Konsep dasar meliputi pewarisan, enkapsulasi, dan polimorfisme.
 
-| Aspek                     | Struct (Value Type)                                          | Class (Reference Type)                                       |
-| ------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Tipe**            | Value Type                                                   | Reference Type                                               |
-| **Penyimpanan**     | Stack                                                        | Heap                                                         |
-| **Kinerja**         | Lebih cepat untuk objek kecil (karena di-stack)              | Bisa lebih lambat karena alokasi heap dan garbage collection |
-| **Mutability**      | Sebaiknya immutable (tidak bisa diubah setelah dibuat)       | Bisa mutable (dapat diubah setelah dibuat)                   |
-| **Konstruksi**      | Tidak memiliki constructor default                           | Bisa memiliki constructor default                            |
-| **Inheritance**     | Tidak bisa mewarisi atau diwarisi (hanya bisa `interface`) | Mendukung inheritance (pewarisan)                            |
-| **Default Nilai**   | Tidak bisa `null`(karena value type)                       | Bisa `null`(karena reference type)                         |
-| **Penggunaan Umum** | Data kecil seperti koordinat, warna, tanggal                 | Objek kompleks seperti entitas aplikasi                      |
+
+| Aspek               | Struct (Value Type)                                       | Class (Reference Type)                                       |
+| ------------------- | --------------------------------------------------------- | ------------------------------------------------------------ |
+| **Tipe**            | Value Type                                                | Reference Type                                               |
+| **Penyimpanan**     | Stack                                                     | Heap                                                         |
+| **Kinerja**         | Lebih cepat untuk objek kecil (karena di-stack)           | Bisa lebih lambat karena alokasi heap dan garbage collection |
+| **Mutability**      | Sebaiknya immutable (tidak bisa diubah setelah dibuat)    | Bisa mutable (dapat diubah setelah dibuat)                   |
+| **Konstruksi**      | Tidak memiliki constructor default                        | Bisa memiliki constructor default                            |
+| **Inheritance**     | Tidak bisa mewarisi atau diwarisi (hanya bisa`interface`) | Mendukung inheritance (pewarisan)                            |
+| **Default Nilai**   | Tidak bisa`null`(karena value type)                       | Bisa`null`(karena reference type)                            |
+| **Penggunaan Umum** | Data kecil seperti koordinat, warna, tanggal              | Objek kompleks seperti entitas aplikasi                      |
 
 > *"di C#, meskipun tidak memiliki paradigma fungsional secara murni, namun method dalam paradigma Object-Oriented juga merupakan fungsi."*
 
@@ -1800,8 +1913,8 @@ Nested class memiliki akses penuh terhadap semua anggota kelas yang mengelilingi
 
 Ada dua jenis nested class yang umum digunakan:
 
-1. **Static Nested Class** : Kelas ini dideklarasikan sebagai bagian dari kelas luar, tetapi dengan kata kunci `static`. Static nested class ini tidak memiliki akses langsung ke anggota non-static dari kelas luar dan dapat diakses menggunakan sintaks `OuterClass.NestedClass`.
-2. **Non-Static Nested Class (Inner Class)** : Kelas ini dideklarasikan sebagai bagian dari kelas luar tanpa kata kunci `static`. Inner class memiliki akses penuh ke anggota kelas luar, termasuk anggota yang bersifat private. Inner class hanya dapat diakses melalui objek dari kelas luar.
+1. **Static Nested Class** : Kelas ini dideklarasikan sebagai bagian dari kelas luar, tetapi dengan kata kunci`static`. Static nested class ini tidak memiliki akses langsung ke anggota non-static dari kelas luar dan dapat diakses menggunakan sintaks`OuterClass.NestedClass`.
+2. **Non-Static Nested Class (Inner Class)** : Kelas ini dideklarasikan sebagai bagian dari kelas luar tanpa kata kunci`static`. Inner class memiliki akses penuh ke anggota kelas luar, termasuk anggota yang bersifat private. Inner class hanya dapat diakses melalui objek dari kelas luar.
 
 ```csharp
 public class OuterClass
@@ -1927,12 +2040,12 @@ Dalam kode di atas, kita mencoba mengakses properti `language`, `objectOriented`
 
 **Keyword lain untuk property & method:**
 
-1. **`protected internal`**: Kombinasi dari `protected` dan `internal`, memungkinkan akses dari kelas turunan dan dari assembly yang sama.
+1. **`protected internal`**: Kombinasi dari`protected` dan`internal`, memungkinkan akses dari kelas turunan dan dari assembly yang sama.
 2. **`static`**: Menandakan bahwa method atau property adalah milik kelas, bukan dari instance objek.
 3. **`virtual`**: Memberikan kemampuan untuk overriding pada method oleh kelas turunannya.
 4. **`override`**: Menggantikan implementasi dari method virtual yang dideklarasikan dalam kelas dasar.
 5. **`abstract`**: Menandakan bahwa method tidak memiliki implementasi dan harus diimplementasikan oleh kelas turunannya.
-6. **`async`**: Menandakan bahwa method adalah asynchronous dan dapat menggunakan kata kunci `await`.
+6. **`async`**: Menandakan bahwa method adalah asynchronous dan dapat menggunakan kata kunci`await`.
 7. **`sealed`**: Mencegah kelas dari diturunkan dan method dari di-override.
 8. **`readonly`**: Menandakan bahwa nilai property hanya dapat diatur sekali, biasanya selama inisialisasi.
 9. **`params`**: Memungkinkan method menerima jumlah argumen variabel sebagai array.
@@ -1945,7 +2058,7 @@ Beberapa cara untuk membuat dan menggunakan namespace di C#:
 
 1. **Single Namespace**:
 
-   - Ketika Anda menggunakan `namespace MyNamespace;` di awal sebuah file kode, itu menunjukkan bahwa semua kode dalam file tersebut akan termasuk dalam namespace `MyNamespace`.
+   - Ketika Anda menggunakan`namespace MyNamespace;` di awal sebuah file kode, itu menunjukkan bahwa semua kode dalam file tersebut akan termasuk dalam namespace`MyNamespace`.
    - Ini adalah cara cepat dan langsung untuk mengarahkan semua kode dalam file ke dalam namespace tertentu.
    - Ini cocok digunakan ketika Anda memiliki file kode yang relatif kecil dan semuanya akan dimasukkan ke dalam satu namespace.
 
@@ -1990,8 +2103,8 @@ namespace ParentNamespace
 
 **Setter & Getter**
 
-- **Getter** adalah function yang dibuat untuk mengambil data field. Untuk Getter, kita bisa menggunakan kata kunci **get**
-- **Setter** adalah function untuk mengubah data field. Untuk Setter, kita bisa menggunakan kata kunci **set**
+- **Getter** adalah function yang dibuat untuk mengambil data field. Untuk Getter, kita bisa menggunakan kata kunci**get**
+- **Setter** adalah function untuk mengubah data field. Untuk Setter, kita bisa menggunakan kata kunci**set**
 
 ```cs
 public class Person {
@@ -2051,10 +2164,10 @@ Di C#, destructor (atau  **finalizer** ) adalah metode khusus yang digunakan unt
 
 **Karakteristik Destructor**
 
-1. **Sintaksis Destructor** : Destructor ditulis dengan menggunakan simbol tilde (`~`) diikuti dengan nama kelas, tanpa parameter dan tanpa modifier akses (seperti `public`, `private`).
+1. **Sintaksis Destructor** : Destructor ditulis dengan menggunakan simbol tilde (`~`) diikuti dengan nama kelas, tanpa parameter dan tanpa modifier akses (seperti`public`,`private`).
 2. **Kapan Destructor Dipanggil** : Destructor dipanggil oleh garbage collector sebelum objek dihapus dari memori. Tidak ada jaminan kapan tepatnya destructor akan dipanggil, karena bergantung pada kapan garbage collector memutuskan untuk mengumpulkan objek
-3. **Kapan Menggunakan Destructor** : Destructor digunakan ketika kelas Anda memegang sumber daya yang tidak dikelola, seperti handle file, koneksi database, atau soket jaringan. Untuk membersihkan sumber daya yang dikelola, biasanya lebih baik menggunakan pola *dispose* dengan mengimplementasikan antarmuka `IDisposable`.
-4. **Kapan Menggunakan Destructor** : Destructor digunakan ketika kelas Anda memegang sumber daya yang tidak dikelola, seperti handle file, koneksi database, atau soket jaringan. Untuk membersihkan sumber daya yang dikelola, biasanya lebih baik menggunakan pola *dispose* dengan mengimplementasikan antarmuka `IDisposable`.
+3. **Kapan Menggunakan Destructor** : Destructor digunakan ketika kelas Anda memegang sumber daya yang tidak dikelola, seperti handle file, koneksi database, atau soket jaringan. Untuk membersihkan sumber daya yang dikelola, biasanya lebih baik menggunakan pola*dispose* dengan mengimplementasikan antarmuka`IDisposable`.
+4. **Kapan Menggunakan Destructor** : Destructor digunakan ketika kelas Anda memegang sumber daya yang tidak dikelola, seperti handle file, koneksi database, atau soket jaringan. Untuk membersihkan sumber daya yang dikelola, biasanya lebih baik menggunakan pola*dispose* dengan mengimplementasikan antarmuka`IDisposable`.
    ```csharp
    class MyClass {
        // Constructor
@@ -2075,8 +2188,8 @@ Destructor vs IDisposable
 
 2. **IDisposable** :
 
-* Menyediakan metode `Dispose()` untuk membersihkan sumber daya yang dikelola dan tak dikelola.
-* Dapat dipanggil secara eksplisit oleh kode pengguna melalui `Dispose()` atau melalui konstruk `using`.
+* Menyediakan metode`Dispose()` untuk membersihkan sumber daya yang dikelola dan tak dikelola.
+* Dapat dipanggil secara eksplisit oleh kode pengguna melalui`Dispose()` atau melalui konstruk`using`.
 * Memberikan kontrol yang lebih baik atas siklus hidup sumber daya.
 
 ## Variable Shadowing
@@ -2392,7 +2505,7 @@ Ada dua jenis meta-programming utama:
 1. **Waktu Kompilasi (Compile Time)**:
 
    - Pada waktu kompilasi, meta-programming melibatkan pembuatan kode baru atau modifikasi kode yang ada sebelum program dijalankan.
-   - Contohnya termasuk penggunaan praprosesor (seperti di C/C++ dengan `#define` dan `#include`), pembuatan kode otomatis melalui generasi kode (seperti T4 templates di C#), atau teknik seperti metaprogramming di C++ menggunakan template.
+   - Contohnya termasuk penggunaan praprosesor (seperti di C/C++ dengan`#define` dan`#include`), pembuatan kode otomatis melalui generasi kode (seperti T4 templates di C#), atau teknik seperti metaprogramming di C++ menggunakan template.
 2. **Waktu Runtime (Runtime Time)**:
 
    - Pada waktu runtime, meta-programming melibatkan pembuatan atau manipulasi kode selama aplikasi berjalan.
@@ -2661,7 +2774,7 @@ Di C#, concurrency dapat dicapai dengan berbagai teknik, seperti:
 
 * **Multithreading:** Membagi tugas menjadi beberapa thread yang dijalankan secara bersamaan.
 * **Async/await:** Menangani operasi asynchronous tanpa memblokir thread utama.
-* **Task Parallel Library (TPL):** Menyediakan pustaka siap pakai untuk operasi asynchronous yang kompleks. **Task** di C# merupakan representasi dari operasi  **asynchronous**. Mirip dengan **Promise** di JavaScript dan **Future** di Dart
+* **Task Parallel Library (TPL):** Menyediakan pustaka siap pakai untuk operasi asynchronous yang kompleks.**Task** di C# merupakan representasi dari operasi**asynchronous**. Mirip dengan**Promise** di JavaScript dan**Future** di Dart
 
 ```csharp
 public class Program {
@@ -2741,7 +2854,7 @@ Console.WriteLine("Task pertama selesai!");
 
 **6. Task.Wait**
 
-* **`Task.Wait`** digunakan untuk menunggu task selesai secara  **blocking** . Penggunaannya tidak disarankan pada aplikasi asinkron, karena dapat memblokir thread utama.
+* **`Task.Wait`** digunakan untuk menunggu task selesai secara**blocking** . Penggunaannya tidak disarankan pada aplikasi asinkron, karena dapat memblokir thread utama.
 
 ```csharp
 var task = Task.Run(() => {
@@ -2753,7 +2866,7 @@ task.Wait(); // Blok hingga task selesai
 
 **7. Task.WaitAll**
 
-* **`Task.WaitAll`** digunakan untuk menunggu semua task selesai secara  **blocking** . Sama seperti `Task.Wait`, ini dapat memblokir thread utama dan harus dihindari dalam konteks asinkron.
+* **`Task.WaitAll`** digunakan untuk menunggu semua task selesai secara**blocking** . Sama seperti`Task.Wait`, ini dapat memblokir thread utama dan harus dihindari dalam konteks asinkron.
 
 ```csharp
 var task1 = Task.Run(() => Task.Delay(1000).Wait());
@@ -2764,7 +2877,7 @@ Console.WriteLine("Semua task selesai.");
 
 **8. Task.WaitAny**
 
-* **`Task.WaitAny`** digunakan untuk menunggu salah satu task selesai secara  **blocking** . Ini sering digunakan jika kita hanya tertarik pada task pertama yang selesai.
+* **`Task.WaitAny`** digunakan untuk menunggu salah satu task selesai secara**blocking** . Ini sering digunakan jika kita hanya tertarik pada task pertama yang selesai.
 
 ```csharp
 var task1 = Task.Run(() => Task.Delay(1000).Wait());
@@ -2788,7 +2901,7 @@ task.ContinueWith(t => {
 
 **10. Task.Result**
 
-* **`Task.Result`** digunakan untuk mengambil hasil dari task yang telah selesai. Namun, menggunakan `Result` secara langsung dapat menyebabkan **blocking** jika task belum selesai, jadi lebih baik menggunakan `await` untuk menghindari hal ini.
+* **`Task.Result`** digunakan untuk mengambil hasil dari task yang telah selesai. Namun, menggunakan`Result` secara langsung dapat menyebabkan**blocking** jika task belum selesai, jadi lebih baik menggunakan`await` untuk menghindari hal ini.
 
 ```csharp
 var task = Task.Run(() => {
@@ -2810,11 +2923,11 @@ public async Task DoNothing()
 
 > Catatan
 
-* **Kata kunci `async`** dan **tipe `Task`** saling terkait erat dalam pemrograman asynchronous C#.
-* `async` diperlukan untuk mendefinisikan metode asynchronous, sedangkan `Task` digunakan untuk merepresentasikan hasil dari operasi asynchronous.
-* Meskipun `Task` tidak selalu diperlukan, penggunaannya direkomendasikan untuk konsistensi dan kompatibilitas.
-* **`await`** lebih disarankan daripada **`Task.Wait`** atau **`Task.Result`** untuk operasi asinkron karena tidak memblokir thread dan menjaga aplikasi tetap responsif.
-* Jangan gunakan **`Task.Result`** atau **`Task.Wait`** pada aplikasi yang berorientasi UI (seperti WPF atau WinForms), karena ini bisa menyebabkan  **deadlock** .
+* **Kata kunci `async`** dan**tipe `Task`** saling terkait erat dalam pemrograman asynchronous C#.
+* `async` diperlukan untuk mendefinisikan metode asynchronous, sedangkan`Task` digunakan untuk merepresentasikan hasil dari operasi asynchronous.
+* Meskipun`Task` tidak selalu diperlukan, penggunaannya direkomendasikan untuk konsistensi dan kompatibilitas.
+* **`await`** lebih disarankan daripada**`Task.Wait`** atau**`Task.Result`** untuk operasi asinkron karena tidak memblokir thread dan menjaga aplikasi tetap responsif.
+* Jangan gunakan**`Task.Result`** atau**`Task.Wait`** pada aplikasi yang berorientasi UI (seperti WPF atau WinForms), karena ini bisa menyebabkan**deadlock** .
 
 ### 2. Parallel Programming
 
@@ -2843,7 +2956,7 @@ public class Program
 
 Penjelasan:
 
-* **`Parallel.For(start, end, action)`** : Menjalankan **`action`** untuk setiap nilai dalam rentang dari **`start`** hingga  **`end`** .
+* **`Parallel.For(start, end, action)`** : Menjalankan**`action`** untuk setiap nilai dalam rentang dari**`start`** hingga**`end`** .
 * Setiap iterasi dapat dijalankan secara bersamaan pada thread yang berbeda.
 
 **2. Parallel.ForEach**
@@ -2871,7 +2984,7 @@ public class Program
 
 Penjelasan:
 
-* **`Parallel.ForEach(collection, action)`** : Menjalankan **`action`** untuk setiap elemen dalam **`collection`** secara paralel.
+* **`Parallel.ForEach(collection, action)`** : Menjalankan**`action`** untuk setiap elemen dalam**`collection`** secara paralel.
 
 **3. Parallel.Invoke**
 
@@ -2954,8 +3067,8 @@ public class Program
 
 Penjelasan:
 
-* **`Task.WhenAll(tasks)`** : Menunggu semua task untuk selesai. Semua task dijalankan secara paralel menggunakan  **`Task.Run`** .
-* Setelah semua task selesai, **`await`** memastikan program melanjutkan eksekusi setelah menunggu task selesai.
+* **`Task.WhenAll(tasks)`** : Menunggu semua task untuk selesai. Semua task dijalankan secara paralel menggunakan**`Task.Run`** .
+* Setelah semua task selesai,**`await`** memastikan program melanjutkan eksekusi setelah menunggu task selesai.
 
 **5. Parallel LINQ (PLINQ)**
 
@@ -3031,7 +3144,7 @@ public class Program
 
 Penjelasan:
 
-* **`AggregateException`** : Ketika ada pengecualian dalam parallel task, pengecualian tersebut akan dibungkus dalam `AggregateException`, yang dapat menangani beberapa pengecualian.
+* **`AggregateException`** : Ketika ada pengecualian dalam parallel task, pengecualian tersebut akan dibungkus dalam`AggregateException`, yang dapat menangani beberapa pengecualian.
 * **`InnerExceptions`** memungkinkan kita untuk mengakses pengecualian yang terjadi pada setiap task.
 
 **Kesimpulan:**
@@ -3075,7 +3188,7 @@ Untuk mencegash race condition, Anda perlu menggunakan mekanisme sinkronisasi un
       Console.WriteLine(x);
   }
   ```
-* **Interlocked**: Menggunakan kelas `Interlocked` untuk operasi atomik pada variabel integer.
+* **Interlocked**: Menggunakan kelas`Interlocked` untuk operasi atomik pada variabel integer.
 * **Mutex:** Mutex mirip dengan lock, tetapi hanya satu thread atau proses yang dapat memperoleh mutex pada satu waktu. Mutex di C# hampir mirip dengan mutex yang ada di Golang.
   ```csharp
   var numbers = new List<int>();
@@ -3124,7 +3237,7 @@ Untuk mencegash race condition, Anda perlu menggunakan mekanisme sinkronisasi un
 Selain mekanisme sinkronisasi, Anda juga dapat menggunakan teknik desain yang membantu mencegah race condition, seperti:
 
 * **Immutable data:** Gunakan data yang tidak dapat diubah oleh beberapa thread atau proses.
-* **Thread-safe data structures:** Gunakan struktur data yang dirancang untuk digunakan secara concurrent, seperti `ConcurrentDictionary` dan `ConcurrentQueue`.
+* **Thread-safe data structures:** Gunakan struktur data yang dirancang untuk digunakan secara concurrent, seperti`ConcurrentDictionary` dan`ConcurrentQueue`.
 * **Avoiding shared state:** Minimalkan jumlah data yang dibagikan antara thread atau proses.
 
 ```csharp
@@ -3244,7 +3357,6 @@ class Program
         }
     }
 }
-
 ```
 
 # 9. Language Integrated Query (LINQ)
@@ -3370,9 +3482,9 @@ Dalam lingkungan pengembangan C#, ada beberapa alat yang sering digunakan untuk 
 
 **Cara Menggunakan Nunit:**
 
-1. Diluar project utama buat project khusus testing, jalankan perintah di terminal `dotnet new nunit -N TestProject1`.
-2. Maka akan menghasilkan folder bernama `TestProject1`, dengan isi `.csproject `dan `UnitTest1.cs`
-3. Masuk ke direktori TestProject, buat file `Using.cs`:
+1. Diluar project utama buat project khusus testing, jalankan perintah di terminal`dotnet new nunit -N TestProject1`.
+2. Maka akan menghasilkan folder bernama`TestProject1`, dengan isi`.csproject `dan`UnitTest1.cs`
+3. Masuk ke direktori TestProject, buat file`Using.cs`:
 
 ```cs
 global using NUnit.Framework;
@@ -3400,12 +3512,11 @@ public class UnitTest1
         Assert.AreEqual(15, result);
     }
 }
-
 ```
 
-5. Kemudian, jalankan perintah `dotnet test` untuk menjalankan unit test.
-6. Menjalankan file tertentu, menggunakan `dotnet test --filter "FullyQualifiedName~UnitTest2"`.
-7. Menjalankan file yang namanya ada unsur kata yang diinginkan, `dotnet test --filter "Name~Test2"`
+5. Kemudian, jalankan perintah`dotnet test` untuk menjalankan unit test.
+6. Menjalankan file tertentu, menggunakan`dotnet test --filter "FullyQualifiedName~UnitTest2"`.
+7. Menjalankan file yang namanya ada unsur kata yang diinginkan,`dotnet test --filter "Name~Test2"`
 
 ## 2. Debugging dalam C#:
 
@@ -3421,7 +3532,7 @@ Debugging adalah proses mengidentifikasi, memahami, dan memperbaiki kesalahan da
 kata kunci using di C# memiliki banyak kegunaan, diantaranya:
 
 1. Using Directive, dimana untuk mengimpor namespace tanpa perlu memanggil nama namespacenya secara redundan seperti yang sudah dijelaskan di pembahasan sebelumnya.
-2. Using Statement, yang dimana berperan sebagai statement untuk memastikan objek mengimplementasikan ``IDisposable`` dibersihkan secara otomatis setelah digunakan. Berguna untuk mengelola resource seperti file, koneksi database atau soket jaringan. Biasanya digunaakan untuk mengimplementasikan IDisposable tadi seperti Filestream, StreamReader, SQLConnection dll.
+2. Using Statement, yang dimana berperan sebagai statement untuk memastikan objek mengimplementasikan``IDisposable`` dibersihkan secara otomatis setelah digunakan. Berguna untuk mengelola resource seperti file, koneksi database atau soket jaringan. Biasanya digunaakan untuk mengimplementasikan IDisposable tadi seperti Filestream, StreamReader, SQLConnection dll.
    ```csharp
    using System.IO;
 
@@ -3501,7 +3612,7 @@ Berikut adalah beberapa contoh keyword (metakarakter dan penanda) yang umum digu
 5. **Miscellaneous:**
 
    - `|` : Alternatif, cocok dengan salah satu dari dua pola yang dipisahkan.
-   - `\` : Escape karakter untuk membuat karakter khusus menjadi literal (misalnya, `\.` untuk mencocokkan titik).
+   - `\` : Escape karakter untuk membuat karakter khusus menjadi literal (misalnya,`\.` untuk mencocokkan titik).
 6. **Fungsi Penting:**
 
    * `Regex.Match`: Mencari kecocokan pertama dalam sebuah string.
@@ -3613,7 +3724,7 @@ e. **`#region` dan `#endregion`**
 2. **Kata Kunci dan Simbol Praprosesor**
 
 - **`DEBUG`**: Simbol praprosesor yang biasanya didefinisikan secara otomatis dalam konfigurasi build debug. Digunakan untuk memisahkan kode yang hanya relevan untuk mode debug.
-- **`TRACE`**: Mirip dengan `DEBUG`, tetapi biasanya digunakan untuk tujuan pelacakan yang lebih umum.
+- **`TRACE`**: Mirip dengan`DEBUG`, tetapi biasanya digunakan untuk tujuan pelacakan yang lebih umum.
 - **`RELEASE`**: Simbol yang biasanya didefinisikan secara otomatis dalam konfigurasi build release. Digunakan untuk menyertakan kode yang khusus untuk mode rilis.
 
 3. **Contoh Penggunaan**
@@ -3683,15 +3794,15 @@ C# menggunakan model **generational garbage collection**, yang berarti bahwa obj
 
 Meskipun .NET memiliki GC untuk mengelola memori secara otomatis, dalam beberapa kasus kita perlu melakukan pengelolaan memori secara manual agar aplikasi lebih optimal. Berikut beberapa teknik untuk mengatur memori secara manual:
 
-- **Menggunakan `Dispose()` dan `IDisposable`**Membantu membebaskan sumber daya eksternal seperti file, koneksi database, atau socket segera setelah tidak digunakan.
-- **Memanfaatkan `using` Statement**Memastikan objek yang mengimplementasikan `IDisposable` dibersihkan secara otomatis setelah selesai digunakan.
+- **Menggunakan`Dispose()` dan`IDisposable`**Membantu membebaskan sumber daya eksternal seperti file, koneksi database, atau socket segera setelah tidak digunakan.
+- **Memanfaatkan `using` Statement**Memastikan objek yang mengimplementasikan`IDisposable` dibersihkan secara otomatis setelah selesai digunakan.
 - **Menggunakan `GC.Collect()` dengan Hati-hati**Memaksa GC untuk menjalankan pembersihan memori, tetapi harus digunakan secara selektif untuk menghindari overhead yang tidak perlu.
-- **Memanfaatkan `WeakReference`**Membantu mengelola objek yang bisa dihapus oleh GC ketika tidak ada referensi kuat yang tersisa.
-- **Menggunakan `Object Pooling`**Mengurangi alokasi dan dealokasi objek berulang dengan mendaur ulang objek yang sering digunakan.
-- **Menghindari Alokasi Berlebihan di Heap**Gunakan `struct` daripada `class` untuk objek kecil yang sering digunakan agar tetap berada di stack.
-- **Menggunakan `Span<T>` dan `Memory<T>`**Mengelola buffer data secara efisien tanpa alokasi heap tambahan.
+- **Memanfaatkan`WeakReference`**Membantu mengelola objek yang bisa dihapus oleh GC ketika tidak ada referensi kuat yang tersisa.
+- **Menggunakan`Object Pooling`**Mengurangi alokasi dan dealokasi objek berulang dengan mendaur ulang objek yang sering digunakan.
+- **Menghindari Alokasi Berlebihan di Heap**Gunakan`struct` daripada`class` untuk objek kecil yang sering digunakan agar tetap berada di stack.
+- **Menggunakan`Span<T>` dan`Memory<T>`**Mengelola buffer data secara efisien tanpa alokasi heap tambahan.
 - **Menyesuaikan Pengaturan GC**
-  Mengatur mode GC seperti *Workstation GC*, *Server GC*, atau *Low-Latency GC* berdasarkan kebutuhan aplikasi.
+  Mengatur mode GC seperti*Workstation GC*,*Server GC*, atau*Low-Latency GC* berdasarkan kebutuhan aplikasi.
 
 **Contoh Kode Memori Manajemen Secara Manual Menggunakan GC.Collect**
 Jika Anda memilih untuk memanggil **`GC.Collect()`** secara eksplisit untuk mengoptimalkan proses pengumpulan sampah, pastikan Anda memahami kapan ini diperlukan:
@@ -3717,13 +3828,12 @@ GC.Collect(); // Pastikan semua yang bisa dikoleksi sudah terkoleksi
 
 Console.WriteLine("Setelah GC.Collect");
 Console.WriteLine($"Memori yang digunakan: {GC.GetTotalMemory(false)} bytes");
-
 ```
 
 Di C#, **Garbage Collector** bekerja di background untuk:
 
 - Memantau objek yang telah tidak terpakai (tidak lagi memiliki referensi yang menunjuk ke objek tersebut).
-- Menghapus objek-objek tersebut dari **managed heap**.
+- Menghapus objek-objek tersebut dari**managed heap**.
 - Membebaskan memori yang digunakan oleh objek-objek tersebut, yang kemudian dapat digunakan oleh objek lain.
 
 Proses ini mengurangi beban programmer untuk mengelola memori secara manual (seperti yang dilakukan di bahasa pemrograman seperti C atau C++) dan meminimalkan kemungkinan terjadinya **memory leaks**.
@@ -3734,7 +3844,7 @@ Walaupun Garbage Collection secara otomatis mengelola memori, ada beberapa alasa
 
 - **Overhead Performansi**:
 
-  - Proses GC dapat mengganggu eksekusi aplikasi, terutama jika aplikasi sering mengalokasikan dan membuang objek dalam jumlah besar. Ini dapat menyebabkan **latency spikes**, yang tidak diinginkan dalam aplikasi dengan kebutuhan waktu respons cepat.
+  - Proses GC dapat mengganggu eksekusi aplikasi, terutama jika aplikasi sering mengalokasikan dan membuang objek dalam jumlah besar. Ini dapat menyebabkan**latency spikes**, yang tidak diinginkan dalam aplikasi dengan kebutuhan waktu respons cepat.
 - **Pengumpulan Sampah Tidak Terkendali**:
 
   - Jika objek besar sering dialokasikan dan dibuang, GC harus bekerja ekstra untuk mengelola memori, yang mengarah pada waktu kompaksi heap yang lebih lama dan peningkatan penggunaan CPU.
@@ -3748,27 +3858,27 @@ Untuk mengatasi masalah terkait Garbage Collection, Anda dapat menerapkan bebera
 
 - **Kurangi Alokasi Objek yang Sering**:
 
-  - Usahakan agar objek tidak sering dibuat dan dibuang. Cobalah untuk menggunakan objek yang dapat **di-reuse** seperti dengan **Object Pooling** atau menghindari alokasi di dalam loop.
+  - Usahakan agar objek tidak sering dibuat dan dibuang. Cobalah untuk menggunakan objek yang dapat**di-reuse** seperti dengan**Object Pooling** atau menghindari alokasi di dalam loop.
 - **Gunakan Value Types (structs) daripada Reference Types (classes)**:
 
-  - Value types seperti **structs** disalin ke stack daripada heap, sehingga tidak memerlukan pengelolaan memori oleh GC.
+  - Value types seperti**structs** disalin ke stack daripada heap, sehingga tidak memerlukan pengelolaan memori oleh GC.
 - **Gunakan `Span<T>` dan `Memory<T>`**:
 
-  - Jika Anda bekerja dengan data dalam jumlah besar, **`Span<T>`** dan **`Memory<T>`** memungkinkan manipulasi buffer data tanpa perlu membuat alokasi heap yang baru.
-  - Dengan menggunakan **`Span<T>`**, Anda dapat menghindari overhead tambahan yang disebabkan oleh alokasi memori di heap.
+  - Jika Anda bekerja dengan data dalam jumlah besar,**`Span<T>`** dan**`Memory<T>`** memungkinkan manipulasi buffer data tanpa perlu membuat alokasi heap yang baru.
+  - Dengan menggunakan**`Span<T>`**, Anda dapat menghindari overhead tambahan yang disebabkan oleh alokasi memori di heap.
 - **Optimalkan Penggunaan Koleksi**:
 
-  - Hindari penggunaan koleksi seperti **List `<T>`** atau **Dictionary `<T>`** yang sering berubah ukurannya, karena dapat menyebabkan overhead yang besar.
-  - Gunakan koleksi yang lebih efisien dan sesuai kebutuhan, seperti **LinkedList `<T>`** untuk penyisipan dan penghapusan data.
+  - Hindari penggunaan koleksi seperti**List `<T>`** atau**Dictionary `<T>`** yang sering berubah ukurannya, karena dapat menyebabkan overhead yang besar.
+  - Gunakan koleksi yang lebih efisien dan sesuai kebutuhan, seperti**LinkedList `<T>`** untuk penyisipan dan penghapusan data.
 - **Manajemen Sumber Daya**:
 
-  - Pastikan untuk membersihkan sumber daya eksternal seperti koneksi database, file, atau socket dengan menggunakan **`IDisposable`** dan **`Dispose()`** untuk mencegah kebocoran memori.
+  - Pastikan untuk membersihkan sumber daya eksternal seperti koneksi database, file, atau socket dengan menggunakan**`IDisposable`** dan**`Dispose()`** untuk mencegah kebocoran memori.
 - **Jangan Memanggil `GC.Collect()` Terlalu Sering**:
 
-  - Secara umum, tidak disarankan untuk memanggil **`GC.Collect()`** karena GC secara otomatis mengelola pengumpulan sampah dengan baik. Namun, dalam beberapa kasus tertentu, Anda bisa memanggil **`GC.Collect()`** untuk memaksa pengumpulan sampah, tetapi gunakan ini dengan bijak.
+  - Secara umum, tidak disarankan untuk memanggil**`GC.Collect()`** karena GC secara otomatis mengelola pengumpulan sampah dengan baik. Namun, dalam beberapa kasus tertentu, Anda bisa memanggil**`GC.Collect()`** untuk memaksa pengumpulan sampah, tetapi gunakan ini dengan bijak.
 - **Gunakan `GCSettings.LatencyMode` untuk Mengontrol GC**:
 
-  - Anda dapat mengatur mode latensi GC menggunakan **`GCSettings.LatencyMode`** untuk aplikasi yang membutuhkan performa lebih tinggi dan latensi lebih rendah, seperti pada aplikasi real-time atau permainan.
+  - Anda dapat mengatur mode latensi GC menggunakan**`GCSettings.LatencyMode`** untuk aplikasi yang membutuhkan performa lebih tinggi dan latensi lebih rendah, seperti pada aplikasi real-time atau permainan.
 
 ## 5. GC Latency Modes di C#
 
@@ -3887,7 +3997,7 @@ System.Diagnostics adalah namespace dalam C# yang menyediakan berbagai alat untu
 
 Beberapa kelas utama yang sering digunakan dalam System.Diagnostics meliputi:
 
-* `Debug` dan `Trace` untuk debugging dan logging
+* `Debug` dan`Trace` untuk debugging dan logging
 * `EventLog` untuk mencatat log aplikasi di Windows Event Viewer
 * `Process` untuk memantau dan mengelola proses yang berjalan di sistem
 * `PerformanceCounter` untuk mengukur kinerja aplikasi
