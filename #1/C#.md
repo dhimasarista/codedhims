@@ -912,7 +912,7 @@ foreach (var item in collection.GetConsumingEnumerable()){
 
 `Channel<T>` adalah bagian dari namespace `System.Threading.Channels` yang diperkenalkan sejak .NET Core 3.0. Ini adalah **mekanisme asynchronous, thread-safe, dan highly-performant** untuk mentransfer data antar task atau thread.
 
-#### 🛠️ Kelebihan:
+🛠️ Kelebihan:
 
 * Non-blocking, mendukung `async/await`.
 * Cocok untuk **task-based asynchronous programming**.
