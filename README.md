@@ -8,8 +8,7 @@ build scalable, performant, core-systems capable and built for precision enginee
 ### 🏗️ Primary Backbone
 - Backend : AdonisJS
 - Runtimes : Node, Bun
-- Infra : PM2, RabbitMQ, Nginx
-- JobQueue : BullMQ, Event Emitter
+- Infra : PM2, Nginx, Google Cloud
 - Optimize : Cluster, TinyPool, FFI
 
 #### Can It Quietly Outperform? 🔥
