@@ -1,11 +1,11 @@
 build scalable, performant, core-systems capable and built for precision engineering thats is proven by design where strong OOP & syntax, native concurrency, enterprise & metal-access and extreme optimizations.
 
-# 🏯 Codedhims Stack
+## 🏯 Codedhims Stack
 - Core : C# | NodeJS
 - Datasource: Postgres, Redis
 - Additionals : Java, Laravel, Go
 
-# 🏗️ Primary Backbone
+### 🏗️ Primary Backbone
 - Backend : AdonisJS
 - Runtimes : Node, Bun
 - Infra : PM2, RabbitMQ, Nginx
