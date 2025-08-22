@@ -2,13 +2,16 @@ build scalable, performant, core-systems capable and built for precision enginee
 
 ### ☕ Corework : C# | NodeJS
 
-### 🪴 Garden-Thread : Java, Laravel, Go, D
+### 🏗️ On Build
+- Engine #1 ⚡ : AdonisJS
+  - Optimize : Cluster, TinyPool, FFI
+  - Runtimes : NodeJS, BunJS
+- Engine #2 🔥 : Java Spring
+  - Optimize : JVM Tunning, NativeAOT
 
-### 🏗️ Primary Backbone
-- Backend : AdonisJS
-- Runtimes : Node, Bun
-- Infra : PM2, Nginx, Google Cloud
-- Optimize : Cluster, TinyPool, FFI
+### 🪴 Garden-Thread
+- Java, Laravel, Go, D
+
 
 #### Can It Quietly Outperform? 🔥
 - JIT adapts over time for stable, long-running performance.
