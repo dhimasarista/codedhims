@@ -1,9 +1,8 @@
 build scalable, performant, core-systems capable and built for precision engineering thats is proven by design where strong OOP & syntax, native concurrency, enterprise & metal-access and extreme optimizations.
 
-### ☕ Corework
-- Core : C# | NodeJS
-- Datasource: Postgres, Redis
-- Additionals : Java, Laravel, Go
+### ☕ Corework : C# | NodeJS
+
+### 🪴 Garden-Thread : Java, Laravel, Go, D
 
 ### 🏗️ Primary Backbone
 - Backend : AdonisJS
