@@ -8,7 +8,7 @@ build scalable, performant, core-systems capable and built for precision enginee
   - Runtimes : NodeJS, BunJS
 - Engine #2 🔥 : Java Spring
   - Optimize : JVM Tunning, NativeAOT
-### 🪴 Garden-Thread
+### 🍵 Garden-Thread
 - Java, Laravel, Fiber
 - MVC, API-Driven, Modular
 - RabbitMQ, ZeroMQ, BullMQ
