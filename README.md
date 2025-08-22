@@ -10,7 +10,8 @@ build scalable, performant, core-systems capable and built for precision enginee
   - Optimize : JVM Tunning, NativeAOT
 ### 🪴 Garden-Thread
 - Java, Laravel, Go, D
-
+- MVC, API-Driven, Modular
+- RabbitMQ, ZeroMQ, BullMQ
 
 #### Can It Quietly Outperform? 🔥
 - JIT adapts over time for stable, long-running performance.
