@@ -9,7 +9,7 @@ build scalable, performant, core-systems capable and built for precision enginee
 - Engine #2 🔥 : Java Spring
   - Optimize : JVM Tunning, NativeAOT
 ### 🪴 Garden-Thread
-- Java, Laravel, Go, D
+- Java, Laravel, Fiber
 - MVC, API-Driven, Modular
 - RabbitMQ, ZeroMQ, BullMQ
 
