@@ -14,8 +14,7 @@ build scalable, performant, core-systems capable and built for precision enginee
 - RabbitMQ, ZeroMQ, BullMQ
 
 ⛔ Know but noooo (Corework DNA)
-- D/Dart (70%) : weak ecosystem 
-- Golang (35%) : too minimalis, boilerplate 
+- D/Dart (60%) : weak ecosystem 
 - Rust/Zig (10%) : too low level, horrible syntax
 - Kotlin/Swift (30%) : logic drift, ui oriented
 - Python (20%) : duck typing, weak perfor.
