@@ -1,4 +1,4 @@
-# 🏯 Naota Software Engineering 
+# 🏯 Backend & App Development 
 build scalable, performant, core-systems capable and built for precision engineering thats is proven by design where strong OOP & syntax, native concurrency, enterprise & metal-access and extreme optimizations.
 
 ### ☕ Corework : C# | NodeJS
@@ -16,5 +16,5 @@ build scalable, performant, core-systems capable and built for precision enginee
 ⛔ Know but noooo (Corework DNA)
 - D/Dart (60%) : weak ecosystem 
 - Rust/Zig (10%) : too low level, horrible syntax
-- Kotlin/Swift (30%) : logic drift, ui oriented
+- Kotlin/Swift (30%) : logic drift
 - Python (20%) : duck typing, weak perfor.
