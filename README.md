@@ -2,18 +2,22 @@
 build scalable, performant, core-systems capable and built for precision engineering thats is proven by design where strong OOP & syntax, native concurrency, enterprise & metal-access and extreme optimizations.
 
 ### ☕ Corework : C# | NodeJS
-### 🏗️ On Build I/O
+### 🍵 Proficiencies : Java, Laravel, Fiber
+
+### 🏗️ On Build
 - Engine #1 ⚡ : AdonisJS
+  - Languages : TS (Dev), JS (Prod)
   - Optimize : Cluster, TinyPool, FFI
   - Runtimes : NodeJS, BunJS
-- Engine #2 🔥 : Java Spring
+- Engine #2 🔥 : Java
   - Optimize : JVM Tunning, NativeAOT
-### 🍵 Garden-Thread
-- Java, Laravel, Fiber
-- MVC, API-Driven, Modular
-- RabbitMQ, ZeroMQ, BullMQ
+  - Runtimes : GraalVM, OpenJDK, OpenJ9, Zulu/Temurin
+  - Frameworks : Spring, Quarkus, Jakarta EE
+  - Build/Dependency : Maven, Gradle
+  - Data Persistance : Hibernate / JPA
+  - Reactive & Async : Project Reactor, Virtual Thread
 
-⛔ Know but noooo (Corework DNA)
+### ⛔ Know but noooo (Corework DNA)
 - D/Dart (60%) : weak ecosystem 
 - Rust/Zig (10%) : too low level, horrible syntax
 - Kotlin/Swift (30%) : logic drift
