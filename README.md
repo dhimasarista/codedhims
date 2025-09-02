@@ -1,8 +1,5 @@
-# 🏯 Backend & App Dev
+# ☕ C# | NodeJS | Programmers
 build scalable, performant, core-systems capable and built for precision engineering thats is proven by design where strong OOP & syntax, native concurrency, enterprise & metal-access and extreme optimizations.
-
-### ☕ Corework : C# | NodeJS
-### 🍵 Proficiencies : Java, Laravel, Fiber
 
 ### 🏗️ On Build
 - Engine #1 ⚡ : AdonisJS
@@ -17,8 +14,4 @@ build scalable, performant, core-systems capable and built for precision enginee
   - Data Persistance : Hibernate / JPA
   - Reactive & Async : Project Reactor, Virtual Thread
 
-### ⛔ Know but noooo (Corework DNA)
-- D/Dart (60%) : weak ecosystem 
-- Rust/Zig (10%) : too low level, horrible syntax
-- Kotlin/Swift (30%) : logic drift
-- Python (20%) : duck typing, weak perfor.
+<img width="1430" height="645" alt="image" src="https://github.com/user-attachments/assets/2adc2927-62ff-4f83-a030-db7c8934614f" />
