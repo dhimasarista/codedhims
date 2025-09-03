@@ -1,9 +1,6 @@
-# 🏯 Backend & App Dev
+# ☕C# | NodeJS | Programmer
 
 build scalable, performant, core-systems capable and built for precision engineering thats proven by design where strong OOP & syntax, native concurrency, enterprise & metal-access and extreme optimizations.
-
-* ☕ Corework : C#, NodeJS
-* 🍵 Forgework : Java
 
 ### Build-Scene 🏗️
 
@@ -12,7 +9,7 @@ build scalable, performant, core-systems capable and built for precision enginee
   - Languages : TS (Dev), JS (Prod)
   - Optimize : Cluster, TinyPool, FFI
   - Runtimes : NodeJS, BunJS
-- Engine #2 🔥 : Java
+- Engine #2 🔥 : Java (Forgework)
 
   - Optimize : JVM Tunning, NativeAOT
   - Runtimes : GraalVM, OpenJDK, MicroEJ
