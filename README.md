@@ -12,7 +12,7 @@ build scalable and performant thats proven by design where robust & no horrible,
 
 ### 🔥Why Java?
 
-If you ask me what my favorite programming stacks are, my answer will always be **C# and Node.js**.
+If you ask me what my favorite programming stacks are, my answer will always be **C# and NodeJS**.
 But if you ask me who the **best for coding** is, my objective answer is **Java**.
 
 - Proven & Mature Ecosystem
@@ -26,3 +26,5 @@ But if you ask me who the **best for coding** is, my objective answer is **Java*
 - Rust : horrible syntax
 - Python : too slow in raw, duck typing
 - Swift : weak ecosystem
+
+![1757070621163](images/README/1757070621163.png)
