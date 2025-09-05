@@ -1,8 +1,8 @@
-# ⛩️ Codedhims 
+# ⛩️ Codedhims
 
 ## ☕C# | NodeJS | Programmer
 
-build scalable and performant thats proven by design where robust & no horrible, native concurrency, metal-access & extreme optimizations and wide-ecosystem.build scalable, performant, core-systems capable and built for precision engineering thats proven by design where strong OOP & syntax, native concurrency, enterprise & metal-access and extreme optimizations.
+build scalable and performant thats proven by design where robust & no horrible, native concurrency, metal-access & extreme optimizations and wide-ecosystem.
 
 ## 🏗️ Java | Forgework
 
