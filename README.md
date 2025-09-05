@@ -1,25 +1,30 @@
-# ☕C# | NodeJS | Programmer
+# ⛩️ Codedhims 
 
-build scalable, performant, core-systems capable and built for precision engineering thats proven by design where strong OOP & syntax, native concurrency, enterprise & metal-access and extreme optimizations.
+## ☕C# | NodeJS | Programmer
 
-### Build-Scene 🏗️
+build scalable and performant thats proven by design where robust & no horrible, native concurrency, metal-access & extreme optimizations and wide-ecosystem.build scalable, performant, core-systems capable and built for precision engineering thats proven by design where strong OOP & syntax, native concurrency, enterprise & metal-access and extreme optimizations.
 
-- Engine #1 ⚡ : AdonisJS
+## 🏗️ Java | Forgework
 
-  - Languages : TS (Dev), JS (Prod)
-  - Optimize : Cluster, TinyPool, FFI
-  - Runtimes : NodeJS, BunJS
-- Engine #2 🔥 : Java (Forgework)
+- F : Spring, Quarkus, Jakarta EE
+- Optimize : JVM Tunning, NativeAOT
+- Runtimes : GraalVM, OpenJDK, MicroEJ
+- Concurrency : RX, Virtual Thread
+- Tooling : Maven, JShell
 
-  - Optimize : JVM Tunning, NativeAOT
-  - Runtimes : GraalVM, OpenJDK, MicroEJ
-  - F : Spring, Quarkus, Jakarta EE
-  - Concurrency : RX, Virtual Thread
-  - Tooling : Maven, JShell
+### 🔥Why Java?
 
-### ⛔ Down Used
+If you ask me what my favorite programming stacks are, my answer will always be **C# and Node.js**.
+But if you ask me who the **best for coding** is, my objective answer is **Java**.
 
-- horrible syntax, too low level
-- too slow, no concurrency
-- too minimalis, duck typing
-- weak ecosystem
+- Proven & Mature Ecosystem
+- Powerful runtimes (OpenJDK, GraalVM, MicroEJ)
+- Now more concise and modern in syntax compared to its verbose past
+
+**Compared to others:**
+
+- PHP : no native concurrency
+- Golang : over minimalist, boilerplate
+- Rust : horrible syntax
+- Python : too slow in raw, duck typing
+- Swift : weak ecosystem
