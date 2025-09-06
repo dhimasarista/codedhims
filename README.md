@@ -7,7 +7,6 @@ build scalable and performant thats proven by design where robust & no horrible,
 
 
 **⛔ Avoided**
-
 - PHP : no native concurrency
 - Go : over-minimalist & boilerplate-heavy
 - Rust : painful syntax, high cognitive load
