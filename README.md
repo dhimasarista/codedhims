@@ -2,12 +2,10 @@
 
 build scalable and performant thats proven by design where robust & no horrible, concurrency & parallelism , metal-access & extreme optimizations and wide-ecosystem.build scalable and performant thats proven by design where robust & no horrible, native concurrency, metal-access & extreme optimizations and wide-ecosystem.
 
-### ☕ Java | Forgework
+### 🏗️ Build-Scene
+ -🍵 **NodeJS** (80%) as the corework. 
+- ☕ **Java** (20%) as the robust backbone. 
 
-- Proven & Battle-tested
-- High Performance, Low-Latency
-- Runtimes: OpenJDK, GraalVM, MicroEJ
-- Ecosystem: Spring, Jakarta EE, Maven
 
 **⛔ Avoided**
 
