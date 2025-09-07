@@ -1,7 +1,8 @@
 ### ⛩️ C# | NodeJS | Programmer
-build scalable and performant thats proven by design where robust & no horrible, concurrency & parallelism , metal-access & extreme optimizations and wide-ecosystem.build scalable and performant thats proven by design where robust & no horrible, native concurrency, metal-access & extreme optimizations and wide-ecosystem.
+Passionate about Software Engineering. With a focus on building scalable and performant systems, where concurrency meets caffeine.
 
-### ☕ Java | Forgework
+### ☕ Naota | Java
+build scalable and system where robust & no horrible, concurrency & parallelism , metal-access & extreme optimizations and wide-ecosystem.
 - Framwks : Spring, Quarkus
 - Runtimes : OpenJDK, GraalVM, MicroEJ
 - Optimizes : GC Tunning, NativeAOT
