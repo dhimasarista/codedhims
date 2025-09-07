@@ -1,10 +1,11 @@
 ### ⛩️ C# | NodeJS | Programmer
 build scalable and performant thats proven by design where robust & no horrible, concurrency & parallelism , metal-access & extreme optimizations and wide-ecosystem.build scalable and performant thats proven by design where robust & no horrible, native concurrency, metal-access & extreme optimizations and wide-ecosystem.
 
-### 🏗️ Build-Scene
-- 🍵 **NodeJS** (80%) as the corework. 
-- ☕ **Java** (20%) as the robust backbone. 
-
+### ☕ Java | Forgework
+- Framwks : Spring, Quarkus
+- Runtimes : OpenJDK, GraalVM, MicroEJ
+- Optimizes : GC Tunning, NativeAOT
+- Tools : Maven, JShell, JFR, JConsole
 
 **⛔ Avoided**
 - PHP : no native concurrency
