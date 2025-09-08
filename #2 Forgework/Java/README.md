@@ -1,6 +1,6 @@
 # Java Programming Language
 
-![1739685631211](image/README/1739685631211.png)
+![1739685631211](https://fossbytes.com/wp-content/uploads/2017/09/Why-is-Java-the-best-programming-Language.png)
 
 Java adalah bahasa pemrograman yang dapat dijalankan di berbagai komputer termasuk telepon genggam. Bahasa ini awalnya dibuat oleh James Gosling saat masih bergabung di Sun Microsystems, yang saat ini merupakan bagian dari Oracle dan dirilis tahun 1995. Bahasa ini banyak mengadopsi sintaksis yang terdapat pada C dan C++ namun dengan sintaksis model objek yang lebih sederhana serta dukungan rutin-rutin aras bawah yang minimal. Aplikasi-aplikasi berbasis Java umumnya dikompilasi ke dalam p-code (bytecode) dan dapat dijalankan pada berbagai Mesin Virtual Java (JVM).
 
@@ -95,7 +95,7 @@ Konstanta
 
 Java adalah bahasa pemrograman berorientasi objek yang terkenal karena portabilitas, skalabilitas, dan kemampuannya dalam pengembangan aplikasi baik untuk web, desktop, maupun mobile. Java banyak digunakan di dunia industri, khususnya untuk aplikasi enterprise besar. Untuk memulai dengan Java, Anda perlu mengetahui beberapa hal dasar yang akan memudahkan Anda untuk menjalankan kode Java dan memahami konsep dasarnya.
 
-    ![1739685679731](image/README/1739685679731.png)
+![1739685679731](image/README/1739685679731.png)
 
 #### 0.1 Menjalankan Kode Java
 
@@ -326,8 +326,7 @@ Langkah-langkah:
 
     * Fungsi: Menentukan jumlah JIT compiler yang digunakan oleh JVM untuk kompilasi.
     * Contoh: `-XX:CICompilerCount=4`
-
-31.  `-Xss<size>`
+31. `-Xss<size>`
 
 * Fungsi: Menentukan ukuran stack untuk setiap thread di JVM.
 * Deskripsi: Argumen ini juga digunakan untuk menentukan ukuran stack, dan lebih sering digunakan di aplikasi JVM daripada `-XX:ThreadStackSize`. Ini sangat penting ketika aplikasi menggunakan banyak thread.
@@ -397,12 +396,13 @@ List<Integer> angkaReferensi = new ArrayList<>(Arrays.asList(1, 2, 3)); // Array
 
 Kesimpulan
 
-| Kategori       | Tipe Primitif                           | Tipe Referensi                                       |
-| -------------- | --------------------------------------- | ---------------------------------------------------- |
-| Contoh         | `int`,`double`,`boolean`,`char` | `String`,`Integer`,`Double`,`Array`,`List` |
-| Penyimpanan    | Langsung di memori                      | Menyimpan alamat referensi                           |
-| Fitur Tambahan | Tidak ada                               | Ada metode bawaan                                    |
-| Performa       | Lebih cepat                             | Lebih berat karena butuh alokasi memori tambahan     |
+
+| Kategori       | Tipe Primitif                   | Tipe Referensi                                   |
+| ---------------- | --------------------------------- | -------------------------------------------------- |
+| Contoh         | `int`,`double`,`boolean`,`char` | `String`,`Integer`,`Double`,`Array`,`List`       |
+| Penyimpanan    | Langsung di memori              | Menyimpan alamat referensi                       |
+| Fitur Tambahan | Tidak ada                       | Ada metode bawaan                                |
+| Performa       | Lebih cepat                     | Lebih berat karena butuh alokasi memori tambahan |
 
 ### 3. Deklarasi dan Inisialisasi Variabel
 
@@ -2044,7 +2044,7 @@ public class Main {
 }
 ```
 
- Penjelasan :
+Penjelasan :
 
 * Kode mencoba mengakses elemen array yang tidak ada (indeks di luar batas).
 * `catch` menangkap dan menangani exception yang terjadi (dalam hal ini `ArrayIndexOutOfBoundsException`).
@@ -2066,7 +2066,7 @@ public class Main {
 }
 ```
 
- Penjelasan :
+Penjelasan :
 
 * Kode dalam `finally` akan selalu dieksekusi, baik ada exception maupun tidak.
 * Biasanya digunakan untuk membersihkan sumber daya (seperti menutup file, database connection).
@@ -2087,7 +2087,7 @@ public class Main {
 }
 ```
 
- Penjelasan :
+Penjelasan :
 
 * Jika terjadi `ArithmeticException`, blok pertama akan menangkapnya.
 * Jika exception lainnya terjadi, blok `catch` kedua akan menangkapnya.
@@ -2114,7 +2114,7 @@ public class Main {
 }
 ```
 
- Penjelasan :
+Penjelasan :
 
 * Method `readFile` melemparkan exception `IOException`.
 * Method `main` harus menangani exception ini menggunakan `try-catch`, karena method `readFile` menggunakan kata kunci `throws`.
@@ -2141,7 +2141,7 @@ public class Main {
 }
 ```
 
- Penjelasan :
+Penjelasan :
 
 * `CustomException` adalah kelas exception yang Anda buat sendiri.
 * `throw` digunakan untuk melemparkan exception kustom ini.
@@ -2296,9 +2296,10 @@ public class ContohVirtualThread {
 
 Kapan Menggunakan Apa?
 
-| Kebutuhan                       | Gunakan                      |
-| ------------------------------- | ---------------------------- |
-| Multi-thread sederhana          | `Thread` atau `Runnable` |
+
+| Kebutuhan                       | Gunakan                    |
+| --------------------------------- | ---------------------------- |
+| Multi-thread sederhana          | `Thread` atau `Runnable`   |
 | Pengelolaan thread otomatis     | `ExecutorService`          |
 | Tugas rekursif atau paralelisme | `ForkJoinPool`             |
 | Proses koleksi secara paralel   | `ParallelStream`           |
@@ -2317,15 +2318,16 @@ Berikut adalah beberapa kategori utama kelas standar di Java:
 
 Paket `java.lang` otomatis diimpor dalam setiap program Java.
 
-| Kelas                                  | Deskripsi                                                                   |
-| -------------------------------------- | --------------------------------------------------------------------------- |
-| `Object`                             | Superclass dari semua kelas di Java.                                        |
-| `String`                             | Immutable class untuk representasi teks.                                    |
-| `StringBuilder`/`StringBuffer`     | Mutable string untuk manipulasi teks yang efisien.                          |
-| `Math`                               | Operasi matematika seperti `sqrt()`,`pow()`,`random()`.               |
-| `Integer`,`Double`,`Float`, dll. | Wrapper class untuk tipe primitif.                                          |
-| `System`                             | Berisi metode `System.out.println()`,`System.currentTimeMillis()`, dll. |
-| `Thread`                             | Untuk pembuatan thread secara manual.                                       |
+
+| Kelas                            | Deskripsi                                                              |
+| ---------------------------------- | ------------------------------------------------------------------------ |
+| `Object`                         | Superclass dari semua kelas di Java.                                   |
+| `String`                         | Immutable class untuk representasi teks.                               |
+| `StringBuilder`/`StringBuffer`   | Mutable string untuk manipulasi teks yang efisien.                     |
+| `Math`                           | Operasi matematika seperti`sqrt()`,`pow()`,`random()`.                 |
+| `Integer`,`Double`,`Float`, dll. | Wrapper class untuk tipe primitif.                                     |
+| `System`                         | Berisi metode`System.out.println()`,`System.currentTimeMillis()`, dll. |
+| `Thread`                         | Untuk pembuatan thread secara manual.                                  |
 
 Contoh penggunaan `String` dan `Math`:
 
@@ -2345,12 +2347,13 @@ public class JavaStandardClass {
 
 Paket `java.util` menyediakan berbagai kelas untuk manipulasi data.
 
-| Kelas           | Deskripsi                                                        |
-| --------------- | ---------------------------------------------------------------- |
-| `ArrayList`   | List dinamis yang bisa bertambah ukurannya.                      |
-| `LinkedList`  | Implementasi list berbasis linked list.                          |
-| `HashMap`     | Struktur data berbasis key-value.                                |
-| `HashSet`     | Kumpulan elemen unik, tidak terurut.                             |
+
+| Kelas         | Deskripsi                                                    |
+| --------------- | -------------------------------------------------------------- |
+| `ArrayList`   | List dinamis yang bisa bertambah ukurannya.                  |
+| `LinkedList`  | Implementasi list berbasis linked list.                      |
+| `HashMap`     | Struktur data berbasis key-value.                            |
+| `HashSet`     | Kumpulan elemen unik, tidak terurut.                         |
 | `Collections` | Kelas utilitas untuk operasi koleksi (`sort()`,`shuffle()`). |
 | `Arrays`      | Operasi pada array (`Arrays.sort()`,`Arrays.asList()`).      |
 
@@ -2381,13 +2384,14 @@ public class CollectionExample {
 
 Paket `java.io` dan `java.nio` digunakan untuk operasi file, stream, dan jaringan.
 
-| Kelas                                    | Deskripsi                               |
-| ---------------------------------------- | --------------------------------------- |
-| `File`                                 | Untuk manipulasi file.                  |
+
+| Kelas                                | Deskripsi                               |
+| -------------------------------------- | ----------------------------------------- |
+| `File`                               | Untuk manipulasi file.                  |
 | `BufferedReader`/`BufferedWriter`    | Membaca/menulis file dengan buffer.     |
 | `FileInputStream`/`FileOutputStream` | Membaca/menulis file dalam bentuk byte. |
-| `Scanner`                              | Membaca input dari pengguna atau file.  |
-| `Path`(java.nio.file)                  | Manipulasi path file/folder modern.     |
+| `Scanner`                            | Membaca input dari pengguna atau file.  |
+| `Path`(java.nio.file)                | Manipulasi path file/folder modern.     |
 
 Contoh membaca file dengan `BufferedReader`:
 
@@ -2412,11 +2416,12 @@ public class FileReadExample {
 
 Paket `java.util.concurrent` menyediakan kelas untuk pemrograman konkurensi.
 
-| Kelas                                     | Deskripsi                       |
-| ----------------------------------------- | ------------------------------- |
-| `ThreadPoolExecutor`                    | Mengelola kumpulan thread.      |
-| `Executors`                             | Membantu pembuatan thread pool. |
-| `CompletableFuture`                     | Operasi async yang fleksibel.   |
+
+| Kelas                               | Deskripsi                       |
+| ------------------------------------- | --------------------------------- |
+| `ThreadPoolExecutor`                | Mengelola kumpulan thread.      |
+| `Executors`                         | Membantu pembuatan thread pool. |
+| `CompletableFuture`                 | Operasi async yang fleksibel.   |
 | `Semaphore`,`Lock`,`CountDownLatch` | Sinkronisasi thread.            |
 
 Contoh penggunaan `ExecutorService`:
@@ -2441,8 +2446,9 @@ public class ExecutorExample {
 
 Paket `java.net` memungkinkan komunikasi jaringan.
 
-| Kelas                 | Deskripsi                 |
-| --------------------- | ------------------------- |
+
+| Kelas               | Deskripsi                 |
+| --------------------- | --------------------------- |
 | `URL`               | Mengambil data dari URL.  |
 | `Socket`            | Komunikasi client-server. |
 | `HttpURLConnection` | Mengirim HTTP request.    |
@@ -2475,8 +2481,9 @@ public class HttpExample {
 
 Paket `java.time` digunakan untuk manipulasi tanggal dan waktu.
 
-| Kelas             | Deskripsi                         |
-| ----------------- | --------------------------------- |
+
+| Kelas           | Deskripsi                         |
+| ----------------- | ----------------------------------- |
 | `LocalDate`     | Representasi tanggal tanpa waktu. |
 | `LocalTime`     | Representasi waktu tanpa tanggal. |
 | `LocalDateTime` | Gabungan tanggal dan waktu.       |
@@ -2698,11 +2705,12 @@ Interface Utama dalam Collections
 
 List memiliki indeks (`0-based`) dan mendukung elemen duplikat.
 
-| Implementasi   | Ciri Khas                                            |
-| -------------- | ---------------------------------------------------- |
+
+| Implementasi | Ciri Khas                                            |
+| -------------- | ------------------------------------------------------ |
 | `ArrayList`  | List berbasis array, cepat untuk akses indeks.       |
 | `LinkedList` | List berbasis linked list, efisien untuk penyisipan. |
-| `Vector`     | Mirip `ArrayList`, tapi thread-safe .              |
+| `Vector`     | Mirip`ArrayList`, tapi thread-safe .                 |
 
 Contoh Penggunaan `ArrayList` dan `LinkedList`
 
@@ -2732,8 +2740,9 @@ public class ListExample {
 
 Set tidak mengizinkan duplikat dan tidak memiliki indeks.
 
-| Implementasi      | Ciri Khas                           |
-| ----------------- | ----------------------------------- |
+
+| Implementasi    | Ciri Khas                           |
+| ----------------- | ------------------------------------- |
 | `HashSet`       | Tidak terurut, berbasishash table . |
 | `LinkedHashSet` | Mempertahankanurutan penambahan .   |
 | `TreeSet`       | Terurutsecara alami(ascending).     |
@@ -2766,8 +2775,9 @@ public class SetExample {
 
 Map menyimpan pasangan kunci-nilai (`key-value`),  key harus unik .
 
-| Implementasi      | Ciri Khas                              |
-| ----------------- | -------------------------------------- |
+
+| Implementasi    | Ciri Khas                              |
+| ----------------- | ---------------------------------------- |
 | `HashMap`       | Tidak terurut, berbasishash table .    |
 | `LinkedHashMap` | Mempertahankanurutan penambahan .      |
 | `TreeMap`       | Terurut berdasarkankunci (ascending) . |
@@ -2799,8 +2809,9 @@ public class MapExample {
 
 Queue digunakan untuk  struktur antrean .
 
-| Implementasi      | Ciri Khas                                  |
-| ----------------- | ------------------------------------------ |
+
+| Implementasi    | Ciri Khas                                  |
+| ----------------- | -------------------------------------------- |
 | `PriorityQueue` | Antrian denganprioritasberdasarkan elemen. |
 | `ArrayDeque`    | Implementasidouble-ended queue (Deque) .   |
 
@@ -2827,8 +2838,9 @@ public class QueueExample {
 
 Kelas `Collections` menyediakan metode utilitas untuk  mengelola koleksi .
 
-| Metode                        | Kegunaan                |
-| ----------------------------- | ----------------------- |
+
+| Metode                      | Kegunaan                |
+| ----------------------------- | ------------------------- |
 | `Collections.sort(list)`    | Mengurutkan list.       |
 | `Collections.reverse(list)` | Membalik urutan list.   |
 | `Collections.shuffle(list)` | Mengacak elemen list.   |
@@ -2859,8 +2871,9 @@ public class CollectionsExample {
 
 Kesimpulan
 
-| Struktur | Kegunaan                  | Implementasi                     |
-| -------- | ------------------------- | -------------------------------- |
+
+| Struktur | Kegunaan                  | Implementasi                 |
+| ---------- | --------------------------- | ------------------------------ |
 | List     | Berurutan, bisa duplikat  | `ArrayList`,`LinkedList`     |
 | Set      | Unik, tanpa indeks        | `HashSet`,`TreeSet`          |
 | Map      | Key-Value, key unik       | `HashMap`,`TreeMap`          |
@@ -3124,11 +3137,12 @@ public class StreamLambda {
 
 Kesimpulan
 
+
 | Konsep                | Deskripsi                                                                       |
-| --------------------- | ------------------------------------------------------------------------------- |
+| ----------------------- | --------------------------------------------------------------------------------- |
 | Lambda                | Ekspresi ringkas untuk fungsi anonim.                                           |
 | Functional Interface  | Interface dengan satu metode abstrak yang bisa diimplementasikan dengan Lambda. |
-| Sorting dengan Lambda | Mempermudah sorting di `Collections.sort()`.                                  |
+| Sorting dengan Lambda | Mempermudah sorting di`Collections.sort()`.                                     |
 | Streams & Lambda      | Digunakan untuk filtering, mapping, dan reducing data.                          |
 
 # 10. Java Streams
@@ -3237,16 +3251,17 @@ public class StreamGenerateExample {
 
 Intermediate operations mengembalikan Stream baru dan bisa dirantai ( chaining ).
 
-| Method                              | Deskripsi                                        |
-| ----------------------------------- | ------------------------------------------------ |
+
+| Method                            | Deskripsi                                        |
+| ----------------------------------- | -------------------------------------------------- |
 | `filter(Predicate<T>)`            | Memfilter elemen yang memenuhi kondisi.          |
 | `map(Function<T, R>)`             | Mengubah elemen menjadi bentuk lain.             |
 | `flatMap(Function<T, Stream<R>>)` | Meratakan elemen yang merupakan List atau Array. |
-| `sorted()`                        | Mengurutkan elemen berdasarkan `Comparable`.   |
+| `sorted()`                        | Mengurutkan elemen berdasarkan`Comparable`.      |
 | `sorted(Comparator<T>)`           | Mengurutkan dengan aturan khusus.                |
 | `distinct()`                      | Menghapus elemen duplikat.                       |
-| `limit(n)`                        | Mengambil `n`elemen pertama.                   |
-| `skip(n)`                         | Melewati `n`elemen pertama.                    |
+| `limit(n)`                        | Mengambil`n`elemen pertama.                      |
+| `skip(n)`                         | Melewati`n`elemen pertama.                       |
 | `peek(Consumer<T>)`               | Debugging tanpa mengubah elemen.                 |
 
 Contoh `filter()`
@@ -3307,8 +3322,9 @@ public class StreamFlatMapExample {
 
 Terminal operations menghasilkan nilai atau efek samping dan  mengakhiri stream .
 
-| Method                           | Deskripsi                                          |
-| -------------------------------- | -------------------------------------------------- |
+
+| Method                         | Deskripsi                                          |
+| -------------------------------- | ---------------------------------------------------- |
 | `forEach(Consumer<T>)`         | Menjalankan aksi untuk setiap elemen.              |
 | `collect(Collectors.toList())` | Mengubah Stream ke List.                           |
 | `count()`                      | Menghitung jumlah elemen.                          |
