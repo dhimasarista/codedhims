@@ -1,7 +1,7 @@
 ### ⛩️ C# | NodeJS | Programmer
 Passionate about Software Engineering. With a focus on building scalable and performant systems, where concurrency meets caffeine.
 
-### ☕ Naota | Java
+### ☕ Java | Forgework
 build scalable and system where robust & no horrible, concurrency & parallelism , metal-access & extreme optimizations and wide-ecosystem.
 - Framwks : Spring, Quarkus
 - Runtimes : OpenJDK, GraalVM, MicroEJ
