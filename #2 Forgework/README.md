@@ -9,7 +9,7 @@ scalable systems, robust & no compromise, true **concurrency & parallelism**, wi
 
 > Siapa yang bisa menggantikan Java di level enterprise? 🤷🏻
 
-## Perusahaan Full Using Java
+## 🏬 Perusahaan Full Using Java
 
 * **LinkedIn** → backend & large-scale services pakai Java.
 * **Netflix** → microservices architecture mostly Java + Spring.

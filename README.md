@@ -1,12 +1,15 @@
-### ⛩️ C# | NodeJS | Programmer
+### ⛩️ Corework : C# | NodeJS
 Passionate about Software Engineering. With a focus on building scalable and performant systems, where concurrency meets caffeine.
 
-### ☕ Java | Forgework
-build scalable and system where robust & no horrible, concurrency & parallelism , metal-access & extreme optimizations and wide-ecosystem.
-- Framwks : Spring, Quarkus
-- Runtimes : OpenJDK, GraalVM, MicroEJ
-- Optimizes : GC Tunning, NativeAOT
-- Tools : Maven, JShell, JFR, JConsole
+### ☕ Forgework : Java | ...
+build scalable and performant system where robust & no horrible, concurrency & parallelism , metal-access & extreme optimizations and wide-ecosystem.
+
+### 🏗️ Build & Run
+- Framwks : AdonisJS, Spring
+- Libraries : TinyPool, Resilience4J
+- Runtimes : NodeJS, GraalVM
+- Optimizes : Clustering, GC Tunning
+- Tools : Maven, NPM, JConsole, PM2
 
 **⛔ Avoided**
 - PHP : no native concurrency
