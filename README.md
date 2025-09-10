@@ -4,12 +4,11 @@ Passionate about Software Engineering. With a focus on building scalable and per
 
 | ☕          | Corework      | Forgework            |
 | ------------ | ------------------ | ----------------- |
-| Frameworks | AdoniJS, NestJS  | Spring, Quarkus |
-| Libraries  | TinyPool, BullMQ | Resilience4j    |
+| Frmwks | AdoniJS, NestJS  | Spring, Quarkus |
+| Libs  | TinyPool, BullMQ | Resilience4j    |
 | Engine     | V8               | JVM             |
 | Tune Up    | Clustering       | GC Tuning, AOT  |
 | Tools      | NPM, PM2         | Maven, Jconsole |
-| Scalabilty | Horizontal       | Microservices   |
 
 
 ![](assets/20250910_134828_image.png)
