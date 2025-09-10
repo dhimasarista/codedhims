@@ -2,7 +2,7 @@
 
 Passionate about Software Engineering. With a focus on building scalable and performant systems, where concurrency meets caffeine.
 
-### ☕ Corework
+### ☕ Build & Run
 
 | #          | Corework      | Forgework            |
 | ------------ | ------------------ | ----------------- |
