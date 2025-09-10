@@ -1,6 +1,6 @@
 ## ⛩️ C# | NodeJS | Programmer
 
-Passionate about **Software Engineering**. With a focus on building scalable and performant systems, where concurrency meets caffeine.
+Passionate about **Software Engineering**. With a focus on building scalable and performant systems. where concurrency meets caffeine, bytecode brew resilience. 
 
 | ☕          | Corework      | Forgework            |
 | ------------ | ------------------ | ----------------- |

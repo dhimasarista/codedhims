@@ -1,6 +1,6 @@
 # ☕ Why Java?
 
-scalable systems, robust & no compromise, true **concurrency & parallelism**, with metal-access, extreme optimizations, and a wide ecosystem that never sleeps.scalable and system where robust & no horrible, concurrency & parallelism , metal-access & extreme optimizations and wide-ecosystem.
+scalable systems, robust & no compromise, true **concurrency & parallelism**, with metal-access, extreme optimizations, and a wide ecosystem that never sleeps. scalable system where robust & no horrible, concurrency & parallelism , metal-access & extreme optimizations and wide-ecosystem.
 
 * **Runtimes** : OpenJDK, GraalVM, MicroEJ
 * **Framwks** : Spring, Quarkus, Jakarta EE
