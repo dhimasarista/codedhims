@@ -1,13 +1,13 @@
 ## ⛩️ C# | NodeJS | Programmer
 
-Passionate about Software Engineering. With a focus on building scalable and performant systems, where concurrency meets caffeine.
+Passionate about **Software Engineering**. With a focus on building scalable and performant systems, where concurrency meets caffeine.
 
 | ☕          | Corework      | Forgework            |
 | ------------ | ------------------ | ----------------- |
 | Frmwks | AdonisJS, NestJS  | Spring, Quarkus |
 | Libs  | TinyPool, BullMQ | Resilience4J    |
-| Engine     | Node, Bun | OpenJDK, GraalVM |
-| Optimize   | Clustering       | GC Tuning, AOT  |
+| Engines     | Node, Bun | OpenJDK, GraalVM |
+| Optimizes   | Clustering       | GC Tuning, AOT  |
 | Tools      | NPM, PM2         | Maven, JConsole |
 
 
