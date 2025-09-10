@@ -2,9 +2,7 @@
 
 Passionate about Software Engineering. With a focus on building scalable and performant systems, where concurrency meets caffeine.
 
-### ☕ Build & Run
-
-| #          | Corework      | Forgework            |
+| ☕          | Corework      | Forgework            |
 | ------------ | ------------------ | ----------------- |
 | Frameworks | AdoniJS, NestJS  | Spring, Quarkus |
 | Libraries  | TinyPool, BullMQ | Resilience4j    |
