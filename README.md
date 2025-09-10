@@ -7,7 +7,7 @@ Passionate about **Software Engineering**. With a focus on building scalable and
 | Frmwks | AdonisJS, NestJS  | Spring, Quarkus |
 | Libs  | TinyPool, BullMQ | Resilience4J    |
 | Engines     | Node, Bun | OpenJDK, GraalVM |
-| Optimizes   | Clustering       | GC Tuning, AOT  |
+| Tuning   | Clustering       | GC Tuning, AOT  |
 | Tools      | NPM, PM2         | Maven, JConsole |
 
 
