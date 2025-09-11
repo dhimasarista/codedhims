@@ -2,7 +2,7 @@
 
 Passionate about **Software Engineering**. With a focus on building scalable and performant systems. where concurrency meets caffeine, bytecode brew resilience. 
 
-| ☕| NodeJS      | Java            |
+| Aspect | 🍵 NodeJS      | ☕ Java |
 | ------------ | ------------------ | ----------------- |
 | Engine     | V8 | OpenJDK, GraalVM |
 | Libraries  | Piscina | Resilience4J    |
