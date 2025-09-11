@@ -1,23 +1,28 @@
 ## ⛩️ C# | NodeJS | Programmer
 
-Passionate about **Software Engineering**. With a focus on building scalable and performant systems. where concurrency meets caffeine, bytecode brew resilience. 
+Passionate about **Software Engineering**. With a focus on building scalable and performant systems. where concurrency meets caffeine, bytecode brew resilience.
 
-| Aspect | 🍵 NodeJS      | ☕ Java |
-| ------------ | ------------------ | ----------------- |
-| Engine     | V8 | OpenJDK, GraalVM |
-| Libraries  | Piscina | Resilience4J    |
-| Tuning   | Clustering       | GC Tuning, AOT  |
-| Tools      | NPM, PM2         | Maven, JConsole |
-| Archs | Single-thread, Even Loop | Multithread, JVM |
-| Workload      | I/O-Bound, Realtime| CPU-Bound, Mission-Critical |
-| Scaling | Horizontal + Multi-instance | Horizontal + Vertical  |
-| Used For | Startup | Enterprise, Banking |
-| Used By | Walmart | Netflix |
-| Benchmarks | NodeJS | Java (Quarkus) |
-| | 283.445 RPS / 2.0 ms | 1.028.408 RPS / 0.5 ms |
-| Rating | ⭐⭐⭐⭐☆ | ⭐⭐⭐⭐⭐ |
 
-![](assets/20250910_134828_image.png)
+| Aspect     | 🍵 NodeJS                   | ☕ Java                     |
+| ------------ | ----------------------------- | ----------------------------- |
+| Engine     | V8                          | OpenJDK, GraalVM            |
+| Libraries  | Piscina                     | Resilience4J                |
+| Tuning     | Clustering                  | GC Tuning, AOT              |
+| Tools      | NPM, PM2                    | Maven, JConsole             |
+| Archs      | Single-thread, Event Loop   | Multithread, JVM            |
+| Workload   | I/O-Bound, Realtime         | CPU-Bound, Mission-Critical |
+| Scaling    | Horizontal + Multi-instance | Horizontal + Vertical       |
+| Used For   | Startup                     | Enterprise, Banking         |
+| Used By    | Walmart                     | Netflix                     |
+| Benchmarks | NodeJS                      | Java (Quarkus)              |
+|            | 283.445 RPS / 2.0 ms        | 1.028.408 RPS / 0.5 ms      |
+| Rating     | ⭐⭐⭐⭐☆                  | ⭐⭐⭐⭐⭐                  |
+
+![](assets/20250912_055614_image.png)
+
+
+
+
 
 <!-- 
 ## ☕ Java | Forgework
