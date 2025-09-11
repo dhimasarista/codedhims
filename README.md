@@ -4,8 +4,8 @@ Passionate about **Software Engineering**. With a focus on building scalable and
 
 | ☕          | Corework      | Forgework            |
 | ------------ | ------------------ | ----------------- |
-| Frmwks | AdonisJS, NestJS  | Spring, Quarkus |
-| Libs  | Piscina, BullMQ | Resilience4J    |
+| Frmwks | AdonisJS | Spring Boot |
+| Libs  | TinyPool, BullMQ | Resilience4J    |
 | Engines     | Node, Bun | OpenJDK, GraalVM |
 | Tuning   | Clustering       | GC Tuning, AOT  |
 | Tools      | NPM, PM2         | Maven, JConsole |
