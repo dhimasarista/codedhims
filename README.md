@@ -14,9 +14,8 @@ Passionate about **Software Engineering**. With a focus on building scalable and
 | Scaling    | Horizontal + Multi-instance | Horizontal + Vertical       |
 | Used For   | Startup                     | Enterprise, Banking         |
 | Used By    | Walmart                     | Netflix                     |
-| Benchmarks | NodeJS                      | Java (Quarkus)              |
-|            | 283.445 RPS / 2.0 ms        | 1.028.408 RPS / 0.5 ms      |
-| Rating     | ⭐⭐⭐⭐☆                  | ⭐⭐⭐⭐⭐                  |
+| Benchmarks | 283.445 RPS / 2.0 ms | 1.028.408 RPS / 0.5 ms |
+| Rating     | ⭐⭐⭐⭐☆ | ⭐⭐⭐⭐⭐ |
 
 ![](assets/20250912_055614_image.png)
 
