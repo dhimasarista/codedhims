@@ -47,3 +47,9 @@
 * Java Database
 * Java Unit Test
 * Java Resilience4J
+
+### Todo
+- Blockchain Toy Project di Java
+    - Implementasi ledger sederhana: block, hash, mining simulasi.
+    - REST API untuk submit transaksi.
+    - Bonus: tambahin ZKP library (Java punya beberapa).
