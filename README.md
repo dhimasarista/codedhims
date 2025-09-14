@@ -2,12 +2,8 @@
 
 Passionate about **Software Engineering**. With a focus on building scalable and performant systems. where concurrency meets caffeine, bytecode brew resilience.
 
-## 🛠️ Java | Forgework
 
-Proven for nearly 30 years as the **backbone of robust systems** , with a **vast ecosystem** and **extreme optimizations**.
-
-
-| Aspect         | 🍵 NodeJS                   | ☕ Java                     |
+| Aspect         | 🍵 NodeJS                   | ☕ Java (forgework)         |
 | ---------------- | ----------------------------- | ----------------------------- |
 | **Engine**     | V8                          | OpenJDK, GraalVM            |
 | **Libraries**  | Piscina                     | Resilience4J                |
