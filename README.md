@@ -2,7 +2,7 @@
 
 Passionate about **Software Engineering**. With a focus on building scalable and performant systems. where concurrency meets caffeine, bytecode brew resilience.
 
-## ☕ Proficiencies | Java | PHP | ...
+### ☕ Proficiencies | Java | PHP | ...
 Proven over the years to deliver robust systems that ensure stability, scalability, and security in every industry.
 
 #### ⛔ Avoided in Development
