@@ -3,7 +3,7 @@
 Passionate about **Software Engineering**. With a focus on building scalable and performant systems. where concurrency meets caffeine, bytecode brew resilience.
 
 ## ☕ Proficiencies | Java | PHP | ...
-Proven in years to build robust systems, this technology has consistently powered mission-critical applications across industries, enabling organizations to achieve reliability, scalability, and security at every level of operation. Its longevity in the market reflects not only technical maturity but also a strong ecosystem of tools, frameworks, and community support that continue to evolve with modern business needs.
+Proven over the years to deliver robust systems that ensure stability, scalability, and security in every industry.
 
 #### ⛔ Avoided in Development
 - 🐭 : over-minimalist, boilerplate
