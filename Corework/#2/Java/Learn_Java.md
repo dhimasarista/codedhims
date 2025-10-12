@@ -7,12 +7,15 @@
 ### #1 Java Dasar
 
 #### Pengenalan Java
+
 Java adalah bahasa pemrograman yang dapat dijalankan di berbagai komputer termasuk telepon genggam. Bahasa ini awalnya dibuat oleh James Gosling saat masih bergabung di Sun Microsystems, yang saat ini merupakan bagian dari Oracle dan dirilis tahun 1995. Bahasa ini banyak mengadopsi sintaksis yang terdapat pada C dan C++ namun dengan sintaksis model objek yang lebih sederhana serta dukungan rutin-rutin aras bawah yang minimal. Aplikasi-aplikasi berbasis Java umumnya dikompilasi ke dalam p-code (bytecode) dan dapat dijalankan pada berbagai Mesin Virtual Java (JVM).
 
 Java merupakan bahasa pemrograman yang bersifat umum/non-spesifik (general purpose), dan secara khusus didesain untuk memanfaatkan dependensi implementasi seminimal mungkin. Karena fungsionalitasnya yang memungkinkan aplikasi Java mampu berjalan di beberapa platform sistem operasi yang berbeda, Java dikenal pula dengan slogannya, "Tulis sekali, jalankan di mana pun". Saat ini Java merupakan bahasa pemrograman yang paling populer digunakan[butuh rujukan], dan secara luas dimanfaatkan dalam pengembangan berbagai jenis perangkat lunak.
 
 Oracle (dan yang lainnya) sangat merekomendasikan untuk menghapus versi lawas dan tidak didukung dari Java, karena masalah keamanan yang belum terselesaikan di versi lama.[16] Oracle menyarankan para penggunanya untuk segera bertransisi ke versi yang didukung, seperti salah satu versi LTS (8, 11, 17).
+
 #### Menginstall Java
+
 Environment yang dibutuhkan:
 
 1. Java Development Kit (JDK):
@@ -95,6 +98,7 @@ Konstanta
   * `Pi`
 
 #### Program Hello World
+
 Untuk menjalankan kode Java, Anda memerlukan beberapa alat dan lingkungan pengembangan yang tepat.
 
 Langkah-langkah untuk Menjalankan Kode Java:
@@ -142,6 +146,7 @@ Langkah-langkah untuk Menjalankan Kode Java:
 1. Menjalankan Kode di IDE :
 
 * Jika menggunakan IDE, Anda cukup klik Run setelah menulis kode, dan IDE akan otomatis mengkompilasi dan menjalankan kode tersebut.
+
 #### JVM Tuning
 
 1. Menggunakan JVM Tuning di CLI (Command Line Interface)
@@ -337,40 +342,75 @@ Langkah-langkah:
 33. `-Djava.io.tmpdir=<directory>`
     * Fungsi: Menentukan direktori temporary files yang digunakan oleh aplikasi.
     * Contoh: `-Djava.io.tmpdir=/tmp`
+
 #### Tipe Data Number
+
 - int → bilangan bulat (contoh: int x = 10;)
 - double → bilangan desimal (contoh: double y = 3.14;)
 - long, float, short, byte → variasi ukuran & presisi
+
 #### Tipe Data Character
+
 - char → satu huruf saja, pakai tanda '
 - Contoh: char grade = 'A';
+
 #### Tipe Data Boolean
+
 - boolean → hanya dua nilai: true atau false
 - Contoh: boolean isOn = true;
+
 #### Tipe Data String
+
 - String → teks (kumpulan karakter)
 - Contoh: String name = "Red Horizon";
 - Beda dengan char karena bisa lebih dari satu huruf.
+
 #### Variable
+
 * Tempat nyimpan data di memori.
 * Format: `tipe nama = nilai;`
+
 - Contoh:
+
 ```java
 int umur = 21;
 String nama = "Red";
 ```
+#### Konstanta
+Jika Anda ingin mendeklarasikan variabel yang nilainya tidak bisa diubah setelah inisialisasi, Anda bisa menggunakan kata kunci `final` untuk membuat variabel menjadi konstanta.
+
+```java
+final double PI = 3.14159;
+```
+
+Variabel `PI` di atas tidak bisa diubah setelah diberi nilai.
+
 #### Tipe Data Bukan Primitif
+
 * Bukan bawaan langsung dari bahasa Java, tapi objek/class.
 * Bisa punya method & null.
+
 - Contoh:
+
 ```java
 String teks = "Halo";     // class String
 Integer angka = 10;       // wrapper dari int
 Double nilai = 3.14;      // wrapper dari double
 ```
+
+
+| Kategori       | Tipe Primitif                   | Tipe Referensi                                   |
+| ---------------- | --------------------------------- | -------------------------------------------------- |
+| Contoh         | `int`,`double`,`boolean`,`char` | `String`,`Integer`,`Double`,`Array`,`List`       |
+| Penyimpanan    | Langsung di memori              | Menyimpan alamat referensi                       |
+| Fitur Tambahan | Tidak ada                       | Ada metode bawaan                                |
+| Performa       | Lebih cepat                     | Lebih berat karena butuh alokasi memori tambahan |
+
 #### Tipe Data Array
+
 * Menyimpan banyak nilai dengan tipe sama.
-Contoh:
+  Contoh:
+
 ```java
 int[] angka = {1, 2, 3, 4};
 String[] nama = {"Red", "Horizon"};
@@ -378,7 +418,9 @@ System.out.println(angka[0]); // Output: 1
 
 // Indeks mulai dari 0.
 ```
+
 #### Operasi Matematika
+
 int a = 10;
 int b = 3;
 
@@ -388,8 +430,8 @@ int kali = a * b;     // 30
 int bagi = a / b;     // 3
 int sisa = a % b;     // 1
 
-
 #### Operasi Perbandingan
+
 int x = 5;
 int y = 8;
 
@@ -400,8 +442,8 @@ boolean lebihKecil = x < y; // true
 boolean lebihBesarSama = x >= y; // false
 boolean lebihKecilSama = x <= y; // true
 
-
 #### Operasi Boolean
+
 boolean p = true;
 boolean q = false;
 
@@ -532,6 +574,7 @@ for (String n : nama) {
     System.out.println(n);
 }
 ```
+
 #### Method
 
 Kumpulan kode yang bisa dipanggil berulang untuk melakukan tugas tertentu.
@@ -658,7 +701,9 @@ beberapa baris
  * Komentar dokumentasi (JavaDoc)
  */
 ```
+
 ### #2 Java Object-Oriented Programming
+
 #### Class
 
 Blueprint atau cetakan untuk membuat objek.
@@ -1438,147 +1483,1022 @@ Matcher m = p.matcher("asyncra");
 System.out.println(m.matches());
 ```
 
-
 ---
 
 ## 2️⃣ Collection & Data
 
 ### #1 Java Collections
 
-```bash
-- Iterable dan Iterator
-- Collection
-- List
-- Immutable List
-- Set
-- Immutable Set
-- SortedSet
-- NavigableSet
-- Queue
-- Deque
-- Map
-- Immutable Map
-- SortedMap
-- NavigableMap
-- Entry Map
-- Legacy Collection
-- Sorting
-- Binary Search
-- Collections Class
-- Abstract Collection
-- Default Method
-- Spliterator
-- Konversi ke Array
+#### Iterable dan Iterator
 
+`Iterable` memungkinkan objek diiterasi (`for-each`). `Iterator` digunakan untuk iterasi manual.
+
+```java
+List<String> list = List.of("A", "B", "C");
+for (String s : list) System.out.println(s);
 ```
+
+---
+
+#### Collection
+
+Interface dasar dari semua struktur data koleksi seperti `List`, `Set`, dan `Queue`.
+
+---
+
+#### List
+
+Koleksi berurutan dan bisa menyimpan elemen duplikat.
+
+```java
+List<Integer> nums = new ArrayList<>();
+nums.add(1); nums.add(2);
+```
+
+---
+
+#### Immutable List
+
+List yang tidak bisa diubah.
+
+```java
+List<String> names = List.of("A", "B");
+```
+
+---
+
+#### Set
+
+Tidak menyimpan elemen duplikat.
+
+```java
+Set<String> set = new HashSet<>(List.of("A", "B"));
+```
+
+---
+
+#### Immutable Set
+
+Tidak bisa dimodifikasi.
+
+```java
+Set<String> set = Set.of("A", "B");
+```
+
+---
+
+#### SortedSet
+
+Set yang otomatis terurut.
+
+```java
+SortedSet<Integer> sorted = new TreeSet<>(List.of(3,1,2));
+```
+
+---
+
+#### NavigableSet
+
+Versi `SortedSet` dengan navigasi tambahan (higher, lower, dsb).
+
+```java
+NavigableSet<Integer> nav = new TreeSet<>(List.of(1,2,3));
+```
+
+---
+
+#### Queue
+
+Koleksi dengan konsep FIFO (First In First Out).
+
+```java
+Queue<String> q = new LinkedList<>();
+q.add("A"); q.add("B");
+```
+
+---
+
+#### Deque
+
+Double-ended queue (bisa dari dua arah).
+
+```java
+Deque<String> dq = new ArrayDeque<>();
+dq.addFirst("A"); dq.addLast("B");
+```
+
+---
+
+#### Map
+
+Menyimpan pasangan key-value.
+
+```java
+Map<String, Integer> map = new HashMap<>();
+map.put("A", 1);
+```
+
+---
+
+#### Immutable Map
+
+Map yang tidak bisa diubah.
+
+```java
+Map<String, Integer> map = Map.of("A", 1, "B", 2);
+```
+
+---
+
+#### SortedMap
+
+Map dengan key yang terurut.
+
+```java
+SortedMap<String, Integer> sm = new TreeMap<>();
+```
+
+---
+
+#### NavigableMap
+
+Map dengan navigasi tambahan (higherKey, lowerKey).
+
+```java
+NavigableMap<String, Integer> nm = new TreeMap<>();
+```
+
+---
+
+#### Entry Map
+
+Representasi pasangan key-value dalam Map.
+
+```java
+for (Map.Entry<String,Integer> e : map.entrySet()) System.out.println(e.getKey());
+```
+
+---
+
+#### Legacy Collection
+
+Kelas lama seperti `Vector`, `Hashtable`, `Stack` sebelum Java Collections Framework.
+
+---
+
+#### Sorting
+
+Mengurutkan koleksi.
+
+```java
+Collections.sort(nums);
+```
+
+---
+
+#### Binary Search
+
+Mencari elemen dalam list terurut.
+
+```java
+int index = Collections.binarySearch(nums, 2);
+```
+
+---
+
+#### Collections Class
+
+Kelas utilitas untuk operasi koleksi.
+
+```java
+Collections.reverse(nums);
+```
+
+---
+
+#### Abstract Collection
+
+Kelas dasar untuk mempermudah implementasi koleksi kustom.
+
+---
+
+#### Default Method
+
+Metode bawaan dalam interface (Java 8+).
+
+```java
+interface A { default void hi(){ System.out.println("Hi"); } }
+```
+
+---
+
+#### Spliterator
+
+Iterator dengan dukungan parallel traversal (stream).
+
+```java
+list.spliterator().forEachRemaining(System.out::println);
+```
+
+---
+
+#### Konversi ke Array
+
+Mengubah koleksi menjadi array.
+
+```java
+String[] arr = list.toArray(new String[0]);
+```
+
+---
 
 ### #2 Sequenced Collection
 
-```bash
-- Sequenced Collection
-- Sequenced Set
-- Sequenced Map
+#### Sequenced Collection
 
+Interface baru (Java 21+) yang memperluas `Collection`, mendukung akses elemen pertama dan terakhir, serta traversal dua arah.
+
+```java
+SequencedCollection<String> sc = new ArrayList<>(List.of("A", "B", "C"));
+System.out.println(sc.getFirst());
+System.out.println(sc.getLast());
 ```
 
+---
+
+#### Sequenced Set
+
+Turunan dari `Set` + `SequencedCollection`, menjaga urutan elemen saat dimasukkan.
+
+```java
+SequencedSet<String> ss = new LinkedHashSet<>(List.of("X", "Y", "Z"));
+System.out.println(ss.getFirst());
+```
+
+---
+
+#### Sequenced Map
+
+Turunan dari `Map` + `SequencedCollection`, mendukung urutan key-value dan akses entry pertama atau terakhir.
+
+```java
+SequencedMap<String, Integer> sm = new LinkedHashMap<>();
+sm.put("A", 1);
+sm.put("B", 2);
+System.out.println(sm.firstEntry());
+System.out.println(sm.lastEntry());
+```
+
+
 ### #3 Java Generic
+#### Pengenalan Generic
 
-```bash
-- Pengenalan Generic
-- Generic Class
-- Generic Method
-- Invariant
-- Covariant
-- Contravariant
-- Bounded Type Parameter
-- Wildcard
-- Type Erasure
-- Comparable Interface
-- Comparator Interface
+Generic memungkinkan pembuatan class atau method yang bekerja dengan berbagai tipe data tanpa kehilangan keamanan tipe.
 
+```java
+List<String> list = new ArrayList<>();
+list.add("Halo");
+```
+
+---
+
+#### Generic Class
+
+Class dengan parameter tipe agar dapat digunakan fleksibel untuk berbagai tipe data.
+
+```java
+class Box<T> {
+    T value;
+    Box(T value) { this.value = value; }
+    T get() { return value; }
+}
+Box<Integer> box = new Box<>(10);
+```
+
+---
+
+#### Generic Method
+
+Method yang memiliki parameter tipe sendiri.
+
+```java
+class Util {
+    static <T> void print(T data) {
+        System.out.println(data);
+    }
+}
+Util.print("Test");
+```
+
+---
+
+#### Invariant
+
+Tipe generic tidak bisa saling menggantikan meski tipe dasarnya berhubungan.
+
+```java
+List<Number> nums = new ArrayList<>();
+// List<Integer> ints tidak bisa dianggap List<Number>
+```
+
+---
+
+#### Covariant
+
+Dapat membaca data dari turunan, tapi tidak bisa menulis.
+
+```java
+List<? extends Number> list = List.of(1, 2, 3);
+Number n = list.get(0);
+```
+
+---
+
+#### Contravariant
+
+Dapat menulis data turunan, tapi tidak bisa membaca spesifik.
+
+```java
+List<? super Integer> list = new ArrayList<>();
+list.add(10);
+```
+
+---
+
+#### Bounded Type Parameter
+
+Membatasi tipe parameter agar hanya menerima tipe tertentu.
+
+```java
+class Data<T extends Number> {
+    T value;
+}
+```
+
+---
+
+#### Wildcard
+
+Digunakan untuk tipe generic yang tidak diketahui.
+
+```java
+List<?> data = List.of("A", "B");
+Object obj = data.get(0);
+```
+
+---
+
+#### Type Erasure
+
+Informasi tipe generic dihapus saat runtime — hanya ada di compile time.
+
+```java
+List<String> a = new ArrayList<>();
+List<Integer> b = new ArrayList<>();
+System.out.println(a.getClass() == b.getClass()); // true
+```
+
+---
+
+#### Comparable Interface
+
+Digunakan untuk membandingkan objek berdasarkan urutan alami.
+
+```java
+class Person implements Comparable<Person> {
+    String name;
+    public int compareTo(Person o) {
+        return name.compareTo(o.name);
+    }
+}
+```
+
+---
+
+#### Comparator Interface
+
+Digunakan untuk membandingkan objek dengan aturan kustom.
+
+```java
+Comparator<String> cmp = (a, b) -> a.length() - b.length();
+System.out.println(cmp.compare("Hi", "Hello"));
 ```
 
 ### #4 Java Stream
+Java Stream adalah fitur di Java 8+ yang digunakan untuk memproses data secara deklaratif (seperti SQL atau functional programming).
+Daripada menulis loop manual, kamu cukup menulis urutan operasi seperti filter, map, dan collect.
+#### Stream Builder
+Digunakan untuk membuat stream secara manual.
 
-```bash
-- Stream Builder
-- Stream Operations
-- Stream Pipeline
-- Lazy Evaluation
-- Transformation Operations
-- Filtering Operations
-- Retrieving Operations
-- Ordering Operations
-- Aggregate Operations
-- Check Operations
-- For Each Operations
-- Primitive Stream
-- Collectors
-- Grouping By
-- Parallel Stream
-
+```java
+Stream<String> stream = Stream.<String>builder()
+    .add("A").add("B").add("C")
+    .build();
+stream.forEach(System.out::println);
 ```
+
+---
+
+#### Stream Operations
+
+Operasi dibagi menjadi dua: **intermediate** (menghasilkan stream baru) dan **terminal** (menghasilkan hasil akhir).
+
+---
+
+#### Stream Pipeline
+
+Urutan operasi stream dari sumber hingga hasil akhir.
+
+```java
+List.of(1, 2, 3, 4)
+    .stream()
+    .filter(n -> n % 2 == 0)
+    .map(n -> n * 10)
+    .forEach(System.out::println);
+```
+
+---
+
+#### Lazy Evaluation
+
+Operasi intermediate tidak dijalankan hingga ada operasi terminal.
+
+---
+
+#### Transformation Operations
+
+Mengubah data dalam stream, seperti `map()` atau `flatMap()`.
+
+```java
+List.of("a", "b").stream()
+    .map(String::toUpperCase)
+    .forEach(System.out::println);
+```
+
+---
+
+#### Filtering Operations
+
+Menyaring elemen yang memenuhi kondisi.
+
+```java
+List.of(1, 2, 3, 4).stream()
+    .filter(n -> n > 2)
+    .forEach(System.out::println);
+```
+
+---
+
+#### Retrieving Operations
+
+Mengambil sebagian elemen, seperti `limit()` dan `skip()`.
+
+```java
+List.of(10, 20, 30, 40).stream()
+    .skip(1)
+    .limit(2)
+    .forEach(System.out::println);
+```
+
+---
+
+#### Ordering Operations
+
+Mengurutkan elemen dalam stream.
+
+```java
+List.of(3, 1, 2).stream()
+    .sorted()
+    .forEach(System.out::println);
+```
+
+---
+
+#### Aggregate Operations
+
+Menghitung nilai agregat seperti jumlah, rata-rata, atau maksimum.
+
+```java
+int sum = List.of(1, 2, 3).stream()
+    .mapToInt(Integer::intValue)
+    .sum();
+```
+
+---
+
+#### Check Operations
+
+Memeriksa kondisi pada elemen, seperti `anyMatch()`, `allMatch()`, atau `noneMatch()`.
+
+```java
+boolean result = List.of(1, 2, 3).stream()
+    .anyMatch(n -> n > 2);
+```
+
+---
+
+#### For Each Operations
+
+Menjalankan aksi untuk setiap elemen stream.
+
+```java
+List.of("A", "B", "C").stream()
+    .forEach(System.out::println);
+```
+
+---
+
+#### Primitive Stream
+
+Stream khusus tipe primitif (`IntStream`, `LongStream`, `DoubleStream`).
+
+```java
+IntStream.range(1, 4).forEach(System.out::println);
+```
+
+---
+
+#### Collectors
+
+Mengumpulkan hasil stream ke bentuk lain seperti List, Set, atau Map.
+
+```java
+List<Integer> list = List.of(1, 2, 3).stream()
+    .collect(Collectors.toList());
+```
+
+---
+
+#### Grouping By
+
+Mengelompokkan data berdasarkan kriteria tertentu.
+
+```java
+Map<Integer, List<String>> grouped = 
+    List.of("aa", "bbb", "cc").stream()
+        .collect(Collectors.groupingBy(String::length));
+```
+
+---
+
+#### Parallel Stream
+
+Memproses stream secara paralel untuk meningkatkan performa.
+
+```java
+List.of(1, 2, 3, 4).parallelStream()
+    .forEach(System.out::println);
+```
+
 
 ---
 
 ## 3️⃣ Input/Output & Data Format
 
 ### #1 Java Input/Output
+#### File
 
-```bash
-- File
-- Path
-- Manipulasi File
-- Manipulasi Directory
-- Closable Interface
-- Numeric dan Character Data
-- Menulis File Kecil
-- Membaca File Kecil
-- Input Stream
-- Output Stream
-- Reader
-- Writer
-- Open Option
-- Object Stream
-- Memory Stream
-- Print Stream
-- Scanner
-- IO Stream Lainnya
+Representasi abstrak dari file atau folder di sistem.
 
+```java
+File file = new File("data.txt");
+System.out.println(file.exists());
 ```
 
+---
+
+#### Path
+
+Digunakan untuk memanipulasi path secara modern (sejak Java NIO).
+
+```java
+Path path = Paths.get("data.txt");
+System.out.println(path.toAbsolutePath());
+```
+
+---
+
+#### Manipulasi File
+
+Operasi membuat, menyalin, memindah, atau menghapus file.
+
+```java
+Files.copy(Paths.get("a.txt"), Paths.get("b.txt"), StandardCopyOption.REPLACE_EXISTING);
+```
+
+---
+
+#### Manipulasi Directory
+
+Membuat atau membaca direktori.
+
+```java
+Files.createDirectory(Paths.get("folderBaru"));
+Files.list(Paths.get(".")).forEach(System.out::println);
+```
+
+---
+
+#### Closable Interface
+
+Digunakan oleh class yang perlu ditutup setelah digunakan.
+
+```java
+try (FileInputStream fis = new FileInputStream("data.txt")) {
+    System.out.println(fis.read());
+}
+```
+
+---
+
+#### Numeric dan Character Data
+
+Input/output bisa berbasis **byte (numeric)** atau **karakter (text)**.
+`InputStream`/`OutputStream` untuk byte,
+`Reader`/`Writer` untuk karakter.
+
+---
+
+#### Menulis File Kecil
+
+Menulis teks langsung ke file.
+
+```java
+Files.writeString(Paths.get("test.txt"), "Halo Dunia");
+```
+
+---
+
+#### Membaca File Kecil
+
+Membaca teks langsung dari file.
+
+```java
+String content = Files.readString(Paths.get("test.txt"));
+System.out.println(content);
+```
+
+---
+
+#### Input Stream
+
+Membaca data biner dari sumber.
+
+```java
+InputStream in = new FileInputStream("input.bin");
+int data = in.read();
+in.close();
+```
+
+---
+
+#### Output Stream
+
+Menulis data biner ke tujuan.
+
+```java
+OutputStream out = new FileOutputStream("output.bin");
+out.write(65);
+out.close();
+```
+
+---
+
+#### Reader
+
+Membaca data berbasis karakter.
+
+```java
+Reader reader = new FileReader("text.txt");
+int c = reader.read();
+reader.close();
+```
+
+---
+
+#### Writer
+
+Menulis data berbasis karakter.
+
+```java
+Writer writer = new FileWriter("text.txt");
+writer.write("Halo");
+writer.close();
+```
+
+---
+
+#### Open Option
+
+Menentukan opsi saat membuka file seperti `CREATE`, `APPEND`, atau `TRUNCATE_EXISTING`.
+
+```java
+Files.writeString(Paths.get("log.txt"), "Data", StandardOpenOption.APPEND);
+```
+
+---
+
+#### Object Stream
+
+Digunakan untuk menyimpan dan membaca objek Java (serialization).
+
+```java
+ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("obj.bin"));
+out.writeObject("Hello");
+out.close();
+```
+
+---
+
+#### Memory Stream
+
+Menyimpan data sementara di memori, bukan file.
+
+```java
+ByteArrayOutputStream mem = new ByteArrayOutputStream();
+mem.write(65);
+System.out.println(mem.toString());
+```
+
+---
+
+#### Print Stream
+
+Menulis output dengan format mirip `System.out`.
+
+```java
+PrintStream ps = new PrintStream("print.txt");
+ps.println("Halo Dunia");
+ps.close();
+```
+
+---
+
+#### Scanner
+
+Membaca input teks dengan mudah dari berbagai sumber.
+
+```java
+Scanner sc = new Scanner(new File("text.txt"));
+while (sc.hasNextLine()) System.out.println(sc.nextLine());
+```
+
+---
+
+#### IO Stream Lainnya
+
+Java menyediakan stream tambahan seperti `BufferedReader`, `BufferedWriter`, dan `DataOutputStream` untuk efisiensi dan format data tertentu.
+
+
 ### #2 Java CSV
+#### Pengenalan Apache Commons CSV
 
-```bash
-- Pengenalan Apache Commons CSV
-- Membuat Project
-- Membuat CSV
-- Membaca CSV
-- CSV Header
-- CSV Format
+Library populer untuk membaca dan menulis file CSV secara mudah dan aman.
 
+---
+
+#### Membuat Project
+
+Tambahkan dependency berikut ke `pom.xml`:
+
+```xml
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-csv</artifactId>
+    <version>1.10.0</version>
+</dependency>
+```
+
+---
+
+#### Membuat CSV
+
+Menulis data ke file CSV.
+
+```java
+try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("data.csv"));
+     CSVPrinter csv = new CSVPrinter(writer, CSVFormat.DEFAULT)) {
+    csv.printRecord("Nama", "Umur");
+    csv.printRecord("Red", 22);
+    csv.printRecord("Horizon", 25);
+}
+```
+
+---
+
+#### Membaca CSV
+
+Membaca isi file CSV baris per baris.
+
+```java
+try (Reader reader = Files.newBufferedReader(Paths.get("data.csv"));
+     CSVParser parser = new CSVParser(reader, CSVFormat.DEFAULT.withFirstRecordAsHeader())) {
+    for (CSVRecord record : parser) {
+        System.out.println(record.get("Nama") + " - " + record.get("Umur"));
+    }
+}
+```
+
+---
+
+#### CSV Header
+
+Menentukan nama kolom agar mudah diakses.
+
+```java
+CSVFormat format = CSVFormat.DEFAULT
+    .builder()
+    .setHeader("Nama", "Umur")
+    .setSkipHeaderRecord(true)
+    .build();
+```
+
+---
+
+#### CSV Format
+
+Mengatur format seperti delimiter, quote, atau escape character.
+
+```java
+CSVFormat format = CSVFormat.DEFAULT
+    .withDelimiter(';')
+    .withQuote('"')
+    .withRecordSeparator("\n");
 ```
 
 ### #3 Java JSON
+#### Pengenalan JSON
 
-```bash
-- Pengenalan JSON
-- Pengenalan Jackson
-- Membuat Project
-- Object Mapper
-- Membuat JSON Object
-- Membaca JSON Object
-- Membuat JSON Array
-- Membaca JSON Array
-- Konversi Object ke JSON
-- Konversi JSON ke Object
-- Mapper Feature
-- Deserialization Feature
-- Serialization Feature
-- Serialization Inclusion
-- Date Time
-- Jackson Annotation
+JSON (JavaScript Object Notation) adalah format ringan untuk pertukaran data antar sistem, berbasis key-value dan mudah dibaca manusia.
 
+---
+
+#### Pengenalan Jackson
+
+Jackson adalah library populer untuk membaca, menulis, dan memetakan data JSON ke objek Java (dan sebaliknya).
+
+---
+
+#### Membuat Project
+
+Tambahkan dependency berikut ke `pom.xml`:
+
+```xml
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.17.0</version>
+</dependency>
+```
+
+---
+
+#### Object Mapper
+
+Kelas utama di Jackson untuk konversi JSON dan Object.
+
+```java
+ObjectMapper mapper = new ObjectMapper();
+```
+
+---
+
+#### Membuat JSON Object
+
+Membuat JSON menggunakan `ObjectNode`.
+
+```java
+ObjectMapper mapper = new ObjectMapper();
+ObjectNode obj = mapper.createObjectNode();
+obj.put("nama", "Red");
+obj.put("umur", 22);
+System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj));
+```
+
+---
+
+#### Membaca JSON Object
+
+Membaca string JSON menjadi `JsonNode`.
+
+```java
+String json = "{\"nama\":\"Red\",\"umur\":22}";
+JsonNode node = mapper.readTree(json);
+System.out.println(node.get("nama").asText());
+```
+
+---
+
+#### Membuat JSON Array
+
+Membuat array JSON menggunakan `ArrayNode`.
+
+```java
+ArrayNode arr = mapper.createArrayNode();
+arr.add("Red");
+arr.add("Horizon");
+System.out.println(mapper.writeValueAsString(arr));
+```
+
+---
+
+#### Membaca JSON Array
+
+Membaca data array dari JSON.
+
+```java
+String json = "[\"A\", \"B\", \"C\"]";
+ArrayNode arr = (ArrayNode) mapper.readTree(json);
+System.out.println(arr.get(0).asText());
+```
+
+---
+
+#### Konversi Object ke JSON
+
+Mengubah object Java ke string JSON.
+
+```java
+record User(String name, int age) {}
+String json = mapper.writeValueAsString(new User("Red", 22));
+System.out.println(json);
+```
+
+---
+
+#### Konversi JSON ke Object
+
+Mengubah JSON menjadi object Java.
+
+```java
+String json = "{\"name\":\"Red\",\"age\":22}";
+User user = mapper.readValue(json, User.class);
+System.out.println(user.name());
+```
+
+---
+
+#### Mapper Feature
+
+Mengaktifkan atau menonaktifkan fitur pada `ObjectMapper`.
+
+```java
+mapper.enable(SerializationFeature.INDENT_OUTPUT);
+```
+
+---
+
+#### Deserialization Feature
+
+Mengatur perilaku saat membaca JSON.
+
+```java
+mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+```
+
+---
+
+#### Serialization Feature
+
+Mengatur perilaku saat menulis JSON.
+
+```java
+mapper.enable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS);
+```
+
+---
+
+#### Serialization Inclusion
+
+Mengatur agar hanya field tertentu yang diserialisasi.
+
+```java
+mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+```
+
+---
+
+#### Date Time
+
+Jackson dapat mengonversi `LocalDateTime` otomatis.
+
+```java
+mapper.registerModule(new JavaTimeModule());
+```
+
+---
+
+#### Jackson Annotation
+
+Anotasi untuk mengontrol perilaku JSON pada class.
+
+```java
+class User {
+    @JsonProperty("nama")
+    String name;
+    @JsonIgnore
+    int age;
+}
 ```
 
 ---

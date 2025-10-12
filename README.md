@@ -1,10 +1,9 @@
-# ⛩️ C# & NodeJS | Java
+# ⛾ C# & NodeJS | Java
 
-build scalable & performant sytem, where concurrency meets caffeine, bytecode brew resilience.
+build scalable & performant sytem, where concurrency meets caffeine.
 
 ## 🛠 Tools
 
-- **Front-end** : React, Ant-Design
 - **Architectures** : Monolith, Microservices
 - **Databases** : PostgreSQL, Redis
 - **Orchestra**
@@ -27,8 +26,8 @@ build scalable & performant sytem, where concurrency meets caffeine, bytecode br
 
 **⛔ Avoided in Development**
 
-- 🐘 : lacks native concurrency
-- 🐭 : over-minimalist, boilerplate
-- 🐍 : slow in raw, duck typing
-- 🦀 : horrible, painful syntax
-- 🕊️ : weak ecosystem
+- 🐘 lacks native concurrency
+- 🐭 over-minimalist, boilerplate
+- 🐍 slow in raw, duck typing
+- 🦀 horrible, painful syntax
+- 🕊️ weak ecosystem
