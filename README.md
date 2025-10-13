@@ -1,9 +1,9 @@
-# 🎴 C# & NodeJS | Programmer
-build scalable & performant sytem, where concurrency meets caffeine.
-### ⛾ Corework : Java | Spring Boot
+## ⛾ Corework : C# & NodeJS | Java
+build scalable & performant system, where concurrency meets caffeine.
+
 - **Architectures** : Monolith, Microservices
 - **Databases** : PostgreSQL, Redis
-- **Orchestra**
+- **Orchestration**
   - CI/CD : Github Actions, Jenkins
   - Podman + Kubernetes (Optional)
 - **Event Bus** :
