@@ -1,9 +1,6 @@
-# ⛾ C# & NodeJS | Java
-
+# 🎴 C# & NodeJS | Programmer
 build scalable & performant sytem, where concurrency meets caffeine.
-
-## 🛠 Tools
-
+### ⛾ Corework : Java | Spring Boot
 - **Architectures** : Monolith, Microservices
 - **Databases** : PostgreSQL, Redis
 - **Orchestra**
@@ -24,7 +21,7 @@ build scalable & performant sytem, where concurrency meets caffeine.
   - In-memory (Redis)
   - Elasticsearch
 
-**⛔ Avoided in Development**
+**⛔ Less Preferred**
 
 - 🐘 lacks native concurrency
 - 🐭 over-minimalist, boilerplate
