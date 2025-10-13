@@ -22,7 +22,6 @@ build scalable & performant system, where concurrency meets caffeine.
   - Elasticsearch
 
 **⛔ Less Preferred**
-
 - 🐘 lacks native concurrency
 - 🐭 over-minimalist, boilerplate
 - 🐍 slow in raw, duck typing
