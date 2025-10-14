@@ -1248,4 +1248,106 @@ Berikut perbandingan dan daftar komponen masing-masing.
 | WebSocket                |      ✅      |  ✅ (Reactive Core) |                       |
 | SSE (Server Sent Events) | ⚙️ (manual) |      ✅ native      |                       |
 
+## Tambahan
+### 🧱 **Spring Core / Boot**
+
+* 🔄 **ApplicationContextInitializer & ApplicationListener (custom startup hooks)**
+* 🧩 **Conditionals (`@Conditional`, `@ConditionalOnProperty`, dll.)**
+* 🧩 **Profiles advanced (multi-profile YAML merging)**
+* ⚙️ **Configuration Class Ordering (`@ImportResource`, `@Order`)**
+* 🪝 **Shutdown Hook & Graceful Shutdown**
+
 ---
+
+### 🗃️ **Data Layer (beyond JPA)**
+
+* 🔌 **Spring Data JDBC** (non-JPA lightweight alternative)
+* 🔄 **Spring Data R2DBC** (reaktif)
+* 🧩 **Spring Data MongoDB**
+* 📦 **Paging & Sorting Repository**
+* ⚙️ **Custom Repository Implementation**
+* 💥 **Exception Translation (`@Repository` role)**
+
+---
+
+### 🌊 **WebFlux Tambahan**
+
+* 🧩 **Server-Sent Events (SSE)**
+* ⚙️ **WebClient** (reaktif pengganti `RestTemplate`)
+* 🔁 **Filter dan HandlerFilterFunction**
+* 🧪 **WebTestClient (testing reaktif)**
+* 📡 **Streaming dan Backpressure Handling (Flux sink, emit)**
+* 🧠 **Scheduler & Thread Model Reactor (boundedElastic, parallel, dll.)**
+
+---
+
+### 🌐 **REST & Web**
+
+* 🔌 **RestTemplate / WebClient (Imperatif vs Reaktif)**
+* 🧩 **CORS Configuration**
+* 🧠 **Exception Handling Global (`@ControllerAdvice`)**
+* 🧩 **HATEOAS** (opsional, tapi sering muncul di REST enterprise)
+* 🔒 **CSRF & CORS in API Context**
+
+---
+
+### 🔐 **Security (lebih detail)**
+
+* 🧱 **Spring Security Filter Chain**
+* 🔑 **AuthenticationManager & Provider**
+* 🔒 **JWT / OAuth2 Resource Server**
+* 🧩 **Reactive Security (WebFlux)**
+* ⚙️ **Custom Authentication / Authorization**
+
+---
+
+### ☁️ **Deployment / Cloud**
+
+* 🧩 **Spring Boot Docker / Buildpacks**
+* ☁️ **Spring Cloud Config / Consul / Vault**
+* 📡 **Service Discovery (Eureka / Consul)**
+* 🔄 **Circuit Breaker & Resilience4j**
+
+---
+
+### 🧪 **Testing**
+
+* 🧩 **@SpringBootTest (integration full)**
+* 🧩 **@DataJpaTest, @WebFluxTest, @WebMvcTest**
+* ⚙️ **MockBean vs SpyBean**
+* 🧠 **Testcontainers Integration**
+
+---
+
+### 📊 **Observability**
+
+* 📈 **Tracing (OpenTelemetry)**
+* 🔍 **Log Correlation (MDC)**
+* 📉 **Metrics & Prometheus / Grafana integration**
+
+---
+
+### 🧰 **Build & Runtime**
+
+* 🧩 **GraalVM Native Image (Spring Native)**
+* 🧠 **Ahead-of-Time (AOT) Processing**
+* ⚙️ **Layered JAR / Docker Image Optimization**
+
+---
+
+### 💬 **Reactive Integration**
+
+* 🧩 **Kafka Reactive / RabbitMQ Reactive**
+* 🔗 **RSocket Integration**
+* 🌊 **Reactive Streams Bridge (Flux <-> Stream)**
+
+---
+
+Kalau disimpulkan, bagian yang *kurang signifikan tapi penting untuk completeness*:
+
+> **Spring Data (R2DBC/JDBC/Mongo), WebFlux advanced (WebClient, SSE), Security (JWT/OAuth2), Testing (Testcontainers), Observability (Micrometer/Tracing), dan GraalVM/AOT.**
+
+---
+
+Apakah kamu mau saya bantu **gabungkan langsung ke outline kamu** (dengan emoji dan penempatan sesuai hierarki) biar hasilnya jadi versi final lengkapnya?
+
