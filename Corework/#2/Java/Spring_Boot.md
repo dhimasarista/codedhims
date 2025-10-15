@@ -1,5 +1,7 @@
 # ☕ Spring Boot
 
+![Refined Java Spring banner with subtle gradients and cleaner geometry](https://user-gen-media-assets.s3.amazonaws.com/gemini_images/8261b3a3-0a8c-4dc8-8aab-78e1926d9ad4.png)
+
 ## 核心 Spring Core
 
 ### 📖 Pengenalan Spring
@@ -637,7 +639,164 @@ logging.pattern.console=%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
 
 Untuk konfigurasi yang lebih kompleks (seperti *file rolling*), buat file `logback-spring.xml` di `src/main/resources`.
 
----
+## Properties
+
+```
+############################################
+# 🚀 SPRING BOOT APPLICATION CONFIG TEMPLATE
+# File : application.properties
+# Versi : Lengkap & Siap Produksi
+############################################
+
+
+############################################
+# 🧩 1. GENERAL APPLICATION INFO
+############################################
+spring.application.name=learn-app
+spring.profiles.active=dev
+spring.main.banner-mode=off
+spring.main.web-application-type=servlet
+spring.jackson.serialization.indent_output=true
+
+
+############################################
+# 🌐 2. SERVER CONFIGURATION
+############################################
+server.port=8080
+server.address=0.0.0.0
+server.servlet.context-path=/api
+server.error.include-message=always
+server.error.include-binding-errors=always
+server.compression.enabled=true
+server.compression.mime-types=application/json,application/xml,text/html,text/xml,text/plain
+
+
+############################################
+# 🗄️ 3. DATABASE CONFIGURATION (PostgreSQL Example)
+############################################
+spring.datasource.url=jdbc:postgresql://localhost:5432/mydb
+spring.datasource.username=postgres
+spring.datasource.password=123
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.hikari.maximum-pool-size=10
+spring.datasource.hikari.minimum-idle=2
+spring.datasource.hikari.idle-timeout=30000
+spring.datasource.hikari.connection-timeout=20000
+
+
+############################################
+# 🧠 4. JPA / HIBERNATE CONFIG
+############################################
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+spring.jpa.open-in-view=false
+
+
+############################################
+# 🔐 5. SPRING SECURITY
+############################################
+spring.security.user.name=admin
+spring.security.user.password=1234
+spring.security.user.roles=ADMIN
+
+
+############################################
+# 💌 6. MAIL CONFIGURATION
+############################################
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=your_email@gmail.com
+spring.mail.password=your_app_password
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+spring.mail.properties.mail.smtp.connectiontimeout=5000
+spring.mail.properties.mail.smtp.timeout=5000
+spring.mail.properties.mail.smtp.writetimeout=5000
+
+
+############################################
+# ☁️ 7. CLOUD / EXTERNAL SERVICE CONFIG
+############################################
+cloud.aws.region.static=ap-southeast-1
+cloud.aws.credentials.accessKey=YOUR_ACCESS_KEY
+cloud.aws.credentials.secretKey=YOUR_SECRET_KEY
+# Example custom API key:
+external.api.url=https://api.example.com/v1
+external.api.key=abc123xyz
+
+
+############################################
+# 🧰 8. ACTUATOR / MONITORING
+############################################
+management.endpoints.web.exposure.include=health,info,metrics,env,beans
+management.endpoint.health.show-details=always
+management.server.port=8081
+management.server.address=127.0.0.1
+
+
+############################################
+# 🪵 9. LOGGING CONFIGURATION
+############################################
+logging.level.root=INFO
+logging.level.org.springframework.web=DEBUG
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+logging.file.name=logs/app.log
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} - %msg%n
+
+
+############################################
+# 📦 10. FILE UPLOAD / STATIC RESOURCES
+############################################
+spring.servlet.multipart.max-file-size=10MB
+spring.servlet.multipart.max-request-size=10MB
+spring.resources.static-locations=classpath:/static/,classpath:/public/
+spring.web.resources.cache.period=3600
+
+
+############################################
+# 🔄 11. CACHE (OPTIONAL)
+############################################
+spring.cache.type=simple
+# For Redis or Caffeine, use: spring.cache.type=redis / caffeine
+
+
+############################################
+# 🧩 12. CUSTOM BUSINESS CONFIG
+############################################
+app.feature.enable-payment=true
+app.crypto.api-key=your_own_crypto_key
+app.crypto.wallet-network=ETH
+app.payment.gateway=Midtrans
+app.payment.sandbox=true
+
+
+############################################
+# 🧮 13. SCHEDULING & THREADS
+############################################
+spring.task.scheduling.pool.size=5
+spring.task.execution.pool.core-size=10
+spring.task.execution.pool.max-size=20
+spring.task.execution.pool.queue-capacity=100
+
+
+############################################
+# 🧪 14. DEVTOOLS (OPTIONAL)
+############################################
+spring.devtools.restart.enabled=true
+spring.devtools.livereload.enabled=true
+
+
+############################################
+# 🧷 15. OTHER OPTIONAL SETTINGS
+############################################
+spring.output.ansi.enabled=ALWAYS
+spring.mvc.pathmatch.matching-strategy=ant_path_matcher
+
+```
 
 ## ✅ Spring Validation
 
@@ -1067,8 +1226,9 @@ Berikut perbandingan dan daftar komponen masing-masing.
 
 ## ⚖️ Perbandingan Singkat
 
+
 | Aspek                      | Spring Web (MVC)                | Spring WebFlux                     |
-| :------------------------- | :------------------------------ | :--------------------------------- |
+| :--------------------------- | :-------------------------------- | :----------------------------------- |
 | **Paradigma**              | Imperatif / Blocking            | Reaktif / Non-Blocking             |
 | **Thread Model**           | 1 thread per request            | Event Loop dengan thread sedikit   |
 | **Dependency Utama**       | `spring-boot-starter-web`       | `spring-boot-starter-webflux`      |
@@ -1076,7 +1236,7 @@ Berikut perbandingan dan daftar komponen masing-masing.
 | **Tipe API**               | Synchronous (return langsung)   | Asynchronous (`Mono`, `Flux`)      |
 | **Data Type**              | `User` / `List<User>`           | `Mono<User>` / `Flux<User>`        |
 | **Eksekusi**               | Blocking calls                  | Reactive streams                   |
-| **Kinerja Optimal**        | Beban rendah–menengah           | Beban tinggi, I/O intensif         |
+| **Kinerja Optimal**        | Beban rendah–menengah          | Beban tinggi, I/O intensif         |
 | **Integrasi Database**     | JDBC (blocking)                 | R2DBC (non-blocking)               |
 | **Model Pemrograman**      | Controller + View (Servlet API) | Reactive Handler / Router Function |
 | **WebClient/RestTemplate** | `RestTemplate` (blocking)       | `WebClient` (non-blocking)         |
@@ -1089,8 +1249,9 @@ Berikut perbandingan dan daftar komponen masing-masing.
 
 ### 🧱 Spring Web (MVC)
 
+
 | Layer                         | Komponen                                  | Deskripsi Singkat                                 |
-| :---------------------------- | :---------------------------------------- | :------------------------------------------------ |
+| :------------------------------ | :------------------------------------------ | :-------------------------------------------------- |
 | **Core Servlet**              | `DispatcherServlet`                       | Entry point utama untuk request HTTP              |
 |                               | `HandlerMapping`                          | Mencari controller sesuai URL                     |
 |                               | `HandlerAdapter`                          | Menjalankan method handler                        |
@@ -1109,28 +1270,29 @@ Berikut perbandingan dan daftar komponen masing-masing.
 
 ### ⚙️ Spring WebFlux (Reactive)
 
-| Layer                        | Komponen                                                          | Deskripsi Singkat                                   |
-| :--------------------------- | :---------------------------------------------------------------- | :-------------------------------------------------- |
-| **Core Reactive**            | `Mono<T>` / `Flux<T>`                                             | Publisher stream (0..1 / 0..N)                      |
-|                              | `Publisher`, `Subscriber`                                         | Interface dari Reactive Streams                     |
-|                              | `Schedulers`                                                      | Pengatur thread model                               |
-|                              | `Project Reactor`                                                 | Engine reaktif bawaan                               |
-| **Dispatcher Layer**         | `DispatcherHandler`                                               | Pengganti `DispatcherServlet` (non-blocking)        |
-|                              | `HandlerMapping`                                                  | Mencari handler function                            |
-|                              | `HandlerAdapter`                                                  | Menjalankan handler (`@Controller` / functional)    |
-|                              | `HandlerResultHandler`                                            | Mengonversi hasil reactive menjadi `ServerResponse` |
-| **Controller Layer**         | `@RestController`, `@GetMapping`, `@PostMapping`                  | Deklarasi endpoint reaktif                          |
-| **Functional Routing Layer** | `RouterFunction`, `HandlerFunction`                               | Deklarasi rute berbasis fungsi                      |
-| **HTTP Server Layer**        | `Reactor Netty`                                                   | Default non-blocking server                         |
-|                              | `Jetty`, `Undertow`                                               | Alternatif runtime                                  |
-| **Codec Layer**              | `HttpMessageReader`, `HttpMessageWriter`                          | Serialisasi/deserialisasi reaktif                   |
-| **Client Layer**             | `WebClient`                                                       | HTTP client reaktif (ganti `RestTemplate`)          |
-| **WebSocket / SSE**          | `WebSocketHandler`, `SseEmitter`                                  | Streaming real-time                                 |
-| **Error Handling**           | `@ControllerAdvice`, `ResponseStatusException`                    | Error handling reaktif                              |
-| **Security (opsional)**      | `spring-boot-starter-security` + `ReactiveSecurityWebFilterChain` | Reaktif security chain                              |
-| **Data Layer**               | R2DBC, Mongo Reactive, Redis Reactive                             | Driver non-blocking                                 |
-| **Backpressure Control**     | `Flux` operators (`limitRate`, `onBackpressureBuffer`)            | Pengaturan arus data                                |
-| **Test Layer**               | `WebTestClient`                                                   | Testing reaktif untuk endpoint WebFlux              |
+
+| Layer                        | Komponen                                                          | Deskripsi Singkat                                  |
+| :----------------------------- | :------------------------------------------------------------------ | :--------------------------------------------------- |
+| **Core Reactive**            | `Mono<T>` / `Flux<T>`                                             | Publisher stream (0..1 / 0..N)                     |
+|                              | `Publisher`, `Subscriber`                                         | Interface dari Reactive Streams                    |
+|                              | `Schedulers`                                                      | Pengatur thread model                              |
+|                              | `Project Reactor`                                                 | Engine reaktif bawaan                              |
+| **Dispatcher Layer**         | `DispatcherHandler`                                               | Pengganti`DispatcherServlet` (non-blocking)        |
+|                              | `HandlerMapping`                                                  | Mencari handler function                           |
+|                              | `HandlerAdapter`                                                  | Menjalankan handler (`@Controller` / functional)   |
+|                              | `HandlerResultHandler`                                            | Mengonversi hasil reactive menjadi`ServerResponse` |
+| **Controller Layer**         | `@RestController`, `@GetMapping`, `@PostMapping`                  | Deklarasi endpoint reaktif                         |
+| **Functional Routing Layer** | `RouterFunction`, `HandlerFunction`                               | Deklarasi rute berbasis fungsi                     |
+| **HTTP Server Layer**        | `Reactor Netty`                                                   | Default non-blocking server                        |
+|                              | `Jetty`, `Undertow`                                               | Alternatif runtime                                 |
+| **Codec Layer**              | `HttpMessageReader`, `HttpMessageWriter`                          | Serialisasi/deserialisasi reaktif                  |
+| **Client Layer**             | `WebClient`                                                       | HTTP client reaktif (ganti`RestTemplate`)          |
+| **WebSocket / SSE**          | `WebSocketHandler`, `SseEmitter`                                  | Streaming real-time                                |
+| **Error Handling**           | `@ControllerAdvice`, `ResponseStatusException`                    | Error handling reaktif                             |
+| **Security (opsional)**      | `spring-boot-starter-security` + `ReactiveSecurityWebFilterChain` | Reaktif security chain                             |
+| **Data Layer**               | R2DBC, Mongo Reactive, Redis Reactive                             | Driver non-blocking                                |
+| **Backpressure Control**     | `Flux` operators (`limitRate`, `onBackpressureBuffer`)            | Pengaturan arus data                               |
+| **Test Layer**               | `WebTestClient`                                                   | Testing reaktif untuk endpoint WebFlux             |
 
 ---
 
@@ -1157,26 +1319,28 @@ Berikut perbandingan dan daftar komponen masing-masing.
 
 ## 🔌 Server Runtime Support
 
-| Server        | Web MVC |    WebFlux   | Blocking | Catatan                                 |
-| :------------ | :-----: | :----------: | :------: | :-------------------------------------- |
-| Tomcat        |    ✅    | ⚠️ (partial) |     ✅    | Servlet-based, tidak sepenuhnya reaktif |
-| Jetty         |    ✅    |       ✅      |   ✅/⚙️   | Mendukung reaktif                       |
-| Undertow      |    ✅    |       ✅      |   ✅/⚙️   | Performant, cocok untuk microservices   |
-| Reactor Netty |    ❌    |       ✅      |     ❌    | Default untuk WebFlux                   |
-| GlassFish     |    ✅    |       ❌      |     ✅    | Hanya untuk Servlet stack               |
+
+| Server        | Web MVC |    WebFlux    | Blocking | Catatan                                 |
+| :-------------- | :-------: | :--------------: | :--------: | :---------------------------------------- |
+| Tomcat        |   ✅   | ⚠️ (partial) |    ✅    | Servlet-based, tidak sepenuhnya reaktif |
+| Jetty         |   ✅   |       ✅       | ✅/⚙️ | Mendukung reaktif                       |
+| Undertow      |   ✅   |       ✅       | ✅/⚙️ | Performant, cocok untuk microservices   |
+| Reactor Netty |   ❌   |       ✅       |    ❌    | Default untuk WebFlux                   |
+| GlassFish     |   ✅   |       ❌       |    ✅    | Hanya untuk Servlet stack               |
 
 ---
 
 ## 🧩 Reactive Stack Tambahan (opsional)
 
-| Komponen                         | Fungsi                          | Paket                                          |
-| :------------------------------- | :------------------------------ | :--------------------------------------------- |
-| **Spring Data R2DBC**            | Reactive SQL database access    | `org.springframework.data.r2dbc`               |
-| **Spring Data Reactive MongoDB** | Non-blocking MongoDB access     | `spring-boot-starter-data-mongodb-reactive`    |
-| **Spring Security Reactive**     | Non-blocking security filters   | `spring-boot-starter-security`                 |
-| **Spring Cloud Gateway**         | Reactive API Gateway            | `spring-cloud-starter-gateway`                 |
-| **Spring WebSocket (Reactive)**  | Real-time channel dengan `Flux` | `spring-boot-starter-webflux`                  |
-| **WebTestClient**                | Reactive testing client         | `org.springframework.test.web.reactive.server` |
+
+| Komponen                         | Fungsi                         | Paket                                          |
+| :--------------------------------- | :------------------------------- | :----------------------------------------------- |
+| **Spring Data R2DBC**            | Reactive SQL database access   | `org.springframework.data.r2dbc`               |
+| **Spring Data Reactive MongoDB** | Non-blocking MongoDB access    | `spring-boot-starter-data-mongodb-reactive`    |
+| **Spring Security Reactive**     | Non-blocking security filters  | `spring-boot-starter-security`                 |
+| **Spring Cloud Gateway**         | Reactive API Gateway           | `spring-cloud-starter-gateway`                 |
+| **Spring WebSocket (Reactive)**  | Real-time channel dengan`Flux` | `spring-boot-starter-webflux`                  |
+| **WebTestClient**                | Reactive testing client        | `org.springframework.test.web.reactive.server` |
 
 ---
 
@@ -1204,8 +1368,9 @@ Berikut perbandingan dan daftar komponen masing-masing.
 
 ## 🧩 Kombinasi Tidak Disarankan
 
-| Kombinasi                                                 | Keterangan                                        |
-| :-------------------------------------------------------- | :------------------------------------------------ |
+
+| Kombinasi                                                 | Keterangan                                         |
+| :---------------------------------------------------------- | :--------------------------------------------------- |
 | `spring-boot-starter-web` + `spring-boot-starter-webflux` | ❌ Menyebabkan konflik servlet vs reactive runtime |
 | `RestTemplate` dalam WebFlux                              | ❌ Blocking call dalam reactive loop               |
 | `JDBC` dengan WebFlux                                     | ❌ Blocking driver (gunakan R2DBC)                 |
@@ -1214,8 +1379,9 @@ Berikut perbandingan dan daftar komponen masing-masing.
 
 ## 🧭 Use Case Guidance
 
+
 | Skenario                          | Pilihan                    | Alasan                                 |
-| :-------------------------------- | :------------------------- | :------------------------------------- |
+| :---------------------------------- | :--------------------------- | :--------------------------------------- |
 | Aplikasi CRUD biasa               | **Spring MVC**             | Model blocking sederhana               |
 | Web app tradisional (HTML render) | **Spring MVC + Thymeleaf** | Butuh view rendering                   |
 | API Gateway / Proxy               | **WebFlux**                | Non-blocking, streaming                |
@@ -1227,28 +1393,31 @@ Berikut perbandingan dan daftar komponen masing-masing.
 
 ## 🧪 Tools & Testing
 
+
 | Tool                            | Spring MVC | WebFlux |
-| :------------------------------ | :--------: | :-----: |
-| `MockMvc`                       |      ✅     |    ❌    |
-| `WebTestClient`                 |      ❌     |    ✅    |
-| `Mockito`                       |      ✅     |    ✅    |
-| `Reactor Test` (`StepVerifier`) |      ❌     |    ✅    |
+| :-------------------------------- | :----------: | :-------: |
+| `MockMvc`                       |     ✅     |   ❌   |
+| `WebTestClient`                 |     ❌     |   ✅   |
+| `Mockito`                       |     ✅     |   ✅   |
+| `Reactor Test` (`StepVerifier`) |     ❌     |   ✅   |
 
 ---
 
 ## 🧩 Integrasi Tambahan
 
-| Komponen                 |     MVC     |       WebFlux      | Catatan               |
-| :----------------------- | :---------: | :----------------: | :-------------------- |
+
+| Komponen                 |      MVC      |       WebFlux       | Catatan               |
+| :------------------------- | :-------------: | :-------------------: | :---------------------- |
 | Spring Security          |      ✅      |    ✅ (Reactive)    | Ada 2 stack berbeda   |
-| Spring Data JPA          |      ✅      |          ❌         | Gunakan R2DBC         |
-| Spring Data R2DBC        |      ❌      |          ✅         | Reactive SQL          |
-| Spring Cloud Gateway     |      ❌      |          ✅         | Full reactive gateway |
+| Spring Data JPA          |      ✅      |         ❌         | Gunakan R2DBC         |
+| Spring Data R2DBC        |      ❌      |         ✅         | Reactive SQL          |
+| Spring Cloud Gateway     |      ❌      |         ✅         | Full reactive gateway |
 | Spring Session           |      ✅      | ✅ (Reactive Redis) | Stateful session      |
-| WebSocket                |      ✅      |  ✅ (Reactive Core) |                       |
+| WebSocket                |      ✅      | ✅ (Reactive Core) |                       |
 | SSE (Server Sent Events) | ⚙️ (manual) |      ✅ native      |                       |
 
 ## Tambahan
+
 ### 🧱 **Spring Core / Boot**
 
 * 🔄 **ApplicationContextInitializer & ApplicationListener (custom startup hooks)**
@@ -1351,3 +1520,108 @@ Kalau disimpulkan, bagian yang *kurang signifikan tapi penting untuk completenes
 
 Apakah kamu mau saya bantu **gabungkan langsung ke outline kamu** (dengan emoji dan penempatan sesuai hierarki) biar hasilnya jadi versi final lengkapnya?
 
+## Anotasi Lengkap Spring Boot
+
+## 1️⃣ Controller & Request Mapping
+
+
+| Annotation        | Digunakan di       | Fungsi                                                                           |
+| ------------------- | -------------------- | ---------------------------------------------------------------------------------- |
+| `@Controller`     | Class              | Menandai class sebagai controller MVC (return view)                              |
+| `@RestController` | Class              | `@Controller + @ResponseBody` otomatis → semua method return JSON/response body |
+| `@RequestMapping` | Class / Method     | Mapping URL & HTTP method (GET, POST, dll)                                       |
+| `@GetMapping`     | Method             | Shortcut`@RequestMapping(method = RequestMethod.GET)`                            |
+| `@PostMapping`    | Method             | Shortcut`@RequestMapping(method = RequestMethod.POST)`                           |
+| `@PutMapping`     | Method             | Shortcut`@RequestMapping(method = RequestMethod.PUT)`                            |
+| `@DeleteMapping`  | Method             | Shortcut`@RequestMapping(method = RequestMethod.DELETE)`                         |
+| `@PatchMapping`   | Method             | Shortcut`@RequestMapping(method = RequestMethod.PATCH)`                          |
+| `@ResponseBody`   | Method             | Return value dikirim langsung sebagai HTTP response body                         |
+| `@PathVariable`   | Parameter          | Ambil value dari path URL                                                        |
+| `@RequestParam`   | Parameter          | Ambil value dari query string atau form parameter                                |
+| `@RequestBody`    | Parameter          | Deserialize JSON/XML request body ke object                                      |
+| `@ResponseStatus` | Method / Exception | Set HTTP status code statis untuk response                                       |
+
+---
+
+## 2️⃣ Dependency Injection / Bean
+
+
+| Annotation                        | Digunakan di                 | Fungsi                                                      |
+| ----------------------------------- | ------------------------------ | ------------------------------------------------------------- |
+| `@Component`                      | Class                        | Menandai bean Spring umum                                   |
+| `@Service`                        | Class                        | Menandai service layer → semantik business logic           |
+| `@Repository`                     | Class                        | Menandai repository / DAO → exception translation otomatis |
+| `@Controller` / `@RestController` | Class                        | Menandai controller                                         |
+| `@Autowired`                      | Field / Constructor / Setter | Inject bean Spring otomatis                                 |
+| `@Qualifier`                      | Field / Constructor          | Pilih bean tertentu jika ada lebih dari satu                |
+| `@Value`                          | Field                        | Inject nilai dari`application.properties` / environment     |
+| `@Bean`                           | Method di`@Configuration`    | Mendefinisikan bean manual di Java config                   |
+| `@Primary`                        | Bean                         | Prioritas bean default saat ada banyak bean sejenis         |
+
+---
+
+## 3️⃣ Component / Configuration
+
+
+| Annotation                 | Digunakan di | Fungsi                                                       |
+| ---------------------------- | -------------- | -------------------------------------------------------------- |
+| `@Configuration`           | Class        | Menandai class konfigurasi Spring (Java Config)              |
+| `@PropertySource`          | Class        | Load properti dari file external                             |
+| `@EnableAutoConfiguration` | Class        | Aktifkan auto-configuration Spring Boot                      |
+| `@SpringBootApplication`   | Class        | `@Configuration + @EnableAutoConfiguration + @ComponentScan` |
+| `@ComponentScan`           | Class        | Tentukan package mana yang di-scan untuk bean                |
+
+---
+
+## 4️⃣ Validation & Binding
+
+
+| Annotation            | Digunakan di | Fungsi                                        |
+| ----------------------- | -------------- | ----------------------------------------------- |
+| `@Valid`              | Parameter    | Validasi bean (JSR-303 / Hibernate Validator) |
+| `@NotNull`            | Field        | Field harus tidak null                        |
+| `@NotBlank`           | Field        | Field string tidak kosong / tidak hanya spasi |
+| `@Size(min, max)`     | Field        | Panjang string / koleksi                      |
+| `@Email`              | Field        | Validasi email                                |
+| `@Pattern`            | Field        | Validasi regex                                |
+| `@RequestBody @Valid` | Parameter    | Validasi otomatis request JSON                |
+
+---
+
+## 5️⃣ HTTP / Response Handling
+
+
+| Annotation          | Digunakan di       | Fungsi                                   |
+| --------------------- | -------------------- | ------------------------------------------ |
+| `@ResponseBody`     | Method             | Return langsung ke HTTP body             |
+| `@ResponseStatus`   | Method / Exception | Set HTTP status code                     |
+| `@ExceptionHandler` | Method             | Tangani exception spesifik di controller |
+| `@ControllerAdvice` | Class              | Global exception handler / interceptor   |
+| `@CrossOrigin`      | Class / Method     | Konfigurasi CORS                         |
+
+---
+
+## 6️⃣ JPA / Database
+
+
+| Annotation                                             | Digunakan di | Fungsi                            |
+| -------------------------------------------------------- | -------------- | ----------------------------------- |
+| `@Entity`                                              | Class        | Menandai class sebagai entity JPA |
+| `@Table(name = "xxx")`                                 | Class        | Nama tabel di DB                  |
+| `@Id`                                                  | Field        | Primary key                       |
+| `@GeneratedValue(strategy=...)`                        | Field        | Auto-generate primary key         |
+| `@Column(name = "xxx")`                                | Field        | Nama kolom DB                     |
+| `@OneToOne`, `@OneToMany`, `@ManyToOne`, `@ManyToMany` | Field        | Relasi entity                     |
+| `@JoinColumn`                                          | Field        | Nama foreign key column           |
+| `@Transient`                                           | Field        | Field tidak disimpan di DB        |
+
+---
+
+## 7️⃣ Transaction / AOP
+
+
+| Annotation       | Digunakan di   | Fungsi                                            |
+| ------------------ | ---------------- | --------------------------------------------------- |
+| `@Transactional` | Class / Method | Menandai transactional (commit/rollback otomatis) |
+| `@Async`         | Method         | Menjalankan method secara asynchronous            |
+| `@Scheduled`     | Method         | Schedule job (cron / fixedRate / fixedDelay)      |
