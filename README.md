@@ -1,5 +1,5 @@
 ## ⛾ Corework : C# & NodeJS | Java
-build scalable & performant system, where concurrency meets caffeine.
+build scalable & performant system, ... concurrency meets caffeine.
 
 - **Architectures** : Monolith, Microservices
 - **Databases** : PostgreSQL, Redis
