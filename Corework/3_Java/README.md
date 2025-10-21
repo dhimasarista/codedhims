@@ -1,4 +1,7 @@
-# Learn Java Detail
+# Java Programming Language
+
+
+![](assets/20251022_023539_JavaOne2025_07-1024x473.webp)
 
 ## 1️⃣ Dasar-dasar Java
 

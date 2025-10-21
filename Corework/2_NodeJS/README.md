@@ -1,4 +1,6 @@
-# NodeJS
+# NodeJS (Javascript)
+
+![Node.js : How to a make REST API part 1 .dev.to HD wallpaper | Pxfuel](https://e0.pxfuel.com/wallpapers/36/75/desktop-wallpaper-node-js-how-to-a-make-rest-api-part-1-dev-to.jpg)
 
 Node.js adalah **runtime environment** berbasis **JavaScript** yang berjalan di luar browser, dibangun di atas mesin **V8** (Google Chrome). Dengan Node.js, JavaScript bisa dipakai bukan hanya untuk frontend, tapi juga untuk **backend** (misalnya membuat API, server, CLI tools).
 

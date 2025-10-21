@@ -1,5 +1,8 @@
 # # C# Programming Language
 
+
+![](assets/20251022_023311_image.png)
+
 **C#** (dibaca:  ***see sharp*** ) adalah sebuah bahasa pemrograman berorientasi objek ( *object-oriented language* ) yang dikembangkan oleh **Microsoft** sebagai bagian dari inisiatif kerangka **.NET Framework**. Bahasa pemrograman ini dibuat berbasiskan bahasa C++ yang telah dipengaruhi oleh aspek-aspek ataupun fitur bahasa yang terdapat pada bahasa-bahasa pemrograman lainnya seperti Java, Delphi, VisualBasic, dan lain-lain dengan beberapa penyederhanaan. Menurut standar ***ECMA-334 C# Language Specification***, nama C# terdiri atas sebuah huruf Latin C **(**U+0043**)** yang diikuti oleh tanda pagar yang menandakan angka # (U+0023). Tanda pagar # yang digunakan memang bukan tanda kres dalam seni musik (U+266F), dan tanda pagar # (U+0023) tersebut digunakan karena karakter kres dalam seni musik tidak terdapat di dalam papan tombol standar.
 
 > Sumber: Wikipedia
@@ -72,7 +75,7 @@ public int Add(int a, int b)
 
 
 | Standard Library   | Deskripsi                                                                    |
-| ------------------ | ---------------------------------------------------------------------------- |
+| -------------------- | ------------------------------------------------------------------------------ |
 | System             | Namespace yang berisi tipe data dan fungsi-fungsi dasar dalam bahasa C#.     |
 | System.Collections | Berisi kelas-kelas untuk koleksi data seperti array, list, dan dictionary.   |
 | System.IO          | Berisi kelas-kelas untuk input/output, termasuk membaca dan menulis ke file. |
@@ -88,7 +91,7 @@ public int Add(int a, int b)
 
 
 | Kategori                          | Library/Framework                     | Deskripsi                                                                                         |
-| --------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| ----------------------------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | Framework .NET                    | .NET Core / .NET 5+                   | Framework serbaguna untuk pengembangan aplikasi desktop, web, dan cloud.                          |
 |                                   | .NET Framework                        | Framework klasik untuk pengembangan aplikasi Windows.                                             |
 | Web App                           | ASP.NET Core                          | Framework untuk pengembangan aplikasi web lintas platform.                                        |
@@ -332,7 +335,7 @@ Dengan menyelaraskan tipe data dan ukurannya, panduan ini menjadi lebih mudah di
 
 
 | Sistem bilangan           | Sintaks                  | Contoh |
-| ------------------------- | ------------------------ | ------ |
+| --------------------------- | -------------------------- | -------- |
 | Desimal ( dasar 10 )      | Bilangan bulat biasa     |        |
 | Oktal ( dasar 8 )         | "0o" (nol dan huruf "o") | 0o123  |
 | Heksadesimal ( dasar 16 ) | "0x" (nol dan huruf "x") | 0xff   |
@@ -685,7 +688,7 @@ var name = "dhim";
 
 
 | Jenis Data     | Contoh Nilai             | Deskripsi                                                                                 |
-| -------------- | ------------------------ | ----------------------------------------------------------------------------------------- |
+| ---------------- | -------------------------- | ------------------------------------------------------------------------------------------- |
 | bool           | true                     | Nilai kebenaran, true atau false                                                          |
 | byte           | 255                      | Bilangan bulat tanpa tanda dengan rentang nilai 0 hingga 255                              |
 | sbyte          | 127                      | Bilangan bulat dengan tanda dengan rentang nilai -128 hingga 127                          |
@@ -941,7 +944,7 @@ await foreach (var item in channel.Reader.ReadAllAsync()) {
 
 
 | Fitur                      | `Channel<T>`(C#)                                     | `chan`(Go)                           |
-| -------------------------- | ---------------------------------------------------- | ------------------------------------ |
+| ---------------------------- | ------------------------------------------------------ | -------------------------------------- |
 | Asynchronous               | ✅ Mendukung`async/await`                            | 🚫 Sinkron atau blocking by default  |
 | Blocking behavior          | ✅ Bisa blocking atau non-blocking                   | ✅ Blocking secara default           |
 | Buffered / Unbuffered      | ✅ Bounded dan unbounded channel tersedia            | ✅ Bisa buffer (`make(chan T, N)`)   |
@@ -984,7 +987,7 @@ Dalam bahasa pemrograman ***operator** adalah simbol yang memberitahu compiler a
 
 
 | +  | Pertambahan             |
-| -- | ----------------------- |
+| ---- | ------------------------- |
 | -  | Pengurangan             |
 | *  | Perkal                  |
 | /  | Pembagian, Hasil double |
@@ -997,7 +1000,7 @@ Dalam bahasa pemrograman ***operator** adalah simbol yang memberitahu compiler a
 
 
 | Arithmetic  | Augmented Assignment |
-| ----------- | -------------------- |
+| ------------- | ---------------------- |
 | a = a + 10  | a =+ 10              |
 | a = a - 10  | a =- 10              |
 | a = a * 10  | a =* 10              |
@@ -1011,7 +1014,7 @@ Dalam bahasa pemrograman ***operator** adalah simbol yang memberitahu compiler a
 
 
 | Operators | Description             |
-| --------- | ----------------------- |
+| ----------- | ------------------------- |
 | ==        | Sama dengan             |
 | ≠        | Tidak sama dengan       |
 | >         | Lebih dari              |
@@ -1029,7 +1032,7 @@ Operator `&&` dalam pemrograman adalah operator logika AND. Operator ini digunak
 
 
 | Nilai 1 | Operator | Nilai 2 | Hasil |
-| ------- | -------- | ------- | ----- |
+| --------- | ---------- | --------- | ------- |
 | true    | &&       | true    | true  |
 | false   | &&       | false   | false |
 | true    | &&       | false   | false |
@@ -1040,7 +1043,7 @@ Operator `||` dalam pemrograman adalah operator logika OR. Operator ini digunaka
 
 
 | Nilai 1 | Operator | Nilai 2 | Hasil |
-| ------- | -------- | ------- | ----- |
+| --------- | ---------- | --------- | ------- |
 | true    | or       | true    | true  |
 | false   | or       | true    | true  |
 | false   | or       | false   | false |
@@ -1051,7 +1054,7 @@ Operator `!` dalam pemrograman adalah operator logika NOT atau negasi. Operator 
 
 
 | Nilai 1 | Operator | Nilai 2 |
-| ------- | -------- | ------- |
+| --------- | ---------- | --------- |
 | true    | !        | false   |
 | false   | !        | true    |
 
@@ -1061,7 +1064,7 @@ Operator `!` dalam pemrograman adalah operator logika NOT atau negasi. Operator 
 
 
 | Operator | Name                | Penggunaan | Deskripsi                                                |
-| -------- | ------------------- | ---------- | -------------------------------------------------------- |
+| ---------- | --------------------- | ------------ | ---------------------------------------------------------- |
 | &        | AND                 | a & b      | Menghasilkan 1 jika bit yang dibandingkan keduanya 1     |
 | ^        | XOR                 | a ^ b      | Menghasilkan 1 jika hanya salah satu bit 1               |
 | ~        | NOT                 | ~ a        | Menghasilkan lawan dari bit, 1 jadi 0,0 jadi 1           |
@@ -1073,7 +1076,7 @@ Operator `!` dalam pemrograman adalah operator logika NOT atau negasi. Operator 
 
 
 | Operator | Hasil | Biner       | Hasil |
-| -------- | ----- | ----------- | ----- |
+| ---------- | ------- | ------------- | ------- |
 | 5 & 1    | 1     | 0101 & 0001 | 0001  |
 | 5        | 1     | 5           | 0101  |
 | 5 ^ 1    | 4     | 0101 ^ 0001 | 0100  |
@@ -1088,7 +1091,7 @@ Operator `!` dalam pemrograman adalah operator logika NOT atau negasi. Operator 
 
 
 | Operators             |
-| --------------------- |
+| ----------------------- |
 | a++                   |
 | ++a                   |
 | a—                   |
@@ -1101,7 +1104,7 @@ Operator `!` dalam pemrograman adalah operator logika NOT atau negasi. Operator 
 
 
 | Operators | Description                                                                          |
-| --------- | ------------------------------------------------------------------------------------ |
+| ----------- | -------------------------------------------------------------------------------------- |
 | as        | Typecase, melakukan konversi tipe data secara paksa                                  |
 | is        | True, jika objek sesuai tipe data                                                    |
 | is!       | True, jika objek tidak sesuai tipe data                                              |
@@ -1496,7 +1499,7 @@ Tiap paradigma memiliki cara berpikir yang berbeda dalam menyelesaikan masalah p
 
 
 | Aspek               | Struct (Value Type)                                       | Class (Reference Type)                                       |
-| ------------------- | --------------------------------------------------------- | ------------------------------------------------------------ |
+| --------------------- | ----------------------------------------------------------- | -------------------------------------------------------------- |
 | **Tipe**            | Value Type                                                | Reference Type                                               |
 | **Penyimpanan**     | Stack                                                     | Heap                                                         |
 | **Kinerja**         | Lebih cepat untuk objek kecil (karena di-stack)           | Bisa lebih lambat karena alokasi heap dan garbage collection |

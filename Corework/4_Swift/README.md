@@ -1,73 +1,6 @@
-# # Swift Programming Language
+# Swift Programming Language
 
-**Swift** adalah bahasa pemrograman yang kuat dan intuitif yang dibuat oleh Apple untuk membangun aplikasi untuk iOS, Mac, Apple TV, dan Apple Watch. Swift dirancang untuk memberikan lebih banyak kebebasan kepada pengembang. Swift mudah digunakan dan bersifat open source, jadi siapa pun yang punya ide bisa menciptakan sesuatu yang luar biasa.
-
-> Sumber: Apple
-
-**Alasan-alasan Kenapa Menggunakan Swift:**
-
-* Dirancang untuk keamanan
-* Cepat dan kuat
-* Dukungan ekosistem Apple yang besar
-* Sintaks yang ekspresif dan modern
-
-**Karakteristik Swift:**
-
-- **Ekstensi File**: Swift menggunakan ekstensi file `.swift`
-- **Statically typed**: Swift adalah bahasa yang statically typed.
-- **Type inference**: Swift mendukung type inference.
-- **Paradigma**: Swift mendukung beberapa paradigma, termasuk Object-Oriented, Functional, dan Imperative.
-- **Manajemen Memori**: Swift menggunakan Automatic Reference Counting (ARC).
-
-**Komentar**:
-
-Komentar dalam Swift dapat ditambahkan menggunakan `//` untuk komentar satu baris dan `/* */` untuk komentar multi-baris.
-
-```swift
-// Ini adalah contoh komentar satu baris
-
-/*
-Ini adalah contoh komentar
-banyak baris.
-*/
-```
-
-## Installation
-
-**Environment yang dibutuhkan:**
-
-- **Xcode**: [https://developer.apple.com/xcode/](https://developer.apple.com/xcode/)
-- **Swift.org**: [https://www.swift.org/download/](https://www.swift.org/download/)
-
-## Aturan dan Penamaan Sintaks
-
-> ⚠️ Catatan: Swift adalah case-sensitive.
-
-**Penamaan File**
-
-- **Do**: `FileName.swift`
-- **Avoid**: `file_name.swift`
-
-**Standard Library**
-
-
-| Standard Library | Deskripsi                                            |
-| ------------------ | ------------------------------------------------------ |
-| Foundation       | Layanan dasar, tipe data, dan fungsionalitas OS.     |
-| SwiftUI          | Framework UI deklaratif untuk semua platform Apple.  |
-| Combine          | Framework untuk memproses nilai dari waktu ke waktu. |
-
-**Libraries & Frameworks**
-
-
-| Kategori   | Library/Framework   | Deskripsi                               |
-| ------------ | --------------------- | ----------------------------------------- |
-| Web App    | Vapor, Kitura       | Framework untuk membangun aplikasi web. |
-| Mobile App | UIKit, SwiftUI      | Framework untuk aplikasi iOS.           |
-| Database   | Core Data, Realm    | Solusi untuk persistensi data.          |
-| Game       | SpriteKit, SceneKit | Framework untuk pengembangan game.      |
-
-# 0. Introduction
+![WWDC24 Swift guide - Discover - Apple Developer](https://devimages-cdn.apple.com/wwdc-services/articles/images/E1375BCD-1415-4DC9-929E-467964B54F19/2048.jpeg)
 
 **Swift** adalah bahasa pemrograman yang kuat dan intuitif yang dibuat oleh Apple untuk membangun aplikasi untuk iOS, Mac, Apple TV, dan Apple Watch. Swift dirancang untuk memberikan lebih banyak kebebasan kepada pengembang. Swift mudah digunakan dan bersifat open source, jadi siapa pun yang punya ide bisa menciptakan sesuatu yang luar biasa.
 
@@ -122,8 +55,8 @@ banyak baris.
 Perlakuan terhadap tipe data `String` menunjukkan perbedaan filosofi yang menarik antara Swift, Java, dan C#.
 
 * **C#** : Tipe data dasar seperti `int`, `double`, `bool`, dan `string` adalah **primitif** dan disimpan di **stack** . Ada juga **object wrapper** untuk tipe data ini, yang disimpan di **heap** , sehingga bisa diperlakukan seperti objek ketika perlu.
+* **JavaScript** : punya **primitive types** dan **object types** , tapi semuanya bisa berperilaku seperti objek karena **autoboxing otomatis** .
 * **Java** : Beberapa tipe data, seperti `String`, adalah **object** . Tipe primitif (`int`, `double`, dll.) bisa dibungkus menjadi **wrapper class** untuk diperlakukan sebagai object. Hampir semua tipe bisa diakses sebagai object jika dibutuhkan.
-
 * **Swift**: Swift mengambil pendekatan yang berbeda. Di Swift, `String` adalah sebuah **struct**, yang merupakan *value type*. Ini adalah perbedaan kunci. Tidak seperti *reference type* (class), *value type* disalin ketika dioper ke fungsi atau di-assign ke variabel baru. Ini memberikan keamanan dan prediktabilitas yang lebih besar, karena tidak ada dua variabel yang secara tidak sengaja menunjuk (dan mengubah) data yang sama. Swift tidak benar-benar memiliki konsep "primitif" dalam artian tradisional; tipe data dasar seperti `Int`, `Double`, dan `Bool` juga diimplementasikan sebagai `struct` dengan properti dan metode, memberikan kekuatan objek dengan efisiensi *value type*.
 
 Singkatnya, sementara Java dan C# memperlakukan `String` sebagai objek (reference type), Swift memperlakukannya sebagai *value type* (struct), yang sejalan dengan filosofi desainnya yang mengutamakan keamanan dan kejelasan.
@@ -149,13 +82,326 @@ Singkatnya, sementara Java dan C# memperlakukan `String` sebagai objek (referenc
 
 # 1. Basic
 
-## 1.1 The Basics
+## 1.1 Data Types
 
-Swift adalah bahasa yang aman tipe. Bahasa yang aman tipe mendorong Anda untuk jelas tentang jenis nilai yang dapat dikerjakan oleh kode Anda. Jika bagian dari kode Anda mengharapkan `String`, Anda tidak dapat secara tidak sengaja meneruskannya `Int`.
+Swift menawarkan berbagai macam tipe data dasar dan koleksi. Berikut adalah beberapa yang paling umum digunakan:
 
-Karena Swift aman tipe, ia melakukan pemeriksaan tipe saat mengompilasi kode Anda dan menandai setiap jenis yang tidak cocok sebagai kesalahan. Ini memungkinkan Anda untuk menangkap dan memperbaiki kesalahan sedini mungkin dalam proses pengembangan.
+### 1.1.1 Numeric Types
 
-### 1.1.1 Constants and Variables
+* **Integer**: Tipe data default untuk bilangan bulat (angka tanpa komponen pecahan). Ukurannya tergantung pada platform (32-bit atau 64-bit).
+
+
+  | Tipe     | Ukuran (bit) | Rentang Nilai                                            | Keterangan |
+  | ---------- | -------------- | ---------------------------------------------------------- | ------------ |
+  | `Int8`   | 8 bit        | -128 ... 127                                             | signed     |
+  | `UInt8`  | 8 bit        | 0 ... 255                                                | unsigned   |
+  | `Int16`  | 16 bit       | -32,768 ... 32,767                                       | signed     |
+  | `UInt16` | 16 bit       | 0 ... 65,535                                             | unsigned   |
+  | `Int32`  | 32 bit       | -2,147,483,648 ... 2,147,483,647                         | signed     |
+  | `UInt32` | 32 bit       | 0 ... 4,294,967,295                                      | unsigned   |
+  | `Int64`  | 64 bit       | -9,223,372,036,854,775,808 ... 9,223,372,036,854,775,807 | signed     |
+  | `UInt64` | 64 bit       | 0 ... 18,446,744,073,709,551,615                         | unsigned   |
+* **Floating Point**: Tipe data untuk angka floating-point 64-bit dan 32-bit. Ini adalah tipe data default untuk angka desimal dan menawarkan presisi tinggi.
+
+
+  | Tipe     | Presisi | Keterangan                                        |
+  | ---------- | --------- | --------------------------------------------------- |
+  | `Float`  | 32-bit  | cocok untuk grafik, audio, atau data ringan       |
+  | `Double` | 64-bit  | default untuk perhitungan akurat (presisi tinggi) |
+
+
+  ```swift
+  let integer: Int = -10
+  let unsignedInteger: UInt = 20
+  let double: Double = 3.14159
+  let float: Float = 3.14159
+  ```
+
+- **Numeric Protocols** (Generik untuk semua angka)
+  - Numeric → untuk semua jenis angka (Int, Double, Float, dll)
+  - BinaryInteger → hanya untuk bilangan bulat (Int, UInt, dst)
+  - FloatingPoint → hanya untuk desimal (Float, Double)
+  - SignedNumeric → angka dengan tanda (+/-)
+
+### 1.1.2 Booleans
+
+Swift memiliki tipe data Boolean dasar, yang disebut `Bool`. Tipe Boolean direferensikan sebagai *logical*, karena hanya dapat berupa `true` atau `false`.
+
+```swift
+let orangesAreOrange = true
+let turnipsAreDelicious = false
+```
+
+### 1.1.3 Tuples
+
+Tuple mengelompokkan beberapa nilai menjadi satu nilai majemuk. Nilai-nilai dalam tuple dapat berupa tipe apa pun dan tidak harus sama satu sama lain.
+
+```swift
+let http404Error = (404, "Not Found")
+// http404Error is of type (Int, String), and equals (404, "Not Found")
+```
+
+### 1.1.4 Optionals
+
+Anda menggunakan opsional dalam situasi di mana nilai mungkin tidak ada. Opsional mewakili dua kemungkinan: Entah ada nilai, dan Anda dapat membuka bungkus opsional untuk mengakses nilai itu, atau tidak ada nilai sama sekali.
+
+### 1.1.5 Strings and Characters
+
+#### 1.1.5.1 String Literals
+
+Anda dapat menyertakan nilai string yang telah ditentukan sebelumnya dalam kode Anda sebagai literal string. Literal string adalah urutan karakter yang dikelilingi oleh tanda kutip ganda (`"`).
+
+```swift
+let someString = "Some string literal value"
+```
+
+#### 1.1.5.2 Initializing an Empty String
+
+Untuk membuat nilai `String` kosong sebagai titik awal, tetapkan literal string kosong ke variabel, atau inisialisasi objek `String` baru dengan sintaksis initializer.
+
+```swift
+var emptyString = ""
+var anotherEmptyString = String()
+// these two strings are both empty, and are equivalent to each other
+```
+
+#### 1.1.5.3 String Mutability
+
+Anda menunjukkan apakah `String` tertentu dapat dimodifikasi (atau *mutable*) dengan menetapkannya ke variabel (dalam hal ini dapat dimodifikasi), atau ke konstanta (dalam hal ini tidak dapat dimodifikasi).
+
+```swift
+var variableString = "Horse"
+variableString += " and carriage"
+// variableString is now "Horse and carriage"
+
+let constantString = "Highlander"
+constantString += " and another Highlander"
+// this reports a compile-time error - a constant string cannot be modified
+```
+
+#### 1.1.5.4 Working with Characters
+
+Anda dapat mengakses nilai `Character` individual dari sebuah `String` dengan mengulanginya dengan loop `for-in`:
+
+```swift
+for character in "Dog!🐶" {
+    print(character)
+}
+// D
+// o
+// g
+// !
+// 🐶
+```
+
+#### 1.1.5.5 Concatenating Strings and Characters
+
+Nilai string dapat ditambahkan bersama (atau digabungkan) dengan operator penjumlahan (`+`) untuk membuat string baru:
+
+```swift
+let string1 = "hello"
+let string2 = " there"
+var welcome = string1 + string2
+// welcome now equals "hello there"
+```
+
+#### 1.1.5.6 String Interpolation
+
+Interpolasi string adalah cara untuk membuat `String` baru dari campuran konstanta, variabel, literal, dan ekspresi dengan menyertakan nilainya di dalam literal string.
+
+```swift
+let multiplier = 3
+let message = "\(multiplier) times 2.5 is \(Double(multiplier) * 2.5)"
+// message is "3 times 2.5 is 7.5"
+```
+
+```swift
+let possibleNumber = "123"
+let convertedNumber = Int(possibleNumber)
+// convertedNumber is inferred to be of type "Int?", or "optional Int"
+```
+
+### 1.1.6 Void
+
+`Void` adalah nama lain untuk tipe tuple kosong, `()`. Anda dapat menggunakannya sebagai tipe kembalian untuk fungsi yang tidak mengembalikan nilai.
+
+```swift
+func doNothing() -> Void {
+    // this function does not return a value
+}
+```
+
+### 1.1.7 Any and AnyObject
+
+* **Any**: Dapat mewakili instance dari tipe apa pun, termasuk tipe fungsi.
+* **AnyObject**: Dapat mewakili instance dari kelas apa pun.
+
+### 1.1.8 Nil (Empty/Null)
+
+Di Swift, **`nil` berarti “tidak ada nilai”** , tapi **hanya bisa digunakan pada optional types. Artinya kamu **tidak bisa** assign `nil` ke tipe biasa (`Int`, `String`, dll) tanpa menjadikannya **optional** dulu.
+
+> Gunakan tanda **tanya (`?`)** setelah tipe data.
+
+```swift
+var name: String? = nil // ✅ OK
+
+var name: String = nil // ❌ Error: 'nil' cannot be assigned to type 'String'
+
+var score: Int? = 90
+score = nil  // ✅ OK
+
+let nickname: String? = nil
+print(nickname ?? "Guest") // "Guest"
+// kode ?? dibahas pada Nil-Coalescing Operator
+
+```
+
+## 1.2 Convert, Type Check & Casting
+
+Swift dikenal sebagai **strongly typed language** , artinya setiap tipe data harus **eksplisit** dan **aman dikonversi** . Mirip seperti C# & Java
+
+Konversi dan pemeriksaan tipe dilakukan dengan **compiler-safety** , bukan implicit seperti JavaScript.
+
+### 1.2.1 Type Conversion
+
+Swift **tidak melakukan konversi otomatis antar tipe numeric** (seperti `Int` ke `Double` atau `UInt` ke `Int`), semua harus eksplisit.
+
+```swift
+let intValue: Int = 42
+let doubleValue: Double = Double(intValue)
+let floatValue: Float = Float(intValue)
+
+print(doubleValue) // 42.0
+print(floatValue)  // 42.0
+```
+
+> ⚠️ Jika kamu coba `let result = intValue + doubleValue`, akan error tanpa konversi eksplisit.
+
+- Konversi String ↔ Number
+  ```swift
+  let number = 120
+  let text = String(number)       // Int → String
+  let again = Int(text)           // String → Int (Optional)
+  print(again ?? 0)               // 120
+  ```
+
+> `Int("abc")` akan menghasilkan `nil`, jadi selalu kembalikan Optional.
+
+### 1.2.2 Type Checking
+
+Gunakan operator `is` untuk memeriksa tipe runtime dari sebuah instance.
+
+```swift
+let value: Any = "Asyncra"
+
+if value is String {
+    print("Value is a String")
+} else if value is Int {
+    print("Value is an Int")
+}
+```
+
+> `is` tidak mengubah tipe, hanya **mengecek** apakah instance cocok dengan tipe target.
+
+---
+
+### 1.2.3 Type Casting
+
+Swift punya dua bentuk utama:
+
+
+| Operator | Nama             | Aman?         | Keterangan                                |
+| ---------- | ------------------ | --------------- | ------------------------------------------- |
+| `as?`    | Conditional cast | ✅ Aman       | Mengembalikan optional (`nil` jika gagal) |
+| `as!`    | Forced cast      | ⚠️ Berisiko | Crash jika cast gagal                     |
+
+**Contoh :**
+
+```swift
+let data: Any = "Hello Swift"
+
+if let text = data as? String {
+    print("Converted:", text)
+} else {
+    print("Failed to cast")
+}
+```
+
+Output:
+
+```
+Converted: Hello Swift
+```
+
+```swift
+let obj: Any = 99
+let num = obj as! Int   // ✅ Berhasil
+// let str = obj as! String // ❌ Runtime crash
+```
+
+---
+
+### 1.2.4 Type Casting dengan Class Hierarchy
+
+Bisa juga digunakan untuk **inheritance / polymorphism**.
+
+```swift
+class Animal {}
+class Dog: Animal { func bark() { print("Woof!") } }
+
+let pet: Animal = Dog()
+
+// Cek tipe
+if pet is Dog {
+    print("It's a dog!")
+}
+
+// Casting aman
+if let dog = pet as? Dog {
+    dog.bark()
+}
+```
+
+Output:
+
+```
+It's a dog!
+Woof!
+```
+
+---
+
+### 1.2.5 Using Any, AnyObject
+
+
+| Tipe        | Deskripsi                                                    |
+| ------------- | -------------------------------------------------------------- |
+| `Any`       | Bisa menyimpan*sembarang tipe* (value maupun reference type) |
+| `AnyObject` | Hanya untuk*class instance* (reference type)                 |
+
+- **Contoh:**
+  ```swift
+  let anything: Any = 3.14
+  let obj: AnyObject = NSString(string: "Swift")
+
+  print(anything)
+  print(obj)
+  ```
+
+
+| Operasi        | Sintaks            | Keterangan                    |
+| ---------------- | -------------------- | ------------------------------- |
+| Konversi nilai | `Double(Int)`      | Konversi eksplisit antar tipe |
+| Cek tipe       | `x is String`      | True jika`x` bertipe `String` |
+| Cast aman      | `x as? String`     | Optional hasil cast           |
+| Cast paksa     | `x as! String`     | Crash jika gagal              |
+| Any type       | `Any`, `AnyObject` | Bisa menampung tipe dinamis   |
+
+* Gunakan `as?` **bukan `as!`**, kecuali kamu *100% yakin* tipe-nya benar.
+* Swift Compiler sangat ketat, jadi **konversi harus eksplisit**.
+* Untuk performa tinggi, hindari `Any` jika tipe bisa diketahui sejak awal.
+
+## 1.3 Constants and Variables
 
 Di Swift, Anda mendeklarasikan konstanta dengan kata kunci `let` dan variabel dengan kata kunci `var`.
 
@@ -164,7 +410,7 @@ let maximumNumberOfLoginAttempts = 10
 var currentLoginAttempt = 0
 ```
 
-### 1.1.2 Type Annotations
+**Type Annotations**
 
 Anda dapat memberikan anotasi tipe saat Anda mendeklarasikan konstanta atau variabel, untuk memperjelas jenis nilai yang dapat disimpan.
 
@@ -173,18 +419,48 @@ var welcomeMessage: String
 welcomeMessage = "Hello"
 ```
 
-### 1.1.3 Semicolons
+## 1.4 Data Collections
 
-Swift tidak mengharuskan Anda menulis titik koma (`;`) setelah setiap pernyataan dalam kode Anda, meskipun Anda dapat melakukannya jika Anda mau. Namun, titik koma diperlukan jika Anda ingin menulis beberapa pernyataan terpisah pada satu baris.
+### 1.4.1 Mutability of Collections
+
+Jika Anda membuat array, set, atau kamus dan menetapkannya ke variabel, koleksi yang dibuat akan dapat diubah. Ini berarti Anda dapat mengubah (atau *mutate*) koleksi setelah dibuat dengan menambahkan, menghapus, atau mengubah item dalam koleksi.
+
+### 1.4.2 Arrays
+
+Array adalah kumpulan nilai yang terurut. Array dapat menyimpan nilai duplikat.
 
 ```swift
-let cat = "🐱"; print(cat)
-// Prints "🐱"
+var shoppingList: [String] = ["Eggs", "Milk"]
 ```
 
-## 1.2 Basic Operators
+### 1.4.3 Sets
 
-### 1.2.1 Terminology
+Set adalah kumpulan nilai unik yang tidak terurut. Gunakan set alih-alih array saat urutan item tidak penting, atau saat Anda perlu memastikan bahwa item hanya muncul sekali.
+
+```swift
+var letters = Set<Character>()
+```
+
+### 1.4.4 Dictionaries
+
+Dictionary adalah kumpulan pasangan kunci-nilai yang tidak terurut. Setiap nilai dikaitkan dengan kunci unik, yang bertindak sebagai pengidentifikasi untuk nilai itu di dalam kamus.
+
+```swift
+var namesOfIntegers: [Int: String] = [:]
+```
+
+### 1.4.5 Object
+
+> Dibahas pada bab Object-Oriented Programming
+
+- Class
+- Struct
+- Protocol
+- Enum
+
+## 1.5 Operators
+
+### 1.5.1 Terminology
 
 Operator adalah unary, binary, atau ternary:
 
@@ -192,7 +468,7 @@ Operator adalah unary, binary, atau ternary:
 * **Binary operators** beroperasi pada dua target (seperti `2 + 3`) dan bersifat infix karena muncul di antara kedua target mereka.
 * **Ternary operators** beroperasi pada tiga target. Seperti C, Swift hanya memiliki satu operator ternary, yaitu operator kondisional ternary (`a ? b : c`).
 
-### 1.2.2 Assignment Operator
+### 1.5.2 Assignment Operator
 
 Operator penugasan (`a = b`) menginisialisasi atau memperbarui nilai `a` dengan nilai `b`:
 
@@ -203,7 +479,7 @@ a = b
 // a is now 10
 ```
 
-### 1.2.3 Arithmetic Operators
+### 1.5.3 Arithmetic Operators
 
 Swift mendukung empat operator aritmatika standar untuk semua jenis angka:
 
@@ -219,7 +495,7 @@ Swift mendukung empat operator aritmatika standar untuk semua jenis angka:
 10.0 / 2.5  // equals 4.0
 ```
 
-### 1.2.4 Compound Assignment Operators
+### 1.5.4 Compound Assignment Operators
 
 Seperti C, Swift menyediakan operator penugasan majemuk yang menggabungkan penugasan (`=`) dengan operasi lain. Salah satu contohnya adalah operator penugasan penjumlahan (`+=`):
 
@@ -229,7 +505,7 @@ a += 2
 // a is now 3
 ```
 
-### 1.2.5 Comparison Operators
+### 1.5.5 Comparison Operators
 
 Swift mendukung semua operator perbandingan standar C:
 
@@ -240,7 +516,7 @@ Swift mendukung semua operator perbandingan standar C:
 * Lebih besar dari atau sama dengan (`a >= b`)
 * Kurang dari atau sama dengan (`a <= b`)
 
-### 1.2.6 Ternary Conditional Operator
+### 1.5.6 Ternary Conditional Operator
 
 Operator kondisional ternary adalah operator khusus dengan tiga bagian, yang berbentuk `question ? answer1 : answer2`.
 
@@ -251,7 +527,7 @@ let rowHeight = contentHeight + (hasHeader ? 50 : 20)
 // rowHeight is equal to 90
 ```
 
-### 1.2.7 Nil-Coalescing Operator
+### 1.5.7 Nil-Coalescing Operator
 
 Operator nil-coalescing (`a ?? b`) membongkar opsional `a` jika berisi nilai, atau mengembalikan nilai default `b` jika `a` adalah `nil`.
 
@@ -263,7 +539,7 @@ var colorNameToUse = userDefinedColorName ?? defaultColorName
 // userDefinedColorName is nil, so colorNameToUse is set to the default of "red"
 ```
 
-### 1.2.8 Range Operators
+### 1.5.8 Range Operators
 
 Swift mencakup beberapa operator rentang, yang merupakan pintasan untuk mengekspresikan rentang nilai.
 
@@ -271,7 +547,7 @@ Swift mencakup beberapa operator rentang, yang merupakan pintasan untuk mengeksp
 * **Half-Open Range Operator** (`a..<b`) mendefinisikan rentang yang berjalan dari `a` ke `b`, tetapi tidak termasuk `b`.
 * **One-Sided Ranges** (`a...` atau `...b`) rentang yang berlanjut sejauh mungkin dalam satu arah.
 
-### 1.2.9 Logical Operators
+### 1.5.9 Logical Operators
 
 Operator logika memodifikasi atau menggabungkan nilai logika Boolean `true` dan `false`.
 
@@ -279,185 +555,62 @@ Operator logika memodifikasi atau menggabungkan nilai logika Boolean `true` dan 
 * Logical AND (`a && b`)
 * Logical OR (`a || b`)
 
-## 1.3 Data Types
+## 1.6 Control Flow
 
-Swift menawarkan berbagai macam tipe data dasar dan koleksi. Berikut adalah beberapa yang paling umum digunakan:
-
-### 1.3.1 Numeric Types
-
-* **Int**: Tipe data default untuk bilangan bulat (angka tanpa komponen pecahan). Ukurannya tergantung pada platform (32-bit atau 64-bit).
-* **UInt**: Tipe data untuk bilangan bulat tanpa tanda (hanya positif).
-* **Double**: Tipe data untuk angka floating-point 64-bit. Ini adalah tipe data default untuk angka desimal dan menawarkan presisi tinggi.
-* **Float**: Tipe data untuk angka floating-point 32-bit. Digunakan saat presisi yang lebih rendah dapat diterima.
-
-```swift
-let integer: Int = -10
-let unsignedInteger: UInt = 20
-let double: Double = 3.14159
-let float: Float = 3.14159
-```
-
-### 1.3.2 Booleans
-
-Swift memiliki tipe data Boolean dasar, yang disebut `Bool`. Tipe Boolean direferensikan sebagai *logical*, karena hanya dapat berupa `true` atau `false`.
-
-```swift
-let orangesAreOrange = true
-let turnipsAreDelicious = false
-```
-
-### 1.3.3 Tuples
-
-Tuple mengelompokkan beberapa nilai menjadi satu nilai majemuk. Nilai-nilai dalam tuple dapat berupa tipe apa pun dan tidak harus sama satu sama lain.
-
-```swift
-let http404Error = (404, "Not Found")
-// http404Error is of type (Int, String), and equals (404, "Not Found")
-```
-
-### 1.3.4 Optionals
-
-Anda menggunakan opsional dalam situasi di mana nilai mungkin tidak ada. Opsional mewakili dua kemungkinan: Entah ada nilai, dan Anda dapat membuka bungkus opsional untuk mengakses nilai itu, atau tidak ada nilai sama sekali.
-
-```swift
-let possibleNumber = "123"
-let convertedNumber = Int(possibleNumber)
-// convertedNumber is inferred to be of type "Int?", or "optional Int"
-```
-
-### 1.3.6 Void
-
-`Void` adalah nama lain untuk tipe tuple kosong, `()`. Anda dapat menggunakannya sebagai tipe kembalian untuk fungsi yang tidak mengembalikan nilai.
-
-```swift
-func doNothing() -> Void {
-    // this function does not return a value
-}
-```
-
-### 1.3.7 Any and AnyObject
-
-* **Any**: Dapat mewakili instance dari tipe apa pun, termasuk tipe fungsi.
-* **AnyObject**: Dapat mewakili instance dari kelas apa pun.
-
-## 1.4 Strings and Characters
-
-### 1.4.1 String Literals
-
-Anda dapat menyertakan nilai string yang telah ditentukan sebelumnya dalam kode Anda sebagai literal string. Literal string adalah urutan karakter yang dikelilingi oleh tanda kutip ganda (`"`).
-
-```swift
-let someString = "Some string literal value"
-```
-
-### 1.4.2 Initializing an Empty String
-
-Untuk membuat nilai `String` kosong sebagai titik awal, tetapkan literal string kosong ke variabel, atau inisialisasi objek `String` baru dengan sintaksis initializer.
-
-```swift
-var emptyString = ""
-var anotherEmptyString = String()
-// these two strings are both empty, and are equivalent to each other
-```
-
-### 1.4.3 String Mutability
-
-Anda menunjukkan apakah `String` tertentu dapat dimodifikasi (atau *mutable*) dengan menetapkannya ke variabel (dalam hal ini dapat dimodifikasi), atau ke konstanta (dalam hal ini tidak dapat dimodifikasi).
-
-```swift
-var variableString = "Horse"
-variableString += " and carriage"
-// variableString is now "Horse and carriage"
-
-let constantString = "Highlander"
-constantString += " and another Highlander"
-// this reports a compile-time error - a constant string cannot be modified
-```
-
-### 1.4.4 Working with Characters
-
-Anda dapat mengakses nilai `Character` individual dari sebuah `String` dengan mengulanginya dengan loop `for-in`:
-
-```swift
-for character in "Dog!🐶" {
-    print(character)
-}
-// D
-// o
-// g
-// !
-// 🐶
-```
-
-### 1.4.5 Concatenating Strings and Characters
-
-Nilai string dapat ditambahkan bersama (atau digabungkan) dengan operator penjumlahan (`+`) untuk membuat string baru:
-
-```swift
-let string1 = "hello"
-let string2 = " there"
-var welcome = string1 + string2
-// welcome now equals "hello there"
-```
-
-### 1.4.6 String Interpolation
-
-Interpolasi string adalah cara untuk membuat `String` baru dari campuran konstanta, variabel, literal, dan ekspresi dengan menyertakan nilainya di dalam literal string.
-
-```swift
-let multiplier = 3
-let message = "\(multiplier) times 2.5 is \(Double(multiplier) * 2.5)"
-// message is "3 times 2.5 is 7.5"
-```
-
-## 1.5 Collection Types
-
-### 1.5.1 Mutability of Collections
-
-Jika Anda membuat array, set, atau kamus dan menetapkannya ke variabel, koleksi yang dibuat akan dapat diubah. Ini berarti Anda dapat mengubah (atau *mutate*) koleksi setelah dibuat dengan menambahkan, menghapus, atau mengubah item dalam koleksi.
-
-### 1.5.2 Arrays
-
-Array adalah kumpulan nilai yang terurut. Array dapat menyimpan nilai duplikat.
-
-```swift
-var shoppingList: [String] = ["Eggs", "Milk"]
-```
-
-### 1.5.3 Sets
-
-Set adalah kumpulan nilai unik yang tidak terurut. Gunakan set alih-alih array saat urutan item tidak penting, atau saat Anda perlu memastikan bahwa item hanya muncul sekali.
-
-```swift
-var letters = Set<Character>()
-```
-
-### 1.5.4 Dictionaries
-
-Dictionary adalah kumpulan pasangan kunci-nilai yang tidak terurut. Setiap nilai dikaitkan dengan kunci unik, yang bertindak sebagai pengidentifikasi untuk nilai itu di dalam kamus.
-
-```swift
-var namesOfIntegers: [Int: String] = [:]
-```
-
-# 2. Control Flow
-
-## 2.1 For-In Loops
+### 1.6.1 For-In Loops
 
 Anda menggunakan loop `for-in` untuk mengulang urutan, seperti item dalam larik, rentang angka, atau karakter dalam string.
 
 ```swift
+// 1️⃣ Basic For-in (Array)
 let names = ["Anna", "Alex", "Brian", "Jack"]
 for name in names {
     print("Hello, \(name)!")
 }
-// Hello, Anna!
-// Hello, Alex!
-// Hello, Brian!
-// Hello, Jack!
+
+// 2️⃣ For-in (Range)
+for i in 1...5 {
+    print("Number \(i)")
+}
+
+// 3️⃣ For-in (Exclusive Range)
+for i in 0..<3 {
+    print("Exclusive index: \(i)")
+}
+
+// 4️⃣ For-in (Dictionary)
+let ages = ["Alice": 20, "Bob": 25, "Charlie": 30]
+for (name, age) in ages {
+    print("\(name) berumur \(age)")
+}
+
+// 5️⃣ For-in (String)
+for char in "Swift" {
+    print("Character: \(char)")
+}
+
+// 6️⃣ For-in dengan underscore (_)
+for _ in 1...3 {
+    print("Loop tanpa variabel")
+}
+
+// 7️⃣ Enumerated() untuk index + value
+let components = ["CPU", "GPU", "RAM"]
+for (index, item) in components.enumerated() {
+    print("Index \(index): \(item)")
+}
+
+// 8️⃣ Stride (loop dengan langkah / step)
+for i in stride(from: 0, to: 10, by: 2) {
+    print("Step by 2 (exclusive): \(i)")
+}
+for i in stride(from: 0, through: 10, by: 3) {
+    print("Step by 3 (inclusive): \(i)")
+}
+
 ```
 
-## 2.2 While Loops
+### 1.6.2 While Loops
 
 Loop `while` melakukan serangkaian pernyataan hingga suatu kondisi menjadi `false`. Loop semacam ini paling baik digunakan saat jumlah iterasi tidak diketahui sebelum iterasi pertama dimulai.
 
@@ -467,21 +620,248 @@ while condition {
 }
 ```
 
-## 2.3 Conditional Statements
+```swift
+// 1️⃣ While dasar
+var counter = 1
+while counter <= 5 {
+    print("While count: \(counter)")
+    counter += 1
+}
 
-### 2.3.1 If
+// 2️⃣ While dengan kondisi kompleks
+var number = 0
+while number < 10 {
+    if number % 2 == 0 {
+        print("Even number: \(number)")
+    }
+    number += 1
+}
+
+// 3️⃣ While untuk array (manual indexing)
+let fruits = ["Apple", "Banana", "Mango"]
+var index = 0
+while index < fruits.count {
+    print("Fruit \(index + 1): \(fruits[index])")
+    index += 1
+}
+
+// 4️⃣ While untuk dictionary (pakai iterator)
+var ages = ["Alice": 20, "Bob": 25, "Charlie": 30]
+while !ages.isEmpty {
+    if let (name, age) = ages.popFirst() {
+        print("\(name) berumur \(age)")
+    }
+}
+
+// 5️⃣ Repeat-While (setara do-while di C#/Java)
+var n = 0
+repeat {
+    print("Repeat-While value: \(n)")
+    n += 1
+} while n < 3
+
+// 6️⃣ While dengan break dan continue
+var i = 1
+while i <= 10 {
+    if i == 3 {
+        i += 1
+        continue // lewati angka 3
+    }
+    if i == 7 {
+        break // berhenti di angka 7
+    }
+    print("Loop value: \(i)")
+    i += 1
+}
+
+// 7️⃣ Nested While (bersarang)
+var a = 1
+while a <= 3 {
+    var b = 1
+    while b <= 2 {
+        print("Pair (\(a), \(b))")
+        b += 1
+    }
+    a += 1
+}
+
+// 8️⃣ While dengan kondisi logika kompleks
+var x = 5
+var y = 2
+while x > 0 && y < 10 {
+    print("x: \(x), y: \(y)")
+    x -= 1
+    y += 2
+}
+
+```
+
+### 1.6.3 Conditional Statements
+
+#### 1.6.3.1 If
 
 Dalam bentuknya yang paling sederhana, pernyataan `if` memiliki satu kondisi `if`. Ia menjalankan serangkaian pernyataan hanya jika kondisi itu `true`.
 
 ```swift
-var temperatureInFahrenheit = 30
-if temperatureInFahrenheit <= 32 {
-    print("It's very cold. Consider wearing a scarf.")
+if score > 80 {
+// do something
 }
-// Prints "It's very cold. Consider wearing a scarf."
 ```
 
-### 2.3.2 Switch
+#### 1.6.3.2 If-Else
+
+Digunakan untuk menentukan blok alternatif jika kondisi `if` bernilai `false`.
+
+```swift
+let temperature = 30
+if temperature > 35 {
+    print("Cuaca sangat panas")
+} else {
+    print("Masih aman, tidak terlalu panas")
+}
+```
+
+---
+
+#### 1.6.3.3 If-Else If-Else
+
+Menangani beberapa kondisi secara berurutan, dievaluasi dari atas ke bawah.
+
+```swift
+let age = 20
+if age < 13 {
+    print("Anak-anak")
+} else if age < 18 {
+    print("Remaja")
+} else if age < 60 {
+    print("Dewasa")
+} else {
+    print("Lansia")
+}
+```
+
+---
+
+#### 1.6.3.4 If dengan Operator Logika
+
+Swift mendukung operator logika `&&` (AND), `||` (OR), dan `!` (NOT) untuk menggabungkan atau membalik kondisi.
+
+```swift
+let isMember = true
+let total = 120_000
+if isMember && total > 100_000 {
+    print("Dapat diskon member!")
+}
+
+let hasVoucher = false
+if isMember || hasVoucher {
+    print("Masih bisa dapat potongan harga")
+}
+
+let loggedIn = false
+if !loggedIn {
+    print("Silakan login terlebih dahulu")
+}
+```
+
+---
+
+#### 1.6.3.5 If Range
+
+Menggunakan range `(a...b)` atau `(a..<b)` untuk memeriksa apakah nilai berada di dalam batas tertentu.
+
+```swift
+let speed = 75
+if (60...80).contains(speed) {
+    print("Kecepatan dalam batas aman")
+}
+```
+
+---
+
+#### 1.6.3.6 If Nested
+
+Sebuah `if` dapat diletakkan di dalam `if` lainnya.
+
+```swift
+let userLoggedIn = true
+let hasAccess = false
+if userLoggedIn {
+    if hasAccess {
+        print("Selamat datang di dashboard")
+    } else {
+        print("Akses ditolak")
+    }
+} else {
+    print("Kamu harus login terlebih dahulu")
+}
+```
+
+---
+
+#### 1.6.3.7 Optional Binding
+
+Digunakan untuk memeriksa dan membuka optional secara aman.
+
+```swift
+var nickname: String? = "RedHorizon"
+if let name = nickname {
+    print("Halo, \(name)!")
+} else {
+    print("Belum punya nama panggilan")
+}
+```
+
+---
+
+#### 1.6.3.8 Multiple Optional Binding
+
+Beberapa optional bisa diperiksa dalam satu pernyataan `if`.
+
+```swift
+var firstName: String? = "John"
+var lastName: String? = "Doe"
+if let first = firstName, let last = lastName {
+    print("Nama lengkap: \(first) \(last)")
+} else {
+    print("Data nama tidak lengkap")
+}
+```
+
+---
+
+#### 1.6.3.9 If var
+
+Mirip `if let`, tapi nilainya dapat dimodifikasi di dalam blok.
+
+```swift
+var balance: Int? = 500
+if var amount = balance {
+    amount += 200
+    print("Saldo sementara: \(amount)")
+}
+```
+
+---
+
+### 1.6.4 Guard Let
+
+Digunakan untuk *early exit* , yaitu keluar lebih awal dari fungsi jika kondisi tidak terpenuhi.
+
+```swift
+func greetUser(name: String?) {
+    guard let username = name else {
+        print("Nama tidak ditemukan!")
+        return
+    }
+    print("Hai, \(username)! Selamat datang.")
+}
+
+greetUser(name: "Andi")
+greetUser(name: nil)
+```
+
+### 1.6.5 Switch
 
 Pernyataan `switch` mempertimbangkan suatu nilai dan membandingkannya dengan beberapa kemungkinan pola yang cocok. Ia kemudian menjalankan blok kode yang sesuai, berdasarkan pola pertama yang berhasil dicocokkan.
 
@@ -498,23 +878,23 @@ default:
 // Prints "The last letter of the alphabet"
 ```
 
-## 2.4 Control Transfer Statements
+### 1.6.6 Control Transfer Statements
 
 Pernyataan transfer kontrol mengubah urutan eksekusi kode Anda, dengan mentransfer kontrol dari satu bagian kode ke bagian lain.
 
-### 2.4.1 Continue
+#### 1.6.6.1 Continue
 
 Pernyataan `continue` memberi tahu sebuah loop untuk berhenti melakukan apa yang dilakukannya dan memulai lagi di awal iterasi berikutnya melalui loop.
 
-### 2.4.2 Break
+#### 1.6.6.2 Break
 
 Pernyataan `break` mengakhiri eksekusi seluruh pernyataan kontrol aliran dengan segera.
 
-### 2.4.3 Fallthrough
+#### 1.6.6.3 Fallthrough
 
 Dalam Swift, pernyataan `switch` tidak jatuh melalui bagian bawah setiap kasus dan ke yang berikutnya. Sebaliknya, seluruh pernyataan `switch` menyelesaikan eksekusinya segera setelah kasus pertama yang cocok selesai. Sebaliknya, Anda dapat menggunakan kata kunci `fallthrough` untuk sengaja jatuh ke kasus berikutnya.
 
-### 2.4.4 Labeled Statements
+#### 1.6.6.4 Labeled Statements
 
 Anda dapat menandai pernyataan loop atau pernyataan kondisional dengan label pernyataan. Dalam pernyataan `if`, Anda dapat menggunakan label dengan pernyataan `break` untuk mengakhiri pernyataan `if` yang diberi label. Dalam pernyataan `loop`, Anda dapat menggunakan label dengan pernyataan `break` atau `continue` untuk mengakhiri atau melanjutkan eksekusi pernyataan loop yang diberi label.
 
@@ -1581,3 +1961,79 @@ Gunakan referensi lemah ketika masa pakai referensi lain lebih pendek atau dapat
 ## 24.4 Operator Methods
 
 ## 24.5 Custom Operators
+
+// Looping di Swift — berbagai variasi modern
+// ==========================================
+import Foundation
+
+// 1️⃣ Basic For-in (Array)
+let names = ["Anna", "Alex", "Brian", "Jack"]
+for name in names {
+print("Hello, \(name)!")
+}
+print("")
+
+// 2️⃣ For-in (Range)
+for i in 1...5 {
+print("Number \(i)")
+}
+print("")
+
+// 3️⃣ For-in (Exclusive Range)
+for i in 0..<3 {
+print("Exclusive index: \(i)")
+}
+print("")
+
+// 4️⃣ For-in (Dictionary)
+let ages = ["Alice": 20, "Bob": 25, "Charlie": 30]
+for (name, age) in ages {
+print("\(name) berumur \(age)")
+}
+print("")
+
+// 5️⃣ For-in (String)
+for char in "Swift" {
+print("Character: \(char)")
+}
+print("")
+
+// 6️⃣ For-in dengan underscore (_)
+for _ in 1...3 {
+print("Loop tanpa variabel")
+}
+print("")
+
+// 7️⃣ Enumerated() untuk index + value
+let components = ["CPU", "GPU", "RAM"]
+for (index, item) in components.enumerated() {
+print("Index \(index): \(item)")
+}
+print("")
+
+// 8️⃣ Stride (loop dengan langkah / step)
+for i in stride(from: 0, to: 10, by: 2) {
+print("Step by 2 (exclusive): \(i)")
+}
+for i in stride(from: 0, through: 10, by: 3) {
+print("Step by 3 (inclusive): \(i)")
+}
+print("")
+
+// 9️⃣ Nested Loop
+for i in 1...3 {
+for j in 1...2 {
+print("Pair (\(i), \(j))")
+}
+}
+print("")
+
+// 🔟 Break & Continue
+for i in 1...10 {
+if i == 3 { continue } // lewati angka 3
+if i == 7 { break }    // berhenti di angka 7
+print("Loop value: \(i)")
+}
+print("")
+
+print("✅ Semua variasi for-in Swift selesai dijalankan!")
