@@ -1,9 +1,9 @@
-## ⛾ Corework : C# & NodeJS | Java
+## ⛾ C# & NodeJS | Programmer
 
 ![](assets/20251022_033133_10527946_4.png)
 
-build scalable & performant system, ... concurrency meets caffeine.
-
+- **Corework** : C# & NodeJS
+- **Coffeework** : Java, Swift
 - **Architectures** : Monolith, Microservices
 - **Databases** : PostgreSQL, Redis
 - **Orchestration**
