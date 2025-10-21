@@ -6,10 +6,10 @@
 
 **Alasan-alasan Kenapa Menggunakan Swift:**
 
-*   Dirancang untuk keamanan
-*   Cepat dan kuat
-*   Dukungan ekosistem Apple yang besar
-*   Sintaks yang ekspresif dan modern
+* Dirancang untuk keamanan
+* Cepat dan kuat
+* Dukungan ekosistem Apple yang besar
+* Sintaks yang ekspresif dan modern
 
 **Karakteristik Swift:**
 
@@ -50,20 +50,22 @@ banyak baris.
 
 **Standard Library**
 
-| Standard Library | Deskripsi                               |
-| ---------------- | --------------------------------------- |
-| Foundation       | Layanan dasar, tipe data, dan fungsionalitas OS. |
-| SwiftUI          | Framework UI deklaratif untuk semua platform Apple. |
+
+| Standard Library | Deskripsi                                            |
+| ------------------ | ------------------------------------------------------ |
+| Foundation       | Layanan dasar, tipe data, dan fungsionalitas OS.     |
+| SwiftUI          | Framework UI deklaratif untuk semua platform Apple.  |
 | Combine          | Framework untuk memproses nilai dari waktu ke waktu. |
 
 **Libraries & Frameworks**
 
-| Kategori       | Library/Framework | Deskripsi                               |
-| -------------- | ----------------- | --------------------------------------- |
-| Web App        | Vapor, Kitura     | Framework untuk membangun aplikasi web. |
-| Mobile App     | UIKit, SwiftUI    | Framework untuk aplikasi iOS.           |
-| Database       | Core Data, Realm  | Solusi untuk persistensi data.          |
-| Game           | SpriteKit, SceneKit | Framework untuk pengembangan game.      |
+
+| Kategori   | Library/Framework   | Deskripsi                               |
+| ------------ | --------------------- | ----------------------------------------- |
+| Web App    | Vapor, Kitura       | Framework untuk membangun aplikasi web. |
+| Mobile App | UIKit, SwiftUI      | Framework untuk aplikasi iOS.           |
+| Database   | Core Data, Realm    | Solusi untuk persistensi data.          |
+| Game       | SpriteKit, SceneKit | Framework untuk pengembangan game.      |
 
 # 0. Introduction
 
@@ -73,10 +75,10 @@ banyak baris.
 
 **Alasan-alasan Kenapa Menggunakan Swift:**
 
-*   Dirancang untuk keamanan
-*   Cepat dan kuat
-*   Dukungan ekosistem Apple yang besar
-*   Sintaks yang ekspresif dan modern
+* Dirancang untuk keamanan
+* Cepat dan kuat
+* Dukungan ekosistem Apple yang besar
+* Sintaks yang ekspresif dan modern
 
 **Karakteristik Swift:**
 
@@ -115,34 +117,35 @@ banyak baris.
 - **Do**: `FileName.swift`
 - **Avoid**: `file_name.swift`
 
-## Primitif vs Objek: String di Swift, Java, dan C#
+## Primitif vs Objek
 
 Perlakuan terhadap tipe data `String` menunjukkan perbedaan filosofi yang menarik antara Swift, Java, dan C#.
 
-*   **Java**: Di Java, `String` adalah sebuah **objek** murni dari kelas `java.lang.String`, bukan tipe data primitif. Ini berarti setiap variabel `String` menyimpan referensi ke sebuah objek di memori (heap). Tipe data primitif di Java (`int`, `char`, `boolean`, dll.) tidak memiliki metode dan disimpan langsung di stack, sehingga lebih cepat. Untuk memberikan fungsionalitas objek pada tipe primitif, Java menggunakan *object wrapper* (misalnya, `Integer` untuk `int`).
+* **C#** : Tipe data dasar seperti `int`, `double`, `bool`, dan `string` adalah **primitif** dan disimpan di **stack** . Ada juga **object wrapper** untuk tipe data ini, yang disimpan di **heap** , sehingga bisa diperlakukan seperti objek ketika perlu.
+* **Java** : Beberapa tipe data, seperti `String`, adalah **object** . Tipe primitif (`int`, `double`, dll.) bisa dibungkus menjadi **wrapper class** untuk diperlakukan sebagai object. Hampir semua tipe bisa diakses sebagai object jika dibutuhkan.
 
-*   **C#**: Mirip dengan Java, `string` di C# adalah **objek** (sebuah alias untuk kelas `System.String`) dan merupakan *reference type*. Namun, C# membuatnya terasa seperti tipe data primitif dengan menyediakan beberapa kemudahan sintaksis, seperti penggunaan operator `==` untuk perbandingan nilai dan perlakuan khusus oleh compiler yang membuatnya lebih efisien daripada objek biasa.
-
-*   **Swift**: Swift mengambil pendekatan yang berbeda. Di Swift, `String` adalah sebuah **struct**, yang merupakan *value type*. Ini adalah perbedaan kunci. Tidak seperti *reference type* (class), *value type* disalin ketika dioper ke fungsi atau di-assign ke variabel baru. Ini memberikan keamanan dan prediktabilitas yang lebih besar, karena tidak ada dua variabel yang secara tidak sengaja menunjuk (dan mengubah) data yang sama. Swift tidak benar-benar memiliki konsep "primitif" dalam artian tradisional; tipe data dasar seperti `Int`, `Double`, dan `Bool` juga diimplementasikan sebagai `struct` dengan properti dan metode, memberikan kekuatan objek dengan efisiensi *value type*.
+* **Swift**: Swift mengambil pendekatan yang berbeda. Di Swift, `String` adalah sebuah **struct**, yang merupakan *value type*. Ini adalah perbedaan kunci. Tidak seperti *reference type* (class), *value type* disalin ketika dioper ke fungsi atau di-assign ke variabel baru. Ini memberikan keamanan dan prediktabilitas yang lebih besar, karena tidak ada dua variabel yang secara tidak sengaja menunjuk (dan mengubah) data yang sama. Swift tidak benar-benar memiliki konsep "primitif" dalam artian tradisional; tipe data dasar seperti `Int`, `Double`, dan `Bool` juga diimplementasikan sebagai `struct` dengan properti dan metode, memberikan kekuatan objek dengan efisiensi *value type*.
 
 Singkatnya, sementara Java dan C# memperlakukan `String` sebagai objek (reference type), Swift memperlakukannya sebagai *value type* (struct), yang sejalan dengan filosofi desainnya yang mengutamakan keamanan dan kejelasan.
 
 **Standard Library**
 
-| Standard Library | Deskripsi                               |
-| ---------------- | --------------------------------------- |
-| Foundation       | Layanan dasar, tipe data, dan fungsionalitas OS. |
-| SwiftUI          | Framework UI deklaratif untuk semua platform Apple. |
+
+| Standard Library | Deskripsi                                            |
+| ------------------ | ------------------------------------------------------ |
+| Foundation       | Layanan dasar, tipe data, dan fungsionalitas OS.     |
+| SwiftUI          | Framework UI deklaratif untuk semua platform Apple.  |
 | Combine          | Framework untuk memproses nilai dari waktu ke waktu. |
 
 **Libraries & Frameworks**
 
-| Kategori       | Library/Framework | Deskripsi                               |
-| -------------- | ----------------- | --------------------------------------- |
-| Web App        | Vapor, Kitura     | Framework untuk membangun aplikasi web. |
-| Mobile App     | UIKit, SwiftUI    | Framework untuk aplikasi iOS.           |
-| Database       | Core Data, Realm  | Solusi untuk persistensi data.          |
-| Game           | SpriteKit, SceneKit | Framework untuk pengembangan game.      |
+
+| Kategori   | Library/Framework   | Deskripsi                               |
+| ------------ | --------------------- | ----------------------------------------- |
+| Web App    | Vapor, Kitura       | Framework untuk membangun aplikasi web. |
+| Mobile App | UIKit, SwiftUI      | Framework untuk aplikasi iOS.           |
+| Database   | Core Data, Realm    | Solusi untuk persistensi data.          |
+| Game       | SpriteKit, SceneKit | Framework untuk pengembangan game.      |
 
 # 1. Basic
 
@@ -185,9 +188,9 @@ let cat = "🐱"; print(cat)
 
 Operator adalah unary, binary, atau ternary:
 
-*   **Unary operators** beroperasi pada satu target (seperti `-a`). Operator unary prefix muncul tepat sebelum target mereka (seperti `!b`), dan operator unary postfix muncul tepat setelah target mereka (seperti `c!`).
-*   **Binary operators** beroperasi pada dua target (seperti `2 + 3`) dan bersifat infix karena muncul di antara kedua target mereka.
-*   **Ternary operators** beroperasi pada tiga target. Seperti C, Swift hanya memiliki satu operator ternary, yaitu operator kondisional ternary (`a ? b : c`).
+* **Unary operators** beroperasi pada satu target (seperti `-a`). Operator unary prefix muncul tepat sebelum target mereka (seperti `!b`), dan operator unary postfix muncul tepat setelah target mereka (seperti `c!`).
+* **Binary operators** beroperasi pada dua target (seperti `2 + 3`) dan bersifat infix karena muncul di antara kedua target mereka.
+* **Ternary operators** beroperasi pada tiga target. Seperti C, Swift hanya memiliki satu operator ternary, yaitu operator kondisional ternary (`a ? b : c`).
 
 ### 1.2.2 Assignment Operator
 
@@ -204,10 +207,10 @@ a = b
 
 Swift mendukung empat operator aritmatika standar untuk semua jenis angka:
 
-*   Penjumlahan (`+`)
-*   Pengurangan (`-`)
-*   Perkalian (`*`)
-*   Pembagian (`/`)
+* Penjumlahan (`+`)
+* Pengurangan (`-`)
+* Perkalian (`*`)
+* Pembagian (`/`)
 
 ```swift
 1 + 2       // equals 3
@@ -230,12 +233,12 @@ a += 2
 
 Swift mendukung semua operator perbandingan standar C:
 
-*   Sama dengan (`a == b`)
-*   Tidak sama dengan (`a != b`)
-*   Lebih besar dari (`a > b`)
-*   Kurang dari (`a < b`)
-*   Lebih besar dari atau sama dengan (`a >= b`)
-*   Kurang dari atau sama dengan (`a <= b`)
+* Sama dengan (`a == b`)
+* Tidak sama dengan (`a != b`)
+* Lebih besar dari (`a > b`)
+* Kurang dari (`a < b`)
+* Lebih besar dari atau sama dengan (`a >= b`)
+* Kurang dari atau sama dengan (`a <= b`)
 
 ### 1.2.6 Ternary Conditional Operator
 
@@ -264,17 +267,17 @@ var colorNameToUse = userDefinedColorName ?? defaultColorName
 
 Swift mencakup beberapa operator rentang, yang merupakan pintasan untuk mengekspresikan rentang nilai.
 
-*   **Closed Range Operator** (`a...b`) mendefinisikan rentang yang berjalan dari `a` ke `b`, dan termasuk nilai `a` dan `b`.
-*   **Half-Open Range Operator** (`a..<b`) mendefinisikan rentang yang berjalan dari `a` ke `b`, tetapi tidak termasuk `b`.
-*   **One-Sided Ranges** (`a...` atau `...b`) rentang yang berlanjut sejauh mungkin dalam satu arah.
+* **Closed Range Operator** (`a...b`) mendefinisikan rentang yang berjalan dari `a` ke `b`, dan termasuk nilai `a` dan `b`.
+* **Half-Open Range Operator** (`a..<b`) mendefinisikan rentang yang berjalan dari `a` ke `b`, tetapi tidak termasuk `b`.
+* **One-Sided Ranges** (`a...` atau `...b`) rentang yang berlanjut sejauh mungkin dalam satu arah.
 
 ### 1.2.9 Logical Operators
 
 Operator logika memodifikasi atau menggabungkan nilai logika Boolean `true` dan `false`.
 
-*   Logical NOT (`!a`)
-*   Logical AND (`a && b`)
-*   Logical OR (`a || b`)
+* Logical NOT (`!a`)
+* Logical AND (`a && b`)
+* Logical OR (`a || b`)
 
 ## 1.3 Data Types
 
@@ -282,10 +285,10 @@ Swift menawarkan berbagai macam tipe data dasar dan koleksi. Berikut adalah bebe
 
 ### 1.3.1 Numeric Types
 
-*   **Int**: Tipe data default untuk bilangan bulat (angka tanpa komponen pecahan). Ukurannya tergantung pada platform (32-bit atau 64-bit).
-*   **UInt**: Tipe data untuk bilangan bulat tanpa tanda (hanya positif).
-*   **Double**: Tipe data untuk angka floating-point 64-bit. Ini adalah tipe data default untuk angka desimal dan menawarkan presisi tinggi.
-*   **Float**: Tipe data untuk angka floating-point 32-bit. Digunakan saat presisi yang lebih rendah dapat diterima.
+* **Int**: Tipe data default untuk bilangan bulat (angka tanpa komponen pecahan). Ukurannya tergantung pada platform (32-bit atau 64-bit).
+* **UInt**: Tipe data untuk bilangan bulat tanpa tanda (hanya positif).
+* **Double**: Tipe data untuk angka floating-point 64-bit. Ini adalah tipe data default untuk angka desimal dan menawarkan presisi tinggi.
+* **Float**: Tipe data untuk angka floating-point 32-bit. Digunakan saat presisi yang lebih rendah dapat diterima.
 
 ```swift
 let integer: Int = -10
@@ -334,8 +337,8 @@ func doNothing() -> Void {
 
 ### 1.3.7 Any and AnyObject
 
-*   **Any**: Dapat mewakili instance dari tipe apa pun, termasuk tipe fungsi.
-*   **AnyObject**: Dapat mewakili instance dari kelas apa pun.
+* **Any**: Dapat mewakili instance dari tipe apa pun, termasuk tipe fungsi.
+* **AnyObject**: Dapat mewakili instance dari kelas apa pun.
 
 ## 1.4 Strings and Characters
 
@@ -594,10 +597,10 @@ Closures adalah blok fungsionalitas mandiri yang dapat diteruskan dan digunakan 
 
 Ekspresi closure adalah cara untuk menulis closure inline dalam sintaks yang ringkas. Ekspresi closure menyediakan beberapa pengoptimalan sintaks:
 
-*   Menyimpulkan tipe parameter dan nilai kembalian dari konteks
-*   Pengembalian implisit dari closure ekspresi tunggal
-*   Nama argumen singkatan
-*   Sintaks closure Trailing
+* Menyimpulkan tipe parameter dan nilai kembalian dari konteks
+* Pengembalian implisit dari closure ekspresi tunggal
+* Nama argumen singkatan
+* Sintaks closure Trailing
 
 ```swift
 let names = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
@@ -667,6 +670,23 @@ print("Now serving \(customerProvider())!")
 # 5. Enumerations
 
 Enumerasi mendefinisikan tipe umum untuk sekelompok nilai terkait dan memungkinkan Anda untuk bekerja dengan nilai-nilai tersebut dengan cara yang aman tipe dalam kode Anda.
+
+```swift
+// Deklarasi enum
+enum Direction {
+    case north
+    case south
+    case east
+    case west
+}
+
+// Akses secara implisit
+let dir1: Direction = .north  // tidak perlu tulis 'Direction.north'
+
+// Akses secara eksplisit
+let dir2: Direction = Direction.south
+
+```
 
 ## 5.1 Enumeration Syntax
 
@@ -867,8 +887,8 @@ Pengamat properti mengamati dan menanggapi perubahan nilai properti. Pengamat pr
 
 Anda dapat menambahkan pengamat properti ke properti tersimpan apa pun yang Anda definisikan, kecuali untuk properti tersimpan yang malas. Anda juga dapat menambahkan pengamat properti ke properti terhitung apa pun yang Anda warisi dengan menimpa properti di subkelas.
 
-*   `willSet` dipanggil tepat sebelum nilai disimpan.
-*   `didSet` dipanggil segera setelah nilai baru disimpan.
+* `willSet` dipanggil tepat sebelum nilai disimpan.
+* `didSet` dipanggil segera setelah nilai baru disimpan.
 
 ## 7.4 Property Wrappers
 
@@ -1229,14 +1249,14 @@ for item in library {
 
 Sebuah konstanta atau variabel dari tipe kelas tertentu sebenarnya dapat merujuk ke instance subkelas di belakang layar. Jika Anda yakin ini masalahnya, Anda dapat mencoba untuk *downcast* ke tipe subkelas dengan operator *type cast* (`as?` atau `as!`).
 
-Karena downcasting bisa gagal, operator type cast hadir dalam dua bentuk yang berbeda. Bentuk bersyarat, `as?`, mengembalikan nilai opsional dari tipe yang ingin Anda downcast. Bentuk paksa, `as!`, mencoba downcast dan memaksa-membuka hasil sebagai satu tindakan gabungan. 
+Karena downcasting bisa gagal, operator type cast hadir dalam dua bentuk yang berbeda. Bentuk bersyarat, `as?`, mengembalikan nilai opsional dari tipe yang ingin Anda downcast. Bentuk paksa, `as!`, mencoba downcast dan memaksa-membuka hasil sebagai satu tindakan gabungan.
 
 ## 16.4 Type Casting for Any and AnyObject
 
 Swift menyediakan dua tipe khusus untuk bekerja dengan tipe non-spesifik:
 
-*   `Any` dapat mewakili instance dari tipe apa pun, termasuk tipe fungsi.
-*   `AnyObject` dapat mewakili instance dari tipe kelas apa pun.
+* `Any` dapat mewakili instance dari tipe apa pun, termasuk tipe fungsi.
+* `AnyObject` dapat mewakili instance dari tipe kelas apa pun.
 
 # 17. Nested Types
 
@@ -1531,22 +1551,33 @@ Gunakan referensi lemah ketika masa pakai referensi lain lebih pendek atau dapat
 # 22. Memory Safety
 
 ## 22.1 Understanding Conflicting Access to Memory
+
 ## 22.2 Conflicting Access to In-Out Parameters
+
 ## 22.3 Conflicting Access to self in Methods
+
 ## 22.4 Conflicting Access to Properties
 
 # 23. Access Control
 
 ## 23.1 Modules and Source Files
+
 ## 23.2 Access Control Syntax
+
 ## 23.3 Custom Types
+
 ## 23.4 Subclassing
+
 ## 23.5 Constants, Variables, Properties, and Subscripts
 
 # 24. Advanced Operators
 
 ## 24.1 Bitwise Operators
+
 ## 24.2 Overflow Operators
+
 ## 24.3 Infix, Prefix, and Postfix Operators
+
 ## 24.4 Operator Methods
+
 ## 24.5 Custom Operators
