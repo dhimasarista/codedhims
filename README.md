@@ -1,4 +1,7 @@
 ## ⛾ Corework : C# & NodeJS | Java
+
+![](assets/20251022_033133_10527946_4.png)
+
 build scalable & performant system, ... concurrency meets caffeine.
 
 - **Architectures** : Monolith, Microservices
@@ -22,6 +25,7 @@ build scalable & performant system, ... concurrency meets caffeine.
   - Elasticsearch
 
 **⛔ Less Preferred**
+
 - 🐘 lacks native concurrency
 - 🐭 over-minimalist, boilerplate
 - 🐍 slow in raw, duck typing
