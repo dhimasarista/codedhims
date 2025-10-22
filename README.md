@@ -1,8 +1,9 @@
 ## ⛾ C# & NodeJS | Programmer
 
-![CNJ](<generated-image (3).png>)
+![CNJ](generated-image (3).png)
 
 - **Corework** : C# & NodeJS | Java
+  - 💡 Why Java ? large-scale, ecosystem & resilient
 - **Architectures** : Monolith, Microservices
 - **Databases** : PostgreSQL, Redis
 - **Orchestration**
@@ -25,8 +26,8 @@
 
 **⛔ Less Preferred**
 
+- 🕊️ not now..weak ecosystem
 - 🐘 lacks native concurrency
 - 🐭 over-minimalist, boilerplate
 - 🐍 slow in raw, duck typing
 - 🦀 horrible, painful syntax
-- 🕊️ weak ecosystem

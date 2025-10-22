@@ -4,7 +4,7 @@
 
 **Swift** adalah bahasa pemrograman yang kuat dan intuitif yang dibuat oleh Apple untuk membangun aplikasi untuk iOS, Mac, Apple TV, dan Apple Watch. Swift dirancang untuk memberikan lebih banyak kebebasan kepada pengembang. Swift mudah digunakan dan bersifat open source, jadi siapa pun yang punya ide bisa menciptakan sesuatu yang luar biasa.
 
-> Sumber: Apple
+> This documentation follows the style of my favorite language (C#). All programming fundamentals and detailed explanations are covered there. Similar NodeJS & Java, this doc is intended for fast learning and quick reference.
 
 **Alasan-alasan Kenapa Menggunakan Swift:**
 
@@ -49,6 +49,206 @@ banyak baris.
 
 - **Do**: `FileName.swift`
 - **Avoid**: `file_name.swift`
+
+## Init & Project Structures
+
+**Langkah membuat Project/Package swift**
+
+- Membuat direktori `mkdir MyApp`
+- Masuk ke direktori yang dibuat tadi.
+- Inisialisasi Project dengan perintah
+
+  ```bash
+  swift package init --type executable
+  ```
+- Akan terbentuk struktur seperti ini:
+
+```
+MyApp/
+├─ Package.swift
+├─ Sources/
+│  └─ MyApp/
+│     └─ main.swift
+└─ Tests/
+   └─ MyAppTests/
+```
+
+* Semua source code **wajib berada di dalam `Sources/<target_name>`** kalau mau di-*build* otomatis.
+* Nama folder di dalam `Sources/` harus **identik dengan target** di `Package.swift`.
+* File `main.swift` berfungsi seperti `Program.cs` `index.js` `Main.java`
+
+---
+
+Di C#, JS atau Java mudah sekali membuat modularisasi kode beda folder. Sedangkan di Swift agak trikcy jika folder tersebut diluar target utama `Package.swift`.
+
+Misal kamu buat file baru di:
+
+```
+Sources/MyApp/
+│
+├─ main.swift
+└─ Core/
+   ├─ Stack.swift
+   └─ MathUtils.swift
+```
+
+✅ Kamu **tidak perlu menambahkan manual di Package.swift** — SwiftPM akan otomatis mendeteksi semua `.swift` di folder target.
+
+Selama semuanya berada di dalam `Sources/MyApp/`, kamu bisa langsung import antar file:
+
+```swift
+// main.swift
+print(MathUtils.add(2, 3))
+
+// Core/MathUtils.swift
+enum MathUtils {
+    static func add(_ a: Int, _ b: Int) -> Int {
+        a + b
+    }
+}
+```
+
+> 📘 Swift tidak butuh `import MyApp` untuk akses file dalam target yang sama — semua visible otomatis.
+
+**Akses Antar Folder (Multi Folder & Modularisasi)**
+
+Kalau punya banyak folder dengan domain berbeda (seperti `Core`, `Domain`, `Infrastructure`, `Utils`), kamu bisa strukturkan seperti ini:
+
+```
+Sources/
+└─ MyApp/
+   ├─ Core/
+   │   ├─ Stack.swift
+   │   └─ Entity.swift
+   ├─ Domain/
+   │   ├─ User.swift
+   │   └─ Order.swift
+   ├─ Infrastructure/
+   │   ├─ Database.swift
+   │   └─ Logger.swift
+   └─ main.swift
+```
+
+Semuanya **masih dalam satu target** , jadi **bisa saling diakses tanpa import khusus**. Beda cerita jika atau bahkan membuat kode diluar si direktor target, contoh :
+
+```
+Sources/
+├─ Core/
+│  └─ Stack.swift
+├─ Infrastructure/
+│  └─ Database.swift
+└─ App/
+   └─ main.swift
+```
+
+`main.swift` tidak otomatis mengetahui `database.swift`, kita perlu mendefinisikan target dan dependensi dengan nama direktorinya di `Package.swift`:
+
+```swift
+// swift-tools-version: 6.0
+import PackageDescription
+
+let package = Package(
+    name: "MyApp",
+    targets: [
+        .target(
+            name: "Core"
+        ),
+        .target(
+            name: "Infrastructure",
+            dependencies: ["Core"]
+        ),
+        .executableTarget(
+            name: "App",
+            dependencies: ["Core", "Infrastructure"]
+        )
+    ]
+)
+```
+
+Lalu di `App/main.swift`:
+
+```swift
+import Core
+import Infrastructure
+
+print(Stack<Int>())
+```
+
+📌 **Penjelasan:**
+
+* `Core` dan `Infrastructure` = target library.
+* `App` = target executable.
+* Target di Swift = setara dengan *project* di C#, *module* di Java, atau *package* di Node.js.
+
+---
+
+Bagaimana kalo semakin keluar dari direktori si target. Kalau kamu ingin menaruh kode di luar `Sources/`, misal:
+
+```
+Modules/
+   └─ Core/
+Sources/
+   └─ App/
+```
+
+Perlu ubah `Package.swift`:
+
+```swift
+.target(
+    name: "Core",
+    path: "../Modules/Core"
+)
+```
+
+Atau jika masih dalam folder project:
+
+```swift
+.target(
+    name: "Core",
+    path: "Modules/Core"
+)
+```
+
+> Swift Package Manager **tidak auto-scan** folder di luar `Sources/`, jadi kamu harus daftarkan manual di `path:`.
+
+Oleh karena itu berikut best practice di swift dalam modularisasi kode:
+
+* Gunakan folder seperti ini untuk menjaga kebersihan struktur
+  ```
+  Sources/
+  ├─ App/               → Entry point
+  ├─ Core/              → Logic fundamental
+  ├─ Domain/            → Entity dan model
+  ├─ Infrastructure/    → Database, network, file, logging
+  └─ Shared/            → Utilities & extensions
+  ```
+* Gunakan `extension` untuk menulis helper seperti di C# `static class`.
+* Gunakan `enum Namespace { struct Feature { ... } }` untuk “simulasi namespace” seperti di C#.
+
+Contoh Import Pattern :
+
+- C# : Namespacing & Using
+- NodeJS : Module Export / Import (ESM)
+- Java : Package & Import impor
+- Swift : Enumeration as Namespace
+
+```swift
+// Core/Math/Calculator.swift
+public enum Core {
+    enum Math {
+        struct Calculator {
+            static func add(_ a: Int, _ b: Int) -> Int {
+                a + b
+            }
+        }
+    }
+}
+
+// App/main.swift
+print(Core.Math.Calculator.add(2, 3))
+```
+
+> Setiap objek atau function/method tanpa public key itu adalah private properti
 
 ## Primitif vs Objek
 
@@ -255,6 +455,111 @@ print(nickname ?? "Guest") // "Guest"
 // kode ?? dibahas pada Nil-Coalescing Operator
 
 ```
+
+### 1.1.9 Pointer
+
+Pointer di Swift mirip sama di C#, dimana statusnya unsafe untuk mengingatkan bahwa pointer ini bisa bikin crash kalau salah pakai.
+
+
+| Jenis                           | Deskripsi Singkat                                |
+| --------------------------------- | -------------------------------------------------- |
+| `UnsafePointer<T>`              | Pointer*read-only* ke memori bertipe `T`.        |
+| `UnsafeMutablePointer<T>`       | Pointer*read-write* ke memori bertipe `T`.       |
+| `UnsafeRawPointer`              | Pointer*read-only* ke memori mentah tanpa tipe.  |
+| `UnsafeMutableRawPointer`       | Pointer*read-write* ke memori mentah tanpa tipe. |
+| `UnsafeBufferPointer<T>`        | Pointer ke*range* elemen dalam buffer.           |
+| `UnsafeMutableBufferPointer<T>` | Versi mutable dari`UnsafeBufferPointer`.         |
+
+- Contoh Dasar
+
+  ```
+  var number: Int = 42
+
+  withUnsafePointer(to: &number) { pointer in
+      print("Alamat memori:", pointer)
+      print("Isi value:", pointer.pointee)
+  }
+  ```
+- Contoh Pointer Mutable
+
+  ```
+  var value: Int = 100
+
+  withUnsafeMutablePointer(to: &value) { ptr in
+      ptr.pointee = 200
+  }
+
+  print(value) // 200 ✅
+  ```
+- Alokasi Manual
+
+  ```
+  let ptr = UnsafeMutablePointer<Int>.allocate(capacity: 1)
+  ptr.initialize(to: 10)
+  print(ptr.pointee) // 10
+  ptr.deinitialize(count: 1)
+  ptr.deallocate()
+  ```
+- Interop dengan C
+
+  ```
+  import Glibc
+
+  @main struct Main {
+      static func main() {
+          let src = "Swift\0".utf8CString
+          let dst = UnsafeMutablePointer<CChar>.allocate(capacity: src.count)
+
+          // Gunakan withUnsafeBytes untuk mendapatkan pointer mentah ke array
+          src.withUnsafeBytes { srcPtr in
+              memcpy(dst, srcPtr.baseAddress!, src.count)
+          }
+
+          print(String(cString: dst))  
+          dst.deallocate()
+      }
+  }
+
+  ```
+
+#### Safe Pointer
+
+`inout` di Swift adalah **cara aman untuk melakukan pass-by-reference** mirip di C#, artinya kamu bisa memodifikasi variabel di dalam fungsi **tanpa kehilangan safety** yang jadi ciri khas Swift.
+
+Saat kamu memanggil fungsi dengan `inout`, Swift tidak langsung mengirim pointer mentah. Sebaliknya, Swift melakukan mekanisme **copy-in copy-out** seperti ini:
+
+1. **Copy-in:** Swift membuat **salinan sementara** dari variabel asli.
+2. **Fungsi bekerja di salinan tersebut.**
+3. **Copy-out:** Setelah fungsi selesai, nilai hasil akhirnya **disalin kembali** ke variabel asli.
+
+Dengan cara ini:
+
+* Kamu tetap dapat efek *pass by reference* (nilai berubah di luar fungsi),
+* Tapi tetap aman dari **data race, aliasing** , dan **pointer corruption** seperti di C/C++.
+
+```
+func tambahLima(_ x: inout Int) {
+    x += 5
+}
+
+var angka = 10
+tambahLima(&angka)
+print(angka) // 15
+```
+
+**⚠️ Aturan Aman `inout`**
+
+1. Tidak boleh mengirim **dua referensi ke variabel yang sama** dalam satu fungsi (untuk mencegah race/alias).
+
+   ```
+   func swapValues(_ a: inout Int, _ b: inout Int) { ... }
+
+   var x = 1, y = 2
+   swapValues(&x, &x) // ❌ Error: simultaneous access
+
+   ```
+2. Tidak boleh menyimpan referensi `inout` untuk digunakan di luar scope fungsi.
+3. Tidak boleh dipakai bersamaan dengan `UnsafePointer` ke variabel yang sama.
 
 ## 1.2 Convert, Type Check & Casting
 
@@ -898,7 +1203,7 @@ Dalam Swift, pernyataan `switch` tidak jatuh melalui bagian bawah setiap kasus d
 
 Anda dapat menandai pernyataan loop atau pernyataan kondisional dengan label pernyataan. Dalam pernyataan `if`, Anda dapat menggunakan label dengan pernyataan `break` untuk mengakhiri pernyataan `if` yang diberi label. Dalam pernyataan `loop`, Anda dapat menggunakan label dengan pernyataan `break` atau `continue` untuk mengakhiri atau melanjutkan eksekusi pernyataan loop yang diberi label.
 
-# 3. Functions
+# 2. Functional Programming
 
 ## 3.1 Defining and Calling Functions
 
