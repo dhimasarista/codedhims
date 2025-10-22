@@ -1,6 +1,6 @@
 ## ⛾ C# & NodeJS | Programmer
 
-![](assets/20251022_033133_10527946_4.png)
+![CNJ](<generated-image (3).png>)
 
 - **Corework** : C# & NodeJS | Java
 - **Architectures** : Monolith, Microservices
