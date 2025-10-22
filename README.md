@@ -2,8 +2,7 @@
 
 ![](assets/20251022_033133_10527946_4.png)
 
-- **Corework** : C# & NodeJS
-- **Coffeework** : Java, Swift
+- **Corework** : C# & NodeJS | Java
 - **Architectures** : Monolith, Microservices
 - **Databases** : PostgreSQL, Redis
 - **Orchestration**
