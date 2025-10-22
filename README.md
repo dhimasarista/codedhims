@@ -1,7 +1,5 @@
 ## ⛾ C# & NodeJS | Programmer
-
-![CNJ](generated-image (3).png)
-
+![alt text](<10527946 5.png>)
 - **Corework** : C# & NodeJS | Java
   - 💡 Why Java ? large-scale, ecosystem & resilient
 - **Architectures** : Monolith, Microservices
