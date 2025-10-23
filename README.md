@@ -1,8 +1,10 @@
-## ⛾ C# & NodeJS | Programmer
-![alt text](<10527946 7.png>)
-- **Corework** : C# & NodeJS | Java - Swift
-- **Architectures** : Monolith, Microservices
-- **Databases** : PostgreSQL, Redis
+<!-- ## ⛾ C# & NodeJS | Programmer -->
+
+
+![](assets/20251024_021615_img.png)
+
+- **Corework** : C# & NodeJS | Java
+- **Databases** : PostgreSQL, Redis/Dragonfly
 - **Orchestration**
   - CI/CD : Github Actions, Jenkins
   - Podman + Kubernetes (Optional)
