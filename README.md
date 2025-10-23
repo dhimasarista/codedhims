@@ -1,8 +1,7 @@
-<!-- ## ⛾ C# & NodeJS | Programmer -->
+<!-- # ⛾ C# & NodeJS | Java -->
 
 
 ![](assets/20251024_021615_img.png)
-
 - **Corework** : C# & NodeJS | Java
 - **Databases** : PostgreSQL, Redis/Dragonfly
 - **Orchestration**
@@ -23,9 +22,11 @@
   - In-memory (Dragongly/Redis)
   - Elasticsearch
 
-**⛔ Less Preferred**
-
+⛔ Less Preferred
+- 🕊️ weak ecosystem, ambiguous
 - 🐘 lacks native concurrency
 - 🐭 over-minimalist, boilerplate
 - 🐍 slow in raw, duck typing
 - 🦀 horrible, just skill issues
+
+> Cognitive overload, Practical friction
