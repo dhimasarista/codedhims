@@ -1,7 +1,6 @@
 ## ⛾ C# & NodeJS | Programmer
-![alt text](<10527946 5.png>)
-- **Corework** : C# & NodeJS | Java
-  - 💡 Why Java ? large-scale, ecosystem & resilient
+![alt text](<10527946 7.png>)
+- **Corework** : C# & NodeJS | Java - Swift
 - **Architectures** : Monolith, Microservices
 - **Databases** : PostgreSQL, Redis
 - **Orchestration**
@@ -19,13 +18,12 @@
   - JWT / OAuth2 / OpenID Connect
   - Vault / AWS Secrets Manager
 - **Caching & Search**
-  - In-memory (Redis)
+  - In-memory (Dragongly/Redis)
   - Elasticsearch
 
 **⛔ Less Preferred**
 
-- 🕊️ not now..weak ecosystem
 - 🐘 lacks native concurrency
 - 🐭 over-minimalist, boilerplate
 - 🐍 slow in raw, duck typing
-- 🦀 horrible, painful syntax
+- 🦀 horrible, just skill issues
