@@ -3,7 +3,7 @@
 
 ![](assets/20251024_021615_img.png)
 - **Corework** : C# & NodeJS | Java
-- **Databases** : PostgreSQL, Redis/Dragonfly
+- **Databases** : PostgreSQL, Redis
 - **Orchestration**
   - CI/CD : Github Actions, Jenkins
   - Podman + Kubernetes (Optional)
@@ -22,11 +22,9 @@
   - In-memory (Dragongly/Redis)
   - Elasticsearch
 
-⛔ Less Preferred
-- 🕊️ weak ecosystem, ambiguous
+⛔ **Less Preferred**
+- 🕊️ weak ecosystem / adoption
 - 🐘 lacks native concurrency
 - 🐭 over-minimalist, boilerplate
 - 🐍 slow in raw, duck typing
 - 🦀 horrible, just skill issues
-
-> Cognitive overload, Practical friction

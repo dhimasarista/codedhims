@@ -367,6 +367,21 @@ Langkah-langkah:
 - Contoh: String name = "Red Horizon";
 - Beda dengan char karena bisa lebih dari satu huruf.
 
+| Primitive / Concept | Wrapper Class | Notes                                                    |
+| ------------------- | ------------- | -------------------------------------------------------- |
+| `byte`              | `Byte`        | immutable, -128 → 127, extends `Number`                  |
+| `short`             | `Short`       | immutable, -32,768 → 32,767, extends `Number`            |
+| `int`               | `Integer`     | immutable, commonly used, extends `Number`               |
+| `long`              | `Long`        | immutable, large whole numbers, extends `Number`         |
+| `float`             | `Float`       | immutable, single-precision, extends `Number`            |
+| `double`            | `Double`      | immutable, double-precision, extends `Number`            |
+| (no primitive)      | `BigInteger`  | arbitrary-size integer, immutable, extends `Number`      |
+| (no primitive)      | `BigDecimal`  | arbitrary-precision decimal, immutable, extends `Number` |
+| `char`              | `Character`   | immutable, single character                              |
+| `boolean`           | `Boolean`     | immutable, true/false                                    |
+| `void`              | `Void`        | type token for generics/reflection, no instance          |
+
+
 #### Variable
 
 * Tempat nyimpan data di memori.
