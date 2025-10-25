@@ -1,8 +1,5 @@
-<!-- # ⛾ C# & NodeJS | Java -->
-
-
-![](assets/20251024_021615_img.png)
-- **Corework** : C# & NodeJS | Java
+![alt text](n32749.png)
+- **Corework** : C# & NodeJS | Java | Swift
 - **Databases** : PostgreSQL, Redis
 - **Orchestration**
   - CI/CD : Github Actions, Jenkins
@@ -23,8 +20,10 @@
   - Elasticsearch
 
 ⛔ **Less Preferred**
-- 🕊️ weak ecosystem / adoption
 - 🐘 lacks native concurrency
 - 🐭 over-minimalist, boilerplate
 - 🐍 slow in raw, duck typing
 - 🦀 horrible, just skill issues
+<!-- - 🕊️ weak ecosystem / adoption -->
+
+> Cognitive Overload , Practical Friction
