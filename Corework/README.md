@@ -23,3 +23,6 @@ Makanya ada manifesto sederhana agar tidak jadi maruk :
 - 🐍 slow in raw, duck typing
 - 🦀 horrible, painfull syntax
 
+#### Komitmen (Cognitive Overload, Practical Friction)
+- 4 Stacks cukup, thats enough and perfect
+- walaupun bisa Laravel (PHP), fokus ke NestJS untuk seeking jobs
