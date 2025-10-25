@@ -23,7 +23,6 @@
 - 🐘 lacks native concurrency
 - 🐭 over-minimalist, boilerplate
 - 🐍 slow in raw, duck typing
-- 🦀 horrible, just skill issues
-<!-- - 🕊️ weak ecosystem / adoption -->
+- 🦀 horrible, painfull syntax
 
 > Cognitive Overload , Practical Friction

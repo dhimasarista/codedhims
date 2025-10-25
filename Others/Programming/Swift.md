@@ -54,7 +54,8 @@ banyak baris.
 
 **Langkah membuat Project/Package swift**
 
-- Membuat direktori `mkdir MyApp`
+- Membuat direktori dan namanya bebas
+- contoh `mkdir MyApp`
 - Masuk ke direktori yang dibuat tadi.
 - Inisialisasi Project dengan perintah
 
@@ -68,18 +69,29 @@ MyApp/
 ├─ Package.swift
 ├─ Sources/
 │  └─ MyApp/
-│     └─ main.swift
+│     └─ MyApp.swift
 └─ Tests/
    └─ MyAppTests/
 ```
 
 * Semua source code **wajib berada di dalam `Sources/<target_name>`** kalau mau di-*build* otomatis.
 * Nama folder di dalam `Sources/` harus **identik dengan target** di `Package.swift`.
-* File `main.swift` berfungsi seperti `Program.cs` `index.js` `Main.java`
+* File `MyApp.swift` berfungsi seperti `Program.cs` `index.js` `Main.java`
+
+```swift
+// Sources/MyApp/MyApp.swift
+@main
+struct Learn {
+    static func main() {
+       print("Hello, World!")
+     
+    }
+}
+```
 
 ---
 
-Di C#, JS atau Java mudah sekali membuat modularisasi kode beda folder. Sedangkan di Swift agak trikcy jika folder tersebut diluar target utama `Package.swift`.
+Di C#, JS atau Java mudah sekali membuat modularisasi kode beda folder. Sedangkan di Swift agak tricky jika folder tersebut diluar target utama `Package.swift`.
 
 Misal kamu buat file baru di:
 
@@ -126,10 +138,11 @@ Sources/
    ├─ Infrastructure/
    │   ├─ Database.swift
    │   └─ Logger.swift
-   └─ main.swift
+   └─ MyApp.swift
 ```
 
-Semuanya **masih dalam satu target** , jadi **bisa saling diakses tanpa import khusus**. Beda cerita jika atau bahkan membuat kode diluar si direktor target, contoh :
+- ✅ Semuanya **masih dalam satu target** , jadi **bisa saling diakses tanpa import khusus**.
+- ⚠️ Beda cerita jika atau bahkan membuat kode diluar si direktor target, contoh :
 
 ```
 Sources/
@@ -137,11 +150,11 @@ Sources/
 │  └─ Stack.swift
 ├─ Infrastructure/
 │  └─ Database.swift
-└─ App/
-   └─ main.swift
+└─ MyApp/
+   └─ MyApp.swift
 ```
 
-`main.swift` tidak otomatis mengetahui `database.swift`, kita perlu mendefinisikan target dan dependensi dengan nama direktorinya di `Package.swift`:
+Direktori utama tidak otomatis mengetahui `Database.swift`, kita perlu mendefinisikan target dan dependensi dengan nama direktorinya di `Package.swift`:
 
 ```swift
 // swift-tools-version: 6.0
@@ -165,7 +178,7 @@ let package = Package(
 )
 ```
 
-Lalu di `App/main.swift`:
+Lalu di `MyApp/MyApp.swift`:
 
 ```swift
 import Core
@@ -284,8 +297,6 @@ Singkatnya, sementara Java dan C# memperlakukan `String` sebagai objek (referenc
 
 ## 1.1 Data Types
 
-Swift menawarkan berbagai macam tipe data dasar dan koleksi. Berikut adalah beberapa yang paling umum digunakan:
-
 ### 1.1.1 Numeric Types
 
 * **Integer**: Tipe data default untuk bilangan bulat (angka tanpa komponen pecahan). Ukurannya tergantung pada platform (32-bit atau 64-bit).
@@ -325,11 +336,9 @@ Swift menawarkan berbagai macam tipe data dasar dan koleksi. Berikut adalah bebe
 
 ### 1.1.2 Booleans
 
-Swift memiliki tipe data Boolean dasar, yang disebut `Bool`. Tipe Boolean direferensikan sebagai *logical*, karena hanya dapat berupa `true` atau `false`.
-
 ```swift
-let orangesAreOrange = true
-let turnipsAreDelicious = false
+let orangesAreOrange = true // implisit
+let turnipsAreDelicious: Bool = false // eksplisit
 ```
 
 ### 1.1.3 Tuples
@@ -345,11 +354,17 @@ let http404Error = (404, "Not Found")
 
 Anda menggunakan opsional dalam situasi di mana nilai mungkin tidak ada. Opsional mewakili dua kemungkinan: Entah ada nilai, dan Anda dapat membuka bungkus opsional untuk mengakses nilai itu, atau tidak ada nilai sama sekali.
 
+```swift
+let name: String? = "Swift"
+print(name) // Optional("Swift")
+```
+
 ### 1.1.5 Strings and Characters
 
 #### 1.1.5.1 String Literals
 
-Anda dapat menyertakan nilai string yang telah ditentukan sebelumnya dalam kode Anda sebagai literal string. Literal string adalah urutan karakter yang dikelilingi oleh tanda kutip ganda (`"`).
+- ✅ Harus double quote `"   "`
+- ❌ Gabisa single quote `'   '`
 
 ```swift
 let someString = "Some string literal value"

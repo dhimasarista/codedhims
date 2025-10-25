@@ -18,7 +18,6 @@ Beberapa poin penting:
 ### ⚡ Web Framework & API
 
 * **AdoniJS** → framework yang mirip dengan laravel-style.
-* **Express.js** → framework paling populer, ringan, fleksibel.
 * **NestJS** → arsitektur modular, cocok untuk enterprise & API-driven development.
 * **Fastify** → performa tinggi, mirip Express tapi lebih cepat.
 
