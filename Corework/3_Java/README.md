@@ -1,6 +1,5 @@
 # Java Programming Language
 
-
 ![](assets/20251022_023539_JavaOne2025_07-1024x473.webp)
 
 ## 1️⃣ Dasar-dasar Java
@@ -347,9 +346,16 @@ Langkah-langkah:
 
 #### Tipe Data Number
 
-- int → bilangan bulat (contoh: int x = 10;)
-- double → bilangan desimal (contoh: double y = 3.14;)
-- long, float, short, byte → variasi ukuran & presisi
+* **Integers (whole numbers):**
+
+  * `byte`: 8-bit, range from -128 to 127. Useful for memory conservation.
+  * `short`: 16-bit, range from -32,768 to 32,767.
+  * `int`: 32-bit, range from approximately -2 billion to 2 billion. This is the most commonly used integer type.
+  * `long`: 64-bit, a much larger range than `int`. When assigning a `long` literal, it should be suffixed with `L` (e.g., `1234567890123L`).
+* **Floating-point numbers (decimal numbers):**
+
+  * `float`: 32-bit, single-precision. When assigning a `float` literal, it should be suffixed with `f` (e.g., `3.14f`).
+  * `double`: 64-bit, double-precision. This is generally preferred for decimal values due to its higher accuracy and larger range.
 
 #### Tipe Data Character
 
@@ -367,20 +373,20 @@ Langkah-langkah:
 - Contoh: String name = "Red Horizon";
 - Beda dengan char karena bisa lebih dari satu huruf.
 
-| Primitive / Concept | Wrapper Class | Notes                                                    |
-| ------------------- | ------------- | -------------------------------------------------------- |
-| `byte`              | `Byte`        | immutable, -128 → 127, extends `Number`                  |
-| `short`             | `Short`       | immutable, -32,768 → 32,767, extends `Number`            |
-| `int`               | `Integer`     | immutable, commonly used, extends `Number`               |
-| `long`              | `Long`        | immutable, large whole numbers, extends `Number`         |
-| `float`             | `Float`       | immutable, single-precision, extends `Number`            |
-| `double`            | `Double`      | immutable, double-precision, extends `Number`            |
-| (no primitive)      | `BigInteger`  | arbitrary-size integer, immutable, extends `Number`      |
-| (no primitive)      | `BigDecimal`  | arbitrary-precision decimal, immutable, extends `Number` |
-| `char`              | `Character`   | immutable, single character                              |
-| `boolean`           | `Boolean`     | immutable, true/false                                    |
-| `void`              | `Void`        | type token for generics/reflection, no instance          |
 
+| Primitive / Concept | Wrapper Class | Notes                                                   |
+| --------------------- | --------------- | --------------------------------------------------------- |
+| `byte`              | `Byte`        | immutable, -128 → 127, extends`Number`                 |
+| `short`             | `Short`       | immutable, -32,768 → 32,767, extends`Number`           |
+| `int`               | `Integer`     | immutable, commonly used, extends`Number`               |
+| `long`              | `Long`        | immutable, large whole numbers, extends`Number`         |
+| `float`             | `Float`       | immutable, single-precision, extends`Number`            |
+| `double`            | `Double`      | immutable, double-precision, extends`Number`            |
+| (no primitive)      | `BigInteger`  | arbitrary-size integer, immutable, extends`Number`      |
+| (no primitive)      | `BigDecimal`  | arbitrary-precision decimal, immutable, extends`Number` |
+| `char`              | `Character`   | immutable, single character                             |
+| `boolean`           | `Boolean`     | immutable, true/false                                   |
+| `void`              | `Void`        | type token for generics/reflection, no instance         |
 
 #### Variable
 
