@@ -15,14 +15,8 @@
     - ARC cocok untuk aplikasi yang butuh determinasi.
     - Eksperimen kernel, IOT ataupun embedded sysetem
 
-Menjadi polyglot programmer kelihatannya keren, tapi ada dilema dan anxiety yang bisa jadi bumerang. `🧠 Ini bagus ga ya, ini lebih powerful ga ya...`
-
-Makanya ada manifesto sederhana agar tidak jadi maruk :
-- 🐘 lacks native concurrency
-- 🐭 over-minimalist, boilerplate
-- 🐍 slow in raw, duck typing
-- 🦀 horrible, painfull syntax
+Menjadi polyglot programmer kelihatannya keren, tapi ada dilema dan anxiety yang bisa jadi bumerang. `🧠 Ini bagus ga ya, ini lebih powerful ga ya...`.
 
 #### Komitmen (Cognitive Overload, Practical Friction)
-- 4 Stacks cukup, thats enough and perfect
-- walaupun bisa Laravel (PHP), fokus ke NestJS untuk seeking jobs
+- 4 Stacks cukup, thats enough thats perfect
+- Tetap idealis kalau ada oportunity pakai Laravel (PHP) ya bagus

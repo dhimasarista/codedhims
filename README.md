@@ -1,6 +1,6 @@
 ![alt text](n32749.png)
 - **Corework** : C# & NodeJS | Java | Swift
-- **Databases** : PostgreSQL, Redis
+- **Databases** : PostgreSQL, Dragonfly
 - **Orchestration**
   - CI/CD : Github Actions, Jenkins
   - Podman + Kubernetes (Optional)
@@ -18,11 +18,3 @@
 - **Caching & Search**
   - In-memory (Dragongly/Redis)
   - Elasticsearch
-
-⛔ **Less Preferred**
-- 🐘 lacks native concurrency
-- 🐭 over-minimalist, boilerplate
-- 🐍 slow in raw, duck typing
-- 🦀 horrible, painfull syntax
-
-> Cognitive Overload , Practical Friction
