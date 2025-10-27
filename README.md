@@ -1,7 +1,6 @@
-![alt text](n32749.png)
+![](assets/20251028_045740_10527946_9.png)
+
 - **Corework** : C# & NodeJS | Java | Swift
-  - J : Enterprise, Versatile Ecosystem
-  - S : CLI/Tools, LLVM/Native Works
 - **Databases** : PostgreSQL, Dragonfly
 - **Orchestration**
   - CI/CD : Github Actions, Jenkins
