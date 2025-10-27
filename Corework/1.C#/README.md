@@ -311,6 +311,51 @@ var query = new QueryBuilder()
 SELECT name, email FROM users WHERE age > 18 ORDER BY name;
 ```
 
+## 0.4 Karakteristik
+
+* **Paradigma** :
+  * Imperatif, deklaratif, object-oriented, multiparadigma
+  * C# : Object-oriented, fungsional & imperatif
+* **Data Type** :
+  * Static vs dynamic, strong vs weak typing
+  * C# : Static & strong typing
+* **Memory Management** :
+  * Compile Time
+    * Manual Allocation / Free
+    * RAII (Resource Acquisition Is Initialization)
+    * Ownership / Borrowing
+  * Runtime
+    * Garbage Collection
+    * Automatic Reference Counting
+  * C# : Garbage Collection
+* **Concurrency / Paralelisme** :
+  * Threading, async/await, coroutines, actor model
+  * C# : Async/await, Task Parallel Library, multithreading
+* **Performance / Runtime** :
+  * Interpreted atau compiled, JIT/AOT (Native)
+  * C# : Compiled ke IL, dijalankan di CLR. AOT bisa
+* **Ekosistem / Library** :
+  * Banyak library/framework, community support
+  * C# : Ekosistem .NET luas, banyak library siap pakai
+* **Syntax / Expressiveness** :
+  * Ringkas, verbose, readable, syntactic sugar
+  * C# : Readable, banyak syntactic sugar (misal LINQ)
+* **Safety / Reliability** :
+  * Null safety, immutability, error handling
+  * C# : Nullable types, exception handling kuat
+* **Portability / Platform** :
+  * Cross-platform atau terbatas platform tertentu
+  * C# : Cross-platform (.NET Core), Windows-centric untuk GUI
+* **Interoperabilitas** :
+  * Bisa berinteraksi dengan bahasa/library lain
+  * C# : P/Invoke, COM, interop .NET languages
+* **Use Cases / Domain** :
+  * Kernel, Embedded System, Server-Side, UI, Game.
+  * C# : Backend, desktop apps, games (Unity), cloud services
+* **Developer Experience** :
+  * Tooling, IDE, learning curve
+  * C# : Visual Studio, VSCode, Jetbrains Rider, medium learning curve.
+
 # 1. Basic
 
 ## 1.1 Data Types
@@ -3761,9 +3806,9 @@ e. **`#region` dan `#endregion`**
   #endregion
   ```
 
-# 15. Garbage Collection & Memory Management
+# 15. Memory Management
 
-**Apa itu Memory Management?**Di C#, manajemen memori adalah proses alokasi dan dealokasi memori selama eksekusi program. Ada dua area utama dalam manajemen memori:
+**Apa itu Memory Management?** manajemen memori adalah proses alokasi dan dealokasi memori selama eksekusi program. Ada dua area utama dalam manajemen memori:
 
 * Heap: Digunakan untuk alokasi objek yang memiliki masa hidup lebih lama dan tidak ditentukan oleh scope.
 * Stack: Digunakan untuk penyimpanan variabel lokal dan eksekusi fungsi yang bersifat sementara.
@@ -3794,7 +3839,7 @@ C# menggunakan model **generational garbage collection**, yang berarti bahwa obj
 
 Meskipun .NET memiliki GC untuk mengelola memori secara otomatis, dalam beberapa kasus kita perlu melakukan pengelolaan memori secara manual agar aplikasi lebih optimal. Berikut beberapa teknik untuk mengatur memori secara manual:
 
-- **Menggunakan`Dispose()` dan`IDisposable`**Membantu membebaskan sumber daya eksternal seperti file, koneksi database, atau socket segera setelah tidak digunakan.
+- **Menggunakan`Dispose()` dan`IDisposable`** Membantu membebaskan sumber daya eksternal seperti file, koneksi database, atau socket segera setelah tidak digunakan.
 - **Memanfaatkan `using` Statement**Memastikan objek yang mengimplementasikan`IDisposable` dibersihkan secara otomatis setelah selesai digunakan.
 - **Menggunakan `GC.Collect()` dengan Hati-hati**Memaksa GC untuk menjalankan pembersihan memori, tetapi harus digunakan secara selektif untuk menghindari overhead yang tidak perlu.
 - **Memanfaatkan`WeakReference`**Membantu mengelola objek yang bisa dihapus oleh GC ketika tidak ada referensi kuat yang tersisa.
@@ -3838,13 +3883,13 @@ Di C#, **Garbage Collector** bekerja di background untuk:
 
 Proses ini mengurangi beban programmer untuk mengelola memori secara manual (seperti yang dilakukan di bahasa pemrograman seperti C atau C++) dan meminimalkan kemungkinan terjadinya **memory leaks**.
 
-## 3. Mengapa GC Dapat Menjadi Masalah?
+## 3. GC Problem?
 
 Walaupun Garbage Collection secara otomatis mengelola memori, ada beberapa alasan mengapa GC dapat menimbulkan masalah:
 
 - **Overhead Performansi**:
 
-  - Proses GC dapat mengganggu eksekusi aplikasi, terutama jika aplikasi sering mengalokasikan dan membuang objek dalam jumlah besar. Ini dapat menyebabkan**latency spikes**, yang tidak diinginkan dalam aplikasi dengan kebutuhan waktu respons cepat.
+  - Proses GC dapat mengganggu eksekusi aplikasi, terutama jika aplikasi sering mengalokasikan dan membuang objek dalam jumlah besar. Ini dapat menyebabkan **latency spikes**, yang tidak diinginkan dalam aplikasi dengan kebutuhan waktu respons cepat.
 - **Pengumpulan Sampah Tidak Terkendali**:
 
   - Jika objek besar sering dialokasikan dan dibuang, GC harus bekerja ekstra untuk mengelola memori, yang mengarah pada waktu kompaksi heap yang lebih lama dan peningkatan penggunaan CPU.
@@ -3852,7 +3897,7 @@ Walaupun Garbage Collection secara otomatis mengelola memori, ada beberapa alasa
 
   - Walaupun GC mengkompakkan heap, heap yang terfragmentasi dapat menyebabkan overhead memori yang lebih besar, terutama jika objek-objek kecil dan besar dicampur di heap.
 
-## 4. Cara Mengatasi Masalah yang Dapat Dihadapi oleh GC
+## 4. Fix GC Problem
 
 Untuk mengatasi masalah terkait Garbage Collection, Anda dapat menerapkan beberapa praktik terbaik berikut:
 
@@ -3878,9 +3923,24 @@ Untuk mengatasi masalah terkait Garbage Collection, Anda dapat menerapkan bebera
   - Secara umum, tidak disarankan untuk memanggil**`GC.Collect()`** karena GC secara otomatis mengelola pengumpulan sampah dengan baik. Namun, dalam beberapa kasus tertentu, Anda bisa memanggil**`GC.Collect()`** untuk memaksa pengumpulan sampah, tetapi gunakan ini dengan bijak.
 - **Gunakan `GCSettings.LatencyMode` untuk Mengontrol GC**:
 
-  - Anda dapat mengatur mode latensi GC menggunakan**`GCSettings.LatencyMode`** untuk aplikasi yang membutuhkan performa lebih tinggi dan latensi lebih rendah, seperti pada aplikasi real-time atau permainan.
+  - Anda dapat mengatur mode latensi GC menggunakan **`GCSettings.LatencyMode`** untuk aplikasi yang membutuhkan performa lebih tinggi dan latensi lebih rendah, seperti pada aplikasi real-time atau permainan.
 
-## 5. GC Latency Modes di C#
+## 5. GC Modes
+
+C# memiliki beberapa mode garbage collection (GC) yang dapat digunakan untuk mengelola memori dan meningkatkan kinerja aplikasi. Berikut adalah beberapa mode GC yang tersedia di C#:
+
+1. **Generational GC**: Mode GC ini adalah mode default di .NET. Dalam mode ini, GC membagi objek menjadi tiga generasi berdasarkan umur mereka:
+
+- Generasi 0 (Gen 0): Objek yang baru dibuat dan belum pernah di-GC.
+- Generasi 1 (Gen 1): Objek yang telah bertahan satu siklus GC.
+- Generasi 2 (Gen 2): Objek yang telah bertahan beberapa siklus GC.
+
+2. **Concurrent GC**: Mode GC ini memungkinkan GC untuk berjalan secara bersamaan dengan thread aplikasi. Ini dapat meningkatkan kinerja aplikasi dengan mengurangi waktu jeda.
+3. **Background GC**: Mode GC ini adalah variasi dari concurrent GC yang berjalan pada prioritas yang lebih rendah. Ini dapat membantu mengurangi dampak GC pada kinerja aplikasi.
+4. **Server GC**: Mode GC ini dirancang untuk aplikasi server yang memerlukan kinerja tinggi dan skalabilitas. Dalam mode ini, GC menggunakan beberapa thread untuk melakukan GC secara bersamaan.
+5. **Workstation GC**: Mode GC ini dirancang untuk aplikasi desktop dan mobile yang memerlukan kinerja yang responsif. Dalam mode ini, GC berjalan pada prioritas yang lebih tinggi untuk mengurangi waktu jeda.
+
+## 6. GC Latency Modes
 
 C# menyediakan beberapa mode latensi untuk GC yang dapat disesuaikan dengan kebutuhan aplikasi Anda:
 
@@ -3911,7 +3971,7 @@ GCSettings.LatencyMode = GCLatencyMode.LowLatency; // Menurunkan latensi GC
 </configuration>
 ```
 
-## 6. Implementasi Garbage Collection yang Lebih Lanjut
+## 7. Lebih Lanjut
 
 Ada beberapa konsep dan fitur lanjutan yang dapat digunakan untuk mengelola memori dengan lebih efisien di C#:
 
