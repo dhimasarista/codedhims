@@ -3980,7 +3980,11 @@ Ada beberapa konsep dan fitur lanjutan yang dapat digunakan untuk mengelola memo
 
 # 16. Runtime Tuning
 
-Kalo dibahasa pemrograman Java, ada yang namanya JVM Tuning sedangkan di C# khususnya dotnet istilah ini disebut Runtime Tuning. Runtime tuning adalah proses mengoptimalkan performa aplikasi dengan mengatur konfigurasi runtime. Di lingkungan .NET, runtime tuning mencakup pengelolaan memori, pemrosesan paralel, pengaturan ThreadPool, hingga optimasi Just-In-Time (JIT) compiler.
+**Runtime tuning** adalah istilah umum untuk proses **mengoptimalkan perilaku program atau sistem saat program sedang berjalan (runtime)** bukan hanya di level kode sumber atau saat kompilasi dengan mengatur konfigurasi runtime.
+
+> **Runtime tuning = mengatur cara sistem berjalan di waktu nyata.**
+
+Di lingkungan .NET, runtime tuning mencakup pengelolaan memori, pemrosesan paralel, pengaturan ThreadPool, hingga optimasi Just-In-Time (JIT) compiler.
 
 Tujuan utama runtime tuning adalah:
 
