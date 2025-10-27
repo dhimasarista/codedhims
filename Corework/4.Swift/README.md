@@ -40,6 +40,7 @@ banyak baris.
 
 - **Xcode**: [https://developer.apple.com/xcode/](https://developer.apple.com/xcode/)
 - **Swift.org**: [https://www.swift.org/download/](https://www.swift.org/download/)
+- **VSCode** (Untuk diluar ekosistem Apple)
 
 ## Aturan dan Penamaan Sintaks
 
@@ -84,7 +85,7 @@ MyApp/
 struct Learn {
     static func main() {
        print("Hello, World!")
-     
+   
     }
 }
 ```
@@ -262,6 +263,123 @@ print(Core.Math.Calculator.add(2, 3))
 ```
 
 > Setiap objek atau function/method tanpa public key itu adalah private properti
+
+## Swift Build & PM
+
+### 1. Swift CLI
+
+**Perintah Utama (Bawaan Swift)**
+
+* **`swift build`** — compile / build project berbasis Swift Package Manager
+* **`swift package`** — kelola package & dependency (init, update, resolve, clean)
+* **`swift run`** — jalankan hasil build dari package
+* **`swift test`** — jalankan unit test di package
+* **`swift repl`** — masuk ke mode interaktif (Read-Eval-Print Loop)
+* **`swift`** — command utama, menampilkan help & versi
+
+**Contoh:**
+
+```bash
+swift build           # build debug
+swift build -c release   # build dengan optimasi
+```
+
+Output-nya disimpan di `.build/debug/` atau `.build/release/`.
+
+### 2. Package Manager (PM)
+
+SwiftPM = **Swift Package Manager** , yaitu sistem untuk:
+
+* Mengatur dependency (library)
+* Mengatur target (modul, executable)
+* Build, test, dan distribusi paket
+
+Fungsi umumnya:
+
+```bash
+swift package init --type executable   # buat proyek baru
+swift package add https://github.com/apple/swift-nio.git
+swift package update
+swift test
+```
+
+File utama: **`Package.swift`**
+
+→ mirip `.csproj` di C#, `package.json` di NodeJS atau `pom.xml` di Java Maven.
+
+### 3. swiftc
+
+`swiftc` = **Swift compiler langsung** (C = compiler).
+
+Biasanya dipanggil otomatis oleh `swift build`, tapi bisa kamu pakai manual.
+
+**Contoh sederhana:**
+
+```bash
+swiftc main.swift -o app
+./app
+```
+
+Atau dengan optimasi:
+
+```bash
+swiftc -O -whole-module-optimization main.swift -o app
+```
+
+> Jadi `swift build` = wrapper + orchestrator
+>
+> sedangkan `swiftc` = compiler murni di bawahnya.
+
+### 4. swiftly
+
+`swiftly` = **Swift toolchain manager** (pengganti manual install).
+
+Fungsinya untuk:
+
+* Install versi Swift tertentu
+* Ganti versi aktif
+* Update ke snapshot
+
+Contoh:
+
+```bash
+swiftly install 6.0
+swiftly use 6.0
+swift --version
+```
+
+### 5. Static Build
+
+Secara default, Swift build menghasilkan **dynamic-linked binary** ,
+
+tapi kamu bisa buat **static binary** (semua library disatukan ke 1 file executable).
+
+Caranya:
+
+```bash
+swift build -c release \
+    -Xswiftc -static-stdlib
+```
+
+Atau jika pakai `swiftc` langsung:
+
+```bash
+swiftc -O -static-stdlib main.swift -o app
+```
+
+> ⚠️ Catatan:
+>
+> * Static build hanya didukung penuh di **Linux** (macOS tidak sepenuhnya).
+> * Binary hasil static lebih besar, tapi tidak butuh Swift runtime di mesin target.
+
+### 6. Cross Compile
+
+Cross compile berarti kamu **membangun (compile)** kode Swift di satu sistem operasi, tetapi **hasil binary-nya untuk sistem operasi atau arsitektur lain** .
+
+Misalnya:
+
+* Kamu berada di **Linux** , tapi ingin menghasilkan **.exe untuk Windows**
+* Atau dari **macOS** ingin hasil **binary untuk Raspberry Pi (ARM)**
 
 ## Primitif vs Objek
 
