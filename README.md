@@ -1,6 +1,6 @@
 ![](assets/20251028_045740_10527946_9.png)
 
-- **Corework** : C# & NodeJS | Java | Swift
+- **Corework** : C# & NodeJS, Java, Swift
 - **Databases** : PostgreSQL, Dragonfly
 - **Orchestration**
   - CI/CD : Github Actions, Jenkins
