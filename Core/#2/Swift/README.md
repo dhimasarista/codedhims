@@ -85,7 +85,6 @@ MyApp/
 struct Learn {
     static func main() {
        print("Hello, World!")
-   
     }
 }
 ```
