@@ -1,4 +1,4 @@
-![the, Four, Elements Wallpapers HD / Desktop and Mobile Backgrounds](https://wallup.net/wp-content/uploads/2018/09/26/1259-the-four-elements-748x468.jpg)
+![](assets/20251106_155227_Frame_76.png)
 
 ## C# : Swis Army Knife
 
@@ -14,7 +14,7 @@
 * Parallelisme : Async/await, Multithread
 * Build : AOT/Native Binary
 * Tools : Zig Compiler, Zigmod
-* Type : Manual Allocate, Compile Time
+* Type : Manual Allocate / Free, Compile Time
 
 ## Java : Enterprise Ready
 
