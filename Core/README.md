@@ -1,23 +1,34 @@
-# F4 : C# & Zig | Java | Swift?
+![the, Four, Elements Wallpapers HD / Desktop and Mobile Backgrounds](https://wallup.net/wp-content/uploads/2018/09/26/1259-the-four-elements-748x468.jpg)
 
-- **C#** adalah bahasa pemrograman yang apa saja bisa
-  - Multi-paradgima: OOP, Struct, Functional
-  - Multi-purpose: Frontend, Backend, IoT, dan lainnya
-  - Compile options : JIT, R2R dan AOT/Native Build
-- **Zig** adalah bahasa low level dengan slogan "Better C"
-  - Dibackend ada JetZig, performa setara Rust
-  - Bisa interop bahkan compile C/C++ tanpa compiler tambahan
-- **Java** adalah bahasa enterprise ready dengan segudang library
-  - Punya distribusi Runtime terbanyak dari komunitas hingga perusahaan besar
-    - Java terkenal berat dan harus tahu JVM Tuning
-  - Punya GraalVM untuk opsi build AOT/Native
-    - GraalVM CE hanya bisa single-thread di GC-nya
-    - Project Leyden untuk Improve Startup tanpa AOT Build
-  - Virtual Thread di Java punya kemampuan konkurensi tinggi
-  - Widely Used dari Server, UI bahkan bisa Embedded System (MicroEJ)
-- **Swift** adalah bahasa buatan Apple yang juga menggunakan LLVM
-  - Open Source dan digunakan tidak hanya di ekosistem Apple
-    - Cloud Services, CLI Tools, Embedded, ML/AI dan lainnya
-  - Tidak menggunakan Garbage Collection, yaitu ARC
-    - Automatic Reference Counting tetap jalan di Runtime
-    - ARC Overhead, Multithread kompleks
+## C# : Swis Army Knife
+
+- Paradigma : OOP, Struct, Functional
+- Parallelisme : Async/Await, Task Parallel Library
+- Build : JIT, R2R, AOT/Native Binary
+- Type : Garbage Collection, Runtime
+- Tools : .NET SDK, Nuget
+
+## Zig : The Low Level
+
+* Paradigma : Struct-Oriented, Compile-time, No hidden control flow
+* Parallelisme : Async/await, Multithread
+* Build : AOT/Native Binary
+* Tools : Zig Compiler, Zigmod
+* Type : Manual Allocate, Compile Time
+
+## Java : Enterprise Ready
+
+* Paradigma : OOP, Functional (Streams, Lambdas)
+* Parallelisme : Threads, Virtual Threads, Reactive Programming
+* Build : JIT, AOT/Native Binary
+* Tools : OpenJDK, GraalVM, Maven.
+* Type : Garbage Collection, Runtime
+* Purposes : Enterprise, Big Data, Emebdded
+
+## Swift : Shifting Style
+
+- Paradgima : OOP, Struct-Oriented, Actor, Functional
+- Parallelisme : Async/Await, GCD
+- Build : AOT/Native Binary
+- Tools : Swift SDK (LLVM), Static SDK, SwiftPM
+- Purposes : iOS/MacOS Apps, Backend, Embedded, ML/AI
