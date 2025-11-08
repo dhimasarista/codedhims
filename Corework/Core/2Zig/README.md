@@ -29,8 +29,7 @@ Untuk memulai dengan Zig, Anda perlu menginstal toolchain-nya terlebih dahulu.
   ```bash
   zig version
   ```
-
-### Zig CLI
+- Zig CLI
 
 Toolchain Zig menyertakan serangkaian perintah yang sangat kuat, tidak hanya untuk kompilasi tetapi juga sebagai pengganti toolchain C/C++.
 
@@ -63,11 +62,12 @@ Commands:
 
 ## Aturan dan Penamaan Sintaks
 
-- **Penamaan Variabel, Fungsi, Konstanta:** Menggunakan `camelCase` untuk variabel dan fungsi. Menggunakan `PascalCase` untuk tipe data (struct, enum, union).
+- **Penamaan Variabel, Fungsi, Konstanta:** Zig tidak mempermasalahkan menggunakan `snake_case` maupun `camelCase` untuk variabel dan fungsi. Menggunakan `PascalCase` untuk tipe data (struct, enum, union).
 - **Case Sensitivity:** Zig adalah bahasa yang *case-sensitive*.
 - **Ekstensi File:** File kode Zig menggunakan ekstensi `.zig`.
 - **Komentar:**
   - `//` untuk komentar satu baris.
+  - `/* ... */` untuk komentar multiline.
   - `///` untuk komentar dokumentasi yang dapat diakses melalui `std.meta`.
 
 # 0. Introduction
@@ -152,6 +152,11 @@ pub fn main() void {
   - `f16`, `f32`, `f64`, `f128`
 - **Arbitrary Bit-Width Integers:**
   - Anda bisa mendefinisikan integer dengan jumlah bit spesifik, misal `i7` atau `u2`.
+- Integer Literal Suffix
+  ```zig
+  const a: i32 = 1234;
+  const b = 1234_i32; // sama dengan di atas
+  ```
 
 ```zig
 const integer: i32 = -100;
@@ -162,14 +167,153 @@ const float_number: f64 = 3.14;
 
 #### 1.1.2 Characters & Strings
 
+Tidak seperti bahasa C#, Java/Swift. String di Zig tidak direpresentasikan dengan String melainkan slice dari byte. Karene memang faktanya String itu adalah sebuah kumpulan byte.
+
 - **Karakter:** Sebuah karakter tunggal direpresentasikan sebagai `u8` (untuk ASCII) atau `u21` (untuk Unicode code point).
   ```zig
-  const my_char: u8 = 'A';
+    const my_char: u8 = 'A';      // ASCII
+    const emoji: u21 = '😊';      // Unicode
   ```
 - **String:** String di Zig adalah *slice* dari byte konstan: `[]const u8`. String literal bersifat *null-terminated* untuk kompatibilitas dengan C.
   ```zig
   const greeting: []const u8 = "Hello, Zig!";
+  const version = "0.12.0"; // otomatis []const u8
   ```
+
+##### Cara Membuat String di Zig
+
+1. **Dengan Type Annotation (Tipe Ditetapkan)**
+
+   <pre class="overflow-visible!" data-start="1148" data-end="1205"><div class="contain-inline-size rounded-2xl relative bg-token-sidebar-surface-primary"><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-bg-elevated-secondary text-token-text-secondary flex items-center gap-4 rounded-sm px-2 font-sans text-xs"></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-zig"><span>const name: []const u8 = "Zig Language";
+   </span></code></div></div></pre>
+2. **Tanpa Type Annotation (Inferensi Otomatis oleh Compiler)**
+
+   <pre class="overflow-visible!" data-start="1274" data-end="1339"><div class="contain-inline-size rounded-2xl relative bg-token-sidebar-surface-primary"><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-bg-elevated-secondary text-token-text-secondary flex items-center gap-4 rounded-sm px-2 font-sans text-xs"></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-zig"><span>const version = "0.12.0"; // otomatis []const u8
+   </span></code></div></div></pre>
+3. **Mutable String (Butuh Buffer di Stack atau Heap)**
+
+   Karena literal bersifat immutable, jika ingin mengubah isi string:
+
+   <pre class="overflow-visible!" data-start="1470" data-end="1599"><div class="contain-inline-size rounded-2xl relative bg-token-sidebar-surface-primary"><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-bg-elevated-secondary text-token-text-secondary flex items-center gap-4 rounded-sm px-2 font-sans text-xs"></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-zig"><span>var buffer: [16]u8 = undefined;
+   var text = buffer[0..];
+   text[0] = 'Z';
+   text[1] = 'i';
+   text[2] = 'g';
+   </span></code></div></div></pre>
+4. **String dengan Allocator (Heap Allocation)**
+
+   Digunakan jika ukuran string dinamis (runtime):
+
+   <pre class="overflow-visible!" data-start="1704" data-end="2026"><div class="contain-inline-size rounded-2xl relative bg-token-sidebar-surface-primary"><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-bg-elevated-secondary text-token-text-secondary flex items-center gap-4 rounded-sm px-2 font-sans text-xs"></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-zig"><span>const std = @import("std");
+   pub fn main() !void {
+       var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+       const allocator = gpa.allocator();
+
+       const msg = try allocator.alloc(u8, 5);
+       defer allocator.free(msg);
+
+       msg.* = "Hello";
+       std.debug.print("{s}\n", .{msg});
+   }
+   </span></code></div></div></pre>
+5. **C String (Null-Terminated untuk Interop)**
+
+   <pre class="overflow-visible!" data-start="2079" data-end="2142"><div class="contain-inline-size rounded-2xl relative bg-token-sidebar-surface-primary"><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-bg-elevated-secondary text-token-text-secondary flex items-center gap-4 rounded-sm px-2 font-sans text-xs"></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-zig"><span>const c_str: [:0]const u8 = "Hello, C world!";
+   </span></code></div></div></pre>
+
+##### String Formatting
+
+
+Zig tidak memiliki operator `+` untuk menggabungkan atau memformat string.
+Sebagai gantinya, Zig menggunakan fungsi dari *standard library*, seperti `std.fmt` dan `std.mem`.
+
+1. Menggunakan `std.debug.print`
+
+Cara paling sederhana untuk menampilkan string dengan format (setara `printf` di C):
+
+```zig
+const std = @import("std");
+
+pub fn main() void {
+    const name = "Zig";
+    const version = 0.12;
+
+    std.debug.print("Hello, {s}! Version: {d}\n", .{ name, version });
+}
+```
+
+**Keterangan Format Specifier:**
+
+* `{s}` → string (`[]const u8`)
+* `{d}` → integer
+* `{f}` → floating point
+* `{any}` → tipe apa pun (otomatis diformat oleh Zig)
+* `\n` → newline
+
+2. Menggunakan `std.fmt.allocPrint`
+
+Jika kamu ingin **menghasilkan string hasil format** (bukan langsung mencetaknya):
+
+```zig
+const std = @import("std");
+
+pub fn main() !void {
+    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    const allocator = gpa.allocator();
+
+    const name = "Zig";
+    const version = 0.12;
+
+    const formatted = try std.fmt.allocPrint(allocator, "Hello, {s}! Version: {f}\n", .{ name, version });
+    defer allocator.free(formatted);
+
+    std.debug.print("{s}", .{ formatted });
+}
+```
+
+3. Menggabungkan String (Concatenation)
+
+Untuk menggabungkan string tanpa format:
+
+```
+const std = @import("std");
+
+pub fn main() !void {
+    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    const allocator = gpa.allocator();
+
+    const part1 = "Hello, ";
+    const part2 = "Zig!";
+    const combined = try std.mem.concat(allocator, u8, &[_][]const u8{ part1, part2 });
+    defer allocator.free(combined);
+
+    std.debug.print("{s}\n", .{ combined });
+}
+```
+
+4. Menggunakan `std.fmt.bufPrint`
+
+Untuk format string **ke buffer di stack** (lebih cepat, tanpa heap):
+
+```
+const std = @import("std");
+
+pub fn main() !void {
+    var buffer: [64]u8 = undefined;
+    const name = "Zig";
+
+    const len = try std.fmt.bufPrint(&buffer, "Hello, {s}!", .{ name });
+    const message = buffer[0..len];
+
+    std.debug.print("{s}\n", .{ message });
+}
+```
+
+Catatan Tambahan
+
+* Zig **tidak membuat alokasi tersembunyi**. harus memilih sendiri apakah mau di-*stack* atau di-*heap* .
+* Semua fungsi `std.fmt.*` bersifat **type-safe dan compile-time checked** .
+* Zig *tidak punya string interpolation syntax* (`"Hello {name}"`) — semua harus eksplisit lewat `fmt`.
 
 #### 1.1.3 Boolean
 
@@ -585,6 +729,7 @@ const Shape = struct {
 Penanganan error di Zig eksplisit dan aman.
 
 - **Error Set:** Kumpulan error yang bisa dikembalikan oleh sebuah fungsi.
+
   ```zig
   const FileError = error{
       AccessDenied,
@@ -592,12 +737,14 @@ Penanganan error di Zig eksplisit dan aman.
   };
   ```
 - **Error Union:** Sebuah fungsi yang bisa gagal mengembalikan `ErrorSet!T`.
+
   ```zig
   fn readFile() ![]u8 {
       // ... bisa melempar error
   }
   ```
 - **`try` dan `catch`:**
+
   - `try`: Mempropagasi error ke atas (jika fungsi saat ini juga bisa melempar error).
   - `catch`: Menangani error.
 
@@ -610,6 +757,7 @@ Penanganan error di Zig eksplisit dan aman.
   };
   ```
 - **`defer` dan `errdefer`:**
+
   - `defer`: Menjalankan sebuah ekspresi di akhir scope, baik berhasil maupun gagal. Berguna untuk membersihkan resource.
   - `errdefer`: Hanya berjalan jika scope diakhiri karena error.
 
@@ -681,6 +829,7 @@ Zig memiliki sistem build terintegrasi yang ditulis dalam... Zig!
 # 11. Testing & Debugging
 
 - **Testing:** Zig memiliki framework testing bawaan.
+
   - Tulis tes dalam blok `test "deskripsi" { ... }`.
   - Jalankan dengan `zig test nama_file.zig`.
 
@@ -690,6 +839,7 @@ Zig memiliki sistem build terintegrasi yang ditulis dalam... Zig!
   }
   ```
 - **Debugging:**
+
   - Gunakan `std.debug.print` untuk logging.
   - Kompilasi dalam mode `Debug` untuk menyertakan simbol debug.
   - Gunakan debugger seperti GDB atau LLDB.
@@ -744,6 +894,7 @@ allocator.free(buf);
 ```
 
 ### Example Case
+
 Struct adalah tipe data yang disimpan di Stack, tidak seperti Class dimana kita pass by reference. Karena Zig tidak punya OOP murni, kita bisa mengalokasikan Struct ke Heap jika Struct harus menampung data yang besar atau lifetime panjang (misalnya digunakan lintas fungsi atau thread).
 
 ```zig
@@ -797,7 +948,6 @@ pub fn main() !void {
 * `std.heap.ArenaAllocator`
 * `std.testing.allocator`
 
-
 ## 12.4 Pola Allocator-Passing
 
 Fungsi yang bekerja dengan data dinamis sebaiknya menerima allocator sebagai parameter.
@@ -807,7 +957,6 @@ fn makeBuffer(allocator: std.mem.Allocator) ![]u8 {
     return try allocator.alloc(u8, 1024);
 }
 ```
-
 
 ## 12.5 Siklus Hidup Memori: alloc → free → defer
 
@@ -863,7 +1012,6 @@ errdefer allocator.destroy(obj);
 try doSomething(obj);
 ```
 
-
 ## 12.6 Apa Saja yang Bisa di-Free
 
 ### 12.6.1 Di-free
@@ -902,7 +1050,6 @@ var arr: [100]u8 = undefined;
 const msg = "hello";
 ```
 
-
 ## 12.7 Arena Allocator
 
 Arena mengalokasikan blok besar dan membebaskan semuanya sekaligus pada akhir lifetime.
@@ -915,7 +1062,6 @@ defer arena.deinit();
 const a = try alloc.alloc(u8, 50);
 const b = try alloc.alloc(u8, 100);
 ```
-
 
 ## 12.8 Alokasi String dan Slice
 
@@ -939,7 +1085,6 @@ const msg = try std.fmt.allocPrint(allocator, "{s}{s}", .{ hello, world });
 defer allocator.free(msg);
 ```
 
-
 ## 12.9 Debugging Memory
 
 ### 12.9.1 GeneralPurposeAllocator
@@ -960,7 +1105,6 @@ Dapat digunakan untuk mendeteksi error seperti:
 * invalid read/write
 * use-after-free
 * double free
-
 
 ## 12.10 Konsep Tambahan
 
@@ -990,7 +1134,6 @@ var x: u32 align(8) = 123;
 
 Memori yang dialokasikan saat compile-time tidak perlu di-free.
 
-
 ## 12.11 Best Practice
 
 * Pasangkan setiap `alloc` dengan `defer free`.
@@ -1002,7 +1145,6 @@ Memori yang dialokasikan saat compile-time tidak perlu di-free.
 * Hindari global allocator untuk alur hidup kompleks.
 * Gunakan `errdefer` untuk rollback saat error.
 
-
 ## 12.12 Perbandingan dengan Bahasa Lain
 
 
@@ -1013,7 +1155,6 @@ Memori yang dialokasikan saat compile-time tidak perlu di-free.
 | Swift   | ARC                   | Rentan retain cycle                             |
 | Rust    | Borrowing + Ownership | Sangat aman, compile-time enforcements          |
 | C++     | RAII                  | Modern C++ aman, tetapi raw pointer rawan error |
-
 
 ## 12.13 Mengapa C++ Bermasalah Sebelum RAII
 
@@ -1027,7 +1168,6 @@ void test() {
 
 RAII memperbaiki masalah ini dengan destruktor yang otomatis dipanggil saat scope berakhir. Di Zig, hal yang sama dicapai melalui `defer`.
 
-
 ## 12.14 Penting di Pelajair
 
 1. Mengimplementasikan fungsi untuk menyalin string dengan alokasi manual.
@@ -1036,10 +1176,10 @@ RAII memperbaiki masalah ini dengan destruktor yang otomatis dipanggil saat scop
 4. Membuat custom allocator sederhana.
 
 Hal yang bisa dipelajar untuk meningkatkan skill manajemen manual :
-- Alokasi buffer file I/O  
-- Manajemen memori untuk JSON parser  
-- Arena allocator untuk HTTP request  
 
+- Alokasi buffer file I/O
+- Manajemen memori untuk JSON parser
+- Arena allocator untuk HTTP request
 
 # 13. Runtime Tuning & Optimizations
 
