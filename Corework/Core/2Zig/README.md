@@ -224,7 +224,10 @@ Tidak seperti bahasa C#, Java/Swift. String di Zig tidak direpresentasikan denga
 ##### String Formatting
 
 Zig tidak memiliki operator `+` untuk menggabungkan atau memformat string.
-Sebagai gantinya, Zig menggunakan fungsi dari *standard library*, seperti `std.fmt` dan `std.mem`.
+
+Sebagai gantinya, Zig menggunakan fungsi dari *standard library* , seperti `std.fmt` dan `std.mem`.
+
+Berbeda dengan bahasa lain seperti **C#** yang menggunakan interpolasi string `\${}` atau **C/C++** yang memakai *format specifier* seperti `%d`, Zig menggunakan gaya format yang lebih eksplisit dan aman melalui `std.fmt`.
 
 1. Menggunakan `std.debug.print`
 
@@ -525,40 +528,256 @@ if (maybe_value) |value| {
 }
 ```
 
-### 1.8 Input-Output
+### 1.8 Input–Output di Zig
 
-I/O di Zig ditangani melalui `std.io`.
+#### 1.8.1 Pendahuluan
+
+Zig menangani I/O (input dan output) menggunakan **modul standar `std.io`**,
+yang berisi abstraksi untuk membaca dan menulis data melalui *stream*.
+
+Tidak seperti bahasa lain yang punya fungsi *global* seperti `printf()` atau `scanf()`,
+Zig **mengharuskan kamu mengakses writer atau reader secara eksplisit**, sehingga lebih aman dan terkontrol.
+
+#### 1.8.2 Konsep Dasar Stream
+
+Dalam Zig:
+
+* **Writer** → digunakan untuk *output* (menulis data ke layar, file, atau buffer).
+* **Reader** → digunakan untuk *input* (membaca data dari keyboard, file, atau sumber lain).
+
+Keduanya bersifat *generic* dan bisa berasal dari berbagai sumber:
+
+* Terminal (stdout, stdin)
+* File
+* Memory buffer
+* Network socket (melalui `std.net`)
+
+#### 1.8.3 Output (Menulis Data)
+
+a. Menulis ke Standard Output (`stdout`)
 
 ```zig
 const std = @import("std");
 
 pub fn main() !void {
     const stdout = std.io.getStdOut().writer();
-    try stdout.print("Hello, {s}!\n", .{"world"});
+    try stdout.print("Halo, {s}!\n", .{"Dunia"});
 }
 ```
 
-### 1.9 `usingnamespace`(deprecated)
+Penjelasan:
 
-`usingnamespace` di Zig berfungsi untuk membawa *anggota* dari sebuah namespace (atau `struct`, `enum`, dll.) ke dalam scope saat ini, sehingga Anda dapat mengaksesnya tanpa kualifikasi penuh. Ini mirip dengan `using` di C# atau `import` di Java/Python.
+* `std.io.getStdOut()` → mengembalikan *handle* ke standar output.
+* `.writer()` → membuat objek writer agar bisa digunakan untuk `print()`.
+* `try` → digunakan karena operasi I/O bisa gagal (misalnya terminal tidak bisa diakses).
 
-**Penting untuk Zig 0.12+:** Perilaku `usingnamespace` telah disempurnakan. Ia tidak lagi "menyebarkan" semua simbol secara otomatis ke scope global dengan cara yang mungkin menyebabkan konflik. Sebaliknya, ia membuat anggota yang di-`usingnamespace` tersedia di scope lokal tempat ia dideklarasikan.
+b. Format String di Zig
+
+Zig tidak punya *variadic arguments* seperti `printf()` di C (`%d`, `%s`, dll).
+Sebagai gantinya, Zig menggunakan **string interpolation** dengan tanda `{}` dan daftar tuple `.{...}`.
+
+Contoh:
+
+```zig
+try stdout.print("Nilai: {}, Nama: {s}\n", .{42, "Dhimas"});
+```
+
+
+| Placeholder | Jenis Data                         | Contoh        |
+| :------------ | :----------------------------------- | :-------------- |
+| `{}`        | tipe umum (angka, bool, struct)    | `{}`          |
+| `{s}`       | string slice (`[]const u8`)        | `"halo"`      |
+| `{d}`       | bilangan desimal                   | `123`         |
+| `{x}`       | bilangan heksadesimal              | `0xff`        |
+| `{any}`     | debug format (untuk tipe kompleks) | struct, array |
+
+Contoh:
+
+```zig
+const data = .{ .x = 5, .y = 10 };
+try stdout.print("Debug: {any}\n", .{data});
+```
+
+c. Menulis ke `stderr`
+
+```zig
+const std = @import("std");
+
+pub fn main() !void {
+    const stderr = std.io.getStdErr().writer();
+    try stderr.print("Terjadi kesalahan: {s}\n", .{"File tidak ditemukan"});
+}
+```
+
+Biasanya dipakai untuk menulis pesan error agar tidak bercampur dengan output biasa.
+
+#### 1.8.4 Input (Membaca Data)
+
+a. Membaca dari Standard Input (`stdin`)
+
+```zig
+const std = @import("std");
+
+pub fn main() !void {
+    const stdin = std.io.getStdIn().reader();
+    const stdout = std.io.getStdOut().writer();
+
+    var buffer: [100]u8 = undefined;
+    const input = try stdin.readUntilDelimiterOrEof(&buffer, '\n');
+
+    try stdout.print("Kamu menulis: {s}\n", .{input.?});
+}
+```
+
+Penjelasan:
+
+* `readUntilDelimiterOrEof()` membaca hingga `\n` (enter) atau akhir file.
+* Mengembalikan `?[]u8` (opsional slice).
+* Karena itu perlu `. ?` untuk mengakses hasilnya.
+
+b. Membaca dan Parsing Angka
+
+Kamu bisa ubah input string menjadi angka menggunakan `std.fmt.parseInt()`:
+
+```zig
+const std = @import("std");
+
+pub fn main() !void {
+    const stdin = std.io.getStdIn().reader();
+    const stdout = std.io.getStdOut().writer();
+
+    try stdout.print("Masukkan angka: ", .{});
+
+    var buffer: [10]u8 = undefined;
+    const input = try stdin.readUntilDelimiterOrEof(&buffer, '\n');
+
+    const num = try std.fmt.parseInt(i32, input.?, 10);
+    try stdout.print("Kuadrat dari {} adalah {}\n", .{num, num * num});
+}
+```
+
+#### 1.8.5 I/O dengan File
+
+a. Menulis ke File
+
+```zig
+const std = @import("std");
+
+pub fn main() !void {
+    const file = try std.fs.cwd().createFile("output.txt", .{});
+    defer file.close();
+
+    const writer = file.writer();
+    try writer.print("Halo dari Zig!\n", .{});
+}
+```
+
+Penjelasan:
+
+* `std.fs.cwd()` → akses *current working directory*.
+* `createFile()` → buat file baru.
+* `defer file.close()` → otomatis menutup file setelah fungsi selesai.
+* `writer()` → membuat writer dari file.
+
+b. Membaca dari File
+
+```zig
+const std = @import("std");
+
+pub fn main() !void {
+    const file = try std.fs.cwd().openFile("output.txt", .{});
+    defer file.close();
+
+    var buffer: [256]u8 = undefined;
+    const bytes_read = try file.reader().readAll(&buffer);
+
+    const stdout = std.io.getStdOut().writer();
+    try stdout.print("Isi file: {s}\n", .{buffer[0..bytes_read]});
+}
+```
+
+#### 1.8.6 Buffered I/O
+
+Untuk operasi besar (misalnya membaca file besar atau network stream),
+lebih efisien menggunakan **buffered reader/writer** agar tidak memanggil sistem berkali-kali.
 
 Contoh:
 
 ```zig
 const std = @import("std");
 
-pub fn main() void {
-    usingnamespace std.debug; // Membawa anggota `std.debug` ke scope `main`
+pub fn main() !void {
+    const stdout = std.io.bufferedWriter(std.io.getStdOut().writer());
+    var writer = stdout.writer();
 
-    // Karena `print` adalah anggota dari `std.debug`,
-    // kita bisa memanggilnya secara langsung di dalam `main`.
-    print("Hello!\n", .{});
+    try writer.print("Menulis dengan buffer...\n", .{});
+    try stdout.flush(); // wajib agar buffer dikirim ke stdout
 }
 ```
 
-*Catatan: Meskipun `usingnamespace std.debug;` memungkinkan pemanggilan `print` secara langsung, ini tidak berarti `print` menjadi fungsi global. Ia hanya tersedia di scope tempat `usingnamespace` dideklarasikan.*
+#### 1.8.7 Error Handling dalam I/O
+
+Semua operasi I/O di Zig bisa gagal karena alasan seperti:
+
+* file tidak ditemukan,
+* izin ditolak,
+* perangkat I/O tidak tersedia.
+
+Karena itu semua fungsi I/O punya tanda `!` di tipe return-nya (contoh: `!void`).
+
+Contoh:
+
+```zig
+pub fn main() !void {
+    const stdout = std.io.getStdOut().writer();
+    try stdout.print("Ini bisa gagal!\n", .{});
+}
+```
+
+Jika ingin menangani secara manual:
+
+```zig
+if (stdout.print("Test\n", .{})) |err| {
+    std.debug.print("Gagal menulis: {}\n", .{err});
+}
+```
+
+#### 1.8.8 Contoh Lengkap: Echo Program
+
+```zig
+const std = @import("std");
+
+pub fn main() !void {
+    const stdin = std.io.getStdIn().reader();
+    const stdout = std.io.getStdOut().writer();
+
+    var buffer: [100]u8 = undefined;
+
+    while (true) {
+        try stdout.print("> ", .{});
+        const input = try stdin.readUntilDelimiterOrEof(&buffer, '\n');
+        if (input == null) break; // EOF
+
+        if (std.mem.eql(u8, input.?, "exit")) break;
+
+        try stdout.print("Kamu mengetik: {s}\n", .{input.?});
+    }
+
+    try stdout.print("Program selesai.\n", .{});
+}
+```
+
+
+| Kategori       | Fungsi                                   | Keterangan              |
+| :--------------- | :----------------------------------------- | :------------------------ |
+| Output         | `std.io.getStdOut().writer()`            | Cetak ke layar          |
+| Output (error) | `std.io.getStdErr().writer()`            | Cetak ke stderr         |
+| Input          | `std.io.getStdIn().reader()`             | Baca dari keyboard      |
+| Format print   | `writer.print("{s} {d}", .{"teks", 10})` | Interpolasi aman        |
+| File Output    | `createFile().writer()`                  | Tulis ke file           |
+| File Input     | `openFile().reader()`                    | Baca dari file          |
+| Buffering      | `std.io.bufferedWriter()`                | Optimasi performa       |
+| Error handling | `try`, `catch`, `!`                      | Menangani kegagalan I/O |
 
 # 2. Programming Paradigms
 
