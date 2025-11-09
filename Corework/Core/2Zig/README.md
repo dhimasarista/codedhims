@@ -223,7 +223,6 @@ Tidak seperti bahasa C#, Java/Swift. String di Zig tidak direpresentasikan denga
 
 ##### String Formatting
 
-
 Zig tidak memiliki operator `+` untuk menggabungkan atau memformat string.
 Sebagai gantinya, Zig menggunakan fungsi dari *standard library*, seperti `std.fmt` dan `std.mem`.
 
@@ -539,19 +538,27 @@ pub fn main() !void {
 }
 ```
 
-### 1.9 `usingnamespace`
+### 1.9 `usingnamespace`(deprecated)
 
-Mirip dengan `using` di C# atau import di Java, dimana membawa semua deklarasi dari sebuah library atau namespace ke dalam scope saat ini.
+`usingnamespace` di Zig berfungsi untuk membawa *anggota* dari sebuah namespace (atau `struct`, `enum`, dll.) ke dalam scope saat ini, sehingga Anda dapat mengaksesnya tanpa kualifikasi penuh. Ini mirip dengan `using` di C# atau `import` di Java/Python.
+
+**Penting untuk Zig 0.12+:** Perilaku `usingnamespace` telah disempurnakan. Ia tidak lagi "menyebarkan" semua simbol secara otomatis ke scope global dengan cara yang mungkin menyebabkan konflik. Sebaliknya, ia membuat anggota yang di-`usingnamespace` tersedia di scope lokal tempat ia dideklarasikan.
+
+Contoh:
 
 ```zig
 const std = @import("std");
 
 pub fn main() void {
-    usingnamespace std.debug;
-    // Sekarang bisa memanggil print secara langsung
+    usingnamespace std.debug; // Membawa anggota `std.debug` ke scope `main`
+
+    // Karena `print` adalah anggota dari `std.debug`,
+    // kita bisa memanggilnya secara langsung di dalam `main`.
     print("Hello!\n", .{});
 }
 ```
+
+*Catatan: Meskipun `usingnamespace std.debug;` memungkinkan pemanggilan `print` secara langsung, ini tidak berarti `print` menjadi fungsi global. Ia hanya tersedia di scope tempat `usingnamespace` dideklarasikan.*
 
 # 2. Programming Paradigms
 
