@@ -33,14 +33,14 @@
 
 #### Analyze Them
 - C# : ASP.NET Core
-    - Performance : ~100k – 1.2M RPS / high CPU / ~50 - 100 Mb / sub (~0.2) Ms
+    - Performance : ~100k – 1.2M RPS ~50 - 100 Mb / sub (~0.2) Ms
     - Weakness : Managed GC overhead tetap ada (meskipun AOT / ReadyToRun / trimming membantu), plus runtime metadata, jadi overhead lebih besar vs native no-runtime bahasa.
 - Zig : JetZig (HttpZ)
-    - Performance : ~100k – 2M RPS / low CPU / single-digit MBs - puluhan / ~nano - mili
+    - Performance : ~100k – 2M RPS ~4 - 50 Mb / ~nano - mili
     - Weakness : Manual Allocate/Free, Security Awareness
 - Java : Spring Webflux
-    - Performance : ~100k – 1.8M RPS / high CPU / ~250 Mb - 2 Gb / ~0.1 Ms
+    - Performance : ~100k – 1.8M RPS / ~250 Mb - 2 Gb / ~0.1 Ms
     - Weakness : GC & Heavy than C#, JIT Startup Slow (Leyden Sol) , AOT Build (GraalVM CE) Single-thread
 - Swift : Vapor
-    - Performance : ~100K RPS / med-high CPU / ~10 - 50 Mb / 0.3 Ms
+    - Performance : ~100K RPS / ~10 - 50 Mb / 0.3 Ms
     - Weakness : Low Adoption - Small Ecosystem
