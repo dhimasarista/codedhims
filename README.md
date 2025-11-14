@@ -1,7 +1,7 @@
 ![Coding by Pixel Jeff : r/Cyberpunk](https://i.redd.it/n8agw6z2smyb1.gif)
 
-- **Corework** : C# & Zig
-- **Profs** : Java, Swift | NodeJS, Laravel
+- **Corework** : C# & Zig | Java, Swift
+- **Others** : NodeJS, PHP
 - **Databases** : PostgreSQL, Dragonfly
 - **Orchestration**
   - CI/CD : Github Actions, Jenkins
