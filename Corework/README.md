@@ -1,4 +1,10 @@
 ![](assets/20251106_155227_Frame_76.png)
+# ⛾ ARC⌗Σage
+- Corework : C# & Zig | Java, Swift
+- Ohters : NodeJS, PHP
+- Backend #1 : Spring Boot
+- Backend #2 : NestJS, Laravel
+- IoT/Embed : MicroEJ
 
 ## C# : Swis Army Knife
 
@@ -45,8 +51,6 @@
     - Performance : ~100K RPS / ~10 - 50 Mb / 0.3 Ms
     - Weakness : Low Adoption - Small Ecosystem
 
-
-## Software Developement
 ### 🟦 **Spring Boot (Java)**
 
 * **Dependency Injection** : Spring Context (IoC Container)
