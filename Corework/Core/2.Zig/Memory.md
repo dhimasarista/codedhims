@@ -79,8 +79,122 @@ defer allocator.destroy(obj);
 * ❌ `free()` dari allocator berbeda → runtime crash
 * ✅ Gunakan `defer` atau `errdefer` untuk jaminan cleanup
 
+### String Zig
+Zig tidak punya tipe string eksplisit, string adalah []u8 (slice) atau array of u8.
+Berbeda dengan C#, Java..string adalah immutable reference dan selalu disimpan di heap atau string pool. Sedangkan Zig mutable dan biasanya disimpan di stack dimana ga perlu dibebaskan..tetapi tetap bisa dialokasikan ke heap tentunya dengan cara manual allocate/free.
 
-### Yang Perlu dan Tidak
+- Literal → "hello" → tidak free, static memory.
+- Slice dari buffer lain → buf[0..4] → tidak free, bukan owner.
+- Alloc manual → alloc.alloc / alloc.dupe → harus free.
+- Function return allocated string → pemanggil harus free.
+---
+
+#### 1. **String literal**
+
+Contoh:
+
+```zig
+const s = "hello, world";
+const name: []const u8 = "Zig";
+```
+
+* Tersimpan di **read-only memory (static data)**.
+* **Tidak perlu di-free**.
+* Tidak boleh dimodifikasi.
+
+---
+
+#### 2. **Slice yang menunjuk ke memory orang lain**
+
+Contoh:
+
+```zig
+const name: []const u8 = someOtherBuffer[0..4];
+```
+
+* Ini **tidak meng-own memori**.
+* Tidak perlu di-free, karena bukan kita yang allocate.
+
+---
+
+#### 3. **String hasil allocation manual**
+
+Kalau kamu bikin string lewat allocator:
+
+```zig
+const allocator = std.heap.page_allocator;
+
+var s = try allocator.alloc(u8, 10);
+defer allocator.free(s);
+
+const hello = "Hello";
+for (i, c) in hello {
+    s[i] = c;
+}
+```
+
+Atau:
+
+```zig
+var s = try allocator.dupe(u8, "hello");
+defer allocator.free(s);
+```
+
+➡️ **Harus di-free**, karena ini kamu yang allocate.
+
+---
+
+#### 4. **String yang keluar dari functions menggunakan allocator**
+
+Jika function kamu return allocated string:
+
+```zig
+fn makeString(allocator: std.mem.Allocator) ![]u8 {
+    return try allocator.dupe(u8, "hello");
+}
+```
+
+Pemanggil harus free:
+
+```zig
+const allocator = std.heap.page_allocator;
+const s = try makeString(allocator);
+defer allocator.free(s);
+```
+
+---
+
+# 🧠 Prinsip umum Zig tentang string
+
+Zig pakai konsep **ownership** tanpa GC:
+
+* Kalau kamu **alloc** → kamu **free**.
+* Kalau string datang dari **literal**, **const**, atau **slice yang bukan milikmu** → tidak perlu free.
+* Kalau kamu **menduplikasi** string (dupe) → kamu harus free.
+
+---
+
+# 🔥 Contoh lengkap
+
+```zig
+const std = @import("std");
+
+pub fn main() !void {
+    const allocator = std.heap.page_allocator;
+
+    // literal
+    const lit = "hello"; // no free
+
+    // allocate
+    var dyn = try allocator.dupe(u8, lit);
+    defer allocator.free(dyn); // wajib free
+
+    std.debug.print("literal: {s}\n", .{lit});
+    std.debug.print("dynamic: {s}\n", .{dyn});
+}
+```
+
+### Kesimpulan Yang Perlu dan Tidak
 | Jenis                      | Disimpan di | Perlu free? | Contoh                               |
 | -------------------------- | ----------- | ----------- | ------------------------------------ |
 | **Primitif (nilai biasa)** | Stack       | ❌ Tidak     | `var x: i32 = 42;`                   |
