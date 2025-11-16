@@ -2,11 +2,15 @@
 ![alt text](image-1.png)
 ## Installation
 ## Aturan dan Penamaan Sintaks
-
 # 0. Introduction
-## Menjalankan Kode Zig
-## Toolchain & Workload (zig build, zig run, zig fmt)
-## Karakteristik Zig (no GC, manual memory, compile-time, C interop)
+
+> Comparative references across C#, Zig, Java, and Rust.
+
+## Installation, Running Hello World
+
+## Toolchain & Workload
+
+## Karakteristik, Aturan & Penamaan
 
 # 1. Basic
 ## 1.1 Data Types
@@ -14,7 +18,7 @@
 ### 1.1.2 Characters (u8, UTF-8 awareness)
 ### 1.1.3 Boolean
 ### 1.1.4 Pointer (raw pointers, many pointer types)
-### 1.1.5 Empty Data Type 
+### 1.1.5 Empty Data Type (`void`)
 ### 1.1.6 Aliasses (`const X = ...`)
 ### 1.1.7 Type Checking (`@TypeOf`)
 
@@ -50,4 +54,108 @@
 ## 3.3 Pure Function-style
 ## 3.4 Recursion
 ## 3.5 Immutable Variable di Function (const)
-## 3
+## 3.6 Fungsi dengan return value dan tidak
+## 3.7 Function Parameter
+## 3.8 Main Function Parameter
+## 3.9 Function Short Expression (inline functions)
+## 3.10 Higher Order Functions (via generics)
+## 3.11 Method-like Function (struct methods)
+
+# 4. Struct
+## Packed struct, extern struct, anonymous struct
+
+# 5. Object-Oriented Programming
+## (Zig tidak punya OOP)
+## Emulation via:
+### Struct + Functions
+### Interfaces via function pointers
+### Composition over inheritance
+
+# 6. Exception & Error Handling
+## Zig Error Union (`!T`)
+## `try` keyword
+## `catch`
+## Panics
+
+# 7. Concurrency & Parallel Programming
+## Async/Await (Zig async)
+## Manual thread usage
+## Mutex, Atomics
+## Race Condition
+
+# 8. Generic
+## Comptime generics
+## Type inference with `var`
+## Generic functions
+## Generic types via comptime parameters
+
+# 9. Domain-Specific Language
+## Zig as DSL host: comptime, metaprogramming, type generation
+
+# 10. Package Manager
+## Zig build system (`build.zig`)
+## Zig package manager (builtin)
+
+# 11. Testing & Debugging
+## Built-in testing (`test {}`)
+## Debugging via `@panic`, logging, LLDB
+
+# 12. Keywords & Syntactic Sugar
+## `comptime`, `defer`, `errdefer`, `inline`, `orelse`, `catch`, `try`
+
+# 13. Regular-Expression
+## (Tidak built-in, pakai library external)
+
+# 14. Preprocessor Directives
+## Tidak ada — gunakan comptime
+
+# 15. Memory Management
+## Allocator model
+## Manual allocation & free
+## Arena allocator
+## General-purpose allocator
+## No GC
+
+# 16. Performance Engineering
+## Manual memory optimization
+## Inline & comptime optimizations
+## Build options
+## Profiling tools
+
+# 17. Monitoring & Diagnostic
+## Logging (std.log)
+## Debug assertions
+## Panic handlers
+
+# 18. Build System & Project Architecture
+## build.zig (major topic)
+## Step-based build graph
+## Multi-module layout
+
+# 19. Design Patterns
+## Zig-style patterns (comptime patterns, error union patterns)
+
+# 20. Module System & Visibility Rules
+## `pub`, package import, namespace
+
+# 21. Networking Fundamentals
+## std.net
+## TCP/UDP
+
+# 22. File System & OS Interaction
+## std.fs
+## OS syscalls wrapper
+
+# 23. Serialization & Interoperability
+## JSON (std.json)
+## Binary
+## C Interop (`@cImport`)
+
+# 24. Reflection & Meta-programming
+## comptime reflection (`@typeInfo`)
+## type generation
+## compile-time code execution
+
+# 25. Ecosystem & Frameworks
+## stdlib
+## community packages (zap, bun-inspired)
