@@ -2,126 +2,18 @@
 
 ![](assets/20251022_023311_image.png)
 
+
+# 0. Introduction
 **C#** (dibaca:  ***see sharp*** ) adalah sebuah bahasa pemrograman berorientasi objek ( *object-oriented language* ) yang dikembangkan oleh **Microsoft** sebagai bagian dari inisiatif kerangka **.NET Framework**. Bahasa pemrograman ini dibuat berbasiskan bahasa C++ yang telah dipengaruhi oleh aspek-aspek ataupun fitur bahasa yang terdapat pada bahasa-bahasa pemrograman lainnya seperti Java, Delphi, VisualBasic, dan lain-lain dengan beberapa penyederhanaan. Menurut standar ***ECMA-334 C# Language Specification***, nama C# terdiri atas sebuah huruf Latin C **(**U+0043**)** yang diikuti oleh tanda pagar yang menandakan angka # (U+0023). Tanda pagar # yang digunakan memang bukan tanda kres dalam seni musik (U+266F), dan tanda pagar # (U+0023) tersebut digunakan karena karakter kres dalam seni musik tidak terdapat di dalam papan tombol standar.
 
-> Sumber: Wikipedia
-
-**Alasan-alasan Kenapa Menggunakan C# :**
-
-* Dukungan ekosistem yang besar menggunakan .NET Runtime.
-* Fitur, sintaks dan keyword lebih lengkap dibandingkan bahasa lain.
-* Kematangan bahasa dari segi peforma dan ekosistem.
-
-**Karakteristik C# :**
-
-- **Ekstensi File**: C# menggunakan ekstensi file .cs
-- **Multi-threading**: C# mendukung pemrograman konkuren dan parallel, menggunakan Task Parallel Library (TPL) dan async-await.
-- **Statically typed**: C# bahasa yang statically typed, yang berarti Anda harus mendefinisikan tipe variabel sebelum penggunaan.
-- **Type inference**: C# mendukung type inference, memungkinkan tipe data secara otomatis terdeteksi saat variabel diinisialisasi.
-- **String Interpolation**: C# mendukung string interpolation langsung ke dalam string tanpa menggunakan concatenation.
-- **Paradigma**: C# mendukung paradigma pemrograman berorientasi objek (OOP) dan fungsional dalam beberapa cara.
-- **Opsi Kompilasi**: C# dikompilasi ke dalam intermediate language (IL) yang kemudian diterjemahkan menjadi kode mesin oleh Common Language Runtime (CLR) dan dapat di kompilasi ke native AOT.
-- **SDK**: C# memiliki SDK yang menyediakan alat untuk mengembangkan, menguji, dan membangun aplikasi dalam bahasa tersebut.
-
-**Komentar**:
-
-Komentar dalam C# dapat ditambahkan menggunakan `//` untuk komentar satu baris, `/* */` untuk komentar multi-baris, dan `///` untuk komentar dokumentasi.
-
-```csharp
-// Ini adalah contoh komentar satu baris
-int x = 5; // Komentar ini menjelaskan bahwa nilai x adalah 5
-
-/*
-Ini adalah contoh komentar
-banyak baris.
-Komentar ini bisa menjangkau beberapa baris
-dan digunakan untuk memberikan penjelasan lebih detail.
-*/
-
-/// <summary>
-/// Method ini digunakan untuk menghitung jumlah dua bilangan bulat.
-/// </summary>
-/// <param name="a">Bilangan bulat pertama.</param>
-/// <param name="b">Bilangan bulat kedua.</param>
-/// <returns>Hasil penjumlahan dua bilangan.</returns>
-public int Add(int a, int b)
-{
-    return a + b;
-}
-```
-
-## Installation
-
+## Installation, Running Hello World
 **Environment yang dibutuhkan:**
 
 - **.NET SDK**:[https://dotnet.microsoft.com/download/dotnet](https://dotnet.microsoft.com/download/dotnet ".NET SDK")
 - **Code Editor**:
   - Visual Studio Code ([https://code.visualstudio.com/](https://code.visualstudio.com/))
+  - Jetbrains Rider ([https://www.jetbrains.com/rider/](https://www.jetbrains.com/rider/))
   - Visual Studio ([https://visualstudio.microsoft.com/](https://visualstudio.microsoft.com/))
-
-## Aturan dan Penamaan Sintaks
-
-> ⚠️ Catatan: Hati-hati dengan case-sensitive terutama camelCase dan PascalCase.
-
-**Penamaan File**
-
-- **Do**:
-  - FileName.cs
-- **Avoid**:
-  - file_name.cs
-
-**Standard Library**
-
-
-| Standard Library   | Deskripsi                                                                    |
-| -------------------- | ------------------------------------------------------------------------------ |
-| System             | Namespace yang berisi tipe data dan fungsi-fungsi dasar dalam bahasa C#.     |
-| System.Collections | Berisi kelas-kelas untuk koleksi data seperti array, list, dan dictionary.   |
-| System.IO          | Berisi kelas-kelas untuk input/output, termasuk membaca dan menulis ke file. |
-| System.Threading   | Berisi kelas-kelas untuk pemrograman konkuren, termasuk pengelolaan thread.  |
-| System.Net         | Berisi kelas-kelas untuk komunikasi jaringan seperti HTTP, TCP/IP, dll.      |
-| System.Linq        | Berisi metode ekstensi untuk kueri data menggunakan LINQ.                    |
-| System.Xml         | Berisi kelas-kelas untuk memproses XML.                                      |
-| System.Text        | Berisi kelas-kelas untuk manipulasi teks dan format string.                  |
-| System.Security    | Berisi kelas-kelas untuk keamanan, enkripsi, dan hashing.                    |
-| System.Diagnostics | Berisi kelas-kelas untuk mengelola proses dan layanan di sistem.             |
-
-**Libraries & Frameworks**
-
-
-| Kategori                          | Library/Framework                     | Deskripsi                                                                                         |
-| ----------------------------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| Framework .NET                    | .NET Core / .NET 5+                   | Framework serbaguna untuk pengembangan aplikasi desktop, web, dan cloud.                          |
-|                                   | .NET Framework                        | Framework klasik untuk pengembangan aplikasi Windows.                                             |
-| Web App                           | ASP.NET Core                          | Framework untuk pengembangan aplikasi web lintas platform.                                        |
-|                                   | Blazor                                | Framework untuk membangun aplikasi web interaktif menggunakan C#.                                 |
-|                                   | SignalR                               | Library untuk membangun aplikasi web real-time menggunakan WebSockets.                            |
-| Mobile App                        | Xamarin                               | Framework untuk membangun aplikasi mobile lintas platform menggunakan C# dan .NET.                |
-|                                   | MAUI (Multi-platform App UI)          | Framework untuk pembuatan aplikasi mobile lintas platform dengan UI yang berbeda, menggunakan C#. |
-| Database                          | Entity Framework Core                 | ORM untuk akses data relasional.                                                                  |
-|                                   | Dapper                                | Micro ORM yang ringan dan cepat untuk akses data dengan SQL langsung.                             |
-|                                   | ADO.NET                               | API dasar untuk akses data relasional di lingkungan .NET.                                         |
-| Dekstop App                       | Windows Forms                         | Framework untuk pembuatan aplikasi desktop Windows.                                               |
-|                                   | WPF (Windows Presentation Foundation) | Framework untuk pembuatan aplikasi desktop Windows dengan antarmuka pengguna modern.              |
-|                                   | Avalonia                              | Framework untuk pembuatan aplikasi desktop lintas platform menggunakan XAML dan .NET.             |
-| Game                              | Unity                                 | Mesin permainan untuk pembuatan permainan 2D dan 3D, dengan dukungan scripting menggunakan C#.    |
-|                                   | MonoGame                              | Framework open-source untuk pembuatan permainan lintas platform menggunakan C#.                   |
-| Internet of Things                | .NET IoT                              |                                                                                                   |
-|                                   | Meadow                                |                                                                                                   |
-|                                   | NanoFramework                         |                                                                                                   |
-| Artificial inteligence            | ML.NET                                |                                                                                                   |
-| HTTP & Web API                    | ASP.NET Web API                       | Framework untuk pembuatan layanan web RESTful menggunakan .NET.                                   |
-|                                   | RestSharp                             | Library HTTP untuk klien RESTful yang dapat digunakan dalam aplikasi .NET.                        |
-| Testing dan Mocking               | NUnit, xUnit.net, MSTest              | Framework pengujian unit untuk pengujian otomatis dalam lingkungan .NET.                          |
-|                                   | Moq, NSubstitute                      | Library untuk mocking objek dan membuat pengganti (stub) dalam pengujian unit.                    |
-| Serialization dan Deserialization | Newtonsoft.Json (Json.NET)            | Library yang populer untuk serialization dan deserialization data JSON.                           |
-|                                   | System.Text.Json                      | Library bawaan .NET untuk serialization dan deserialization data JSON.                            |
-| Logging dan Monitoring            | Serilog, NLog, log4net                | Library logging yang populer untuk pencatatan kejadian dan pemantauan aplikasi.                   |
-|                                   | Application Insights, Sentry          | Layanan pihak ketiga untuk pemantauan dan pelacakan kesalahan dalam aplikasi.                     |
-
-# 0. Introduction
-
-## 0.1 Menjalankan Kode C#
 
 **Menjalankan Kode C# dengan `dotnet run`:**
 
@@ -135,91 +27,12 @@ public int Add(int a, int b)
 2. Navigasikan ke direktori proyek C#.
 3. Jalankan perintah`dotnet watch run`  atau`dotnet watch` saja untuk menjalankan proyek. Ini akan mengkompilasi dan menjalankan proyek secara bersamaan, dimana kode`Program.cs` yang akan dieksekusi.
 
-**Mengompilasi Kode C# dengan JIT Compilation:** Kompilasi dilakukan saat eksekusi, memberikan fleksibilitas dan optimasi berdasarkan runtime.
-
-1. Pastikan Anda memiliki`.NET Core SDK` terinstal.
-2. Buka terminal atau command prompt.
-3. Navigasikan ke direktori proyek C# Anda.
-4. Jalankan perintah`dotnet build -c Release ` untuk mengompilasi proyek Anda dengan kompilasi JIT.
-5. Setelah selesai, Anda akan menemukan file yang dipublikasikan di direktori`bin/Release/netcoreapp<version>/<target-runtime>/publish`.
-6. compiler akan menghasilkan file`NamaProgram.dll` atau jika diwindows menghasilkan bersamaan`NamaProgram.exe` dan dilinux sebaliknya.
-
-**Mengompilasi Kode C# dengan AOT Compilation:** Kompilasi dilakukan sebelum eksekusi, menghasilkan kecepatan startup yang lebih cepat.
-
-> Pastikan Anda memiliki `.NET Core SDK` dan `dotnet-runtime` terbaru yang mendukung AOT compilation.
-
-Cara pertama:
-
-1. Buka file`.csproj` proyek Anda.
-2. Tambahkan elemen`<PublishAot>true</PublishAot>` di dalam tag`<PropertyGroup>`.
-3. Simpan perubahan dan tutup file`.csproj`.
-4. Buka terminal atau command prompt.
-5. Dan jalankan perintah`dotnet publish -c Release -r linux-x64`
-
-Cara Kedua: Tanpa Menambahkan elemen ke .csproj
-
-1. Menambahkan`/p:PublishAot=true` saat melakukan kompilasi.
-2. `dotnet publish /p:PublishAot=true`
-3. Setelah selesai, Anda akan menemukan file yang dipublikasikan di direktori`bin/Release/netcoreapp<version>/<target-runtime>/publish`/native.
-
-**Mengompilasi Kode C# dengan Self-Contained**: Aplikasi yang dibundel dengan semua dependensi, termasuk runtime, untuk kemudahan distribusi dan portabilitas.
-
-1. Pertama menambahkan beberapa elemen penting di .csproj:
-
 ```csharp
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
-    <SelfContained>true</SelfContained> <!-- Tambahkan dengan nilai true -->
-    <RuntimeIdentifier>linux-x64</RuntimeIdentifier> <!-- Ganti dengan platform yang sesuai -->
-  </PropertyGroup>
-</Project>
+// Program.cs
+Console.WriteLine("Hello, World");
 ```
 
-2. Kemudian di terminal dengan perintah,`dotnet publish -c Release -r linux-x64 --self-contained`
-3. Setelah selesai, Anda akan menemukan file yang dipublikasikan di direktori`bin/Release/netcoreapp<version>/<target-runtime>/`.
-
-**Opsi kompilasi .NET Core (dotnet) yang umum digunakan adalah:**
-
-1. **Debug**: Opsi ini menghasilkan output yang tidak dioptimalkan dan menyertakan informasi debug lengkap untuk memudahkan debugging. Ini biasanya digunakan selama pengembangan dan pengujian.
-
-   ```bash
-   dotnet build --configuration Debug
-   ```
-2. **Release**: Opsi ini menghasilkan output yang dioptimalkan untuk kinerja dan tidak menyertakan informasi debug tambahan. Ini digunakan untuk aplikasi yang siap untuk di-deploy ke lingkungan produksi.
-
-   ```bash
-   dotnet build --configuration Release
-   ```
-3. **Target Framework**: Opsi ini digunakan untuk menentukan versi kerangka kerja .NET yang akan digunakan untuk kompilasi.
-
-   ```bash
-   dotnet build --framework <framework>
-
-   contoh:
-   dotnet build --framework net8.0
-   ```
-4. **Runtime Identifier (RID)**: Opsi ini digunakan untuk menentukan runtime spesifik yang akan ditargetkan oleh aplikasi yang dikompilasi atau memungkinkan Anda untuk menargetkan platform yang berbeda dari yang saat ini digunakan untuk pengembangan. Seperti win-x64, linux-x64 atau osx-x64.
-
-   ```bash
-   dotnet build --runtime <runtime>
-
-   contoh:
-   dotnet build --runtime win-x64
-   ```
-5. **Self-contained Deployment (SCD)**: Opsi ini menghasilkan distribusi yang independen dari lingkungan, yang mencakup .NET Core runtime dan dependensinya. Ini memungkinkan aplikasi dijalankan tanpa menginstal .NET Core runtime secara terpisah.
-
-   ```bash
-   dotnet publish --self-contained true
-   ```
-
-**Perbedan Build dan Publish:**
-
-1. **Build** : Tahap build melibatkan kompilasi kode sumber Anda ke dalam format yang dapat dieksekusi oleh mesin. Saat Anda melakukan build proyek C#, compiler akan mengonversi kode C# Anda ke dalam bahasa mesin atau format intermediate seperti IL (Intermediate Language). Hasil dari tahap build ini adalah file-file seperti DLL atau EXE, yang dapat dijalankan oleh mesin CLR (Common Language Runtime).
-2. **Publish** : Tahap publish lebih lanjut dari tahap build. Ketika Anda melakukan publish proyek C#, Anda tidak hanya menghasilkan file-file yang diperlukan untuk eksekusi, tetapi juga menyiapkan proyek untuk dideploy atau didistribusikan. Ini termasuk mengemas semua file yang diperlukan (termasuk dependensi) ke dalam paket atau folder yang siap untuk dipindahkan atau diinstal di lingkungan produksi. Hasil dari tahap publish adalah distribusi siap pakai dari proyek Anda, yang dapat diterapkan ke server atau diinstal di mesin pengguna akhir.
-
-## 0.2 Workload
+## Toolchain & Workload
 
 **Workload** adalah kumpulan paket dan alat yang menyediakan dukungan untuk pengembangan pada target platform atau skenario tertentu dalam .NET. Workload ditambahkan ke .NET SDK untuk memperluas fungsionalitasnya sesuai dengan kebutuhan pengembang. Beberapa karakteristik utama workload adalah:
 
@@ -289,73 +102,53 @@ Berikut adalah beberapa perintah dasar untuk mengelola workload di .NET:
 - **maui**: Workload untuk pengembangan aplikasi lintas platform menggunakan .NET Multi-platform App UI (.NET MAUI).
 - **wasm-tools**: Workload untuk pengembangan aplikasi Blazor WebAssembly.
 - **android** dan**ios**: Workload untuk pengembangan aplikasi mobile menggunakan Xamarin.
+## Karakteristik, Aturan & Penamaan
+> ⚠️ Catatan: Hati-hati dengan case-sensitive terutama camelCase dan PascalCase.
 
-## 0.3 Domain Specific Language
+**Penamaan File**
 
-DSL adalah gaya pemrograman yang dirancang untuk menyederhanakan solusi pada domain tertentu. Di C#, DSL biasanya hadir sebagai **fluent API** atau method chaining untuk membuat kode lebih ekspresif dan terbaca seperti bahasa natural.
+- **Do**:
+  - FileName.cs
+- **Avoid**:
+  - file_name.cs
 
-**Contoh DSL di C#**
+**Karakteristik C# :**
+
+- **Ekstensi File**: C# menggunakan ekstensi file .cs
+- **Multi-threading**: C# mendukung pemrograman konkuren dan parallel, menggunakan Task Parallel Library (TPL) dan async-await.
+- **Statically typed**: C# bahasa yang statically typed, yang berarti Anda harus mendefinisikan tipe variabel sebelum penggunaan.
+- **Type inference**: C# mendukung type inference, memungkinkan tipe data secara otomatis terdeteksi saat variabel diinisialisasi.
+- **String Interpolation**: C# mendukung string interpolation langsung ke dalam string tanpa menggunakan concatenation.
+- **Paradigma**: C# mendukung paradigma pemrograman berorientasi objek (OOP) dan fungsional dalam beberapa cara.
+- **Opsi Kompilasi**: C# dikompilasi ke dalam intermediate language (IL) yang kemudian diterjemahkan menjadi kode mesin oleh Common Language Runtime (CLR) dan dapat di kompilasi ke native AOT.
+- **SDK**: C# memiliki SDK yang menyediakan alat untuk mengembangkan, menguji, dan membangun aplikasi dalam bahasa tersebut.
+
+**Komentar**:
+
+Komentar dalam C# dapat ditambahkan menggunakan `//` untuk komentar satu baris, `/* */` untuk komentar multi-baris, dan `///` untuk komentar dokumentasi.
 
 ```csharp
-var query = new QueryBuilder()
-    .Select("name", "email")
-    .From("users")
-    .Where("age", ">", 18)
-    .OrderBy("name")
-    .Build();
+// Ini adalah contoh komentar satu baris
+int x = 5; // Komentar ini menjelaskan bahwa nilai x adalah 5
+
+/*
+Ini adalah contoh komentar
+banyak baris.
+Komentar ini bisa menjangkau beberapa baris
+dan digunakan untuk memberikan penjelasan lebih detail.
+*/
+
+/// <summary>
+/// Method ini digunakan untuk menghitung jumlah dua bilangan bulat.
+/// </summary>
+/// <param name="a">Bilangan bulat pertama.</param>
+/// <param name="b">Bilangan bulat kedua.</param>
+/// <returns>Hasil penjumlahan dua bilangan.</returns>
+public int Add(int a, int b)
+{
+    return a + b;
+}
 ```
-
-**Output SQL:**
-
-```sql
-SELECT name, email FROM users WHERE age > 18 ORDER BY name;
-```
-
-## 0.4 Karakteristik
-
-* **Paradigma** :
-  * Imperatif, deklaratif, object-oriented, multiparadigma
-  * C# : Object-oriented, fungsional & imperatif
-* **Data Type** :
-  * Static vs dynamic, strong vs weak typing
-  * C# : Static & strong typing
-* **Memory Management** :
-  * Compile Time
-    * Manual Allocation / Free
-    * RAII (Resource Acquisition Is Initialization)
-    * Ownership / Borrowing
-  * Runtime
-    * Garbage Collection
-    * Automatic Reference Counting
-  * C# : Garbage Collection
-* **Concurrency / Paralelisme** :
-  * Threading, async/await, coroutines, actor model
-  * C# : Async/await, Task Parallel Library, multithreading
-* **Performance / Runtime** :
-  * Interpreted atau compiled, JIT/AOT (Native)
-  * C# : Compiled ke IL, dijalankan di CLR. AOT bisa
-* **Ekosistem / Library** :
-  * Banyak library/framework, community support
-  * C# : Ekosistem .NET luas, banyak library siap pakai
-* **Syntax / Expressiveness** :
-  * Ringkas, verbose, readable, syntactic sugar
-  * C# : Readable, banyak syntactic sugar (misal LINQ)
-* **Safety / Reliability** :
-  * Null safety, immutability, error handling
-  * C# : Nullable types, exception handling kuat
-* **Portability / Platform** :
-  * Cross-platform atau terbatas platform tertentu
-  * C# : Cross-platform (.NET Core), Windows-centric untuk GUI
-* **Interoperabilitas** :
-  * Bisa berinteraksi dengan bahasa/library lain
-  * C# : P/Invoke, COM, interop .NET languages
-* **Use Cases / Domain** :
-  * Kernel, Embedded System, Server-Side, UI, Game.
-  * C# : Backend, desktop apps, games (Unity), cloud services
-* **Developer Experience** :
-  * Tooling, IDE, learning curve
-  * C# : Visual Studio, VSCode, Jetbrains Rider, medium learning curve.
-
 # 1. Basic
 
 ## 1.1 Data Types
@@ -3404,7 +3197,15 @@ class Program
 }
 ```
 
-# 9. Language Integrated Query (LINQ)
+# 9. Domain-Specific Language
+
+**Domain-Specific Language (DSL)** adalah bahasa atau bentuk sintaks khusus yang dirancang untuk *memecahkan masalah dalam domain tertentu* , bukan untuk pemrograman umum (*general-purpose* ).
+
+Contoh DSL dalam kehidupan nyata:
+
+* **SQL** → untuk query database
+* **Regex** → untuk pencarian pola teks
+*
 
 LINQ adalah singkatan dari Language Integrated Query, yang merupakan fitur kunci dalam bahasa pemrograman C# (dan juga dalam Visual Basic .NET) yang memungkinkan Anda menulis kueri terhadap berbagai jenis sumber data langsung di dalam kode Anda. Dengan LINQ, Anda dapat melakukan operasi query terhadap berbagai jenis data, seperti array, koleksi objek, XML, dan database relasional, menggunakan sintaks yang mirip dengan SQL (Structured Query Language).
 
@@ -3572,7 +3373,7 @@ Debugging adalah proses mengidentifikasi, memahami, dan memperbaiki kesalahan da
 - **Step Into, Step Over, dan Step Out**: Anda dapat menavigasi melalui kode baris demi baris dengan opsi "Step Into" (masuk ke dalam fungsi), "Step Over" (melompati fungsi), dan "Step Out" (keluar dari fungsi saat Anda berada di dalamnya).
 - **Exception Handling**: Memahami bagaimana menangani pengecualian (exceptions) dan menggunakan fitur-fitur seperti "try-catch" untuk menangkap dan memperlakukan pengecualian yang terjadi.
 
-# 12. Using Keyword
+# 12. Keywords & Syntactic Sugar
 
 kata kunci using di C# memiliki banyak kegunaan, diantaranya:
 
@@ -3978,7 +3779,18 @@ Ada beberapa konsep dan fitur lanjutan yang dapat digunakan untuk mengelola memo
 - **Pinned Memory**: Digunakan untuk memastikan objek tetap berada di memori (tidak dipindahkan oleh GC). Ini digunakan dalam situasi seperti interoperabilitas dengan kode unmanaged (native).
 - **MemoryPool `<T>` dan ArrayPool `<T>`**: Ini adalah fitur yang memungkinkan Anda untuk mengelola koleksi memori yang lebih besar dan menghindari pemborosan memori yang dapat terjadi dengan alokasi berulang.
 
-# 16. Runtime Tuning
+# 16. Performance Engineering
+
+```bash
+TODO : Synchronize
+
+Benchmarking
+Profiling performance
+Memory layout
+Zero-cost abstractions
+Latency & throughput
+SIMD (optional)
+```
 
 **Runtime tuning** adalah istilah umum untuk proses **mengoptimalkan perilaku program atau sistem saat program sedang berjalan (runtime)** bukan hanya di level kode sumber atau saat kompilasi dengan mengatur konfigurasi runtime.
 
@@ -4163,3 +3975,155 @@ Selain `System.Diagnostics`, ASP.NET Core juga mendukung berbagai **library logg
 4. **Log4Net**
 
    * Salah satu library logging tertua yang masih digunakan dalam beberapa proyek legacy ASP.NET.
+
+# 18. Build System & Project Architecture
+## Build Options JIT, AOT & R2R
+
+**Mengompilasi Kode C# dengan JIT Compilation:** Kompilasi dilakukan saat eksekusi, memberikan fleksibilitas dan optimasi berdasarkan runtime.
+
+1. Pastikan Anda memiliki`.NET Core SDK` terinstal.
+2. Buka terminal atau command prompt.
+3. Navigasikan ke direktori proyek C# Anda.
+4. Jalankan perintah`dotnet build -c Release ` untuk mengompilasi proyek Anda dengan kompilasi JIT.
+5. Setelah selesai, Anda akan menemukan file yang dipublikasikan di direktori`bin/Release/netcoreapp<version>/<target-runtime>/publish`.
+6. compiler akan menghasilkan file`NamaProgram.dll` atau jika diwindows menghasilkan bersamaan`NamaProgram.exe` dan dilinux sebaliknya.
+
+**Mengompilasi Kode C# dengan AOT Compilation:** Kompilasi dilakukan sebelum eksekusi, menghasilkan kecepatan startup yang lebih cepat.
+
+> Pastikan Anda memiliki `.NET Core SDK` dan `dotnet-runtime` terbaru yang mendukung AOT compilation.
+
+Cara pertama:
+
+1. Buka file`.csproj` proyek Anda.
+2. Tambahkan elemen`<PublishAot>true</PublishAot>` di dalam tag`<PropertyGroup>`.
+3. Simpan perubahan dan tutup file`.csproj`.
+4. Buka terminal atau command prompt.
+5. Dan jalankan perintah`dotnet publish -c Release -r linux-x64`
+
+Cara Kedua: Tanpa Menambahkan elemen ke .csproj
+
+1. Menambahkan`/p:PublishAot=true` saat melakukan kompilasi.
+2. `dotnet publish /p:PublishAot=true`
+3. Setelah selesai, Anda akan menemukan file yang dipublikasikan di direktori`bin/Release/netcoreapp<version>/<target-runtime>/publish`/native.
+
+**Mengompilasi Kode C# dengan Self-Contained**: Aplikasi yang dibundel dengan semua dependensi, termasuk runtime, untuk kemudahan distribusi dan portabilitas.
+
+1. Pertama menambahkan beberapa elemen penting di .csproj:
+
+```csharp
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <SelfContained>true</SelfContained> <!-- Tambahkan dengan nilai true -->
+    <RuntimeIdentifier>linux-x64</RuntimeIdentifier> <!-- Ganti dengan platform yang sesuai -->
+  </PropertyGroup>
+</Project>
+```
+
+2. Kemudian di terminal dengan perintah,`dotnet publish -c Release -r linux-x64 --self-contained`
+3. Setelah selesai, Anda akan menemukan file yang dipublikasikan di direktori`bin/Release/netcoreapp<version>/<target-runtime>/`.
+
+**Opsi kompilasi .NET Core (dotnet) yang umum digunakan adalah:**
+
+1. **Debug**: Opsi ini menghasilkan output yang tidak dioptimalkan dan menyertakan informasi debug lengkap untuk memudahkan debugging. Ini biasanya digunakan selama pengembangan dan pengujian.
+
+   ```bash
+   dotnet build --configuration Debug
+   ```
+2. **Release**: Opsi ini menghasilkan output yang dioptimalkan untuk kinerja dan tidak menyertakan informasi debug tambahan. Ini digunakan untuk aplikasi yang siap untuk di-deploy ke lingkungan produksi.
+
+   ```bash
+   dotnet build --configuration Release
+   ```
+3. **Target Framework**: Opsi ini digunakan untuk menentukan versi kerangka kerja .NET yang akan digunakan untuk kompilasi.
+
+   ```bash
+   dotnet build --framework <framework>
+
+   contoh:
+   dotnet build --framework net8.0
+   ```
+4. **Runtime Identifier (RID)**: Opsi ini digunakan untuk menentukan runtime spesifik yang akan ditargetkan oleh aplikasi yang dikompilasi atau memungkinkan Anda untuk menargetkan platform yang berbeda dari yang saat ini digunakan untuk pengembangan. Seperti win-x64, linux-x64 atau osx-x64.
+
+   ```bash
+   dotnet build --runtime <runtime>
+
+   contoh:
+   dotnet build --runtime win-x64
+   ```
+5. **Self-contained Deployment (SCD)**: Opsi ini menghasilkan distribusi yang independen dari lingkungan, yang mencakup .NET Core runtime dan dependensinya. Ini memungkinkan aplikasi dijalankan tanpa menginstal .NET Core runtime secara terpisah.
+
+   ```bash
+   dotnet publish --self-contained true
+   ```
+
+**Perbedan Build dan Publish:**
+
+1. **Build** : Tahap build melibatkan kompilasi kode sumber Anda ke dalam format yang dapat dieksekusi oleh mesin. Saat Anda melakukan build proyek C#, compiler akan mengonversi kode C# Anda ke dalam bahasa mesin atau format intermediate seperti IL (Intermediate Language). Hasil dari tahap build ini adalah file-file seperti DLL atau EXE, yang dapat dijalankan oleh mesin CLR (Common Language Runtime).
+2. **Publish** : Tahap publish lebih lanjut dari tahap build. Ketika Anda melakukan publish proyek C#, Anda tidak hanya menghasilkan file-file yang diperlukan untuk eksekusi, tetapi juga menyiapkan proyek untuk dideploy atau didistribusikan. Ini termasuk mengemas semua file yang diperlukan (termasuk dependensi) ke dalam paket atau folder yang siap untuk dipindahkan atau diinstal di lingkungan produksi. Hasil dari tahap publish adalah distribusi siap pakai dari proyek Anda, yang dapat diterapkan ke server atau diinstal di mesin pengguna akhir.
+
+
+
+# 19. Design Patterns
+
+# 20. Module System & Visibility Rules
+
+# 21. Networking Fundamentals
+
+# 22. File System & OS Interaction
+
+# 23. Serialization & Interoperability
+
+# 24. Reflection & Meta-programming
+
+# 25. Ecosystem & Frameworks
+
+**Standard Library**
+
+
+| Standard Library   | Deskripsi                                                                    |
+| -------------------- | ------------------------------------------------------------------------------ |
+| System             | Namespace yang berisi tipe data dan fungsi-fungsi dasar dalam bahasa C#.     |
+| System.Collections | Berisi kelas-kelas untuk koleksi data seperti array, list, dan dictionary.   |
+| System.IO          | Berisi kelas-kelas untuk input/output, termasuk membaca dan menulis ke file. |
+| System.Threading   | Berisi kelas-kelas untuk pemrograman konkuren, termasuk pengelolaan thread.  |
+| System.Net         | Berisi kelas-kelas untuk komunikasi jaringan seperti HTTP, TCP/IP, dll.      |
+| System.Linq        | Berisi metode ekstensi untuk kueri data menggunakan LINQ.                    |
+| System.Xml         | Berisi kelas-kelas untuk memproses XML.                                      |
+| System.Text        | Berisi kelas-kelas untuk manipulasi teks dan format string.                  |
+| System.Security    | Berisi kelas-kelas untuk keamanan, enkripsi, dan hashing.                    |
+| System.Diagnostics | Berisi kelas-kelas untuk mengelola proses dan layanan di sistem.             |
+
+**Libraries & Frameworks**
+
+
+| Kategori                          | Library/Framework                     | Deskripsi                                                                                         |
+| ----------------------------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Framework .NET                    | .NET Core / .NET 5+                   | Framework serbaguna untuk pengembangan aplikasi desktop, web, dan cloud.                          |
+|                                   | .NET Framework                        | Framework klasik untuk pengembangan aplikasi Windows.                                             |
+| Web App                           | ASP.NET Core                          | Framework untuk pengembangan aplikasi web lintas platform.                                        |
+|                                   | Blazor                                | Framework untuk membangun aplikasi web interaktif menggunakan C#.                                 |
+|                                   | SignalR                               | Library untuk membangun aplikasi web real-time menggunakan WebSockets.                            |
+| Mobile App                        | Xamarin                               | Framework untuk membangun aplikasi mobile lintas platform menggunakan C# dan .NET.                |
+|                                   | MAUI (Multi-platform App UI)          | Framework untuk pembuatan aplikasi mobile lintas platform dengan UI yang berbeda, menggunakan C#. |
+| Database                          | Entity Framework Core                 | ORM untuk akses data relasional.                                                                  |
+|                                   | Dapper                                | Micro ORM yang ringan dan cepat untuk akses data dengan SQL langsung.                             |
+|                                   | ADO.NET                               | API dasar untuk akses data relasional di lingkungan .NET.                                         |
+| Dekstop App                       | Windows Forms                         | Framework untuk pembuatan aplikasi desktop Windows.                                               |
+|                                   | WPF (Windows Presentation Foundation) | Framework untuk pembuatan aplikasi desktop Windows dengan antarmuka pengguna modern.              |
+|                                   | Avalonia                              | Framework untuk pembuatan aplikasi desktop lintas platform menggunakan XAML dan .NET.             |
+| Game                              | Unity                                 | Mesin permainan untuk pembuatan permainan 2D dan 3D, dengan dukungan scripting menggunakan C#.    |
+|                                   | MonoGame                              | Framework open-source untuk pembuatan permainan lintas platform menggunakan C#.                   |
+| Internet of Things                | .NET IoT                              |                                                                                                   |
+|                                   | Meadow                                |                                                                                                   |
+|                                   | NanoFramework                         |                                                                                                   |
+| Artificial inteligence            | ML.NET                                |                                                                                                   |
+| HTTP & Web API                    | ASP.NET Web API                       | Framework untuk pembuatan layanan web RESTful menggunakan .NET.                                   |
+|                                   | RestSharp                             | Library HTTP untuk klien RESTful yang dapat digunakan dalam aplikasi .NET.                        |
+| Testing dan Mocking               | NUnit, xUnit.net, MSTest              | Framework pengujian unit untuk pengujian otomatis dalam lingkungan .NET.                          |
+|                                   | Moq, NSubstitute                      | Library untuk mocking objek dan membuat pengganti (stub) dalam pengujian unit.                    |
+| Serialization dan Deserialization | Newtonsoft.Json (Json.NET)            | Library yang populer untuk serialization dan deserialization data JSON.                           |
+|                                   | System.Text.Json                      | Library bawaan .NET untuk serialization dan deserialization data JSON.                            |
+| Logging dan Monitoring            | Serilog, NLog, log4net                | Library logging yang populer untuk pencatatan kejadian dan pemantauan aplikasi.                   |
+|                                   | Application Insights, Sentry          | Layanan pihak ketiga untuk pemantauan dan pelacakan kesalahan dalam aplikasi.                     |
