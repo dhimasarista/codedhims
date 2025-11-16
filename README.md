@@ -1,6 +1,6 @@
 ![Coding by Pixel Jeff : r/Cyberpunk](https://i.redd.it/n8agw6z2smyb1.gif)
 
-- **Corework** : C# & Zig | Java, Swift
+- **Corework** : C# & Zig | Java, Rust
 - **Databases** : PostgreSQL, Dragonfly
 - **Orchestration**
   - CI/CD : Github Actions, Jenkins
