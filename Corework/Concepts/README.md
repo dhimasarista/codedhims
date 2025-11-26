@@ -1,0 +1,12 @@
+# TODO
+- Unique ID (UUID, ULID, TSID, Snowflake)
+- Memory management (stack/heap, GC, ARC)
+- Benchmarking principles
+- Concurrency models
+- Hashing & cryptography
+- Serialization formats (JSON, MsgPack, Protobuf)
+- Caching concepts
+- Event-driven model
+- CPU scheduling
+- Networking basics
+- CAP theorem
