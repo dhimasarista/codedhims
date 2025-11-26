@@ -20,3 +20,7 @@
 - **Caching & Search**
   - In-memory (Dragongly/Redis)
   - Elasticsearch
+
+> GitHub is the better place for technical knowledge that needs structure, versioning, and code-level searchability.
+
+> Notion should be used only for planning, overviews, and lightweight documentation.
