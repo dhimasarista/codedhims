@@ -1,5 +1,5 @@
 # TODO
-- Unique ID (UUID, ULID, TSID, Snowflake)
+- Unique ID (UUID, ULID, TSID, Snowflake) ✅
 - Memory management (stack/heap, GC, ARC) ✅
 - Benchmarking principles
 - Concurrency models
@@ -10,3 +10,5 @@
 - CPU scheduling
 - Networking basics
 - CAP theorem
+- OS architecture (MSVC, GNU, ...)
+- Database Concepts ✅

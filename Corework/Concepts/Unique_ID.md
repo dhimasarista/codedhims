@@ -1,6 +1,27 @@
+# Unique Identifiers
+
+Kita tahu database secara default menggunakan incremental integer sebagai primary key. Tidak ada masalah selama sistem masih satu server, satu instance, satu database. Tetapi begitu kamu bicara soal scale-up atau scale-out, integer autoincrement berubah dari solusi simpel menjadi bottleneck.
+
+* **Autoincrement adalah global contention point** : Satu sequence harus dikelola oleh satu node. Begitu kamu punya banyak writer, sequence jadi choke-point.
+* **Tidak bisa melakukan multi-region writes** : Dua region tidak bisa menghasilkan angka berurutan tanpa koordinasi—dan koordinasi = latency + fragility.
+* **Tidak cocok untuk event sourcing, message streams, atau distributed logs** : Ordering harus punya konteks, bukan sekadar angka dari satu DB.
+* **Masalah keamanan (ID enumeration)** : Incremental IDs mudah ditebak. Untuk API publik, itu fatal.
+
 Unique identifiers (UUID, ULID, TSID, Snowflake, KSUID, NanoID, dsb.) adalah cara untuk memberi *identity* pada entitas di sistem terdistribusi. Pilihan format memengaruhi: ordering, storage cost (index bloat), collision risk, operational complexity, dan interoperabilty.
 
----
+## Usecase Unique ID
+
+* **Database PK/FK** - hindari global sequence bottleneck dan collision saat scale-out.
+* **Event Streams (Kafka/Pulsar/NATS)** - ordering, dedup, partition key; tanpa ID ini event chaos.
+* **Distributed Tracing (trace-id/span-id)** - supaya satu request bisa diikuti lintas service.
+* **Caching** - cache key deterministik; tanpa unique key, invalidation berantakan.
+* **Object Storage / Filename** - mencegah file overwrite, race condition, dan tabrakan antar upload.
+* **Message Brokers** - idempotency key untuk mencegah double-processing.
+* **Frontend/Client** - public-safe IDs yang tidak bisa ditebak untuk routing dan offline-first.
+* **Audit Logs** - id event yang konsisten untuk rekonstruksi timeline.
+* **Build/Deploy Systems** - release ID, artifact ID, config snapshot; menghindari mutable tag yang bikin debugging mustahil.
+* **Security** - session token, CSRF token, verification tokens; semua butuh randomness + uniqueness.
+* **Analytics** - anonymous user/event IDs untuk grouping dan tracking yang stabil.
 
 ## Terminology
 
@@ -60,11 +81,8 @@ Unique identifiers (UUID, ULID, TSID, Snowflake, KSUID, NanoID, dsb.) adalah car
 
    * Jika you want minimal ops: **TSID** (no worker id).
    * Jika strict ordering across many nodes and you can manage worker IDs: **Snowflake**.
-
 2. **Need standard, compatibility, or external integration → choose UUID (v7 if you want time-order).**
-
 3. **Need human-friendly short IDs for URLs or public tokens → choose NanoID / CUID.**
-
 4. **Need event/log IDs and long-term ordering → KSUID or ULID.**
 
 ---

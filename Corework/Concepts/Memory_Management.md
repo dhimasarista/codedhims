@@ -1,69 +1,96 @@
-❌ : Apapun memory-manage saat runtime, tidak lebih baik saat compile-time.
+# Memory Management
 
-- Masalah utama bahasa seperti C# atau Java adalah Tracing GC.
-- Tapi ini jelas memudahkan developer ketimbang harus berurusan dengan memory leaks.
-- Berbeda dengan Zig atau Rust, lebih zero abstraction dan overhead karena tidak ada GC/ARC.
+> Empat paradigma berbeda yang mempengaruhi cara kita menulis, mendesain, dan mengoptimalkan software: C#, Zig, Java, dan Rust.
 
-### C# :
+## Premis
 
-- Workstation GC (single-thread) fokus untuk optimalisasi client-side seperti desktop.
-- Server GC cocok untuk server-side atau backend dengan tujuan throughput tinggi.
-- Background GC aktif pada kedua GC sebelumnya dan bisa dinonaktifkan.
+Tidak ada sistem memori yang “benar” atau “salah”. Yang ada hanya *trade-off*. Compile-time memberi kontrol dan performa; runtime memberi kemudahan dan safety-dengan harga tertentu.
 
-### NodeJS (V8) :
+---
 
-- V8 hanya menggunakan 1 pendekatan GC dengan area kerja yang luas, dimulai dari :
-    - Minor GC (Scavenger), petugas sapu harian pada bagian young gen.
-    - Major GC (Mark-Sweep-Compact), fokus pada objek yang jarang disentuh atau disebut old generation.
-    - Incremental & Concurrent, ibaratnya adalah petugas shift malam yang tidak menggangu aktivitas sama sekali fokus pada semua area atau young dan old gen.
-    - Idle-time GC juga fokus pada semua area dengan tugas saat program sedang idle.
+## C# - *Tracing GC dengan tuning yang fleksibel*
 
-### Java :
+C# mengandalkan **generational tracing GC** yang menekankan kemudahan developer dan throughput tinggi.
 
-- Serial GC : single-thread cocok untuk program kecil.
-- Parallel GC : multi-thread cocok untuk throughput tinggi.
-- G1GC : default pada runtime, dimana performa lebih seimbang.
-- ZGC : latency rendah <1 ms, dipakai untuk realtime proses.
-- Shenandoah GC : buatan redhat, mirip ZGC
-- Epsilon GC : mode-off cocok untuk testing
+**Model:**
 
-### Swift :
+* **Workstation GC** - fokus responsivitas untuk desktop/client.
+* **Server GC** - memaksimalkan throughput dengan multi-threaded GC.
+* **Background GC** - menjalankan koleksi secara paralel agar jeda (pause) lebih kecil.
 
-- Berbeda dengan ke-3 bahasa barusan, Swift menggunakan Automatic Reference Counting.
-    - Retain (+1) saat ada referensi baru.
-    - Release (-1) saat referensi hilang.
-    - Jika 0, maka objek di-deallocate segera
+**Konsekuensi:**
 
-## Runtime (GC/ARC) vs Compile-Time
+* Overhead runtime tak terhindarkan.
+* Latency masih ada, meski sudah jauh membaik.
+* Sangat produktif untuk sistem yang tidak butuh kontrol ultra presisi.
 
-### Compile-Time
+---
+## Zig - *Manual but safer, no hidden behavior*
 
-- Semua logika termasuk aturan memori ditentukan sebelum program jalan tanpa butuh petugas lagi, bisa disebut self-cleaning.
-    - ✅ tidak ada overhead, performa kasta atas
-    - ⛔ butuh skill tinggi dari programmer biasa
+Zig menawarkan kontrol penuh tanpa gimmick. Tidak ada GC, tidak ada ARC, tidak ada runtime yang ikut campur.
 
-### Garbage Collection : *deferred cleaning*
+**Model:**
 
-- Secara flow kerja, GC hanya menghapus memory pada waktu-waktu tertentu.
-    - ✅ aman dari memory leaks, througput bisa tinggi.
-    - ⛔ jika tidak ada mode konkuren, aplikasi terjadi jeda.
-- Java ZGC adalah GC paling canggih bahkan bisa setara performa aplikasi compile-time.
+* **Manual memory management** dengan allocator eksplisit.
+* **Comptime execution** memperkuat safety sebelum runtime.
+* **No implicit allocations** - semua terlihat jelas.
 
-### Automatic Reference Counting : *immediate release*
+**Konsekuensi:**
 
-- Aplikasi segera menghapus objek setelah dipakai, ini mirip pada Rust cuman bedanya butuh petugas tambahan yang juga menambah overhead tentunya.
-    - ✅ determinasi dan lebih predictable, serta tidak ada pause aplikasi
-    - ⛔ overhead lebih tinggi dari GC karena dilakukan tiap waktu, cost kena di CPU jadi lebih tinggi.
-- ⛔ Secara teori ARC susah dioptimalkan atau di-*scale* ketimbang GC, karena desainnya tidak melihat seluruh object-graph. Ujung-ujungnya harus mengikuti pendekatan GC seperti :
-    - menunda pelepasan dan melakukan batch-wise.
-    - objek disatukan pada satu area agar bisa dialokasikan dan dihapus sekaligus.
-    - ARC fokus pada objek yang hidupnya pendek, GC fokus pada long-lived objek
-        - pernah dipakai Obj-C oleh Apple tapi dibatalkan.
-- ✅ Swift 6, sama seperti rust yaitu memindahkan ownership objek tanpa perlu retain/release. Kalo ini stabil, swift bakal menjadi bahasa yang lebih performance kedepannya.
+* Zero abstraction penalty.
+* Performa maksimal pada sistem.
+* Error handling memaksa disiplin.
+* Risiko memory leaks sepenuhnya tanggung jawab developer.
 
-<aside>
-💡
+---
+## Java - *GC ecosystem paling matang di industri*
 
-Never choose a language for its power, but for its ecosystem. strength means nothing if the industry doesn’t speak its syntax.
+Java bermain di liga berbeda: pilihan GC-nya dirancang untuk berbagai skenario produksi, dari throughput hingga ultra-low latency.
 
-</aside>
+**GC options:**
+
+* **Parallel GC** - throughput maksimal.
+* **G1GC** - default seimbang, minim fragmentation.
+* **ZGC** - sub-millisecond pause (<1ms).
+* **Shenandoah** - low-pause buatan RedHat.
+* **Epsilon** - no-GC (stress testing).
+
+**Konsekuensi:**
+
+* Runtime overhead tetap ada.
+* Latency dapat ditekan ekstrem (ZGC/Shenandoah).
+* Cocok untuk infrastruktur besar yang butuh runtime yang bisa “menyembuhkan dirinya sendiri”.
+
+---
+
+## Rust - *Ownership + Borrowing sebagai compile-time memory management*
+
+Rust mencapai apa yang Zig lakukan, tapi dengan keamanan yang lebih tinggi melalui sistem tipe yang agresif.
+
+**Model:**
+
+* **Ownership / Borrow Checker** memastikan alokasi dan free terjadi deterministic.
+* **No GC, no runtime**, keputusan memory ditentukan compiler.
+* **Zero-cost abstraction** sangat dekat dengan Zig, tapi lebih aman.
+
+**Konsekuensi:**
+
+* Kurva belajar paling curam.
+* Compile-time lebih berat karena analisis borrow.
+* Runtime bersih, stabil, dan bisa menyaingi C/C++ bahkan di sistem besar.
+
+---
+
+## GC/Runtime vs Compile-Time - Trade-Off Inti
+
+### Compile-Time (Zig, Rust)
+
+* Memory lifecycle dipastikan sebelum program berjalan.
+* **Kelebihan:** performa tertinggi, zero overhead, kontrol absolut.
+* **Kekurangan:** disiplin tinggi, error lebih tajam, development lebih lambat di awal.
+
+### Runtime/GC (C#, Java)
+
+* Memory dibersihkan ketika diperlukan melalui strategi generational.
+* **Kelebihan:** developer experience jauh lebih nyaman, risiko leak lebih kecil.
+* **Kekurangan:** overhead, pause time, dan ketergantungan pada heuristik runtime.

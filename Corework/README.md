@@ -1,6 +1,5 @@
 ![](assets/20251115_135255_Frame_80.png)
 
-# ⛾ ARC⌗Σage
 ## C# : Swis Army Knife
 
 - Paradigma : OOP, Struct, Functional
@@ -31,3 +30,28 @@
 * Build : AOT/Native Binary (LLVM)
 * Tools : Rust Compiler (rustc), Cargo, Crates.io
 * Type : Ownership + Borrowing, No Garbage Collector
+
+### Others
+- **Optionals** : NodeJS, PHP 
+- **Databases** : PostgreSQL, Dragonfly
+- **Orchestration**
+  - CI/CD : Github Actions, Jenkins
+  - Podman + Kubernetes (Optional)
+- **Event Bus** :
+  - RabbitMQ, Kafka, NATS
+  - Redis Pub/Sub
+- **Observability & Monitoring**
+  - Grafana + Prometheus atau Elastic Stack (ELK)
+  - Sentry / LogRocket
+- **API Layer**
+  - API Gateway (Kong / Traefik / Nginx)
+- **Securiy Enhancements**
+  - JWT / OAuth2 / OpenID Connect
+  - Vault / AWS Secrets Manager
+- **Caching & Search**
+  - In-memory (Dragongly/Redis)
+  - Elasticsearch
+
+> GitHub is the better place for technical knowledge that needs structure, versioning, and code-level searchability.
+
+> Notion should be used only for planning, overviews, and lightweight documentation.
