@@ -1,6 +1,6 @@
 # TODO
 - Unique ID (UUID, ULID, TSID, Snowflake)
-- Memory management (stack/heap, GC, ARC)
+- Memory management (stack/heap, GC, ARC) ✅
 - Benchmarking principles
 - Concurrency models
 - Hashing & cryptography
