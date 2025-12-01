@@ -31,8 +31,7 @@
 * Tools : Rust Compiler (rustc), Cargo, Crates.io
 * Type : Ownership + Borrowing, No Garbage Collector
 
-### Others
-- **Optionals** : NodeJS, PHP 
+### 🏗️ Software Development
 - **Databases** : PostgreSQL, Dragonfly
 - **Orchestration**
   - CI/CD : Github Actions, Jenkins
@@ -52,6 +51,10 @@
   - In-memory (Dragongly/Redis)
   - Elasticsearch
 
-> GitHub is the better place for technical knowledge that needs structure, versioning, and code-level searchability.
+### ⛔ Trade-off Territory
+- 🐢 single-thread bottleneck 
+- 🐘 no native concurreny
+- 🐹 minimalist over flexible
+- 🐍 slow in raw, duck typing
 
 > Notion should be used only for planning, overviews, and lightweight documentation.
