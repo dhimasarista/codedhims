@@ -12,3 +12,4 @@
 - CAP theorem
 - OS architecture (MSVC, GNU, ...)
 - Database Concepts ✅
+- System Toolchain & ABI Fundamentals ✅
