@@ -15,6 +15,3 @@
 + Minimize stack, maximize leverage
 + Scale-first, Predictable Performance
 + Optimize for long-term maintenance
-- Over-minimalism leading to rigidity
-- Slow in Raw, duck typing risks
-- Limited ecosystem and adoption
