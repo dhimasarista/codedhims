@@ -1,8 +1,7 @@
 ![Coding by Pixel Jeff : r/Cyberpunk](https://i.redd.it/n8agw6z2smyb1.gif)
 
 # Codedhims
-- ☕ **Codework** : C# Rust
-- 🏇🏻 **Workhorse** : Java, NodeJS
+- ☕ **Codework** : C# Rust | Java NodeJS
 - 🎴 **Frontend** : React, Shadcn/UI
 ---
 
