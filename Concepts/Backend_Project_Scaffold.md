@@ -1,12 +1,12 @@
 # General Backend Scaffold
 
 ```
-/docs
-/src
-/storage
-/config
-/scripts
-/tests
+/src = pure software (deterministik, bisa dites, bisa di-container)
+/storage = runtime state (boleh dihapus, tidak memengaruhi logic)
+/docs = alasan & kontrak
+/scripts = tooling operasional
+/tests = verifikasi, bukan delivery
+/infra & /ops = siap produksi, bukan vendor-lock
 ```
 
 - /src : tidak ada file random
